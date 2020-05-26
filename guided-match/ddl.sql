@@ -25,7 +25,7 @@ CREATE TABLE ccs_outcomes (
 );
 */
 
-/* This table creation script belomngs in the agreement ddl.sql
+/* This table creation script belongs in the agreement ddl.sql
 CREATE TABLE commercial_agreements (
   commercial_agreement_id           INTEGER PRIMARY KEY,
   commercial_agreement_number       VARCHAR(20) NOT NULL,
