@@ -25,6 +25,7 @@ CREATE TABLE ccs_outcomes (
 );
 */
 
+/* This table creation script belomngs in the agreement ddl.sql
 CREATE TABLE commercial_agreements (
   commercial_agreement_id           INTEGER PRIMARY KEY,
   commercial_agreement_number       VARCHAR(20) NOT NULL,
@@ -40,6 +41,7 @@ CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
 CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTSS (commercial_agreement_name);
 CREATE INDEX COAG_IDX3 on COMMERCIAL_AGREEMENTS  (commercial_agreement_owner);
 CREATE INDEX COAG_IDX4 on COMMERCIAL_AGREEMENTS  (authorisation_email);
+*/
 
 /* Neo4J 
 CREATE TABLE domain_question_outcomes (
@@ -128,6 +130,7 @@ CREATE TABLE lot_outcomes (
 );
 */
 
+/* Similar to the commercial_agreements table this one too also belongs in the agreements service
 CREATE TABLE lots (
   lot_id                            INTEGER PRIMARY KEY,
   lot_number                        VARCHAR(20) NOT NULL,
@@ -140,6 +143,7 @@ CREATE TABLE lots (
 CREATE INDEX LOTS_IDX1 on LOTS(lot_number);
 CREATE INDEX LOTS_IDX2 on LOTS(lot_name);
 CREATE INDEX LOTS_IDX3 on LOTS(commercial_agreement_id);
+*/
 
 /* Neo4J
 CREATE TABLE question_definitions (
