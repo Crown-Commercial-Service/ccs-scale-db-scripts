@@ -21,7 +21,7 @@ CREATE TABLE commercial_agreements (
 );
 
 CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
-CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTSS (commercial_agreement_name);
+CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTS (commercial_agreement_name);
 CREATE INDEX COAG_IDX3 on COMMERCIAL_AGREEMENTS  (commercial_agreement_owner);
 CREATE INDEX COAG_IDX4 on COMMERCIAL_AGREEMENTS  (authorisation_email);
 
@@ -38,4 +38,21 @@ CREATE TABLE lots (
 CREATE INDEX LOTS_IDX1 on LOTS(lot_number);
 CREATE INDEX LOTS_IDX2 on LOTS(lot_name);
 CREATE INDEX LOTS_IDX3 on LOTS(commercial_agreement_id);
+
+CREATE TABLE sectors (
+  sector_code                       VARCHAR(2) NOT NULL,
+  sector_name                       VARCHAR(20) NOT NULL,
+  sector_descripton                 VARCHAR(2000) NOT NULL
+);
+
+CREATE INDEX SECTORS_IDX1 on SECTORS(sector_code);
+CREATE INDEX SECTORS_IDX2 on SECTORS(sector_name);
+
+
+CREATE TABLE lot_sectors (
+  lot_id                            INTEGER NOT NULL,
+  sector_code                       VARCHAR(2) NOT NULL
+);
+
+CREATE INDEX LOT_SECTORS_IDX1 on LOT_SECTORS (lot_id,sector_code);
 
