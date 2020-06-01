@@ -83,7 +83,7 @@ CREATE TABLE journey_instance_questions (
   answer_id                         INTEGER NOT NULL,
   answer_text                       VARCHAR(2000) 
 );
-CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_questiuon_id);
+CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
 CREATE INDEX JOIQ_IDX2 on JOURNEY_INSTANCE_QUESTIONS (answer_id);
 
 
@@ -193,7 +193,8 @@ CREATE TABLE search_terms (
   search_term                      VARCHAR(50) NOT NULL
 );
 
-CREATE INDEX SETE_IDX1 ON SEARCH_TERMS (serach_term);
+CREATE INDEX SETE_IDX1 ON SEARCH_TERMS (search_term);
+
 /* Neo4J
 CREATE TABLE standard_answers  (
   standard_answer_id                INTEGER PRIMARY KEY,
