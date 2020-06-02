@@ -29,7 +29,8 @@ CREATE TABLE lots (
   lot_id                            INTEGER PRIMARY KEY,
   lot_number                        VARCHAR(20) NOT NULL,
   lot_name                          VARCHAR(200) NOT NULL,
-  commercial_agreement_id           INTEGER NOT NULL,
+  lot_description                   VARCHAR(2000) NOT NULL,          
+  commercial_agreement_id           INTEGER NOT NULL, -- FK back to commercial agreements
   lot_type                          VARCHAR(25) NOT NULL, -- Valid values Services, Products or Products and Services
   start_date                        DATE NOT NULL,
   end_date                          DATE NOT NULL
@@ -55,4 +56,16 @@ CREATE TABLE lot_sectors (
 );
 
 CREATE INDEX LOT_SECTORS_IDX1 on LOT_SECTORS (lot_id,sector_code);
+
+ALTER TABLE lots 
+ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
+    REFERENCES commercial_agreements (commercial_agreement_id);
+    
+ALTER TABLE lot_sectors 
+ADD CONSTRAINT lot_sectors_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);    
+    
+ALTER TABLE lot_sectors 
+ADD CONSTRAINT lot_sectors_sectors_fk FOREIGN KEY (sector_code) 
+    REFERENCES lots (sector_code);        
 
