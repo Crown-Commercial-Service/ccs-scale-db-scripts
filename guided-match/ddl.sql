@@ -71,7 +71,7 @@ CREATE INDEX JOIQ_IDX2 on JOURNEY_INSTANCE_QUESTIONS (answer_id);
 
 
 CREATE TABLE journey_instances (
-  journey_instance_id               INTEGER PRIMARY KEY,
+  journey_instance_id               UUID PRIMARY KEY,
   journey_start_date                DATE NOT NULL,
   journey_end_date                  DATE NULL
 );
@@ -95,7 +95,7 @@ CREATE TABLE journey_questions (
 
 /* This table could exist in some form in both databases */
 CREATE TABLE journeys (
-  journey_id                        INTEGER PRIMARY KEY,
+  journey_id                        UUID PRIMARY KEY,
   journey_name                      VARCHAR(200),
   published_status                  CHAR(1), -- Y(es) or N(o)
   parent_journey_id                 INTEGER
@@ -149,7 +149,7 @@ CREATE TABLE question_outcome_evaluators (
 CREATE TABLE search_domains (
   domain_modifier_id               INTEGER PRIMARY KEY,
   search_id                        INTEGER NOT NULL,
-  journey_id                       INTEGER NOT NULL,
+  journey_id                       UUID NOT NULL,
   modifier_journey_name            VARCHAR(20),
   modifier_journey_description     VARCHAR(2000)
 );
