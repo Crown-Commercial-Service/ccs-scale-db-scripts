@@ -60,7 +60,7 @@ CREATE TABLE journey_answers ( --Need to check this one out with Dave H as attri
 
 CREATE TABLE journey_instance_questions (
   journey_instance_question_id      INTEGER PRIMARY KEY,
-  journey_instance_id               UUID NOT NULL
+  journey_instance_id               UUID NOT NULL,
   journey_question_id               UUID NOT NULL,
   question_order                    INTEGER NOT NULL,
   question_text                     VARCHAR(2000) NOT NULL,
