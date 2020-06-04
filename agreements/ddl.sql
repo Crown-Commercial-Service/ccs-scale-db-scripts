@@ -67,5 +67,5 @@ ADD CONSTRAINT lot_sectors_lots_fk FOREIGN KEY (lot_id)
     
 ALTER TABLE lot_sectors 
 ADD CONSTRAINT lot_sectors_sectors_fk FOREIGN KEY (sector_code) 
-    REFERENCES lots (sector_code);        
+    REFERENCES sectors (sector_code);        
 
