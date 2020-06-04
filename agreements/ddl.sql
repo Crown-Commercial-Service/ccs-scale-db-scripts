@@ -41,7 +41,7 @@ CREATE INDEX LOTS_IDX2 on LOTS(lot_name);
 CREATE INDEX LOTS_IDX3 on LOTS(commercial_agreement_id);
 
 CREATE TABLE sectors (
-  sector_code                       VARCHAR(2) NOT NULL,
+  sector_code                       VARCHAR(2) PRIMARY KEY,
   sector_name                       VARCHAR(20) NOT NULL,
   sector_descripton                 VARCHAR(2000) NOT NULL
 );
@@ -51,8 +51,8 @@ CREATE INDEX SECTORS_IDX2 on SECTORS(sector_name);
 
 
 CREATE TABLE lot_sectors (
-  lot_id                            INTEGER NOT NULL,
-  sector_code                       VARCHAR(2) NOT NULL
+  lot_id                            INTEGER PRIMARY KEY,
+  sector_code                       VARCHAR(2) PRIMARY KEY
 );
 
 CREATE INDEX LOT_SECTORS_IDX1 on LOT_SECTORS (lot_id,sector_code);
