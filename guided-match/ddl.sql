@@ -58,17 +58,26 @@ CREATE TABLE journey_answers ( --Need to check this one out with Dave H as attri
 );
 */
 
+CREATE TABLE journey_instance_answers (
+  journey_instance_answer_id        INTEGER PRIMARY KEY,
+  journey_instance_question_id      INTEGER NOT NULL,
+  journey_answer_id                 UUID,
+  answer_sequence                   SMALLINT,
+  answer_text                       VARCHAR(2000),
+  answer_date                       DATE,
+  answer_number                     NUMBER(18,4)
+);         
+
+CREATE INDEX JOIA_IDX1 on JOURNEY_INSTANCE_ANSWERS (journey_answer_id);
+
 CREATE TABLE journey_instance_questions (
   journey_instance_question_id      INTEGER PRIMARY KEY,
   journey_instance_id               UUID NOT NULL,
   journey_question_id               UUID NOT NULL,
   question_order                    INTEGER NOT NULL,
-  question_text                     VARCHAR(2000) NOT NULL,
-  answer_id                         UUID NOT NULL,
-  answer_text                       VARCHAR(2000) 
+  question_text                     VARCHAR(2000) NOT NULL
 );
 CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
-CREATE INDEX JOIQ_IDX2 on JOURNEY_INSTANCE_QUESTIONS (answer_id);
 
 
 CREATE TABLE journey_instances (
@@ -190,4 +199,9 @@ ADD CONSTRAINT search_domains_search_terms_fk FOREIGN KEY (search_id)
     
 ALTER TABLE search_domains
 ADD CONSTRAINT search_domains_journeys_fk FOREIGN KEY (journey_id) 
-    REFERENCES search_terms(journey_id);     
+    REFERENCES search_terms(journey_id);   
+    
+ALTER TABLE journey_instance_answers
+ADD CONSTRAINT journey_instance_answers_journey_instance_questions_fk FOREIGN KEY (journey_instance_question_id)
+    REFERENCES journey_instance_questions(journey_instance_question_id);
+    
