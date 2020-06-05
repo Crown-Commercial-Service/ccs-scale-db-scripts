@@ -15,8 +15,8 @@ DROP TABLE journey_instance_questions ;
 
 DROP TABLE journey_instances ;
 
-DROP TABLE journeys ;
-
 DROP TABLE search_domains ;
+
+DROP TABLE journeys ;
 
 DROP TABLE search_terms ;
