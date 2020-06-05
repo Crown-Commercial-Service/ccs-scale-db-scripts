@@ -5,10 +5,10 @@ Date        May 11th 2020
 
 Author      Trevor Cummings
 
-Description This file is a script to create the tables for the Find a Thing database. The data model for FaT will be deployed in 
+Description This file is a script to create the tables for the Find a Thing database. The data model for FaT will be deployed in
             two separate databases. One will be a postgreSQL database for our relational tables and the other will be a Neo4j
             for the graph database.
-            
+
             I will comment out the tables which are for the graph database as the create table statements will be created
             in a separate script
 
@@ -19,18 +19,18 @@ Description This file is a script to create the tables for the Find a Thing data
 CREATE TABLE ccs_outcomes (
    outcome_id                       INTEGER PRIMARY KEY,
    journey_question_id              INTEGER NOT NULL,
-   outcome_evaluator_code           VARCHAR(10) NOT NULL, 
+   outcome_evaluator_code           VARCHAR(10) NOT NULL,
    journey_answer_id                INTEGER NOT NULL,
    ccs_support_ind                  CHAR(1) NOT NULL
 );
 */
 
 
-/* Neo4J 
+/* Neo4J
 CREATE TABLE domain_question_outcomes (
    outcome_id                       INTEGER PRIMARY KEY,
    journey_question_id              INTEGER NOT NULL,
-   outcome_evaluator_code           VARCHAR(10) NOT NULL, 
+   outcome_evaluator_code           VARCHAR(10) NOT NULL,
    journey_answer_id                INTEGER NOT NULL,
    modifier_journey_name            VARCHAR(10) NOT NULL
 );
@@ -39,7 +39,7 @@ CREATE TABLE domain_question_outcomes (
 CREATE TABLE explicit_question_outcomes (
    outcome_id                       INTEGER PRIMARY KEY,
    journey_question_id              INTEGER NOT NULL,
-   outcome_evaluator_code           VARCHAR(10) NOT NULL, 
+   outcome_evaluator_code           VARCHAR(10) NOT NULL,
    journey_answer_id                INTEGER NOT NULL,
    resulting_journey_question_id    INTEGER NOT NULL
 );
@@ -59,31 +59,32 @@ CREATE TABLE journey_answers ( --Need to check this one out with Dave H as attri
 */
 
 CREATE TABLE journey_instance_answers (
-  journey_instance_answer_id        INTEGER PRIMARY KEY,
-  journey_instance_question_id      INTEGER NOT NULL,
+  journey_instance_answer_id        BIGSERIAL PRIMARY KEY,
+  journey_instance_question_id      BIGINT NOT NULL,
   journey_answer_id                 UUID,
   answer_sequence                   SMALLINT,
   answer_text                       VARCHAR(2000),
   answer_date                       DATE,
   answer_number                     NUMERIC(18,4)
-);         
+);
 
 CREATE INDEX JOIA_IDX1 on JOURNEY_INSTANCE_ANSWERS (journey_answer_id);
 
 CREATE TABLE journey_instance_questions (
-  journey_instance_question_id      INTEGER PRIMARY KEY,
-  journey_instance_id               UUID NOT NULL,
+  journey_instance_question_id      BIGSERIAL PRIMARY KEY,
+  journey_instance_id               BIGINT NOT NULL,
   journey_question_id               UUID NOT NULL,
-  question_order                    INTEGER NOT NULL,
+  question_order                    SMALLINT NOT NULL,
   question_text                     VARCHAR(2000) NOT NULL
 );
 CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
 
 
 CREATE TABLE journey_instances (
-  journey_instance_id               UUID PRIMARY KEY,
+  journey_instance_id               BIGSERIAL PRIMARY KEY,
+  journey_id                        UUID NOT NULL,
   journey_start_date                DATE NOT NULL,
-  journey_end_date                  DATE NULL
+  journey_end_date                  DATE
 );
 CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(journey_start_date);
 
@@ -106,7 +107,7 @@ CREATE TABLE journey_questions (
 /* This table could exist in some form in both databases */
 CREATE TABLE journeys (
   journey_id                        UUID PRIMARY KEY,
-  journey_name                      VARCHAR(200),
+  journey_name                      VARCHAR(200) NOT NULL UNIQUE,
   published_status                  CHAR(1), -- Y(es) or N(o)
   parent_journey_id                 INTEGER
 );
@@ -117,9 +118,9 @@ CREATE INDEX JOUR_IDX2 on JOURNEYS(parent_journey_id);
 CREATE TABLE lot_outcomes (
    outcome_id                       INTEGER PRIMARY KEY,
    journey_question_id              INTEGER NOT NULL,
-   outcome_evaluator_code           VARCHAR(10) NOT NULL, 
+   outcome_evaluator_code           VARCHAR(10) NOT NULL,
    journey_answer_id                INTEGER NOT NULL,
-   lot_number                       VARCHAR(10) NOT NULL        
+   lot_number                       VARCHAR(10) NOT NULL
 );
 */
 
@@ -157,7 +158,7 @@ CREATE TABLE question_outcome_evaluators (
 */
 
 CREATE TABLE search_domains (
-  domain_modifier_id               INTEGER PRIMARY KEY,
+  domain_modifier_id               SERIAL PRIMARY KEY,
   search_id                        INTEGER NOT NULL,
   journey_id                       UUID NOT NULL,
   modifier_journey_name            VARCHAR(20),
@@ -169,8 +170,8 @@ create index SEDO_IDX2 ON SEARCH_DOMAINS(journey_id);
 create index SEDO_IDX3 ON SEARCH_DOMAINS(modifier_journey_name);
 
 CREATE TABLE search_terms (
-  search_id                        INTEGER PRIMARY KEY,
-  search_term                      VARCHAR(50) NOT NULL
+  search_id                        SERIAL PRIMARY KEY,
+  search_term                      VARCHAR(50) NOT NULL UNIQUE
 );
 
 CREATE INDEX SETE_IDX1 ON SEARCH_TERMS (search_term);
@@ -185,20 +186,23 @@ CREATE TABLE standard_answers  (
 
 /* Referential constraints */
 
-    
-ALTER TABLE journey_instance_questions 
-ADD CONSTRAINT journey_instance_questions_journey_instances_fk FOREIGN KEY (journey_instance_id) 
+
+ALTER TABLE journey_instance_questions
+ADD CONSTRAINT journey_instance_questions_journey_instances_fk FOREIGN KEY (journey_instance_id)
     REFERENCES journey_instances (journey_instance_id);
-    
+
 ALTER TABLE search_domains
-ADD CONSTRAINT search_domains_search_terms_fk FOREIGN KEY (search_id) 
-    REFERENCES search_terms(search_id);    
-    
+ADD CONSTRAINT search_domains_search_terms_fk FOREIGN KEY (search_id)
+    REFERENCES search_terms(search_id);
+
 ALTER TABLE search_domains
-ADD CONSTRAINT search_domains_journeys_fk FOREIGN KEY (journey_id) 
-    REFERENCES journeys(journey_id);   
-    
+ADD CONSTRAINT search_domains_journeys_fk FOREIGN KEY (journey_id)
+    REFERENCES journeys(journey_id);
+
 ALTER TABLE journey_instance_answers
 ADD CONSTRAINT journey_instance_answers_journey_instance_questions_fk FOREIGN KEY (journey_instance_question_id)
     REFERENCES journey_instance_questions(journey_instance_question_id);
-    
+
+ALTER TABLE journey_instances
+ADD CONSTRAINT journey_instances_journey_fk FOREIGN KEY (journey_id)
+    REFERENCES journeys(journey_id);
