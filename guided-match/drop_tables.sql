@@ -9,6 +9,8 @@ Author      Trevor Cummings
 Description This file is a script to drop the tables for the Find a Thing database. 
 */
 
+DROP TABLE journey_instance_answers;
+
 DROP TABLE journey_instance_questions ;
 
 DROP TABLE journey_instances ;
