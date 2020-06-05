@@ -65,7 +65,7 @@ CREATE TABLE journey_instance_answers (
   answer_sequence                   SMALLINT,
   answer_text                       VARCHAR(2000),
   answer_date                       DATE,
-  answer_number                     NUMBER(18,4)
+  answer_number                     NUMERIC(18,4)
 );         
 
 CREATE INDEX JOIA_IDX1 on JOURNEY_INSTANCE_ANSWERS (journey_answer_id);
@@ -185,9 +185,6 @@ CREATE TABLE standard_answers  (
 
 /* Referential constraints */
 
-ALTER TABLE journey_instance_questions 
-ADD CONSTRAINT journey_instance_questions_journey_instances_fk FOREIGN KEY (journey_instance_id) 
-    REFERENCES journey_instances (journey_instance_id); 
     
 ALTER TABLE journey_instance_questions 
 ADD CONSTRAINT journey_instance_questions_journey_questions_fk FOREIGN KEY (journey_question_id) 
@@ -199,7 +196,7 @@ ADD CONSTRAINT search_domains_search_terms_fk FOREIGN KEY (search_id)
     
 ALTER TABLE search_domains
 ADD CONSTRAINT search_domains_journeys_fk FOREIGN KEY (journey_id) 
-    REFERENCES search_terms(journey_id);   
+    REFERENCES journeys(journey_id);   
     
 ALTER TABLE journey_instance_answers
 ADD CONSTRAINT journey_instance_answers_journey_instance_questions_fk FOREIGN KEY (journey_instance_question_id)
