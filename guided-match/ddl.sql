@@ -41,8 +41,8 @@ CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(journey_start_date);
 CREATE TABLE journeys (
   journey_id                        UUID PRIMARY KEY,
   journey_name                      VARCHAR(200) NOT NULL UNIQUE,
-  published_status                  CHAR(1), -- Y(es) or N(o)
-  parent_journey_id                 INTEGER
+  published                         BOOLEAN NOT NULL,
+  parent_journey_id                 UUID
 );
 CREATE INDEX JOUR_IDX1 on JOURNEYS(journey_name);
 CREATE INDEX JOUR_IDX2 on JOURNEYS(parent_journey_id);
