@@ -6,10 +6,10 @@ DELETE FROM search_domains;
 DELETE FROM search_terms;
 DELETE FROM journeys;
 
-INSERT INTO journeys (journey_id, journey_name)
-VALUES ('ccb5a43a-75b5-11ea-bc55-0242ac130003', 'Linen & Laundry'),
-('ccb5c730-75b5-11ea-bc55-0242ac130003', 'Wider Public Sector Legal Services'),
-('ccb6174e-75b5-11ea-bc55-0242ac130003', 'Tech & EduTech');
+INSERT INTO journeys (journey_id, journey_name, published)
+VALUES ('ccb5a43a-75b5-11ea-bc55-0242ac130003', 'Linen & Laundry', true),
+('ccb5c730-75b5-11ea-bc55-0242ac130003', 'Wider Public Sector Legal Services', true),
+('ccb6174e-75b5-11ea-bc55-0242ac130003', 'Tech & EduTech', true);
 
 INSERT INTO "search_terms" (search_term)
 VALUES ('linen'),('laundry services'),('legal'),('laptops');
