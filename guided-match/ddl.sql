@@ -51,9 +51,10 @@ CREATE INDEX JOUR_IDX2 on JOURNEYS(parent_journey_id);
 CREATE TABLE search_domains (
   domain_modifier_id               SERIAL PRIMARY KEY,
   search_id                        INTEGER NOT NULL,
-  journey_id                       UUID NOT NULL,
-  modifier_journey_name            VARCHAR(20),
-  modifier_journey_description     VARCHAR(2000)
+  journey_id                       UUID NOT NULL,          
+  modifier_journey_name            VARCHAR(20) NOT NULL,
+  journey_selection_text           VARCHAR(200) NOT NULL,
+  journey_selection_description   VARCHAR(2000)
 );
 
 create index SEDO_IDX1 ON SEARCH_DOMAINS(search_id);
