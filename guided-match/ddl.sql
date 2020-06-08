@@ -52,7 +52,7 @@ CREATE TABLE search_domains (
   domain_modifier_id               SERIAL PRIMARY KEY,
   search_id                        INTEGER NOT NULL,
   journey_id                       UUID NOT NULL,          
-  modifier_journey_name            VARCHAR(20) NOT NULL,
+  modifier_journey_name            VARCHAR(20) NOT NULL UNIQUE,
   journey_selection_text           VARCHAR(200) NOT NULL,
   journey_selection_description   VARCHAR(2000)
 );
