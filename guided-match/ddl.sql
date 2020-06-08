@@ -31,6 +31,7 @@ CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
 
 CREATE TABLE journey_instances (
   journey_instance_id               BIGSERIAL PRIMARY KEY,
+  journey_instance_uuid             UUID NOT NULL UNIQUE,
   journey_id                        UUID NOT NULL,
   journey_start_date                DATE NOT NULL,
   journey_end_date                  DATE
