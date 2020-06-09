@@ -33,6 +33,7 @@ CREATE TABLE journey_instances (
   journey_instance_id               BIGSERIAL PRIMARY KEY,
   journey_instance_uuid             UUID NOT NULL UNIQUE,
   journey_id                        UUID NOT NULL,
+  search_id                         INTEGER NOT NULL,
   journey_start_date                DATE NOT NULL,
   journey_end_date                  DATE
 );
@@ -51,7 +52,7 @@ CREATE INDEX JOUR_IDX2 on JOURNEYS(parent_journey_id);
 CREATE TABLE search_domains (
   domain_modifier_id               SERIAL PRIMARY KEY,
   search_id                        INTEGER NOT NULL,
-  journey_id                       UUID NOT NULL,          
+  journey_id                       UUID NOT NULL,
   modifier_journey_name            VARCHAR(20) NOT NULL UNIQUE,
   journey_selection_text           VARCHAR(200) NOT NULL,
   journey_selection_description   VARCHAR(2000)
@@ -88,3 +89,7 @@ ADD CONSTRAINT journey_instance_answers_journey_instance_questions_fk FOREIGN KE
 ALTER TABLE journey_instances
 ADD CONSTRAINT journey_instances_journey_fk FOREIGN KEY (journey_id)
     REFERENCES journeys(journey_id);
+
+ALTER TABLE journey_instances
+ADD CONSTRAINT journey_instances_search_terms_fk FOREIGN KEY (search_id)
+    REFERENCES search_terms(search_id);
