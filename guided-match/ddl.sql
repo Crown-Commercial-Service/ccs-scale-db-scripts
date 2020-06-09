@@ -24,7 +24,9 @@ CREATE TABLE journey_instance_questions (
   journey_instance_id               BIGINT NOT NULL,
   journey_question_id               UUID NOT NULL,
   question_order                    SMALLINT NOT NULL,
-  question_text                     VARCHAR(2000) NOT NULL
+  question_text                     VARCHAR(500) NOT NULL,
+  question_hint                     VARCHAR(500) NOT NULL,
+  question_type                     VARCHAR(50) NOT NULL
 );
 CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
 
