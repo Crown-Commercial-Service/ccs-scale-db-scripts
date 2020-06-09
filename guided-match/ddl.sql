@@ -33,7 +33,7 @@ CREATE TABLE journey_instances (
   journey_instance_id               BIGSERIAL PRIMARY KEY,
   journey_instance_uuid             UUID NOT NULL UNIQUE,
   journey_id                        UUID NOT NULL,
-  search_id                         INTEGER NOT NULL,
+  original_search_term              VARCHAR(200) NOT NULL,
   journey_start_date                DATE NOT NULL,
   journey_end_date                  DATE
 );
@@ -89,7 +89,3 @@ ADD CONSTRAINT journey_instance_answers_journey_instance_questions_fk FOREIGN KE
 ALTER TABLE journey_instances
 ADD CONSTRAINT journey_instances_journey_fk FOREIGN KEY (journey_id)
     REFERENCES journeys(journey_id);
-
-ALTER TABLE journey_instances
-ADD CONSTRAINT journey_instances_search_terms_fk FOREIGN KEY (search_id)
-    REFERENCES search_terms(search_id);
