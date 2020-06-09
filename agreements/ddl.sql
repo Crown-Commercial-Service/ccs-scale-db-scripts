@@ -57,6 +57,25 @@ CREATE TABLE lot_sectors (
 
 CREATE INDEX LOT_SECTORS_IDX1 on LOT_SECTORS (lot_id,sector_code);
 
+CREATE TABLE route_to_market (
+  route_to_market_name              VARCHAR(50) PRIMARY KEY,
+  route_to_market_description       VARCHAR(2000) NOT NULL
+);
+
+CREATE TABLE lot_route_to_market (
+  lot_id                            INTEGER PRIMARY KEY,
+  route_to_market_name              VARCHAR(50) PRIMARY KEY,
+  start_date                        DATE NOT NULL,
+  end_date                          DATE NOT NULL,
+  location                          VARCHAR(20), -- For example, Regional or National  
+  lot_minimum_value                 NUMERIC(18,4),         
+  lot_contract_minimum_weeks        SMALLINT, 
+  lot_contract_maximum_weeks        SMALLINT,
+  lot_procurement_minimum_quantity  SMALLINT,
+  lot_procurement_maximum_quantity  SMALLINT
+);
+         
+
 ALTER TABLE lots 
 ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
     REFERENCES commercial_agreements (commercial_agreement_id);
@@ -69,3 +88,10 @@ ALTER TABLE lot_sectors
 ADD CONSTRAINT lot_sectors_sectors_fk FOREIGN KEY (sector_code) 
     REFERENCES sectors (sector_code);        
 
+ALTER TABLE lot_route_to_market
+ADD CONSTRAINT lot_route_to_market_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);        
+
+ALTER TABLE lot_route_to_market
+ADD CONSTRAINT lot_route_to_market_route_to_market_fk FOREIGN KEY (route_to_market_name) 
+    REFERENCES route_to_market (route_to_market_name);     
