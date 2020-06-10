@@ -24,7 +24,9 @@ CREATE TABLE journey_instance_questions (
   journey_instance_id               BIGINT NOT NULL,
   journey_question_id               UUID NOT NULL,
   question_order                    SMALLINT NOT NULL,
-  question_text                     VARCHAR(2000) NOT NULL
+  question_text                     VARCHAR(500) NOT NULL,
+  question_hint                     VARCHAR(500) NOT NULL,
+  question_type                     VARCHAR(50) NOT NULL
 );
 CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
 
@@ -33,6 +35,7 @@ CREATE TABLE journey_instances (
   journey_instance_id               BIGSERIAL PRIMARY KEY,
   journey_instance_uuid             UUID NOT NULL UNIQUE,
   journey_id                        UUID NOT NULL,
+  original_search_term              VARCHAR(200) NOT NULL,
   journey_start_date                DATE NOT NULL,
   journey_end_date                  DATE
 );
@@ -51,7 +54,7 @@ CREATE INDEX JOUR_IDX2 on JOURNEYS(parent_journey_id);
 CREATE TABLE search_domains (
   domain_modifier_id               SERIAL PRIMARY KEY,
   search_id                        INTEGER NOT NULL,
-  journey_id                       UUID NOT NULL,          
+  journey_id                       UUID NOT NULL,
   modifier_journey_name            VARCHAR(20) NOT NULL UNIQUE,
   journey_selection_text           VARCHAR(200) NOT NULL,
   journey_selection_description   VARCHAR(2000)
