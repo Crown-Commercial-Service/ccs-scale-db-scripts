@@ -13,7 +13,7 @@ CREATE TABLE commercial_agreements (
   commercial_agreement_number       VARCHAR(20) NOT NULL,
   commercial_agreement_name         VARCHAR(200) NOT NULL,
   commercial_agreement_owner        VARCHAR(200) NOT NULL,
-  description                       VARCHAR(2000) NOT NULL, -- perhaps this needs to be a different type
+  commercial_agreement_description  VARCHAR(2000) NOT NULL, -- perhaps this needs to be a different type
   start_date                        DATE NOT NULL,
   end_date                          DATE NOT NULL,
   agreement_url                     VARCHAR(2000) NOT NULL,
@@ -51,8 +51,9 @@ CREATE INDEX SECTORS_IDX2 on SECTORS(sector_name);
 
 
 CREATE TABLE lot_sectors (
-  lot_id                            INTEGER PRIMARY KEY,
-  sector_code                       VARCHAR(2) PRIMARY KEY
+  lot_id                            INTEGER ,
+  sector_code                       VARCHAR(2) ,
+  PRIMARY KEY (lot_id,sector_code)          
 );
 
 CREATE INDEX LOT_SECTORS_IDX1 on LOT_SECTORS (lot_id,sector_code);
@@ -63,16 +64,20 @@ CREATE TABLE route_to_market (
 );
 
 CREATE TABLE lot_route_to_market (
-  lot_id                            INTEGER PRIMARY KEY,
-  route_to_market_name              VARCHAR(50) PRIMARY KEY,
+  lot_id                            INTEGER ,
+  route_to_market_name              VARCHAR(50), 
   start_date                        DATE NOT NULL,
   end_date                          DATE NOT NULL,
   location                          VARCHAR(20), -- For example, Regional or National  
-  lot_minimum_value                 NUMERIC(18,4),         
-  lot_contract_minimum_weeks        SMALLINT, 
-  lot_contract_maximum_weeks        SMALLINT,
+  buying_method_url                 VARCHAR(2000),
+  lot_minimum_value                 NUMERIC(18,4),
+  lot_maximum_value                 NUMERIC(18,4),   
+  lot_contract_length_uom           VARCHAR(10),          
+  lot_contract_length_minimum_value SMALLINT, 
+  lot_contract_length_maximum_value SMALLINT,
   lot_procurement_minimum_quantity  SMALLINT,
-  lot_procurement_maximum_quantity  SMALLINT
+  lot_procurement_maximum_quantity  SMALLINT,
+  PRIMARY KEY (lot_id,route_to_market_name)          
 );
          
 
