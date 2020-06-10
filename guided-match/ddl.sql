@@ -6,6 +6,7 @@ Description This file is a script to create the tables for the Find a Thing data
             for the graph database.
 
 */
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE journey_instance_answers (
   journey_instance_answer_id        BIGSERIAL PRIMARY KEY,
