@@ -9,6 +9,10 @@ Description This file is a script to drop the tables for the Agreements database
 
 */
 
+DROP TABLE lot_route_to_market;
+
+DROP TABLE route_to_market;
+
 DROP TABLE lot_sectors;
 
 DROP TABLE sectors;
