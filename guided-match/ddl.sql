@@ -31,6 +31,7 @@ CREATE TABLE journey_instance_questions (
 );
 CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
 
+CREATE TYPE enum_outcome_type AS ENUM ('support', 'agreement');
 
 CREATE TABLE journey_instances (
   journey_instance_id               BIGSERIAL PRIMARY KEY,
@@ -38,9 +39,18 @@ CREATE TABLE journey_instances (
   journey_id                        UUID NOT NULL,
   original_search_term              VARCHAR(200) NOT NULL,
   journey_start_date                DATE NOT NULL,
-  journey_end_date                  DATE
+  journey_end_date                  DATE,
+  outcome_type                      enum_outcome_type
 );
 CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(journey_start_date);
+
+CREATE TABLE journey_instance_outcomes (
+  journey_instance_outcomes_id      BIGSERIAL PRIMARY KEY,
+  journey_instance_id               BIGINT NOT NULL,
+  agreement_number                  VARCHAR(20) NOT NULL,
+  lot_number                        VARCHAR(20) NOT NULL,
+  unique (journey_instance_id, agreement_number, lot_number)
+);
 
 /* This table could exist in some form in both databases */
 CREATE TABLE journeys (
