@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS journey_instance_answers;
 
 DROP TABLE IF EXISTS journey_instance_questions;
 
-DROP TABLE IF EXISTS journey_instance_outcomes;
+DROP TABLE IF EXISTS journey_instance_outcome_details;
 
 DROP TABLE IF EXISTS journey_instances;
 
@@ -22,3 +22,5 @@ DROP TABLE IF EXISTS search_domains;
 DROP TABLE IF EXISTS journeys;
 
 DROP TABLE IF EXISTS search_terms;
+
+DROP TYPE IF EXISTS enum_outcome_type;

@@ -7,6 +7,7 @@ Description This file is a script to create the tables for the Find a Thing data
 
 */
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE TYPE enum_outcome_type AS ENUM ('support', 'agreement');
 
 CREATE TABLE journey_instance_answers (
   journey_instance_answer_id        BIGSERIAL PRIMARY KEY,
@@ -31,8 +32,6 @@ CREATE TABLE journey_instance_questions (
 );
 CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
 
-CREATE TYPE enum_outcome_type AS ENUM ('support', 'agreement');
-
 CREATE TABLE journey_instances (
   journey_instance_id               BIGSERIAL PRIMARY KEY,
   journey_instance_uuid             UUID NOT NULL UNIQUE,
@@ -44,11 +43,11 @@ CREATE TABLE journey_instances (
 );
 CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(journey_start_date);
 
-CREATE TABLE journey_instance_outcomes (
-  journey_instance_outcomes_id      BIGSERIAL PRIMARY KEY,
-  journey_instance_id               BIGINT NOT NULL,
-  agreement_number                  VARCHAR(20) NOT NULL,
-  lot_number                        VARCHAR(20) NOT NULL,
+CREATE TABLE journey_instance_outcome_details (
+  journey_instance_outcome_detail_id      BIGSERIAL PRIMARY KEY,
+  journey_instance_id                     BIGINT NOT NULL,
+  agreement_number                        VARCHAR(20) NOT NULL,
+  lot_number                              VARCHAR(20) NOT NULL,
   unique (journey_instance_id, agreement_number, lot_number)
 );
 
@@ -103,3 +102,7 @@ ADD CONSTRAINT journey_instance_answers_journey_instance_questions_fk FOREIGN KE
 ALTER TABLE journey_instances
 ADD CONSTRAINT journey_instances_journey_fk FOREIGN KEY (journey_id)
     REFERENCES journeys(journey_id);
+
+ALTER TABLE journey_instance_outcome_details
+ADD CONSTRAINT journey_instance_outcome_details_journey_instances_fk FOREIGN KEY (journey_instance_id)
+    REFERENCES journey_instances (journey_instance_id);
