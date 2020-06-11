@@ -75,8 +75,6 @@ CREATE TABLE lot_route_to_market (
   lot_contract_length_uom           VARCHAR(10),          
   lot_contract_length_minimum_value SMALLINT, 
   lot_contract_length_maximum_value SMALLINT,
-  lot_procurement_minimum_quantity  SMALLINT,
-  lot_procurement_maximum_quantity  SMALLINT,
   PRIMARY KEY (lot_id,route_to_market_name)          
 );
          
