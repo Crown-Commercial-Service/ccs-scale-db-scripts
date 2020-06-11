@@ -43,7 +43,7 @@ CREATE INDEX LOTS_IDX3 on LOTS(commercial_agreement_id);
 CREATE TABLE sectors (
   sector_code                       VARCHAR(2) PRIMARY KEY,
   sector_name                       VARCHAR(20) NOT NULL,
-  sector_descripton                 VARCHAR(2000) NOT NULL
+  sector_description                 VARCHAR(2000) NOT NULL
 );
 
 CREATE INDEX SECTORS_IDX1 on SECTORS(sector_code);
