@@ -37,17 +37,17 @@ CREATE TABLE journey_instances (
   journey_instance_uuid             UUID NOT NULL UNIQUE,
   journey_id                        UUID NOT NULL,
   original_search_term              VARCHAR(200) NOT NULL,
-  journey_start_date                DATE NOT NULL,
-  journey_end_date                  DATE,
+  journey_start_time                TIMESTAMP NOT NULL,
+  journey_end_time                  TIMESTAMP,
   outcome_type                      enum_outcome_type
 );
-CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(journey_start_date);
+CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(journey_start_time);
 
 CREATE TABLE journey_instance_outcome_details (
   journey_instance_outcome_detail_id      BIGSERIAL PRIMARY KEY,
   journey_instance_id                     BIGINT NOT NULL,
   agreement_number                        VARCHAR(20) NOT NULL,
-  lot_number                              VARCHAR(20) NOT NULL,
+  lot_number                              VARCHAR(20) NULL,
   unique (journey_instance_id, agreement_number, lot_number)
 );
 
