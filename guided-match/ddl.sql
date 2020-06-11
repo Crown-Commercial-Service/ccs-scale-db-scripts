@@ -6,6 +6,7 @@ Description This file is a script to create the tables for the Find a Thing data
             for the graph database.
 
 */
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE journey_instance_answers (
   journey_instance_answer_id        BIGSERIAL PRIMARY KEY,
@@ -53,6 +54,7 @@ CREATE INDEX JOUR_IDX2 on JOURNEYS(parent_journey_id);
 
 CREATE TABLE search_domains (
   domain_modifier_id               SERIAL PRIMARY KEY,
+  lookup_entry_id                  UUID NOT NULL DEFAULT uuid_generate_v4(),
   search_id                        INTEGER NOT NULL,
   journey_id                       UUID NOT NULL,
   modifier_journey_name            VARCHAR(20) NOT NULL UNIQUE,
