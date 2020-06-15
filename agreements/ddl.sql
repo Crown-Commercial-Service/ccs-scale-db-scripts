@@ -16,8 +16,7 @@ CREATE TABLE commercial_agreements (
   commercial_agreement_description  VARCHAR(2000) NOT NULL, -- perhaps this needs to be a different type
   start_date                        DATE NOT NULL,
   end_date                          DATE NOT NULL,
-  agreement_url                     VARCHAR(2000) NOT NULL,
-  authorisation_email               VARCHAR(200)
+  agreement_url                     VARCHAR(2000) NOT NULL
 );
 
 CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
