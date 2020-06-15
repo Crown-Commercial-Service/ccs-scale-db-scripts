@@ -1,5 +1,5 @@
 /*
-Title       Database data creation script for Agreements database design
+Title       create_commercial_agreements.sql
 Date        June 15th 2020
 Author      Trevor Cummings
 Description This file is a script to create test data for Commercial Agreements          
