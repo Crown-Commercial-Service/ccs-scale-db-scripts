@@ -788,7 +788,7 @@ INSERT INTO lOTS
  start_date,
  end_date)
 values 
-(31,
+(41,
  'Lot 4',
  'Transport Rail',
  'Transport Rail description',
@@ -797,4 +797,317 @@ values
  '19-Oct-2018',
  '18-Oct-2021'); 
  
+ 
+-- RM3756 CA FK 8, 2 Lots
 
+
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(42,
+ 'Lot 1',
+ 'Rail Legal Services Tier 1',
+ 'Rail Legal Services Tier 1',
+ 8,
+ 'Services',
+ '31-May-2017',
+ '31-May-2021'); 
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(43,
+ 'Lot 2',
+ 'Rail Legal Services Tier 2',
+ 'Rail Legal Services Tier 2 description',
+ 8,
+ 'Services',
+ '31-May-2017',
+ '31-May-2021');
+ 
+ -- RM3717 CA FK 9, 9 Lots
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(44,
+ 'Lot 1',
+ 'Low Volume Work Service Package',
+ 'Low Volume Work Service Package description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(45,
+ 'Lot 2',
+ 'End to End Service Package',
+ 'End to End Service Package description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(46,
+ 'Lot 3',
+ 'Project Management & Advice',
+ 'Project Management & Advice description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(47,
+ 'Lot 4',
+ 'Data Preservation & Collection',
+ 'Data Preservation & Collection description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(48,
+ 'Lot 5',
+ 'Document Processing',
+ 'Document Processing description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(49,
+ 'Lot 6',
+ 'Document Review & Document Production',
+ 'IDocument Review & Document Production description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(50,
+ 'Lot 7',
+ 'Disclosure from Other Opponent Parties',
+ 'Disclosure from Other Opponent Parties description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(51,
+ 'Lot 8',
+ 'Presentation at Trial',
+ 'Presentation at Trial description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(52,
+ 'Lot 9',
+ 'End to End Service (up to and including ''Secret'' and ''Top Secret'')',
+ 'End to End Service (up to and including ''Secret'' and ''Top Secret'') description',
+ 9,
+ 'Services',
+ '01-Jun-2017',
+ '01-Jun-2021');
+ 
+ 
+ -- RM6137 CA FK 10, Lots 3
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(53,
+ 'Lot 1',
+ 'General Costs Law Services',
+ 'General Costs Law Services description',
+ 10,
+ 'Services',
+ '19-Aug-2019',
+ '18-Aug-2021');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(54,
+ 'Lot 2',
+ 'Clinical Negligence Specialist Services',
+ 'Clinical Negligence Specialist Services description',
+ 10,
+ 'Services',
+ '19-Aug-2019',
+ '18-Aug-2021');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(55,
+ 'Lot 3',
+ 'Security Clearance Specialist Services',
+ 'Security Clearance Specialist Services description',
+ 10,
+ 'Services',
+ '19-Aug-2019',
+ '18-Aug-2021'); 
+
+-- RM3786 CA FK 11 , 2 Lots
+
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(56,
+ 'Lot 1',
+ 'General Legal Services Tier 1',
+ 'General Legal Services Tier 1 description',
+ 11,
+ 'Services',
+ '28-Feb-2017',
+ '27-Feb-2021');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(57,
+ 'Lot 2',
+ 'General Legal Services Tier 2',
+ 'General Legal Services Tier 2 description',
+ 11,
+ 'Services',
+ '28-Feb-2017',
+ '27-Feb-2021');
