@@ -1111,3 +1111,163 @@ values
  'Services',
  '28-Feb-2017',
  '27-Feb-2021');
+
+-- RM3787 CA FK 12, 1 lot
+
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(58,
+ 'Lot 2',
+ 'Finance & Complex Legal Services',
+ 'Finance & Complex Legal Services description',
+ 12,
+ 'Services',
+ '21-Aug-2017',
+ '20-Aug-2021');
+ 
+ --RM6089 CA FK 13, 6 Lots
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(59,
+ 'Lot 1a',
+ 'Security Services',
+ 'Security Services description',
+ 13,
+ 'Services',
+ '25-Jan-2019',
+ '24-Jan-2023');
+
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(60,
+ 'Lot 1b',
+ 'Technical Security',
+ 'Technical Security description',
+ 13,
+ 'Services',
+ '25-Jan-2019',
+ '24-Jan-2023');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(61,
+ 'Lot 2a',
+ 'Defence Housing Management Services (National)',
+ 'Defence Housing Management Services (National) description',
+ 13,
+ 'Services',
+ '25-Jan-2019',
+ '24-Jan-2023');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(62,
+ 'Lot 2b',
+ 'Defence Housing Maintenance Services (Regional)',
+ 'Defence Housing Maintenance Services (Regional) description',
+ 13,
+ 'Services',
+ '25-Jan-2019',
+ '24-Jan-2023');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(63,
+ 'Lot 2c',
+ 'Housing Maintenance and Management Services',
+ 'Housing Maintenance and Management Services description',
+ 13,
+ 'Services',
+ '25-Jan-2019',
+ '24-Jan-2023');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(64,
+ 'Lot 3',
+ 'MOD Facilities Management Marketplace',
+ 'MOD Facilities Management Marketplace description',
+ 13,
+ 'Services',
+ '25-Jan-2019',
+ '24-Jan-2023'); 
+ 
+ 
+ -- RM6130 CA FK 14, 1 Lot
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(65,
+ 'Lot 1',
+ 'Building Cleaning Services',
+ 'Building Cleaning Services description',
+ 13,
+ 'Services',
+ '30-Mar-2020',
+ '25-Feb-2024'); 
+ 
