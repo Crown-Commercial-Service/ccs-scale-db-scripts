@@ -543,3 +543,81 @@ values
  'Services',
  '12-Aug-2019',
  '16-Aug-2022');
+ 
+ -- RM6154 CA FK 5, 4 Lots
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(29,
+ 'Lot 1a',
+ 'Linen Hire with Standard Wash Linen and Laundry Services',
+ 'Linen Hire with Standard Wash Linen and Laundry Services description',
+ 5,
+ 'Services',
+ '01-Feb-2020',
+ '19-Mar-2023');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(30,
+ 'Lot 2',
+ 'Standard Wash Linen and Laundry Services',
+ 'Standard Wash Linen and Laundry Services description',
+ 5,
+ 'Services',
+ '01-Feb-2020',
+ '19-Mar-2023');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(31,
+ 'Lot 3',
+ 'Specialist Laundry Services (Theatre Packs)',
+ 'Specialist Laundry Services (Theatre Packs) description',
+ 5,
+ 'Services',
+ '01-Feb-2020',
+ '19-Mar-2023');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(32,
+ 'Lot 1b',
+ 'Specialist Cleanroom Laundry Services',
+ 'Specialist Cleanroom Laundry Services description',
+ 5,
+ 'Services',
+ '01-Feb-2020',
+ '19-Mar-2023'); 
