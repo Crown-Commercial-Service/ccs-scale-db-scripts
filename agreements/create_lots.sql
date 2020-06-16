@@ -294,3 +294,252 @@ values
  'Services',
  '10-Jun-2019',
  '10-Jun-2022');
+ 
+ -- RM3808 CA FK 4 , 13 lots
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(16,
+ 'Lot 1',
+ 'Data access services',
+ 'Connectivity services: site-to-site or site-to-cloud. Includes terrestrial, wireless and satellite solutions, software designed networking, network security, connectivity circuits, IP connectivity, ISP and internet services, and associated equipment maint',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(17,
+ 'Lot 2',
+ 'Local connectivity services',
+ 'Single site connectivity: local connectivity services and LAN connectivity services for a single site, multiple sites in the same place etc. Includes SAN equipment, wired or wireless connectivity, plus specialised power solutions, managed equipment rooms,',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(18,
+ 'Lot 3',
+ 'Traditional telephony services',
+ 'Voice services connecting local traditional telephony equipment with public network. Includes traditional voice connectivity, voice call packages, SIP trunks, DDI ranges, CPS services and equipment maintenance and support for legacy estates.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(19,
+ 'Lot 4',
+ 'Inbound telephony services',
+ 'Inbound call management services for established local call centre functions including non-geographical numbers such as 03xx, 05xx, 08xx and 09xx and associated equipment maintenance and support services.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(20,
+ 'Lot 5',
+ 'IP telephony services',
+ 'Internet Protocol (IP) Telephony services with the ability to make and receive telephone calls by the transmission of voice over an IP based network service, including breakout to PSTN. Voice call packages, direct dial (DD) ranges and associated equipment',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(21,
+ 'Lot 6',
+ 'Mobile voice and data services',
+ 'Including voice calls and voicemail, SMS, mobile email, mobile data connectivity and applications, value-added mobile services and mobile device management and associated equipment maintenance and support services.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(22,
+ 'Lot 7',
+ 'Paging and alerting services',
+ 'Paging, mobile messaging and alerting services including bureau services and associated equipment maintenance and support services.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(23,
+ 'Lot 8',
+ 'Video conferencing services',
+ 'Traditional and IP based audio-visual conferencing services. Includes consultancy and training services, software management tools, call recording, analysis tools, peripheral equipment, transcribing and translation services.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(24,
+ 'Lot 9',
+ 'Audio conferencing services',
+ 'Includes call recording, playback, analysis tools, the ability to reserve and pre-book, coded access references, peripheral equipment, software, management tools, security access products, collaboration tools, transcribing and translation services.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(25,
+ 'Lot 10',
+ 'Unified communications',
+ 'The provision of unified communications to provide a consistent user interface across multiple devices providing a cohesive end user experience in accessing two or more of the Primary Services from the following lots: lot 5, lot 6, lot 8 and lot 9.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(26,
+ 'Lot 11',
+ 'Radio services',
+ 'A voice communication solution utilising UHF, and/or VHF radio frequency bands and associated equipment maintenance and support services.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(27,
+ 'Lot 12',
+ 'Security and surveillance services',
+ 'Includes the provision of CCTV and physical security monitoring equipment, including services to access real time audio and video activities and associated equipment maintenance and support services.',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
+
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(28,
+ 'Lot 13',
+ 'Contact centre services',
+ 'The provision of call/contact centre services for the use of Buyer employees only. With the ability to make outbound contact and respond to an incoming contact and route the contact to a predefined destination and associated equipment maintenance and supp',
+ 4,
+ 'Services',
+ '12-Aug-2019',
+ '16-Aug-2022');
