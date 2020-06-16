@@ -546,7 +546,7 @@ values
  
  -- RM6154 CA FK 5, 4 Lots
  
- INSERT INTO lOTS
+INSERT INTO lOTS
 (lot_id,
  lot_number,
  lot_name,
@@ -621,3 +621,180 @@ values
  'Services',
  '01-Feb-2020',
  '19-Mar-2023'); 
+ 
+ -- RM3830 CA FK 6, 3 Lots
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(33,
+ 'Lot 1a',
+ 'Total contract value up to £7M',
+ 'Total contract value up to £7M description',
+ 6,
+ 'Services',
+ '10-Jul-2018',
+ '09-Jul-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(34,
+ 'Lot 1b',
+ 'Total contract value £7M - £50M',
+ 'Total contract value £7M - £50M',
+ 6,
+ 'Services',
+ '10-Jul-2018',
+ '09-Jul-2022');
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(35,
+ 'Lot 1c',
+ 'Total contract value £50M+',
+ 'Total contract value £50M+ description',
+ 6,
+ 'Services',
+ '10-Jul-2018',
+ '09-Jul-2022');
+ 
+ -- RM3788 CA FK 7 , 6 lots
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(36,
+ 'Lot 1',
+ 'Regional Service Provision',
+ 'Regional Service Provision description',
+ 7,
+ 'Services',
+ '19-Oct-2018',
+ '18-Oct-2021');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(37,
+ 'Lot 2a',
+ 'Full Service Firms - England & Wales',
+ 'Full Service Firms - England & Wales description',
+ 7,
+ 'Services',
+ '19-Oct-2018',
+ '18-Oct-2021');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(38,
+ 'Lot 2b',
+ 'Full Service Firms - Scotland',
+ 'Full Service Firms - Scotlanddescription',
+ 7,
+ 'Services',
+ '19-Oct-2018',
+ '18-Oct-2021');
+
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(39,
+ 'Lot 2c',
+ 'Full Service Firms - Northern Ireland',
+ 'Full Service Firms - Northern Ireland description',
+ 7,
+ 'Services',
+ '19-Oct-2018',
+ '18-Oct-2021');
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(40,
+ 'Lot 3',
+ 'Property & Construction',
+ 'Property & Construction description',
+ 7,
+ 'Services',
+ '19-Oct-2018',
+ '18-Oct-2021'); 
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(31,
+ 'Lot 4',
+ 'Transport Rail',
+ 'Transport Rail description',
+ 7,
+ 'Services',
+ '19-Oct-2018',
+ '18-Oct-2021'); 
+ 
+
