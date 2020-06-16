@@ -7,16 +7,16 @@ Description This file is a script to create the tables for the Find a Thing data
 
 */
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-CREATE TYPE enum_outcome_type AS ENUM ('support', 'agreement');
 
 CREATE TABLE journey_instance_answers (
   journey_instance_answer_id        BIGSERIAL PRIMARY KEY,
   journey_instance_question_id      BIGINT NOT NULL,
-  journey_answer_id                 UUID,
+  journey_answer_id                 UUID, -- The graph answer node UUID
   answer_sequence                   SMALLINT,
-  answer_text                       VARCHAR(2000),
-  answer_date                       DATE,
-  answer_number                     NUMERIC(18,4)
+  answer_text                       VARCHAR(200) NOT NULL, -- As presented to the user e.g. "Product", "Software", "Employment litigation"
+  value_number                      DECIMAL, -- Numerical entry / conditional input type 'number'
+  value_text                        VARCHAR(200), -- Free text entry value (post-MVP)
+  value_date                        DATE -- Date selection / conditional input type 'date' (post-MVP)
 );
 
 CREATE INDEX JOIA_IDX1 on JOURNEY_INSTANCE_ANSWERS (journey_answer_id);
@@ -39,7 +39,7 @@ CREATE TABLE journey_instances (
   original_search_term              VARCHAR(200) NOT NULL,
   start_datetime                    TIMESTAMP NOT NULL,
   end_datetime                      TIMESTAMP,
-  outcome_type                      enum_outcome_type
+  outcome_type                      VARCHAR(50)--enum_outcome_type
 );
 CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(start_datetime);
 
