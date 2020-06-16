@@ -29,6 +29,12 @@ insert into route_to_market (
 values ('Auction',
         'An auction is where suppliers bid on the contract being offered. There is more than one flavour of auction, 
          Absolute Auction (No reserve price), Minimum Price Auction, Reverse Auction, Sealed Bid Auction,
-         Multi-Parcel Auction');        
+         Multi-Parcel Auction'); 
+         
+insert into route_to_market (
+  route_to_market_name,
+  route_to_market_description)
+values ('Aggregation',
+        'Aggregation is where buyers come together to leveage greater discounts from suppliers. CCS will handle this side of things for the buyers. If yopu want further information themn please email aggregation@crowncommercial.gov.uk for more information');         
         
   
