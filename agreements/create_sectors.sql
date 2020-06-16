@@ -25,7 +25,7 @@ insert into sectors (
   sector_code,
   sector_name,                       
   sector_description)
-values ('Ed',
+values ('ED',
         'Education',
         'Education, including non education organisations who train and educate their staff');
         
