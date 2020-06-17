@@ -11,11 +11,12 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE journey_instance_answers (
   journey_instance_answer_id        BIGSERIAL PRIMARY KEY,
   journey_instance_question_id      BIGINT NOT NULL,
-  journey_answer_id                 UUID,
+  journey_answer_id                 UUID, -- The graph answer node UUID
   answer_sequence                   SMALLINT,
-  answer_text                       VARCHAR(2000),
-  answer_date                       DATE,
-  answer_number                     NUMERIC(18,4)
+  answer_text                       VARCHAR(200) NOT NULL, -- As presented to the user e.g. "Product", "Software", "Employment litigation"
+  value_number                      DECIMAL, -- Numerical entry / conditional input type 'number'
+  value_text                        VARCHAR(200), -- Free text entry value (post-MVP)
+  value_date                        DATE -- Date selection / conditional input type 'date' (post-MVP)
 );
 
 CREATE INDEX JOIA_IDX1 on JOURNEY_INSTANCE_ANSWERS (journey_answer_id);
@@ -31,16 +32,24 @@ CREATE TABLE journey_instance_questions (
 );
 CREATE INDEX JOIQ_IDX1 on JOURNEY_INSTANCE_QUESTIONS (journey_question_id);
 
-
 CREATE TABLE journey_instances (
   journey_instance_id               BIGSERIAL PRIMARY KEY,
   journey_instance_uuid             UUID NOT NULL UNIQUE,
   journey_id                        UUID NOT NULL,
   original_search_term              VARCHAR(200) NOT NULL,
-  journey_start_date                DATE NOT NULL,
-  journey_end_date                  DATE
+  start_datetime                    TIMESTAMP NOT NULL,
+  end_datetime                      TIMESTAMP,
+  outcome_type                      VARCHAR(50)--enum_outcome_type
 );
-CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(journey_start_date);
+CREATE INDEX JOIN_IDX1 ON JOURNEY_INSTANCES(start_datetime);
+
+CREATE TABLE journey_instance_outcome_details (
+  journey_instance_outcome_detail_id      BIGSERIAL PRIMARY KEY,
+  journey_instance_id                     BIGINT NOT NULL,
+  agreement_number                        VARCHAR(20) NOT NULL,
+  lot_number                              VARCHAR(20) NULL,
+  unique (journey_instance_id, agreement_number, lot_number)
+);
 
 /* This table could exist in some form in both databases */
 CREATE TABLE journeys (
@@ -93,3 +102,7 @@ ADD CONSTRAINT journey_instance_answers_journey_instance_questions_fk FOREIGN KE
 ALTER TABLE journey_instances
 ADD CONSTRAINT journey_instances_journey_fk FOREIGN KEY (journey_id)
     REFERENCES journeys(journey_id);
+
+ALTER TABLE journey_instance_outcome_details
+ADD CONSTRAINT journey_instance_outcome_details_journey_instances_fk FOREIGN KEY (journey_instance_id)
+    REFERENCES journey_instances (journey_instance_id);
