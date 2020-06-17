@@ -22,7 +22,6 @@ CREATE TABLE commercial_agreements (
 CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
 CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTS (commercial_agreement_name);
 CREATE INDEX COAG_IDX3 on COMMERCIAL_AGREEMENTS  (commercial_agreement_owner);
-CREATE INDEX COAG_IDX4 on COMMERCIAL_AGREEMENTS  (authorisation_email);
 
 CREATE TABLE lots (
   lot_id                            INTEGER PRIMARY KEY,
