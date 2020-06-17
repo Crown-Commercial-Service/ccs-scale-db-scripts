@@ -1,4 +1,4 @@
-https://github.com/Crown-Commercial-Service/ccs-scale-db-scripts/*
+/*
 Title       create_lot_sectors.sql
 Date        June 15th 2020
 Author      Trevor Cummings
