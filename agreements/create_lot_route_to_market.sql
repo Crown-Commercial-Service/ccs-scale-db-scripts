@@ -286,7 +286,7 @@ INSERT INTO LOT_ROUTE_TO_MARKET
   lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
  VALUES
  (23,'Aggregation','12-Aug-2019','16-Aug-2022','National', 'https://www.crowncommercial.gov.uk/agreements',
-  null,null,null,null,null; 
+  null,null,null,null,null); 
   
 INSERT INTO LOT_ROUTE_TO_MARKET
 ( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
@@ -692,7 +692,7 @@ INSERT INTO LOT_ROUTE_TO_MARKET
   lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
  VALUES
  (51,'Further Competition','01-Jun-2017','01-Jun-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
-  null,null,null,null,null;  
+  null,null,null,null,null);  
   
 INSERT INTO LOT_ROUTE_TO_MARKET
 ( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
