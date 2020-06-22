@@ -22,7 +22,6 @@ CREATE TABLE commercial_agreements (
 CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
 CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTS (commercial_agreement_name);
 CREATE INDEX COAG_IDX3 on COMMERCIAL_AGREEMENTS  (commercial_agreement_owner);
-CREATE INDEX COAG_IDX4 on COMMERCIAL_AGREEMENTS  (authorisation_email);
 
 CREATE TABLE lots (
   lot_id                            INTEGER PRIMARY KEY,
@@ -80,12 +79,15 @@ CREATE TABLE lot_route_to_market (
 CREATE TABLE commercial_agreement_contacts (
   commercial_agreement_contact_id   SERIAL PRIMARY KEY,
   contact_id                        SERIAL NOT NULL, -- Have made this serial as conclave does not exist to hold contacts.
+  commercial_agreement_id           INTEGER NOT NULL,          
   contact_type                      VARCHAR(100) NOT NULL,
   email_address                     VARCHAR(254) NOT NULL
 );
   
 CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX1 on COMMERCIAL_AGREEMENT_CONTACTS (contact_id);
 CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX2 on COMMERCIAL_AGREEMENT_CONTACTS (contact_type);
+CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX3 on COMMERCIAL_AGREEMENT_CONTACTS (contact_type);
+
 
 CREATE TABLE lot_rules (
   lot_rule_id                       INTEGER PRIMARY KEY,
@@ -152,3 +154,25 @@ ALTER TABLE lot_route_to_market
 ADD CONSTRAINT lot_route_to_market_route_to_market_fk FOREIGN KEY (route_to_market_name) 
     REFERENCES route_to_market (route_to_market_name);     
      
+ALTER TABLE commercial_agreement_contacts
+ADD CONSTRAINT commercial_agreement_contacts_commercial_agreements_fk FOREIGN KEY (commercial_agreement_id) 
+    REFERENCES commercial_agreements (commercial_agreement_id);
+    
+-- No FK to contacts as that entitry doesn't exist in our model.
+
+ALTER TABLE lot_related_lots 
+ADD CONSTRAINT lot_related_lots_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);
+    
+ALTER TABLE lot_related_lots 
+ADD CONSTRAINT lot_related_lots_lot_rule_fk FOREIGN KEY (lot_rule_id) 
+    REFERENCES lot_rules (lot_rule_id);    
+    
+ALTER TABLE lot_rule_attributes 
+ADD CONSTRAINT lot_rule_attributes_lot_rule_fk FOREIGN KEY (lot_rule_id) 
+    REFERENCES lot_rules (lot_rule_id);    
+    
+ALTER TABLE lot_rule_transaction_objects
+ADD CONSTRAINT lot_rule_transaction_objects_lot_rule_fk FOREIGN KEY (lot_rule_id) 
+    REFERENCES lot_rules (lot_rule_id);        
+    
