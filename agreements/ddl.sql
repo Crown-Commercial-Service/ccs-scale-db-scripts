@@ -91,17 +91,15 @@ CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX3 on COMMERCIAL_AGREEMENT_CONTACTS
 
 CREATE TABLE lot_rules (
   lot_rule_id                       INTEGER PRIMARY KEY,
+  lot_id                            INTEGER NOT NULL,
   lot_rule_name                     VARCHAR(50)   NOT NULL UNIQUE,
   lot_rule_description              VARCHAR(2000) NOT NULL,
-  task_data_name                    VARCHAR(200),
-  task_data_ref                     VARCHAR(200),
   evaluation_type                   VARCHAR(100),
   related_application_system_name   VARCHAR(100)
 );
 
 CREATE INDEX LOT_RULES_IDX1 on LOT_RULES (lot_rule_name);
-CREATE INDEX LOT_RULES_IDX2 on LOT_RULES (task_data_name,task_data_ref);
-CREATE INDEX LOT_RULES_IDX3 on LOT_RULES (lot_rule_name);
+CREATE INDEX LOT_RULES_IDX2 on LOT_RULES (lot_rule_name);
 
 CREATE TABLE lot_rule_transaction_objects (
   lot_rule_id                       INTEGER NOT NULL, 
@@ -132,7 +130,7 @@ CREATE TABLE lot_related_lots (
   PRIMARY KEY (lot_id,lot_rule_id)
 );     
             
-CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS_OBJECTS (lot_rule_id);         
+CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id);         
 
 ALTER TABLE lots 
 ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
@@ -159,6 +157,10 @@ ADD CONSTRAINT commercial_agreement_contacts_commercial_agreements_fk FOREIGN KE
     REFERENCES commercial_agreements (commercial_agreement_id);
     
 -- No FK to contacts as that entitry doesn't exist in our model.
+
+ALTER TABLE lot_rules 
+ADD CONSTRAINT lot_rules_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);
 
 ALTER TABLE lot_related_lots 
 ADD CONSTRAINT lot_related_lots_lots_fk FOREIGN KEY (lot_id) 
