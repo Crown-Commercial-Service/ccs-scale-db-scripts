@@ -114,7 +114,7 @@ CREATE INDEX LOT_RULE_TRANSACTION_OBJECTS_IDX2 on LOT_RULE_TRANSACTION_OBJECTS (
 CREATE TABLE lot_rule_attributes (
   lot_rule_id                       INTEGER NOT NULL, 
   attribute_name                    VARCHAR(200),
-  atrribute_data_type               VARCHAR(20),
+  attribute_data_type               VARCHAR(20),
   value_number                      NUMERIC,
   value_text                        VARCHAR(200),
   value_date                        DATE,          
@@ -122,7 +122,7 @@ CREATE TABLE lot_rule_attributes (
 );
 
 CREATE INDEX LOT_RULE_ATTRIBUTES_IDX1 on LOT_RULE_ATTRIBUTES (attribute_name);
-CREATE INDEX LOT_RULE_ATTRIBUTES_IDX2 on LOT_RULE_ATTRIBUTES (atrribute_data_type);             
+CREATE INDEX LOT_RULE_ATTRIBUTES_IDX2 on LOT_RULE_ATTRIBUTES (attribute_data_type);             
 
 CREATE TABLE lot_related_lots (
   lot_id                            INTEGER NOT NULL,
