@@ -127,7 +127,7 @@ CREATE INDEX LOT_RULE_ATTRIBUTES_IDX2 on LOT_RULE_ATTRIBUTES (atrribute_data_typ
 CREATE TABLE lot_related_lots (
   lot_id                            INTEGER NOT NULL,
   lot_rule_id                       INTEGER NOT NULL, 
-  relationship_reason               VARCHAR(2000) NOT NULL,          
+  relationship_description          VARCHAR(2000) NOT NULL,          
   PRIMARY KEY (lot_id,lot_rule_id)
 );     
             
