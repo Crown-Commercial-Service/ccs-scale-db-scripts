@@ -608,7 +608,7 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'CH');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'CH'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'CH'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'CH'); 
-INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'CH); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'CH'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'CH'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'CH'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'CH'); 
