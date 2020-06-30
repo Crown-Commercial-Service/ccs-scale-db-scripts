@@ -852,4 +852,174 @@ INSERT INTO LOT_ROUTE_TO_MARKET
  (65,'Further Competition','30-Mar-2020','25-Feb-2024','National', 'https://www.crowncommercial.gov.uk/agreements',
   null,null,null,null,null);
   
+-- RM3804
+
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (66,'Further Competition','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (66,'Direct Award','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (66,'Aggregation','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null); 
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (67,'Further Competition','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (67,'Direct Award','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (67,'Aggregation','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null); 
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (68,'Further Competition','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (68,'Direct Award','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (68,'Aggregation','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null); 
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (69,'Further Competition','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (69,'Direct Award','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (69,'Aggregation','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null); 
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (70,'Further Competition','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (70,'Direct Award','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (70,'Aggregation','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);   
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (71,'Further Competition','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (71,'Direct Award','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (71,'Aggregation','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (72,'Further Competition','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (72,'Direct Award','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (72,'Aggregation','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null); 
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (73,'Further Competition','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (73,'Direct Award','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);
+  
+INSERT INTO LOT_ROUTE_TO_MARKET
+( lot_id, route_to_market_name, start_date, end_date, location, buying_method_url, 
+  lot_minimum_value,lot_maximum_value, lot_contract_length_uom, lot_contract_length_minimum_value,lot_contract_length_maximum_value)
+ VALUES
+ (73,'Aggregation','06-Sep-2017','05-Sep-2021','National', 'https://www.crowncommercial.gov.uk/agreements',
+  null,null,null,null,null);     
+  
   
