@@ -303,4 +303,25 @@ If you are a supplier and would like to provide your services through this DPS y
              '25-Feb-2024',
              'https://www.crowncommercial.gov.uk/agreements/RM6130'); 
              
+             
+-- Tech Products additional CA missed from list of Commercial Agreements
+
+Insert into Commercial_Agreements
+            (commercial_agreement_id,          
+             commercial_agreement_number,       
+             commercial_agreement_name,         
+             commercial_agreement_owner,        
+             commercial_agreement_description,   
+             start_date,                       
+             end_date,                          
+             agreement_url)
+values (     15,   
+             'RM3804',
+             'Technology Services 2',
+             'CCS',
+             'ICT services from strategy and service design through transition to operational deployment. Includes large project services and up to top secret classification',
+             '06-Sep-2017',
+             '05-Sep-2021',
+             'https://www.crowncommercial.gov.uk/agreements/RM3804');             
+             
    
