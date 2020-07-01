@@ -73,6 +73,15 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (62,'CG');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (63,'CG'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'CG'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'CG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'CG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'CG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'CG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'CG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'CG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'CG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (72,'CG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (73,'CG'); 
+
 
 -- DE Devolved
 
@@ -141,6 +150,14 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (62,'DE');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (63,'DE'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'DE'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'DE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'DE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'DE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'DE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'DE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'DE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'DE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (72,'DE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (73,'DE'); 
 
 -- ED Education
 
@@ -209,6 +226,14 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (62,'ED');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (63,'ED'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'ED'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'ED'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'ED'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'ED'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'ED'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'ED'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'ED'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'ED'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (72,'ED'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (73,'ED'); 
 
 -- Health
 
@@ -277,6 +302,14 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (62,'HE');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (63,'HE'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'HE'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'HE');
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'HE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'HE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'HE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'HE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'HE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'HE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (72,'HE'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (73,'HE'); 
 
 -- Local Government
 
@@ -345,6 +378,14 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (62,'LG');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (63,'LG'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'LG'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'LG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'LG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'LG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'LG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'LG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'LG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'LG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (72,'LG'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (73,'LG'); 
 
 -- Blue Light
 
@@ -413,6 +454,14 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (62,'BL');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (63,'BL'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'BL'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'BL'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'BL'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'BL'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'BL'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'BL'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'BL'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'BL'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (72,'BL'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (73,'BL'); 
 
 -- HO Housing
 
@@ -481,6 +530,14 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (62,'HO');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (63,'HO'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'HO'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'HO'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'HO'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'HO'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'HO'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'HO'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'HO'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'HO'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (72,'HO'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (73,'HO'); 
 
 -- CH Charities
 
@@ -549,5 +606,13 @@ INSERT INTO LOT_SECTORS (lot_id,sector_code) values (62,'CH');
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (63,'CH'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (64,'CH'); 
 INSERT INTO LOT_SECTORS (lot_id,sector_code) values (65,'CH'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (66,'CH'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (67,'CH'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (68,'CH'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (69,'CH'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (70,'CH'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (71,'CH'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (72,'CH'); 
+INSERT INTO LOT_SECTORS (lot_id,sector_code) values (73,'CH'); 
 
 

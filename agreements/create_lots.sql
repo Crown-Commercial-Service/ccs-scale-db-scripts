@@ -1266,8 +1266,162 @@ values
  'Lot 1',
  'Building Cleaning Services',
  'Building Cleaning Services description',
- 13,
+ 14,
  'Services',
  '30-Mar-2020',
  '25-Feb-2024'); 
+ 
+ -- RM3804 CA FK 15, 8 Lots
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(66,
+ 'Lot 1',
+ 'Technology Strategy and Service Design',
+ 'Technology Strategy and Service Design description',
+ 15,
+ 'Services',
+ '06-Sep-2017',
+ '05-Sep-2021'); 
+ 
+INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(67,
+ 'Lot 2',
+ 'Transition and Transformation',
+ 'Transition and Transformation description',
+ 15,
+ 'Services',
+ '06-Sep-2017',
+ '05-Sep-2021'); 
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(68,
+ 'Lot 3a',
+ 'Operational Services - End User Services',
+ 'Operational Services - End User Services description',
+ 15,
+ 'Services',
+ '06-Sep-2017',
+ '05-Sep-2021'); 
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(69,
+ 'Lot 3b',
+ 'Operational Services - Operational Management',
+ 'Operational Services - Operational Management',
+ 15,
+ 'Services',
+ '06-Sep-2017',
+ '05-Sep-2021'); 
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(70,
+ 'Lot 3c',
+ 'Operational Services - Technical Management',
+ 'Operational Services - Technical Management description',
+ 15,
+ 'Services',
+ '06-Sep-2017',
+ '05-Sep-2021'); 
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(71,
+ 'Lot 3d',
+ 'Operational Services - Application and Data Management',
+ 'Operational Services - Application and Data Management description',
+ 15,
+ 'Services',
+ '06-Sep-2017',
+ '05-Sep-2021'); 
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(72,
+ 'Lot 4a',
+ 'Programmes and Large Projects - Government Official Security Classification',
+ 'Programmes and Large Projects - Government Official Security Classification description',
+ 15,
+ 'Services',
+ '06-Sep-2017',
+ '05-Sep-2021'); 
+ 
+ INSERT INTO lOTS
+(lot_id,
+ lot_number,
+ lot_name,
+ lot_description,          
+ commercial_agreement_id, -- FK back to commercial agreements
+ lot_type,                -- Valid values Services, Products or Products and Services
+ start_date,
+ end_date)
+values 
+(73,
+ 'Lot 4b',
+ 'Programmes and Large Projects - Above Government Official Classification',
+ 'Programmes and Large Projects - Above Government Official Classification description',
+ 15,
+ 'Services',
+ '06-Sep-2017',
+ '05-Sep-2021'); 
  
