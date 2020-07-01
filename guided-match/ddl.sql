@@ -7,7 +7,7 @@ Description This file is a script to create the tables for the Find a Thing data
             
 Version No Version Description
 ---------- -------------------
-v001       Initial Release
+V0.0.1       Initial Release
 
 */
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
