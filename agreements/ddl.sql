@@ -5,7 +5,9 @@ Author      Trevor Cummings
 Description This file is a script to create the tables for the Agreements database. The data model for Agreements will be 
             deployed in a postgreSQL database.
             
-            
+Version No Version Description
+---------- -------------------
+V0.0.1       Initial Release
 */
 
 CREATE TABLE commercial_agreements (
