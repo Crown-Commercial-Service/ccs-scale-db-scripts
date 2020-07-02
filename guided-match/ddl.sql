@@ -5,6 +5,9 @@ Description This file is a script to create the tables for the Find a Thing data
             two separate databases. One will be a postgreSQL database for our relational tables and the other will be a Neo4j
             for the graph database.
 
+Version No Version Description
+---------- -------------------
+V0.0.1       Initial Release
 */
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
