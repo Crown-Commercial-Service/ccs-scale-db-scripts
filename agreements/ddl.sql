@@ -133,7 +133,42 @@ CREATE TABLE lot_related_lots (
   PRIMARY KEY (lot_id,lot_rule_id)
 );     
             
-CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id);         
+CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id); 
+
+CREATE TABLE organisations (
+  organisation_id     SERIAL         NOT NULL PRIMARY KEY,
+  organisation_name   VARCHAR(255)   NOT NULL UNIQUE,
+  alias_name          VARCHAR(255)   NOT NULL UNIQUE,
+  supplier_ind        BIT            NOT NULL,
+  buyer_ind           BIT            NOT NULL,
+  business_type       INTEGER        NOT NULL,
+  organisation_uri    VARCHAR(2000),
+  creation_date       DATE           NOT NULL,
+  country_of_creation VARCHAR(2)    NOT NULL,
+  parent_org_id       INTEGER,
+  top_level_org_id    INTEGER,
+  organisation_status INTEGER
+);
+
+CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
+CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (top_level_org_id);
+            
+CREATE TABLE lot_suppliers (
+  lot_id              INTEGER   NOT NULL,
+  organisation_id     INTEGER   NOT NULL,
+  start_date          TIMESTAMP NOT NULL,
+  end_date            TIMESTAMP,
+  PRIMARY KEY (lot_id, organisation_id)
+);
+
+CREATE TABLE commercial_agreement_suppliers (
+  commercial_agreement_id INTEGER   NOT NULL,
+  organisation_id         INTEGER   NOT NULL,
+  start_date              TIMESTAMP NOT NULL,
+  end_date                TIMESTAMP,
+  PRIMARY KEY (commercial_agreement_id, organisation_id)
+);
+
 
 ALTER TABLE lots 
 ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
