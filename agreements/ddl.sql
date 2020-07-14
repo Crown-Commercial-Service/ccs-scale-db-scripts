@@ -214,5 +214,28 @@ ADD CONSTRAINT lot_rule_attributes_lot_rule_fk FOREIGN KEY (lot_rule_id)
     
 ALTER TABLE lot_rule_transaction_objects
 ADD CONSTRAINT lot_rule_transaction_objects_lot_rule_fk FOREIGN KEY (lot_rule_id) 
-    REFERENCES lot_rules (lot_rule_id);        
+    REFERENCES lot_rules (lot_rule_id); 
     
+ALTER TABLE organisations
+ADD CONSTRAINT organisations_organisations_fk1 FOREIGN KEY (parent_org_id) 
+    REFERENCES organisations (organisation_id);  
+    
+ALTER TABLE organisations
+ADD CONSTRAINT organisations_organisations_fk2 FOREIGN KEY (top_level_org_id) 
+    REFERENCES organisations (organisation_id);
+    
+ALTER TABLE lot_suppliers
+ADD CONSTRAINT lots_suppliers_organisations_fk FOREIGN KEY (organisation_id) 
+    REFERENCES organisations (organisation_id);  
+    
+ALTER TABLE lot_suppliers
+ADD CONSTRAINT lot_suppliers_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);
+    
+ALTER TABLE commercial_agreement_suppliers
+ADD CONSTRAINT commercial_agreement_organisations_fk FOREIGN KEY (organisation_id) 
+    REFERENCES organisations (organisation_id);      
+    
+ALTER TABLE commercial_agreement_suppliers 
+ADD CONSTRAINT commercial_agreement_suppliers_commercial_agreements_fk FOREIGN KEY (commercial_agreement_id) 
+    REFERENCES commercial_agreements (commercial_agreement_id);    
