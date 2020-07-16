@@ -218,7 +218,7 @@ ADD CONSTRAINT organisations_organisations_fk1 FOREIGN KEY (parent_org_id)
     REFERENCES organisations (organisation_id);  
     
 ALTER TABLE organisations
-ADD CONSTRAINT organisations_organisations_fk2 FOREIGN KEY (top_level_org_id) 
+ADD CONSTRAINT organisations_organisations_fk2 FOREIGN KEY (ultimate_org_id) 
     REFERENCES organisations (organisation_id);
     
 ALTER TABLE lot_suppliers
