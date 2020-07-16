@@ -136,18 +136,15 @@ CREATE TABLE lot_related_lots (
 CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id); 
 
 CREATE TABLE organisations (
-  organisation_id     SERIAL         NOT NULL PRIMARY KEY,
-  organisation_name   VARCHAR(255)   NOT NULL UNIQUE,
-  alias_name          VARCHAR(255)   NOT NULL UNIQUE,
-  supplier_ind        BIT            NOT NULL,
-  buyer_ind           BIT            NOT NULL,
-  business_type       INTEGER        NOT NULL,
-  organisation_uri    VARCHAR(2000),
-  creation_date       DATE           NOT NULL,
-  country_of_creation VARCHAR(2)    NOT NULL,
-  parent_org_id       INTEGER,
-  top_level_org_id    INTEGER,
-  organisation_status INTEGER
+  organisation_id          SERIAL         NOT NULL PRIMARY KEY,
+  organisation_name        VARCHAR(255)   NOT NULL UNIQUE,
+  business_type            INTEGER        NOT NULL,
+  organisation_uri         VARCHAR(2000),
+  incorporation_date       DATE           NOT NULL,
+  country_of_incorporation VARCHAR(2)    NOT NULL,
+  parent_org_id            INTEGER,
+  top_level_org_id         INTEGER,
+  organisation_status      INTEGER
 );
 
 CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
