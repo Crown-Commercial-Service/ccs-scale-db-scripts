@@ -137,7 +137,7 @@ CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id);
 
 CREATE TABLE organisations (
   organisation_id          SERIAL         NOT NULL PRIMARY KEY,
-  organisation_name        VARCHAR(255)   NOT NULL UNIQUE,
+  legal_name               VARCHAR(255)   NOT NULL UNIQUE,
   business_type            INTEGER        NOT NULL,
   organisation_uri         VARCHAR(2000),
   incorporation_date       DATE           NOT NULL,
