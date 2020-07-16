@@ -5,7 +5,7 @@ Author      Trevor Cummings
 Description This file is a script to create data for ORGANISATIONS. This data eventually will reside in Conclave     
 */
 INSERT INTO ORGANISATIONS (
-  organisation_name,
+  legal_name,
   business_type,
   organisation_uri,
   incorporation_date,
