@@ -1,5 +1,5 @@
 /*
-Title       create_organisations.sql
+Title       create_lot_suppliers.sql
 Date        July 16th 2020
 Author      Trevor Cummings
 Description This file is a script to create data for ORGANISATIONS. This data eventually will reside in Conclave     
