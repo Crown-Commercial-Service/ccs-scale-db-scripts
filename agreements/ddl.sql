@@ -148,7 +148,7 @@ CREATE TABLE organisations (
 );
 
 CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
-CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (top_level_org_id);
+CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (ultimate_org_id);
             
 CREATE TABLE lot_suppliers (
   lot_id              INTEGER   NOT NULL,
