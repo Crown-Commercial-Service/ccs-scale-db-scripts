@@ -143,7 +143,7 @@ CREATE TABLE organisations (
   incorporation_date       DATE           NOT NULL,
   country_of_incorporation VARCHAR(2)    NOT NULL,
   parent_org_id            INTEGER,
-  top_level_org_id         INTEGER,
+  ultimate_org_id          INTEGER,
   organisation_status      INTEGER
 );
 
