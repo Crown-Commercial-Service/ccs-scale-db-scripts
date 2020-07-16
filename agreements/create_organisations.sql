@@ -18,14 +18,13 @@ INSERT INTO ORGANISATIONS (
   values 
 ('ACS Business Supplies Ltd',
  'ACSACS',
- 1,
- 0,
+ B'1',
+ B'0',
  1,
  'www.acsacs.co.uk',
  '01-Jan-2018',
  'GB',
  null,
  null,
- 'ACTIVE',
  1);
         
