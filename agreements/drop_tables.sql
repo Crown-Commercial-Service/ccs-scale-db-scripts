@@ -11,7 +11,7 @@ Description This file is a script to drop the tables for the Agreements database
 
 DROP TABLE lot_suppliers;
 
-DROP TABLE commercial_agreement_suppliers
+DROP TABLE commercial_agreement_suppliers;
 
 DROP TABLE organisations;
 
@@ -22,6 +22,18 @@ DROP TABLE route_to_market;
 DROP TABLE lot_sectors;
 
 DROP TABLE sectors;
+
+DROP TABLE trading_organisations ; 
+
+DROP TABLE trading_organisation_types;
+  
+DROP TABLE CONTACT_POINTS;
+
+DROP TABLE contact_point_reasons; 
+
+DROP TABLE contact_methods; 
+
+DROP TABLE contact_method_types;
 
 DROP TABLE commercial_agreement_contacts;
 
@@ -36,5 +48,3 @@ DROP TABLE lot_rules;
 DROP TABLE lots;
 
 DROP TABLE commercial_agreements;
-
-
