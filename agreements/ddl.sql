@@ -166,6 +166,60 @@ CREATE TABLE commercial_agreement_suppliers (
   PRIMARY KEY (commercial_agreement_id, organisation_id)
 );
 
+CREATE TABLE trading_organisation_types (
+  trading_organisation_type_id          INTEGER PRIMARY KEY,
+  trading_organisation_type_name        VARCHAR(20) UNIQUE NOT NULL,
+  trading_organisation_type_description VARCHAR(1000));
+  
+CREATE TABLE trading_organisations (
+  trading_organisation_id         INTEGER PRIMARY KEY,
+  trading_organisation_type_id    INTEGER NOT NULL,
+  organisation_id                 INTEGER NOT NULL,
+  trading_organisation_name       VARCHAR(255) NOT NULL); 
+  
+CREATE INDEX TRADING_ORGANISATIONS_IDX1 ON TRADING_ORGANISATIONS(trading_organisation_name); 
+  
+CREATE TABLE contact_method_types (
+  contact_method_type_id          INTEGER PRIMARY KEY,
+  contact_method_type_name        VARCHAR(20) NOT NULL,
+  contact_method_type_description VARCHAR(1000));
+  
+CREATE INDEX CONTACT_METHOD_TYPES_IDX1 ON CONTACT_METHOD_TYPES (contact_method_type_name); 
+
+CREATE TABLE contact_point_reasons (
+  contact_point_reason_id          INTEGER PRIMARY KEY,
+  contact_point_reason_name        VARCHAR(20) NOT NULL,
+  contact_point_reason_description VARCHAR(1000),
+  source_application_system        VARCHAR(100));
+  
+CREATE INDEX CONTACT_POINT_REASONS_IDX1 ON CONTACT_POINT_REASONS (contact_point_reason_name); 
+  
+CREATE TABLE contact_methods (
+  contact_method_id      BIGSERIAL PRIMARY KEY,
+  contact_method_type_id INTEGER NOT NULL,
+  effective_from         TIMESTAMP NOT NULL,
+  effective_to           TIMESTAMP,
+  virtual_address_value  VARCHAR(500),
+  street_address         VARCHAR(100),
+  locality               VARCHAR(100),
+  region                 VARCHAR(100),
+  postal_code            VARCHAR(20),
+  country_code           VARCHAR(2),
+  uprn                   INTEGER);
+  
+CREATE INDEX CONTACT_METHODS_IDX1 ON CONTACT_METHODS (effective_from);
+  
+CREATE TABLE CONTACT_POINTS(
+  contact_point_id BIGSERIAL PRIMARY KEY,
+  contact_method_id INTEGER NOT NULL,
+  contact_point_reason_id INTEGER NOT NULL,
+  party_id                INTEGER NOT NULL,
+  effective_from          TIMESTAMP NOT NULL,
+  effecive_to             TIMESTAMP,
+  primary_ind             BOOLEAN,
+  source_application_system        VARCHAR(100));
+  
+CREATE INDEX CONTACT_POINTS_IDX1 ON CONTACT_POINTS (party_id, effective_from);
 
 ALTER TABLE lots 
 ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
@@ -236,3 +290,22 @@ ADD CONSTRAINT commercial_agreement_organisations_fk FOREIGN KEY (organisation_i
 ALTER TABLE commercial_agreement_suppliers 
 ADD CONSTRAINT commercial_agreement_suppliers_commercial_agreements_fk FOREIGN KEY (commercial_agreement_id) 
     REFERENCES commercial_agreements (commercial_agreement_id);    
+
+ALTER TABLE trading_organisations 
+ADD CONSTRAINT trading_organisations_trading_organisation_types_fk FOREIGN KEY (trading_organisation_type_id ) 
+    REFERENCES trading_organisation_types (trading_organisation_type_id );
+	
+ALTER TABLE contact_methods 
+ADD CONSTRAINT contact_methods_contact_method_types_fk FOREIGN KEY (contact_method_type_id) 
+    REFERENCES contact_method_types (contact_method_type_id);
+	
+ALTER TABLE contact_points
+ADD CONSTRAINT contact_points_contact_methods_fk FOREIGN KEY(contact_method_id)
+    REFERENCES contact_methods (contact_method_id);
+
+ALTER TABLE contact_points
+ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
+    REFERENCES contact_point_reasons (contact_point_reason_id);
+
+
+  
