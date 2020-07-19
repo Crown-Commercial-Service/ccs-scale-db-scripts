@@ -2,7 +2,7 @@
 Title       create_contact_method_types.sql
 Date        July 19th 2020
 Author      Trevor Cummings
-Description This file is a script to create data for ORGANISATION_TYPES. This data eventually will reside in Conclave     
+Description This file is a script to create data for contact_method_types. This data eventually will reside in Conclave     
 */
 INSERT INTO public.contact_method_types(
 	contact_method_type_id, contact_method_type_name, contact_method_type_description)
