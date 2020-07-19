@@ -188,7 +188,7 @@ CREATE INDEX CONTACT_METHOD_TYPES_IDX1 ON CONTACT_METHOD_TYPES (contact_method_t
 
 CREATE TABLE contact_point_reasons (
   contact_point_reason_id          INTEGER PRIMARY KEY,
-  contact_point_reason_name        VARCHAR(20) NOT NULL,
+  contact_point_reason_name        VARCHAR(100) NOT NULL,
   contact_point_reason_description VARCHAR(1000),
   source_application_system        VARCHAR(100));
   
