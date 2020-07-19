@@ -168,7 +168,7 @@ CREATE TABLE commercial_agreement_suppliers (
 
 CREATE TABLE trading_organisation_types (
   trading_organisation_type_id          INTEGER PRIMARY KEY,
-  trading_organisation_type_name        VARCHAR(20) UNIQUE NOT NULL,
+  trading_organisation_type_name        VARCHAR(100) UNIQUE NOT NULL,
   trading_organisation_type_description VARCHAR(1000));
   
 CREATE TABLE trading_organisations (
