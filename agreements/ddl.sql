@@ -195,7 +195,7 @@ lot_role_name           VARCHAR(100) NOT NULL
 );	
   
 CREATE TABLE lot_organisation_role_types (
-role_id             INTEGER PRIMARY KEY,
+role_type_id             INTEGER PRIMARY KEY,
 role_name           VARCHAR(100) NOT NULL	
 );
 
