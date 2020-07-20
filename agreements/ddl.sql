@@ -162,7 +162,7 @@ title           VARCHAR(50)  NOT NULL
 CREATE TABLE lot_organisations (
   lot_id                          INTEGER   NOT NULL,
   organisation_id                 INTEGER   NOT NULL,
-  role_type_id	                  INTEGER   NOT NULL
+  role_type_id	                  INTEGER   NOT NULL,
   trading_organisation_id         INTEGER,           	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
