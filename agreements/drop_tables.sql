@@ -9,12 +9,6 @@ Description This file is a script to drop the tables for the Agreements database
 
 */
 
-DROP TABLE lot_organisation_role_types;
-
-DROP TABLE lot_people_role_types;
-
-DROP TABLE commercial_agreement_role_types;
-
 DROP TABLE commercial_agreement_organisation_roles;
 
 DROP TABLE lot_people_roles;
@@ -56,3 +50,10 @@ DROP TABLE lot_rules;
 DROP TABLE lots;
 
 DROP TABLE commercial_agreements;
+
+DROP TABLE lot_people_role_types;
+
+DROP TABLE commercial_agreement_role_types;
+
+DROP TABLE lot_organisation_role_types;
+
