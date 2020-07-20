@@ -330,7 +330,7 @@ ADD CONSTRAINT caor_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id
 
 ALTER TABLE commercial_agreement_organisation_roles 
 ADD CONSTRAINT caor_commercial_agreement_roles_fk FOREIGN KEY (role_type_id) 
-    REFERENCES commercial_agreement_roles (role_type_id);    
+    REFERENCES commercial_agreement_role_types (role_type_id);    
 
 ALTER TABLE trading_organisations 
 ADD CONSTRAINT trading_organisations_organisations_fk FOREIGN KEY (organisation_id ) 
