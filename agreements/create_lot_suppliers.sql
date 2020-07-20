@@ -5,8 +5,8 @@ Author      Trevor Cummings
 Description This file is a script to create data for ORGANISATIONS. This data eventually will reside in Conclave     
 */
 INSERT INTO LOT_SUPPLIERS (lot_id, 
-                           responsible_organisation_id,
-                           responsible_person_id, 
+                           organisation_id,
+                           trading_organisation_id, 
                            start_date, 
                            end_date)
 values
