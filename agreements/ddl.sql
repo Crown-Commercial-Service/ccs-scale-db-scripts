@@ -151,10 +151,11 @@ CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
 CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (ultimate_org_id);
             
 CREATE TABLE lot_suppliers (
-  lot_id              INTEGER   NOT NULL,
-  organisation_id     INTEGER   NOT NULL,
-  start_date          TIMESTAMP NOT NULL,
-  end_date            TIMESTAMP,
+  lot_id                          INTEGER   NOT NULL,
+  responsible organisation_id     INTEGER   NOT NULL,
+  responsible_user_id             INTEGER   NOT NULL,	
+  start_date                      TIMESTAMP NOT NULL,
+  end_date                        TIMESTAMP,
   PRIMARY KEY (lot_id, organisation_id)
 );
 
