@@ -15,6 +15,8 @@ DROP TABLE commercial_agreement_suppliers;
 
 DROP TABLE organisations;
 
+DROP TABLE people;
+
 DROP TABLE lot_route_to_market;
 
 DROP TABLE route_to_market;
