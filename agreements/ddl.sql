@@ -170,18 +170,29 @@ CREATE TABLE lot_suppliers (
 
 CREATE TABLE lot_supplier_roles (
   lot_id                          INTEGER   NOT NULL,
+  organisation_id	          INTEGER   NOT NULL,
+  lot_role_id                     INTEGER   NOT NULL,	
+  start_date                      TIMESTAMP NOT NULL,
+  end_date                        TIMESTAMP,
+  PRIMARY KEY (lot_id, organisation_id, lot_role_id)
+);
+
+CREATE TABLE lot_supplier_people_roles (
+  lot_id                          INTEGER   NOT NULL,
+  organisation_id	          INTEGER   NOT NULL,
   person_id                       INTEGER   NOT NULL,
   lot_role_id                     INTEGER   NOT NULL,	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
-  PRIMARY KEY (lot_id, person_id, lot_role_id)
+  PRIMARY KEY (lot_id, organisation_id, person_id, lot_role_id)
 );
 
 CREATE TABLE commercial_agreement_organisation_roles (
-  commercial_agreement_id INTEGER   NOT NULL,
-  organisation_id         INTEGER   NOT NULL,
-  start_date              TIMESTAMP NOT NULL,
-  end_date                TIMESTAMP,
+  commercial_agreement_id      INTEGER   NOT NULL,
+  organisation_id              INTEGER   NOT NULL,
+  commercial_agreement_role_id INTEGER   NOT NULL,
+  start_date                   TIMESTAMP NOT NULL,
+  end_date                     TIMESTAMP,
   PRIMARY KEY (commercial_agreement_id, organisation_id)
 );
 
