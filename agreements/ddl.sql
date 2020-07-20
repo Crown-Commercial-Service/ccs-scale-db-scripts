@@ -308,14 +308,18 @@ ALTER TABLE organisations
 ADD CONSTRAINT organisations_organisations_fk2 FOREIGN KEY (ultimate_org_id) 
     REFERENCES organisations (organisation_id);
     
-ALTER TABLE lot_suppliers
-ADD CONSTRAINT lots_suppliers_organisations_fk FOREIGN KEY (organisation_id) 
+ALTER TABLE lot_organisation_roles
+ADD CONSTRAINT lots_organisation_organisations_fk FOREIGN KEY (organisation_id) 
     REFERENCES organisations (organisation_id);  
     
-ALTER TABLE lot_suppliers
-ADD CONSTRAINT lot_suppliers_lots_fk FOREIGN KEY (lot_id) 
+ALTER TABLE lot_organisation_roles
+ADD CONSTRAINT lot_organisation_lots_fk FOREIGN KEY (lot_id) 
     REFERENCES lots (lot_id);
     
+ALTER TABLE lot_organisation_roles
+ADD CONSTRAINT lot_organisation_lort_fk FOREIGN KEY (role_type_id) 
+    REFERENCES lots (role_type_id);
+					   
 ALTER TABLE commercial_agreement_organisation_roles
 ADD CONSTRAINT caor_organisations_fk FOREIGN KEY (organisation_id) 
     REFERENCES organisations (organisation_id);      
@@ -325,8 +329,8 @@ ADD CONSTRAINT caor_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id
     REFERENCES commercial_agreements (commercial_agreement_id);    
 
 ALTER TABLE commercial_agreement_organisation_roles 
-ADD CONSTRAINT caor_commercial_agreement_roles_fk FOREIGN KEY (commercial_agreement_role_id) 
-    REFERENCES commercial_agreement_roles (commercial_agreement_role_id);    
+ADD CONSTRAINT caor_commercial_agreement_roles_fk FOREIGN KEY (role_type_id) 
+    REFERENCES commercial_agreement_roles (role_type_id);    
 
 ALTER TABLE trading_organisations 
 ADD CONSTRAINT trading_organisations_organisations_fk FOREIGN KEY (organisation_id ) 
@@ -344,18 +348,14 @@ ALTER TABLE contact_points
 ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
     REFERENCES contact_point_reasons (contact_point_reason_id);
 					   
-ALTER TABLE lot_supplier_people_roles 
-ADD CONSTRAINT lot_supplier_roles_people_fk FOREIGN KEY (person_id)
+ALTER TABLE lot_people_roles 
+ADD CONSTRAINT lot_people_role_people_fk FOREIGN KEY (person_id)
     REFERENCES people (person_id);						   				   
 
-ALTER TABLE lot_supplier_people_roles 
-ADD CONSTRAINT lot_supplier_roles_organisation_fk FOREIGN KEY (organisation_id)
-    REFERENCES organisations (organisation_id);	
-
-ALTER TABLE lot_supplier_roles 
-ADD CONSTRAINT lot_supplier_roles_organisation_fk FOREIGN KEY (organisation_id)
-    REFERENCES organisations (organisation_id);	
-
+ALTER TABLE lot_people_roles 
+ADD CONSTRAINT lot_people_roles_people_fk FOREIGN KEY (role_type_id)
+    REFERENCES lot_people_role_types (role_type_id);	
+					   
 ALTER TABLE people 
 ADD CONSTRAINT people_organisations_fk FOREIGN KEY (organisation_id)
     REFERENCES organisations (organisation_id);					   
