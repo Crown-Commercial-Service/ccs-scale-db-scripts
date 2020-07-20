@@ -319,15 +319,15 @@ ADD CONSTRAINT lot_suppliers_lots_fk FOREIGN KEY (lot_id)
     REFERENCES lots (lot_id);
     
 ALTER TABLE commercial_agreement_organisation_roles
-ADD CONSTRAINT commercial_agreement_organisations_organisations_fk FOREIGN KEY (organisation_id) 
+ADD CONSTRAINT caor_organisations_fk FOREIGN KEY (organisation_id) 
     REFERENCES organisations (organisation_id);      
     
 ALTER TABLE commercial_agreement_organisation_roles 
-ADD CONSTRAINT commercial_agreement_organisation_roles_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
+ADD CONSTRAINT caor_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
     REFERENCES commercial_agreements (commercial_agreement_id);    
 
 ALTER TABLE commercial_agreement_organisation_roles 
-ADD CONSTRAINT commercial_agreement_organisation_roles_commercial_agreement_roles_fk FOREIGN KEY (commercial_agreement_role_id) 
+ADD CONSTRAINT caor_commercial_agreement_roles_fk FOREIGN KEY (commercial_agreement_role_id) 
     REFERENCES commercial_agreement_roles (commercial_agreement_role_id);    
 
 ALTER TABLE trading_organisations 
