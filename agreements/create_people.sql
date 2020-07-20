@@ -9,7 +9,7 @@ INSERT INTO people (organisation_id,
                     last_name,
                     title)
 values
-                    (1,
+                    ((select organisation_id from organisations where legal_name = 'ACS Business Supplies Ltd'),
                     'Linus',
                     'Van Pelt'
                     'Master');
