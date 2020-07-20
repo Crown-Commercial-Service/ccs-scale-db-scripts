@@ -159,14 +159,14 @@ title           VARCHAR(50)  NOT NULL
 );	
 
 
-CREATE TABLE lot_organisations (
+CREATE TABLE lot_organisation_roles (
   lot_id                          INTEGER   NOT NULL,
   organisation_id                 INTEGER   NOT NULL,
   role_type_id	                  INTEGER   NOT NULL,
   trading_organisation_id         INTEGER,           	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
-  PRIMARY KEY (lot_id, organisation_id)
+  PRIMARY KEY (lot_id, organisation_id, role_type_id)
 );
 
 
@@ -177,7 +177,7 @@ CREATE TABLE lot_supplier_people_roles (
   role_type_id                    INTEGER   NOT NULL,	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
-  PRIMARY KEY (lot_id, organisation_id, person_id, lot_role_id)
+  PRIMARY KEY (lot_id, organisation_id, person_id, role_type_id)
 );
 
 CREATE TABLE commercial_agreement_organisation_roles (
@@ -186,7 +186,7 @@ CREATE TABLE commercial_agreement_organisation_roles (
   role_type_id INTEGER         NOT NULL,
   start_date                   TIMESTAMP NOT NULL,
   end_date                     TIMESTAMP,
-  PRIMARY KEY (commercial_agreement_id, organisation_id)
+  PRIMARY KEY (commercial_agreement_id, organisation_id, role_type_id)
 );
 
 CREATE TABLE lot_people_role_types (
