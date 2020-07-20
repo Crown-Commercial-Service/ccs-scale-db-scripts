@@ -159,29 +159,22 @@ title           VARCHAR(50)  NOT NULL
 );	
 
 
-CREATE TABLE lot_suppliers (
+CREATE TABLE lot_organisations (
   lot_id                          INTEGER   NOT NULL,
   organisation_id                 INTEGER   NOT NULL,
+  role_type_id	
   trading_organisation_id         INTEGER,           	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
   PRIMARY KEY (lot_id, organisation_id)
 );
 
-CREATE TABLE lot_supplier_roles (
-  lot_id                          INTEGER   NOT NULL,
-  organisation_id	          INTEGER   NOT NULL,
-  lot_role_id                     INTEGER   NOT NULL,	
-  start_date                      TIMESTAMP NOT NULL,
-  end_date                        TIMESTAMP,
-  PRIMARY KEY (lot_id, organisation_id, lot_role_id)
-);
 
 CREATE TABLE lot_supplier_people_roles (
   lot_id                          INTEGER   NOT NULL,
   organisation_id	          INTEGER   NOT NULL,
   person_id                       INTEGER   NOT NULL,
-  lot_role_id                     INTEGER   NOT NULL,	
+  role_type_id                    INTEGER   NOT NULL,	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
   PRIMARY KEY (lot_id, organisation_id, person_id, lot_role_id)
@@ -190,20 +183,25 @@ CREATE TABLE lot_supplier_people_roles (
 CREATE TABLE commercial_agreement_organisation_roles (
   commercial_agreement_id      INTEGER   NOT NULL,
   organisation_id              INTEGER   NOT NULL,
-  commercial_agreement_role_id INTEGER   NOT NULL,
+  role_type_id INTEGER         NOT NULL,
   start_date                   TIMESTAMP NOT NULL,
   end_date                     TIMESTAMP,
   PRIMARY KEY (commercial_agreement_id, organisation_id)
 );
 
-CREATE TABLE lot_roles (
+CREATE TABLE lot_people_role_types (
 lot_role_id             INTEGER PRIMARY KEY,
 lot_role_name           VARCHAR(100) NOT NULL	
 );	
   
-CREATE TABLE commercial_agreement_roles (
-commercial_agreement_role_id             INTEGER PRIMARY KEY,
-commercial_agreement_role_name           VARCHAR(100) NOT NULL	
+CREATE TABLE lot_organisation_role_types (
+role_id             INTEGER PRIMARY KEY,
+role_name           VARCHAR(100) NOT NULL	
+);
+
+CREATE TABLE commercial_agreement_role_types (
+role_type_id             INTEGER PRIMARY KEY,
+role_type_name           VARCHAR(100) NOT NULL	
 );  
 
 CREATE TABLE trading_organisations (
