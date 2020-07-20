@@ -170,7 +170,7 @@ CREATE TABLE lot_organisation_roles (
 );
 
 
-CREATE TABLE lot_supplier_people_roles (
+CREATE TABLE lot_people_roles (
   lot_id                          INTEGER   NOT NULL,
   organisation_id	          INTEGER   NOT NULL,
   person_id                       INTEGER   NOT NULL,
