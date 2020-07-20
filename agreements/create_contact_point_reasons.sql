@@ -7,3 +7,7 @@ Description This file is a script to create data for contact_point_reasons. This
 INSERT INTO public.contact_point_reasons(
 	contact_point_reason_id, contact_point_reason_name, contact_point_reason_description, source_application_system)
 	VALUES (1, 'Organisation contact information', 'This reason is used to show applications that this reason should be used to contact the organisation'  , 'BaT');
+	
+INSERT INTO public.contact_point_reasons(
+	contact_point_reason_id, contact_point_reason_name, contact_point_reason_description, source_application_system)
+	VALUES (2, 'CCS Category Manager', 'To be used if the category manager requires contacting'  , 'BaT');	
