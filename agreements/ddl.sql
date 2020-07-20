@@ -176,7 +176,7 @@ CREATE TABLE lot_people_roles (
   role_type_id                    INTEGER   NOT NULL,	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
-  PRIMARY KEY (lot_id, organisation_id, person_id, role_type_id)
+  PRIMARY KEY (lot_id,  person_id, role_type_id)
 );
 
 CREATE TABLE commercial_agreement_organisation_roles (
