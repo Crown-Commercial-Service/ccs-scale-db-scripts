@@ -150,10 +150,18 @@ CREATE TABLE organisations (
 CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
 CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (ultimate_org_id);
             
+CREATE TABLE PEOPLE (
+person_id  SERIAL         NOT NULL PRIMARY KEY,
+first_name VARCHAR(100)   NOT NULL ,
+last_name  VARCHAR(100)   NOT NULL ,
+title      VARCHAR(50)    NOT NULL
+);	
+
+
 CREATE TABLE lot_suppliers (
   lot_id                          INTEGER   NOT NULL,
   responsible organisation_id     INTEGER   NOT NULL,
-  responsible_user_id             INTEGER   NOT NULL,	
+  responsible_person_id           INTEGER   NOT NULL,	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
   PRIMARY KEY (lot_id, organisation_id)
@@ -215,6 +223,7 @@ CREATE TABLE CONTACT_POINTS(
   contact_method_id INTEGER NOT NULL,
   contact_point_reason_id INTEGER NOT NULL,
   party_id                INTEGER NOT NULL,
+  party_table_name        VARCHAR(100) NOT NULL,	
   effective_from          TIMESTAMP NOT NULL,
   effecive_to             TIMESTAMP,
   primary_ind             BOOLEAN,
@@ -307,6 +316,10 @@ ADD CONSTRAINT contact_points_contact_methods_fk FOREIGN KEY(contact_method_id)
 ALTER TABLE contact_points
 ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
     REFERENCES contact_point_reasons (contact_point_reason_id);
+					   
+ALTER TABLE lot_suppliers 
+ADD CONSTRAINT lot_suppliers_people_fk (responsible_person_id)
+    REFERENCES people(person_id);					   
 
 
   
