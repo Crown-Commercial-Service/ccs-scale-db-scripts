@@ -19,6 +19,8 @@ DROP TABLE lot_roles;
 
 DROP TABLE commercial_agreement_organisation_roles;
 
+DROP TABLE lot_supplier_people_roles;
+
 DROP TABLE people;
 
 DROP TABLE trading_organisations ; 
