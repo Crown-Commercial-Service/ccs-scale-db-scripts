@@ -165,7 +165,7 @@ CREATE TABLE lot_suppliers (
   trading_organisation_id         INTEGER,           	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
-  PRIMARY KEY (lot_id, responsible_organisation_id)
+  PRIMARY KEY (lot_id, organisation_id)
 );
 
 CREATE TABLE lot_supplier_roles (
@@ -300,7 +300,7 @@ ADD CONSTRAINT organisations_organisations_fk2 FOREIGN KEY (ultimate_org_id)
     REFERENCES organisations (organisation_id);
     
 ALTER TABLE lot_suppliers
-ADD CONSTRAINT lots_suppliers_organisations_fk FOREIGN KEY (responsible_organisation_id) 
+ADD CONSTRAINT lots_suppliers_organisations_fk FOREIGN KEY (organisation_id) 
     REFERENCES organisations (organisation_id);  
     
 ALTER TABLE lot_suppliers
@@ -331,8 +331,8 @@ ALTER TABLE contact_points
 ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
     REFERENCES contact_point_reasons (contact_point_reason_id);
 					   
-ALTER TABLE lot_suppliers 
-ADD CONSTRAINT lot_suppliers_people_fk FOREIGN KEY (responsible_person_id)
+ALTER TABLE lot_role_suppliers 
+ADD CONSTRAINT lot_suppliers_people_fk FOREIGN KEY (person_id)
     REFERENCES people (person_id);					   
 
 ALTER TABLE people 
