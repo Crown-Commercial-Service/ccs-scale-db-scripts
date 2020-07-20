@@ -172,7 +172,6 @@ CREATE TABLE lot_organisation_roles (
 
 CREATE TABLE lot_people_roles (
   lot_id                          INTEGER   NOT NULL,
-  organisation_id	          INTEGER   NOT NULL,
   person_id                       INTEGER   NOT NULL,
   role_type_id                    INTEGER   NOT NULL,	
   start_date                      TIMESTAMP NOT NULL,
