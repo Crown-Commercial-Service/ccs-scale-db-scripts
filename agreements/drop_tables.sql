@@ -13,11 +13,11 @@ DROP TABLE lot_suppliers;
 
 DROP TABLE lot_supplier_roles;
 
-DROP TABLE commercial_agreement_roles;
-
 DROP TABLE lot_roles;
 
 DROP TABLE commercial_agreement_organisation_roles;
+
+DROP TABLE commercial_agreement_roles;
 
 DROP TABLE lot_supplier_people_roles;
 
