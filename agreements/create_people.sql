@@ -11,5 +11,5 @@ INSERT INTO people (organisation_id,
 values
                     ((select organisation_id from organisations where legal_name = 'ACS Business Supplies Ltd'),
                     'Linus',
-                    'Van Pelt'
+                    'Van Pelt',
                     'Master');
