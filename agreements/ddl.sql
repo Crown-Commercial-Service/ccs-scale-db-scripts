@@ -326,6 +326,10 @@ ALTER TABLE commercial_agreement_organisation_roles
 ADD CONSTRAINT commercial_agreement_organisation_roles_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
     REFERENCES commercial_agreements (commercial_agreement_id);    
 
+ALTER TABLE commercial_agreement_organisation_roles 
+ADD CONSTRAINT commercial_agreement_organisation_roles_commercial_agreement_roles_fk FOREIGN KEY (commercial_agreement_role_id) 
+    REFERENCES commercial_agreement_roles (commercial_agreement_role_id);    
+
 ALTER TABLE trading_organisations 
 ADD CONSTRAINT trading_organisations_organisations_fk FOREIGN KEY (organisation_id ) 
     REFERENCES organisations (organisation_id );
@@ -342,9 +346,17 @@ ALTER TABLE contact_points
 ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
     REFERENCES contact_point_reasons (contact_point_reason_id);
 					   
-ALTER TABLE lot_supplier_roles 
+ALTER TABLE lot_supplier_people_roles 
 ADD CONSTRAINT lot_supplier_roles_people_fk FOREIGN KEY (person_id)
-    REFERENCES people (person_id);					   				   
+    REFERENCES people (person_id);						   				   
+
+ALTER TABLE lot_supplier_people_roles 
+ADD CONSTRAINT lot_supplier_roles_organisation_fk FOREIGN KEY (organisation_id)
+    REFERENCES organisations (organisation_id);	
+
+ALTER TABLE lot_supplier_roles 
+ADD CONSTRAINT lot_supplier_roles_organisation_fk FOREIGN KEY (organisation_id)
+    REFERENCES organisations (organisation_id);	
 
 ALTER TABLE people 
 ADD CONSTRAINT people_organisations_fk FOREIGN KEY (organisation_id)
