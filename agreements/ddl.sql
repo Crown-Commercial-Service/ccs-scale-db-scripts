@@ -164,7 +164,7 @@ CREATE TABLE lot_suppliers (
   responsible_person_id           INTEGER   NOT NULL,	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
-  PRIMARY KEY (lot_id, organisation_id)
+  PRIMARY KEY (lot_id, responsible_organisation_id)
 );
 
 CREATE TABLE commercial_agreement_suppliers (
