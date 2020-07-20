@@ -15,6 +15,8 @@ DROP TABLE commercial_agreement_suppliers;
 
 DROP TABLE people;
 
+DROP TABLE trading_organisations ; 
+
 DROP TABLE organisations;
 
 DROP TABLE lot_route_to_market;
@@ -25,8 +27,6 @@ DROP TABLE lot_sectors;
 
 DROP TABLE sectors;
 
-DROP TABLE trading_organisations ; 
-  
 DROP TABLE contact_points;
 
 DROP TABLE contact_point_reasons; 
