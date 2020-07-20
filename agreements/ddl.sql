@@ -151,10 +151,11 @@ CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
 CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (ultimate_org_id);
             
 CREATE TABLE people (
-person_id  SERIAL         NOT NULL PRIMARY KEY,
-first_name VARCHAR(100)   NOT NULL ,
-last_name  VARCHAR(100)   NOT NULL ,
-title      VARCHAR(50)    NOT NULL
+person_id       SERIAL       NOT NULL PRIMARY KEY,
+organisation_id INTEGER      NOT NULL,	
+first_name      VARCHAR(100) NOT NULL ,
+last_name       VARCHAR(100) NOT NULL ,
+title           VARCHAR(50)  NOT NULL
 );	
 
 
@@ -320,6 +321,10 @@ ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point
 ALTER TABLE lot_suppliers 
 ADD CONSTRAINT lot_suppliers_people_fk FOREIGN KEY (responsible_person_id)
     REFERENCES people (person_id);					   
+
+ALTER TABLE people 
+ADD CONSTRAINT people_organisations_fk FOREIGN KEY (organisation_id)
+    REFERENCES people (organisation_id);					   
 
 
   
