@@ -160,7 +160,7 @@ title      VARCHAR(50)    NOT NULL
 
 CREATE TABLE lot_suppliers (
   lot_id                          INTEGER   NOT NULL,
-  responsible organisation_id     INTEGER   NOT NULL,
+  responsible_organisation_id     INTEGER   NOT NULL,
   responsible_person_id           INTEGER   NOT NULL,	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
@@ -318,8 +318,8 @@ ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point
     REFERENCES contact_point_reasons (contact_point_reason_id);
 					   
 ALTER TABLE lot_suppliers 
-ADD CONSTRAINT lot_suppliers_people_fk (responsible_person_id)
-    REFERENCES people(person_id);					   
+ADD CONSTRAINT lot_suppliers_people_fk FOREIGN KEY (responsible_person_id)
+    REFERENCES people (person_id);					   
 
 
   
