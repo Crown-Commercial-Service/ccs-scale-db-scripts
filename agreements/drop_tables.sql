@@ -26,10 +26,8 @@ DROP TABLE lot_sectors;
 DROP TABLE sectors;
 
 DROP TABLE trading_organisations ; 
-
-DROP TABLE trading_organisation_types;
   
-DROP TABLE CONTACT_POINTS;
+DROP TABLE contact_points;
 
 DROP TABLE contact_point_reasons; 
 
