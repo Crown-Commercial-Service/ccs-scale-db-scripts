@@ -190,13 +190,13 @@ CREATE TABLE commercial_agreement_organisation_roles (
 );
 
 CREATE TABLE lot_people_role_types (
-lot_role_id             INTEGER PRIMARY KEY,
-lot_role_name           VARCHAR(100) NOT NULL	
+role_type_id             INTEGER PRIMARY KEY,
+role_type_name           VARCHAR(100) NOT NULL	
 );	
   
 CREATE TABLE lot_organisation_role_types (
 role_type_id             INTEGER PRIMARY KEY,
-role_name           VARCHAR(100) NOT NULL	
+role_type_name           VARCHAR(100) NOT NULL	
 );
 
 CREATE TABLE commercial_agreement_role_types (
