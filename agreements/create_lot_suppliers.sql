@@ -4,6 +4,14 @@ Date        July 16th 2020
 Author      Trevor Cummings
 Description This file is a script to create data for ORGANISATIONS. This data eventually will reside in Conclave     
 */
-INSERT INTO LOT_SUPPLIERS (lot_id, organisation_id, start_date, end_date)
+INSERT INTO LOT_SUPPLIERS (lot_id, 
+                           responsible_organisation_id,
+                           responsible_person_id, 
+                           start_date, 
+                           end_date)
 values
-                          (6, (select organisation_id from organisations where legal_name = 'ACS Business Supplies Ltd'),'31-OCT-2016','31-OCT-2021');
+                          (6, 
+                           (select organisation_id from organisations where legal_name = 'ACS Business Supplies Ltd'),
+                           1,
+                           '31-OCT-2016',
+                           '31-OCT-2021');
