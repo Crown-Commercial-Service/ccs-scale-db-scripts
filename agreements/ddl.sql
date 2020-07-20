@@ -324,7 +324,7 @@ ADD CONSTRAINT lot_suppliers_people_fk FOREIGN KEY (responsible_person_id)
 
 ALTER TABLE people 
 ADD CONSTRAINT people_organisations_fk FOREIGN KEY (organisation_id)
-    REFERENCES people (organisation_id);					   
+    REFERENCES organisations (organisation_id);					   
 
 
   
