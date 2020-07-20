@@ -150,7 +150,7 @@ CREATE TABLE organisations (
 CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
 CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (ultimate_org_id);
             
-CREATE TABLE PEOPLE (
+CREATE TABLE people (
 person_id  SERIAL         NOT NULL PRIMARY KEY,
 first_name VARCHAR(100)   NOT NULL ,
 last_name  VARCHAR(100)   NOT NULL ,
@@ -218,7 +218,7 @@ CREATE TABLE contact_methods (
   
 CREATE INDEX CONTACT_METHODS_IDX1 ON CONTACT_METHODS (effective_from);
   
-CREATE TABLE CONTACT_POINTS(
+CREATE TABLE contact_points(
   contact_point_id BIGSERIAL PRIMARY KEY,
   contact_method_id INTEGER NOT NULL,
   contact_point_reason_id INTEGER NOT NULL,
