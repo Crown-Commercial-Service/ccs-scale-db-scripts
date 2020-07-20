@@ -11,7 +11,13 @@ Description This file is a script to drop the tables for the Agreements database
 
 DROP TABLE lot_suppliers;
 
-DROP TABLE commercial_agreement_suppliers;
+DROP TABLE lot_supplier_roles;
+
+DROP TABLE commercial_agreement_roles;
+
+DROP TABLE lot_roles;
+
+DROP TABLE commercial_agreement_organisation_roles;
 
 DROP TABLE people;
 
