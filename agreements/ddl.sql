@@ -175,15 +175,9 @@ CREATE TABLE commercial_agreement_suppliers (
   end_date                TIMESTAMP,
   PRIMARY KEY (commercial_agreement_id, organisation_id)
 );
-
-CREATE TABLE trading_organisation_types (
-  trading_organisation_type_id          INTEGER PRIMARY KEY,
-  trading_organisation_type_name        VARCHAR(100) UNIQUE NOT NULL,
-  trading_organisation_type_description VARCHAR(1000));
   
 CREATE TABLE trading_organisations (
   trading_organisation_id         INTEGER PRIMARY KEY,
-  trading_organisation_type_id    INTEGER NOT NULL,
   organisation_id                 INTEGER NOT NULL,
   trading_organisation_name       VARCHAR(255) NOT NULL); 
   
@@ -303,8 +297,8 @@ ADD CONSTRAINT commercial_agreement_suppliers_commercial_agreements_fk FOREIGN K
     REFERENCES commercial_agreements (commercial_agreement_id);    
 
 ALTER TABLE trading_organisations 
-ADD CONSTRAINT trading_organisations_trading_organisation_types_fk FOREIGN KEY (trading_organisation_type_id ) 
-    REFERENCES trading_organisation_types (trading_organisation_type_id );
+ADD CONSTRAINT trading_organisations_organisations_fk FOREIGN KEY (organisation_id ) 
+    REFERENCES organisations (organisation_id );
 	
 ALTER TABLE contact_methods 
 ADD CONSTRAINT contact_methods_contact_method_types_fk FOREIGN KEY (contact_method_type_id) 
