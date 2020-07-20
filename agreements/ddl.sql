@@ -161,21 +161,40 @@ title           VARCHAR(50)  NOT NULL
 
 CREATE TABLE lot_suppliers (
   lot_id                          INTEGER   NOT NULL,
-  responsible_organisation_id     INTEGER   NOT NULL,
-  responsible_person_id           INTEGER   NOT NULL,	
+  organisation_id                 INTEGER   NOT NULL,
+  trading_organisation_id         INTEGER           	
   start_date                      TIMESTAMP NOT NULL,
   end_date                        TIMESTAMP,
   PRIMARY KEY (lot_id, responsible_organisation_id)
 );
 
-CREATE TABLE commercial_agreement_suppliers (
+CREATE TABLE lot_supplier_roles (
+  lot_id                          INTEGER   NOT NULL,
+  person_id                       INTEGER   NOT NULL,
+  lot_role_id                     INTEGER   NOT NULL,	
+  start_date                      TIMESTAMP NOT NULL,
+  end_date                        TIMESTAMP,
+  PRIMARY KEY (lot_id, person_id, lot_role_id)
+);
+
+CREATE TABLE commercial_agreement_organisation_roles (
   commercial_agreement_id INTEGER   NOT NULL,
   organisation_id         INTEGER   NOT NULL,
   start_date              TIMESTAMP NOT NULL,
   end_date                TIMESTAMP,
   PRIMARY KEY (commercial_agreement_id, organisation_id)
 );
+
+CREATE TABLE lot_roles (
+lot_role_id             INTEGER PRIMARY,
+lot_role_name           VARCHAR(100) NOT NULL	
+);	
   
+CREATE TABLE commercial_agreement_roles (
+commercial_agreement_role_id             INTEGER PRIMARY,
+commercial_agreement_role_name           VARCHAR(100) NOT NULL	
+);  
+
 CREATE TABLE trading_organisations (
   trading_organisation_id         INTEGER PRIMARY KEY,
   organisation_id                 INTEGER NOT NULL,
