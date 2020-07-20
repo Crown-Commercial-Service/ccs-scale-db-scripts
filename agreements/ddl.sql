@@ -318,7 +318,7 @@ ADD CONSTRAINT lot_organisation_lots_fk FOREIGN KEY (lot_id)
     
 ALTER TABLE lot_organisation_roles
 ADD CONSTRAINT lot_organisation_lort_fk FOREIGN KEY (role_type_id) 
-    REFERENCES lots (role_type_id);
+    REFERENCES lot_organisation_role_types (role_type_id);
 					   
 ALTER TABLE commercial_agreement_organisation_roles
 ADD CONSTRAINT caor_organisations_fk FOREIGN KEY (organisation_id) 
