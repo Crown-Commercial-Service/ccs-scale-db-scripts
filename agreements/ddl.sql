@@ -7,7 +7,7 @@ Description This file is a script to create the tables for the Agreements databa
             
 Version No Version Description
 ---------- -------------------
-V0.0.1       Initial Release
+V0.0.2      Initial Release
 */
 
 CREATE TABLE commercial_agreements (
