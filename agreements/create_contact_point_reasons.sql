@@ -11,3 +11,7 @@ INSERT INTO public.contact_point_reasons(
 INSERT INTO public.contact_point_reasons(
 	contact_point_reason_id, contact_point_reason_name, contact_point_reason_description, source_application_system)
 	VALUES (2, 'CCS Category Manager', 'To be used if the category manager requires contacting'  , 'BaT');	
+	
+INSERT INTO public.contact_point_reasons(
+	contact_point_reason_id, contact_point_reason_name, contact_point_reason_description, source_application_system)
+	VALUES (3, 'Contact for the supplier in relation to the lot', 'Contact for the supplier in relation to the lot'  , 'BaT');		
