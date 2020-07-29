@@ -15,7 +15,7 @@ CREATE TABLE error_messages
  error_message      varchar(100)
 );
 
-CREATE TABLE_error_usage
+CREATE TABLE error_usage
 (error_usage_id serial PRIMARY KEY,
  failure_validation_type_code varchar(10),
  error_message_code varchar(10),
