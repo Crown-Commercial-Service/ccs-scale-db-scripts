@@ -7,7 +7,7 @@ v0.0.4     This file is a script to create additional tables and insert values i
 -- Failure Validation Types
 CREATE TABLE failure_validation_types
 (failure_validation_type_code varchar(10) PRIMARY KEY,
- failure_validation_type_name varchar(100) UNIQUE KEY
+ failure_validation_type_name varchar(100) UNIQUE
 );
 
 CREATE TABLE error_messages
@@ -15,7 +15,7 @@ CREATE TABLE error_messages
  error_message      varchar(100)
 );
 
-CREATE error_usage
+CREATE TABLE_error_usage
 (error_usage_id serial PRIMARY KEY,
  failure_validation_type_code varchar(10),
  error_message_code varchar(10),
