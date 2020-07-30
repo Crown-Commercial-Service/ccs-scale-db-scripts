@@ -132,11 +132,11 @@ Insert into Commercial_Agreements
              agreement_url)
 values (     7,   
              'RM3788',
-             'WPS Legal Services',
+             'Legal Services for the Wider Public Sector',
              'CCS',
              'This panel has been established to provide a simple and compliant route to market for a range of legal services requirements primarily to the wider public sector. This forms part of the wider strategy for legal services provision which includes three other panel agreements; General Legal Advice Services (RM3786), Rail Legal Services (RM3756) and Finance & Complex Legal Services (RM3787). This panel agreement comprises of four lots offering both general and more specific legal services.',
-             '19-Oct-2018',
-             '18-Oct-2021',
+             '01-Oct-2018',
+             '30-Sep-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM3788');
              
 Insert into Commercial_Agreements
@@ -152,11 +152,17 @@ values (     8,
              'RM3756',
              'Rail Legal Services',
              'CCS',
-             'This agreement is designed for the Department for Transport’s rail division to provide specific legal advice for rail services, in particular rail franchising. The agreement replaces part of expired framework RM919. Although the agreement is designed for the DfT, other central government departments and arms-length bodies may be able to access the suppliers.
-
-This agreement is not available for use by the wider public sector.',
+             '<ul class="govuk-list govuk-list--bullet">
+<li>Specific legal advice for rail services, particularly for rail franchising
+<li>This panel is designed for the Department of Transport''s rail division, although other central government departments and arms length bodies may be able to access the suppliers
+<li>This panel isn''t suitable for the wider public sector
+</ul> 
+<p class="govuk-body">Direct award and further competition are both enabled on this panel. Schedule 5 of the agreement gives further information. 
+</p>
+<p class="govuk-body">RM3756 replaces part of expired framework RM919.
+</p>',
              '31-May-2017',
-             '31-May-2021',
+             '31-Mar-2022',
              'https://www.crowncommercial.gov.uk/agreements/RM3756');
              
 Insert into Commercial_Agreements
@@ -172,13 +178,16 @@ values (     9,
              'RM3717',
              'eDisclosure Services',
              'CCS',
-             'This framework provides eDisclosure and eDiscovery services to all public sector customers, including central government and wider public sector. It was designed with input from government customers and suppliers.
-
-You can select an end-to-end service or buy component parts of a disclosure procedure from a menu. The frameworks offers a streamlined procurement process, a range of market leading suppliers and fixed rates for standard services. You can buy through a direct award (appoint a supplier without a bidding competition) based on fixed framework rates. Or you can run a further competition.
-
-This agreement replaces the previous CCS eDisclosure framework RM924.',
-             '10-Jul-2017',
-             '09-Jul-2021',
+             '<ul class="govuk-list govuk-list--bullet">
+<li>eDisclosure and eDiscovery services for the public sector
+<li>Select an end-to-end service or buy individual components from selected lots 
+</ul> 
+<p class="govuk-body">This framework offers the option for further competition and direct award. 
+</p>
+<p class="govuk-body">RM3717 replaces the previous CCS eDisclosure framework RM924. 
+</p>',
+             '01-Jun-2017',
+             '01-Jun-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM3717');
              
 Insert into Commercial_Agreements
@@ -194,18 +203,17 @@ values (     10,
              'RM6137',
              'Costs Lawyer Services',
              'CCS',
-             'The agreement covers the  routine and complex costs litigation work for the receiving party and/or paying party in England and Wales. It replaces the Law Costs Draftsman Services (RM1675). 
-
-The agreement will offer 3, quality assured, lots covering the following services:
-
-consultancy and negotiation
-estimates and statement of costs
-advocacy and/or attending hearings
-instructing counsel
-costs law advice.
-The call off contract period is flexible, though it is recommended to be a maximum of four years. The contract must expire no more than 2 years after the framework expiry date.   ',
+             '<ul class="govuk-list govuk-list--bullet">
+<li>Routine and complex costs litigation work
+<li>Services covered include consultancy, negotiation, advocacy, attending hearings and instructing counsel
+<li>This framework covers England and Wales
+</ul> 
+<p class="govuk-body">This framework offers the option for further competition and direct award. 
+</p>
+<p class="govuk-body">RM6137 replaces the previous CCS Law Costs Draftsman Services framework RM1675.
+</p>',
              '19-Aug-2019',
-             '18-Aug-2021',
+             '18-Aug-2022',
              'https://www.crowncommercial.gov.uk/agreements/RM6137');
              
 Insert into Commercial_Agreements
@@ -221,9 +229,15 @@ values (     11,
              'RM3786',
              'General Legal Advice Services',
              'CCS',
-             'This agreement provides legal advice services under English and Welsh law for central government and arms length bodies. Suppliers are also required to supply legal advice under Scottish law where required (directly, through subcontracted law firms or other approved arrangements). Legal advice on international jurisdictions is also in scope if suppliers are able to provide it, giving central government international legal advice without further procurement. There is no upper or lower limit on the value of contracts which can be awarded, although requirements below £20,000 may be exempted by some suppliers.',
+             '<ul class="govuk-list govuk-list--bullet">
+<li>Legal advice for central government and arms length bodies, covering 23 most commonly required areas of law, including major projects
+<li>This panel covers English and Welsh law 
+<li>Suppliers must supply advice under Scottish law where required. Legal advice on international jurisdications may also be in scope, if the supplier can provide it
+</ul> 
+<p class="govuk-body">Direct award and further competition are both enabled on this panel. Schedule 5 of the agreement gives further information.
+</p>',
              '28-Feb-2017',
-             '27-Feb-2021',
+             '17-Dec-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM3786');
              
 Insert into Commercial_Agreements
