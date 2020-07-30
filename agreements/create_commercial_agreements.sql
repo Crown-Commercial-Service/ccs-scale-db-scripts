@@ -96,7 +96,7 @@ values (     5,
              'RM6154',
              'Linen and Laundry Services',
              'CCS',
-             'Standard collection, wash, finish and return of buyer owned and hired laundry from the supplier, specialist laundry and cleanroom services.',
+             'This framework contains 3 lots. You can choose which lot suits your needs best, or use a combination of lots to suit your requirement.',
              '01-Feb-2020',
              '19-Mar-2023',
              'https://www.crowncommercial.gov.uk/agreements/RM6154'); 
