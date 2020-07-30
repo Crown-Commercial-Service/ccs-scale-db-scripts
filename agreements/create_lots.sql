@@ -582,8 +582,15 @@ values
 values 
 (30,
  'Lot 2',
- 'Standard Wash Linen and Laundry Services',
- 'Standard Wash Linen and Laundry Services description',
+ 'Specialist Laundry Services for CE marked Barrier Theatre Textiles',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Collection, wash, finish and return of CE marked barrier theatre textiles
+<li>Laundry can be owned by you or rented from the supplier 
+</ul> 
+<p class="govuk-body">The suppliers on Lot 2 are responsible for providing specialist laundry services for  CE marked barrier theatre textiles such as surgical drapes, gowns and packs. This will either be performed to the standard as described in the framework specification, or you can specify the standard you need. 
+</p>
+<p class="govuk-body">There is no direct award so to use Lot 2 you are required to run a further competition.
+</p>',
  5,
  'Services',
  '01-Feb-2020',
@@ -601,8 +608,13 @@ values
 values 
 (31,
  'Lot 3',
- 'Specialist Laundry Services (Theatre Packs)',
- 'Specialist Laundry Services (Theatre Packs) description',
+ 'Specialist Cleanroom Laundry Services',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Collection, wash, finish and return of laundry to the ISO classification stated by you
+<li>Laundry can be owned by you or rented from the supplier 
+</ul> 
+<p class="govuk-body">There is no direct award so to use Lot 3 you are required to run a further competition. 
+</p>',
  5,
  'Services',
  '01-Feb-2020',
@@ -620,8 +632,13 @@ INSERT INTO lOTS
 values 
 (32,
  'Lot 1b',
- 'Specialist Cleanroom Laundry Services',
- 'Specialist Cleanroom Laundry Services description',
+ 'Standard wash collection and return',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Standard collection, wash, finish and return of laundry owned by you
+<li>For linen hire, refer to Lot 1a
+</ul> 
+<p class="govuk-body">Provided your needs met the criteria, Lot 1b has a direct award facility. 
+</p>',
  5,
  'Services',
  '01-Feb-2020',
