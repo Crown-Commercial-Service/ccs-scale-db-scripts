@@ -251,11 +251,17 @@ Insert into Commercial_Agreements
              agreement_url)
 values (     12,   
              'RM3787',
-             'Finance & Complex Legal Services',
+             'Finance and Complex Legal Services',
              'CCS',
-             'This is a single product agreement providing legal advice on corporate finance to government departments, executive agencies and arm''s length bodies for high-value, high-profile and complex projects. All suppliers commit to provide all the listed mandatory corporate finance services. Suppliers can also offer some optional specialisms, specifically international in scope. You can purchase services under this agreement by direct award or further competition. The agreement replaces some elements of RM919.',
+             '<ul class="govuk-list govuk-list--bullet">
+<li>Legal advice for central government departments, executive agencies and arms length bodies, covering complex corporate finance for high-value, high-profile projects
+<li>Suppliers may offer international coverage 
+</ul> 
+<p class="govuk-body">You can purchase services under this agreement by direct award or further competition. 
+<p class="govuk-body">RM3787 replaces some elements of RM919. 
+</p>',
              '21-Aug-2017',
-             '20-Aug-2021',
+             '20-Dec-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM3787');    
              
 -- FM2 - RM6089 , Cleaning DPS - RM6130    
