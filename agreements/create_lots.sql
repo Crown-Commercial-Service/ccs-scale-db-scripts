@@ -558,8 +558,13 @@ INSERT INTO lOTS
 values 
 (29,
  'Lot 1a',
- 'Linen Hire with Standard Wash Linen and Laundry Services',
- 'Linen Hire with Standard Wash Linen and Laundry Services description',
+ 'Standard wash, collection and return',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>The suppliers on Lot 1a are responsible for providing standard wash linen and laundry services for laundry rented from the supplier
+<li>For buyer-owned laundry, refer to lot 1b 
+</ul> 
+<p class="govuk-body">Provided your needs met the criteria, Lot 1a  has a direct award facility.
+</p>',
  5,
  'Services',
  '01-Feb-2020',
