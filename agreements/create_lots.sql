@@ -114,7 +114,10 @@ values
 (6,
  'Lot 6',
  'Catalogue',
- 'TCatalogue description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Search and filter for day to day purchases</li>
+<li>Suppliers on this lot can accommodate for low complexity requirements or high urgency products</li>
+</ul> ',
  1,
  'Products',
  '31-Oct-2016',
@@ -135,7 +138,10 @@ values
 (7,
  'Lot 1',
  'Hardware & Software & Associated Services',
- 'Hardware & Software & Associated Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of technology product needs</li>
+<li>Suppliers on Lot 1 can provide hardware and software, combined with service requirements if needed</li>
+</ul>',
  2,
  'Services',
  '10-Dec-2019',
@@ -154,7 +160,10 @@ values
 (8,
  'Lot 2',
  'Hardware and Associated Services',
- 'Hardware and Associated Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of technology product needs</li>
+<li>Suppliers on Lot 2 can provide hardware requirements only. This includes end user devices, consumables and peripheral equipment</li>
+</ul> ',
   2,
  'Services',
  '10-Dec-2019',
@@ -192,7 +201,10 @@ values
 (10,
  'Lot 4',
  'Information Assured Products & Associated Services',
- 'Information Assured Products & Associated Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of technology product needs</li>
+<li>Suppliers on Lot 4 can provide hardware and software with protective and information assurance</li>
+</ul>',
  2,
  'Services',
  '10-Dec-2019',
@@ -213,7 +225,12 @@ values
 (11,
  'Lot 1',
  'ICT Solutions',
- 'This is a direct replacement of ICT Services for Education (RM1050) agreement. The agreement provides customers with the capability to obtain ICT goods and or services for their specific needs, whether it is a new build requirement or an ICT refresh.',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of Information and Communications Technologies (ICT) goods and services. Services include a new build requirement or an ICT refresh</li>
+<li>Open to all public sector educational organisations</li>
+</ul> 
+<p class="govuk-body">Lot 1 replaces RM1050 agreement, ICT Services for Education.
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -232,7 +249,12 @@ values
 (12,
  'Lot 2',
  'Broadband Fibre Infrastructure',
- 'The provision of a design and installation of broadband fibre infrastructure. Suppliers under this lot are capable of supplying overall design, provision of fibre to the premises, testing of fibre and ''last mile'' installation.',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Design and installation of broadband fibre infrastructure for new premises</li>
+<li>Suppliers can provide overall design, fibre, run fibre tests, and do 'last mile' installation from the node to the premises</li>
+</ul> 
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -251,7 +273,13 @@ values
 (13,
  'Lot 3',
  'Broadband Services',
- 'The provision of connectivity services. Suppliers under this lot are capable of supplying full fibre broadband services (new services/upgrade of existing), support and maintenance, internet filtering, firewall, eSafety and IP connectivity.',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of connectivity services</li>
+<li>Suppliers can provide full fibre broadband services for both new services and upgrading existing services</li>
+<li>This includes support and maintenance, internet filtering, firewall, eSafety, and IP connectivity</li>
+</ul> 
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -270,7 +298,12 @@ values
 (14,
  'Lot 4',
  'Hardware',
- 'The provision of ICT hardware, software and some networking equipment. Suppliers can supply hardware (laptops, desktops), networking: (switches, cabling, routers), peripherals (printers, mice, charging trolleys) and software (part of a package).',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of Information and Communication Technologies (ICT) hardware</li>
+<li>Suppliers can also provide some networking equipment such as switches and routers, peripheral ICT equipment such as printers, and software when offered as part of a package</li>
+</ul> 
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -288,8 +321,13 @@ values
 values 
 (15,
  'Lot 5',
- 'Audio Visual',
- 'The provision and installation of sound and/or visual equipment. Suppliers under this lot are capable of supplying interactive solutions (whiteboards, tables), digital signage, televisions, AV software, auditorium solutions, training.',
+ 'Audio Visual (AV)',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision and installation of sound and visual equipment</li>
+<li>Suppliers can  provide interactive solutions such as whiteboards, digital signage, TVs, AV software, auditorium solutions and training</li>
+</ul> 
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
  3,
  'Services',
  '10-Jun-2019',
