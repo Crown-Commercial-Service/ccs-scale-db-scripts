@@ -134,9 +134,12 @@ values (     7,
              'RM3788',
              'Legal Services for the Wider Public Sector',
              'CCS',
-             'This panel has been established to provide a simple and compliant route to market for a range of legal services requirements primarily to the wider public sector. This forms part of the wider strategy for legal services provision which includes three other panel agreements; General Legal Advice Services (RM3786), Rail Legal Services (RM3756) and Finance & Complex Legal Services (RM3787). This panel agreement comprises of four lots offering both general and more specific legal services.',
+             '<p class="govuk-body">This framework contains 4 lots offering both general and more specific legal services. You can find suitable suppliers from the lots on this agreement using the our filtering tool (hyperlink to https://marketplace.service.crowncommercial.gov.uk/legal-services).
+</p>        
+<p class="govuk-body">Both direct award and further competition is enabled under this panel.
+</p>',
              '01-Oct-2018',
-             '30-Sep-2021',
+             '18-Oct-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM3788');
              
 Insert into Commercial_Agreements
@@ -258,6 +261,7 @@ values (     12,
 <li>Suppliers may offer international coverage 
 </ul> 
 <p class="govuk-body">You can purchase services under this agreement by direct award or further competition. 
+</p>        
 <p class="govuk-body">RM3787 replaces some elements of RM919. 
 </p>',
              '21-Aug-2017',
