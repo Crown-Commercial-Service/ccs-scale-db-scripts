@@ -718,7 +718,11 @@ values
 (36,
  'Lot 1',
  'Regional Service Provision',
- 'Regional Service Provision description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Legal services provided by regional firms, covering a range of legal specialisms
+<li>Suitable for low to medium value transactions
+</ul> 
+',
  7,
  'Services',
  '19-Oct-2018',
@@ -737,7 +741,11 @@ values
 (37,
  'Lot 2a',
  'Full Service Firms - England & Wales',
- 'Full Service Firms - England & Wales description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services
+<li>This lot covers English and Welsh law
+</ul> 
+',
  7,
  'Services',
  '19-Oct-2018',
@@ -756,7 +764,11 @@ values
 (38,
  'Lot 2b',
  'Full Service Firms - Scotland',
- 'Full Service Firms - Scotlanddescription',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services
+<li>This lot covers Scottish law
+</ul> 
+',
  7,
  'Services',
  '19-Oct-2018',
@@ -775,7 +787,10 @@ values
 (39,
  'Lot 2c',
  'Full Service Firms - Northern Ireland',
- 'Full Service Firms - Northern Ireland description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services
+<li>This lot covers Northern Irish law
+</ul>',
  7,
  'Services',
  '19-Oct-2018',
@@ -794,7 +809,10 @@ values
 (40,
  'Lot 3',
  'Property & Construction',
- 'Property & Construction description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Legal services for property and construction
+<li>UK-wide services provided
+</ul>',
  7,
  'Services',
  '19-Oct-2018',
@@ -813,7 +831,10 @@ values
 (41,
  'Lot 4',
  'Transport Rail',
- 'Transport Rail description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Legal services for transport rail
+<li>UK-wide services provided
+</ul>',
  7,
  'Services',
  '19-Oct-2018',
