@@ -598,8 +598,8 @@ values
  'Lot 1a',
  'Standard wash, collection and return',
  '<ul class="govuk-list govuk-list--bullet">
-<li>The suppliers on Lot 1a are responsible for providing standard wash linen and laundry services for laundry rented from the supplier
-<li>For buyer-owned laundry, refer to lot 1b 
+<li>The suppliers on Lot 1a are responsible for providing standard wash linen and laundry services for laundry rented from the supplier</li>
+<li>For buyer-owned laundry, refer to lot 1b </li>
 </ul> 
 <p class="govuk-body">Provided your needs met the criteria, Lot 1a  has a direct award facility.
 </p>',
@@ -622,8 +622,8 @@ values
  'Lot 2',
  'Specialist Laundry Services for CE marked Barrier Theatre Textiles',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Collection, wash, finish and return of CE marked barrier theatre textiles
-<li>Laundry can be owned by you or rented from the supplier 
+<li>Collection, wash, finish and return of CE marked barrier theatre textiles</li>
+<li>Laundry can be owned by you or rented from the supplier </li>
 </ul> 
 <p class="govuk-body">The suppliers on Lot 2 are responsible for providing specialist laundry services for  CE marked barrier theatre textiles such as surgical drapes, gowns and packs. This will either be performed to the standard as described in the framework specification, or you can specify the standard you need. 
 </p>
@@ -648,8 +648,8 @@ values
  'Lot 3',
  'Specialist Cleanroom Laundry Services',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Collection, wash, finish and return of laundry to the ISO classification stated by you
-<li>Laundry can be owned by you or rented from the supplier 
+<li>Collection, wash, finish and return of laundry to the ISO classification stated by you</li>
+<li>Laundry can be owned by you or rented from the supplier </li>
 </ul> 
 <p class="govuk-body">There is no direct award so to use Lot 3 you are required to run a further competition. 
 </p>',
@@ -672,8 +672,8 @@ values
  'Lot 1b',
  'Standard wash collection and return',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Standard collection, wash, finish and return of laundry owned by you
-<li>For linen hire, refer to Lot 1a
+<li>Standard collection, wash, finish and return of laundry owned by you</li>
+<li>For linen hire, refer to Lot 1a</li>
 </ul> 
 <p class="govuk-body">Provided your needs met the criteria, Lot 1b has a direct award facility. 
 </p>',
@@ -757,8 +757,8 @@ values
  'Lot 1',
  'Regional Service Provision',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Legal services provided by regional firms, covering a range of legal specialisms
-<li>Suitable for low to medium value transactions
+<li>Legal services provided by regional firms, covering a range of legal specialisms</li>
+<li>Suitable for low to medium value transactions</li>
 </ul> 
 ',
  7,
@@ -780,8 +780,8 @@ values
  'Lot 2a',
  'Full Service Firms - England & Wales',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Commercial legal services for all legal specialisms provided by firms that offer full services
-<li>This lot covers English and Welsh law
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
+<li>This lot covers English and Welsh law</li>
 </ul> 
 ',
  7,
@@ -803,8 +803,8 @@ values
  'Lot 2b',
  'Full Service Firms - Scotland',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Commercial legal services for all legal specialisms provided by firms that offer full services
-<li>This lot covers Scottish law
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
+<li>This lot covers Scottish law</li>
 </ul> 
 ',
  7,
@@ -826,8 +826,8 @@ values
  'Lot 2c',
  'Full Service Firms - Northern Ireland',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Commercial legal services for all legal specialisms provided by firms that offer full services
-<li>This lot covers Northern Irish law
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
+<li>This lot covers Northern Irish law</li>
 </ul>',
  7,
  'Services',
@@ -848,8 +848,8 @@ values
  'Lot 3',
  'Property & Construction',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Legal services for property and construction
-<li>UK-wide services provided
+<li>Legal services for property and construction</li>
+<li>UK-wide services provided</li>
 </ul>',
  7,
  'Services',
@@ -870,8 +870,8 @@ values
  'Lot 4',
  'Transport Rail',
  '<ul class="govuk-list govuk-list--bullet">
-<li>Legal services for transport rail
-<li>UK-wide services provided
+<li>Legal services for transport rail</li>
+<li>UK-wide services provided</li>
 </ul>',
  7,
  'Services',
