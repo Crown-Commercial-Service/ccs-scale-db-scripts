@@ -251,7 +251,7 @@ values
  'Broadband Fibre Infrastructure',
  '<ul class="govuk-list govuk-list--bullet">
 <li>Design and installation of broadband fibre infrastructure for new premises</li>
-<li>Suppliers can provide overall design, fibre, run fibre tests, and do 'last mile' installation from the node to the premises</li>
+<li>Suppliers can provide overall design, fibre, run fibre tests, and do ''last mile'' installation from the node to the premises</li>
 </ul> 
 <p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
 </p>',
