@@ -1229,7 +1229,12 @@ values
 (59,
  'Lot 1a',
  'Security Services',
- 'Security Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Access to security and guarding services using approved contractors accredited by the Security Industry Authority (SIA)</li>
+<li>Services include guarding, assessment of security risk and design of security systems</li>
+<li>Suppliers offer technical and security services, where a single supplier is needed to deliver both </li>
+<li>UK-wide and European coverage</li>
+</ul>',
  13,
  'Services',
  '25-Jan-2019',
@@ -1248,7 +1253,11 @@ values
 (60,
  'Lot 1b',
  'Technical Security',
- 'Technical Security description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Design, supply, installation and maintenance of technical security systems, including electronic and physical security</li>
+<li>Security risk assessments and design services provided by accreditation bodies recognised by the Centre for the Protection of National Insurance (CPNI)</li>
+<li>UK-wide and European coverage</li>
+</ul> ',
  13,
  'Services',
  '25-Jan-2019',
@@ -1267,7 +1276,10 @@ values
 (61,
  'Lot 2a',
  'Defence Housing Management Services (National)',
- 'Defence Housing Management Services (National) description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Portfolio and estate management, including contact centres, provided on a national basis</li>
+<li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
+</ul>',
  13,
  'Services',
  '25-Jan-2019',
@@ -1286,7 +1298,10 @@ values
 (62,
  'Lot 2b',
  'Defence Housing Maintenance Services (Regional)',
- 'Defence Housing Maintenance Services (Regional) description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Housing maintenance services including all types of housing, garages, communal areas, grounds and facilities, provided on a regional basis</li>
+<li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
+</ul>',
  13,
  'Services',
  '25-Jan-2019',
@@ -1305,7 +1320,10 @@ values
 (63,
  'Lot 2c',
  'Housing Maintenance and Management Services',
- 'Housing Maintenance and Management Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Services are planned maintenance, compliance, void management, responsive repairs and helpdesk services</li>
+<li>This is for central government, public sector departments, devolved administrations and third parties </li>
+</ul>',
  13,
  'Services',
  '25-Jan-2019',
@@ -1324,7 +1342,11 @@ values
 (64,
  'Lot 3',
  'MOD Facilities Management Marketplace',
- 'MOD Facilities Management Marketplace description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Facilities management solutions developed towards specific defence requirements, provided on a national basis</li>
+<li>Range of services offered including maintenance services, statutory obligations, catering, and cleaning services </li>
+<li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
+</ul> ',
  13,
  'Services',
  '25-Jan-2019',
