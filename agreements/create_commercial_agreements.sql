@@ -20,7 +20,8 @@ values (     1,
              'RM3733',
              'Technology Products 2',
              'CCS',
-             'Technology Products 2 (TP2) offers public sector customers a flexible and compliant way to source all their technology product needs (hardware and software).',
+             '<p class="govuk-body">Lots 1-5 on this framework have expired and been replaced by Technology Products and Associated Services - RM6068 https://www.crowncommercial.gov.uk/agreements/RM6068.  Lot 6 has been extended to 31 October 2021.
+</p>',
              '31-Oct-2016',
              '31-Oct-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM3733');
@@ -38,9 +39,8 @@ values (     2,
              'RM6068',
              'Technology Products & Associated Services',
              'CCS',
-             'Technology Products & Associated Services (TePAS) offers public sector buyers a flexible and compliant way to source all of their technology product needs. This is the first iteration of the Technology Products framework to have associated services in its scope.
-
-Under this agreement buyers can procure associated services and goods. The UK public sector and their associated bodies and agencies, including the voluntary sector and charities, can use this framework.',
+             '<p class="govuk-body">The UK public sector and their associated bodies and agencies, including the voluntary sector and charities, can use this framework.</p>
+<p class="govuk-body">There are 2 options for buying on this framework. You can either run a further competition, which is inclusive of price and quality weightings, or run a simplified further competition, which includes price only weightings.</p>',
              '10-Dec-2019',
              '09-Dec-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM6068');
@@ -58,7 +58,14 @@ values (     3,
              'RM6103',
              'Education Technology',
              'CCS',
-             'Educational establishments can buy ICT (Information and Communication Technologies) goods and technology services through one agreement.',
+             '<ul class="govuk-list govuk-list--bullet">
+<li>Information and Communication Technologies (ICT) goods and services through a single route to market</li>
+<li>Open to all public sector educational organisations</li>
+</ul> 
+<p class="govuk-body">This framework contains 5 different lots, including managed services, broadband services, hardware and audio visual (AV).
+</p>
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
              '10-Jun-2019',
              '10-Jun-2022',
              'https://www.crowncommercial.gov.uk/agreements/RM6103');  
