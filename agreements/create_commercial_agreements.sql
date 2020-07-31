@@ -121,7 +121,10 @@ values (     6,
              'RM3830',
              'Facilities Management Marketplace',
              'CCS',
-             'UK-wide facilities management (FM) services organised regionally and available to all public sector entities. Includes maintenance, cleaning, security, helpdesk etc.',
+             '<ul class="govuk-list govuk-list--bullet">
+<li>UK-wide Facilities Management (FM) services organised regionally and available to all public sector entities</li>
+<li>Range of services offered including cleaning, catering, maintenance and helpdesk services </li>
+</ul> ',
              '10-Jul-2018',
              '09-Jul-2022',
              'https://www.crowncommercial.gov.uk/agreements/RM3830');  
@@ -163,9 +166,9 @@ values (     8,
              'Rail Legal Services',
              'CCS',
              '<ul class="govuk-list govuk-list--bullet">
-<li>Specific legal advice for rail services, particularly for rail franchising
-<li>This panel is designed for the Department of Transport''s rail division, although other central government departments and arms length bodies may be able to access the suppliers
-<li>This panel isn''t suitable for the wider public sector
+<li>Specific legal advice for rail services, particularly for rail franchising</li>
+<li>This panel is designed for the Department of Transport''s rail division, although other central government departments and arms length bodies may be able to access the suppliers</li>
+<li>This panel isn''t suitable for the wider public sector</li>
 </ul> 
 <p class="govuk-body">Direct award and further competition are both enabled on this panel. Schedule 5 of the agreement gives further information. 
 </p>
@@ -189,8 +192,8 @@ values (     9,
              'eDisclosure Services',
              'CCS',
              '<ul class="govuk-list govuk-list--bullet">
-<li>eDisclosure and eDiscovery services for the public sector
-<li>Select an end-to-end service or buy individual components from selected lots 
+<li>eDisclosure and eDiscovery services for the public sector</li>
+<li>Select an end-to-end service or buy individual components from selected lots</li> 
 </ul> 
 <p class="govuk-body">This framework offers the option for further competition and direct award. 
 </p>
@@ -214,9 +217,9 @@ values (     10,
              'Costs Lawyer Services',
              'CCS',
              '<ul class="govuk-list govuk-list--bullet">
-<li>Routine and complex costs litigation work
-<li>Services covered include consultancy, negotiation, advocacy, attending hearings and instructing counsel
-<li>This framework covers England and Wales
+<li>Routine and complex costs litigation work</li>
+<li>Services covered include consultancy, negotiation, advocacy, attending hearings and instructing counsel</li>
+<li>This framework covers England and Wales</li>
 </ul> 
 <p class="govuk-body">This framework offers the option for further competition and direct award. 
 </p>
@@ -240,9 +243,9 @@ values (     11,
              'General Legal Advice Services',
              'CCS',
              '<ul class="govuk-list govuk-list--bullet">
-<li>Legal advice for central government and arms length bodies, covering 23 most commonly required areas of law, including major projects
-<li>This panel covers English and Welsh law 
-<li>Suppliers must supply advice under Scottish law where required. Legal advice on international jurisdications may also be in scope, if the supplier can provide it
+<li>Legal advice for central government and arms length bodies, covering 23 most commonly required areas of law, including major projects</li>
+<li>This panel covers English and Welsh law </li>
+<li>Suppliers must supply advice under Scottish law where required. Legal advice on international jurisdications may also be in scope, if the supplier can provide it</li>
 </ul> 
 <p class="govuk-body">Direct award and further competition are both enabled on this panel. Schedule 5 of the agreement gives further information.
 </p>',
@@ -264,8 +267,8 @@ values (     12,
              'Finance and Complex Legal Services',
              'CCS',
              '<ul class="govuk-list govuk-list--bullet">
-<li>Legal advice for central government departments, executive agencies and arms length bodies, covering complex corporate finance for high-value, high-profile projects
-<li>Suppliers may offer international coverage 
+<li>Legal advice for central government departments, executive agencies and arms length bodies, covering complex corporate finance for high-value, high-profile projects</li>
+<li>Suppliers may offer international coverage </li>
 </ul> 
 <p class="govuk-body">You can purchase services under this agreement by direct award or further competition. 
 </p>        
@@ -290,23 +293,8 @@ values (     13,
              'RM6089',
              'Workplace Services (FM Marketplace Phase 2)',
              'CCS',
-             'This agreement provides access to:
-
-specialist security suppliers for the provision of both physical and technical security
-housing management and maintenance services
-specialist defence FM and housing services (for defence customers only.)
-Our suppliers cover up to 40 geographical regions of the UK (Nomenclature of Territorial Units for Statistics (NUTS) 2 regions), providing you with regional and national coverage depending on your needs. For defence lots, suppliers can offer regional or national coverage. In some cases, suppliers may also be able to provide international coverage
-
-Contracts can be let under this agreement for an initial length of up-to 7 years. This is inclusive of the mobilisation period, and a maximum duration (including extensions) of 10 years.
-
-Any call-off will have an initial maximum duration of up to 7 years. You are allowed as many extensions as you need but the maximum call-off time should not be for more than 10 years. This includes the initial call-off duration as well as the possibility of one or more extensions.
-
-Suppliers can provide all mandatory services and as well as a number of non-mandatory FM services on the following lots:
-
-lot 1a (security)
-lot 1b (technical)
-lot 2c (housing maintenance and management)
-The documents below give more details about the full scope of services available under this agreement.',
+             '<p class="govuk-body">There is no option for direct award using this framework. Further competition must be used.   
+</p>',
              '25-Jan-2019',
              '24-Jan-2023',
              'https://www.crowncommercial.gov.uk/agreements/RM6089'); 
