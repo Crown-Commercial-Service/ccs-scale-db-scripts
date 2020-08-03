@@ -114,7 +114,10 @@ values
 (6,
  'Lot 6',
  'Catalogue',
- 'TCatalogue description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Search and filter for day to day purchases</li>
+<li>Suppliers on this lot can accommodate for low complexity requirements or high urgency products</li>
+</ul> ',
  1,
  'Products',
  '31-Oct-2016',
@@ -135,7 +138,10 @@ values
 (7,
  'Lot 1',
  'Hardware & Software & Associated Services',
- 'Hardware & Software & Associated Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of technology product needs</li>
+<li>Suppliers on Lot 1 can provide hardware and software, combined with service requirements if needed</li>
+</ul>',
  2,
  'Services',
  '10-Dec-2019',
@@ -154,7 +160,10 @@ values
 (8,
  'Lot 2',
  'Hardware and Associated Services',
- 'Hardware and Associated Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of technology product needs</li>
+<li>Suppliers on Lot 2 can provide hardware requirements only. This includes end user devices, consumables and peripheral equipment</li>
+</ul> ',
   2,
  'Services',
  '10-Dec-2019',
@@ -192,7 +201,10 @@ values
 (10,
  'Lot 4',
  'Information Assured Products & Associated Services',
- 'Information Assured Products & Associated Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of technology product needs</li>
+<li>Suppliers on Lot 4 can provide hardware and software with protective and information assurance</li>
+</ul>',
  2,
  'Services',
  '10-Dec-2019',
@@ -213,7 +225,12 @@ values
 (11,
  'Lot 1',
  'ICT Solutions',
- 'This is a direct replacement of ICT Services for Education (RM1050) agreement. The agreement provides customers with the capability to obtain ICT goods and or services for their specific needs, whether it is a new build requirement or an ICT refresh.',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of Information and Communications Technologies (ICT) goods and services. Services include a new build requirement or an ICT refresh</li>
+<li>Open to all public sector educational organisations</li>
+</ul> 
+<p class="govuk-body">Lot 1 replaces RM1050 agreement, ICT Services for Education.
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -232,7 +249,12 @@ values
 (12,
  'Lot 2',
  'Broadband Fibre Infrastructure',
- 'The provision of a design and installation of broadband fibre infrastructure. Suppliers under this lot are capable of supplying overall design, provision of fibre to the premises, testing of fibre and ''last mile'' installation.',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Design and installation of broadband fibre infrastructure for new premises</li>
+<li>Suppliers can provide overall design, fibre, run fibre tests, and do ''last mile'' installation from the node to the premises</li>
+</ul> 
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -251,7 +273,13 @@ values
 (13,
  'Lot 3',
  'Broadband Services',
- 'The provision of connectivity services. Suppliers under this lot are capable of supplying full fibre broadband services (new services/upgrade of existing), support and maintenance, internet filtering, firewall, eSafety and IP connectivity.',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of connectivity services</li>
+<li>Suppliers can provide full fibre broadband services for both new services and upgrading existing services</li>
+<li>This includes support and maintenance, internet filtering, firewall, eSafety, and IP connectivity</li>
+</ul> 
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -270,7 +298,12 @@ values
 (14,
  'Lot 4',
  'Hardware',
- 'The provision of ICT hardware, software and some networking equipment. Suppliers can supply hardware (laptops, desktops), networking: (switches, cabling, routers), peripherals (printers, mice, charging trolleys) and software (part of a package).',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision of Information and Communication Technologies (ICT) hardware</li>
+<li>Suppliers can also provide some networking equipment such as switches and routers, peripheral ICT equipment such as printers, and software when offered as part of a package</li>
+</ul> 
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -288,8 +321,13 @@ values
 values 
 (15,
  'Lot 5',
- 'Audio Visual',
- 'The provision and installation of sound and/or visual equipment. Suppliers under this lot are capable of supplying interactive solutions (whiteboards, tables), digital signage, televisions, AV software, auditorium solutions, training.',
+ 'Audio Visual (AV)',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Provision and installation of sound and visual equipment</li>
+<li>Suppliers can  provide interactive solutions such as whiteboards, digital signage, TVs, AV software, auditorium solutions and training</li>
+</ul> 
+<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
+</p>',
  3,
  'Services',
  '10-Jun-2019',
@@ -558,8 +596,13 @@ INSERT INTO lOTS
 values 
 (29,
  'Lot 1a',
- 'Linen Hire with Standard Wash Linen and Laundry Services',
- 'Linen Hire with Standard Wash Linen and Laundry Services description',
+ 'Standard wash, collection and return',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>The suppliers on Lot 1a are responsible for providing standard wash linen and laundry services for laundry rented from the supplier</li>
+<li>For buyer-owned laundry, refer to lot 1b </li>
+</ul> 
+<p class="govuk-body">Provided your needs met the criteria, Lot 1a  has a direct award facility.
+</p>',
  5,
  'Services',
  '01-Feb-2020',
@@ -577,8 +620,15 @@ values
 values 
 (30,
  'Lot 2',
- 'Standard Wash Linen and Laundry Services',
- 'Standard Wash Linen and Laundry Services description',
+ 'Specialist Laundry Services for CE marked Barrier Theatre Textiles',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Collection, wash, finish and return of CE marked barrier theatre textiles</li>
+<li>Laundry can be owned by you or rented from the supplier </li>
+</ul> 
+<p class="govuk-body">The suppliers on Lot 2 are responsible for providing specialist laundry services for  CE marked barrier theatre textiles such as surgical drapes, gowns and packs. This will either be performed to the standard as described in the framework specification, or you can specify the standard you need. 
+</p>
+<p class="govuk-body">There is no direct award so to use Lot 2 you are required to run a further competition.
+</p>',
  5,
  'Services',
  '01-Feb-2020',
@@ -596,8 +646,13 @@ values
 values 
 (31,
  'Lot 3',
- 'Specialist Laundry Services (Theatre Packs)',
- 'Specialist Laundry Services (Theatre Packs) description',
+ 'Specialist Cleanroom Laundry Services',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Collection, wash, finish and return of laundry to the ISO classification stated by you</li>
+<li>Laundry can be owned by you or rented from the supplier </li>
+</ul> 
+<p class="govuk-body">There is no direct award so to use Lot 3 you are required to run a further competition. 
+</p>',
  5,
  'Services',
  '01-Feb-2020',
@@ -615,8 +670,13 @@ INSERT INTO lOTS
 values 
 (32,
  'Lot 1b',
- 'Specialist Cleanroom Laundry Services',
- 'Specialist Cleanroom Laundry Services description',
+ 'Standard wash collection and return',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Standard collection, wash, finish and return of laundry owned by you</li>
+<li>For linen hire, refer to Lot 1a</li>
+</ul> 
+<p class="govuk-body">Provided your needs met the criteria, Lot 1b has a direct award facility. 
+</p>',
  5,
  'Services',
  '01-Feb-2020',
@@ -696,7 +756,11 @@ values
 (36,
  'Lot 1',
  'Regional Service Provision',
- 'Regional Service Provision description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Legal services provided by regional firms, covering a range of legal specialisms</li>
+<li>Suitable for low to medium value transactions</li>
+</ul> 
+',
  7,
  'Services',
  '19-Oct-2018',
@@ -715,7 +779,11 @@ values
 (37,
  'Lot 2a',
  'Full Service Firms - England & Wales',
- 'Full Service Firms - England & Wales description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
+<li>This lot covers English and Welsh law</li>
+</ul> 
+',
  7,
  'Services',
  '19-Oct-2018',
@@ -734,7 +802,11 @@ values
 (38,
  'Lot 2b',
  'Full Service Firms - Scotland',
- 'Full Service Firms - Scotlanddescription',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
+<li>This lot covers Scottish law</li>
+</ul> 
+',
  7,
  'Services',
  '19-Oct-2018',
@@ -753,7 +825,10 @@ values
 (39,
  'Lot 2c',
  'Full Service Firms - Northern Ireland',
- 'Full Service Firms - Northern Ireland description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
+<li>This lot covers Northern Irish law</li>
+</ul>',
  7,
  'Services',
  '19-Oct-2018',
@@ -772,7 +847,10 @@ values
 (40,
  'Lot 3',
  'Property & Construction',
- 'Property & Construction description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Legal services for property and construction</li>
+<li>UK-wide services provided</li>
+</ul>',
  7,
  'Services',
  '19-Oct-2018',
@@ -791,7 +869,10 @@ values
 (41,
  'Lot 4',
  'Transport Rail',
- 'Transport Rail description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Legal services for transport rail</li>
+<li>UK-wide services provided</li>
+</ul>',
  7,
  'Services',
  '19-Oct-2018',
@@ -1148,7 +1229,12 @@ values
 (59,
  'Lot 1a',
  'Security Services',
- 'Security Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Access to security and guarding services using approved contractors accredited by the Security Industry Authority (SIA)</li>
+<li>Services include guarding, assessment of security risk and design of security systems</li>
+<li>Suppliers offer technical and security services, where a single supplier is needed to deliver both </li>
+<li>UK-wide and European coverage</li>
+</ul>',
  13,
  'Services',
  '25-Jan-2019',
@@ -1167,7 +1253,11 @@ values
 (60,
  'Lot 1b',
  'Technical Security',
- 'Technical Security description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Design, supply, installation and maintenance of technical security systems, including electronic and physical security</li>
+<li>Security risk assessments and design services provided by accreditation bodies recognised by the Centre for the Protection of National Insurance (CPNI)</li>
+<li>UK-wide and European coverage</li>
+</ul> ',
  13,
  'Services',
  '25-Jan-2019',
@@ -1186,7 +1276,10 @@ values
 (61,
  'Lot 2a',
  'Defence Housing Management Services (National)',
- 'Defence Housing Management Services (National) description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Portfolio and estate management, including contact centres, provided on a national basis</li>
+<li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
+</ul>',
  13,
  'Services',
  '25-Jan-2019',
@@ -1205,7 +1298,10 @@ values
 (62,
  'Lot 2b',
  'Defence Housing Maintenance Services (Regional)',
- 'Defence Housing Maintenance Services (Regional) description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Housing maintenance services including all types of housing, garages, communal areas, grounds and facilities, provided on a regional basis</li>
+<li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
+</ul>',
  13,
  'Services',
  '25-Jan-2019',
@@ -1224,7 +1320,10 @@ values
 (63,
  'Lot 2c',
  'Housing Maintenance and Management Services',
- 'Housing Maintenance and Management Services description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Services are planned maintenance, compliance, void management, responsive repairs and helpdesk services</li>
+<li>This is for central government, public sector departments, devolved administrations and third parties </li>
+</ul>',
  13,
  'Services',
  '25-Jan-2019',
@@ -1243,7 +1342,11 @@ values
 (64,
  'Lot 3',
  'MOD Facilities Management Marketplace',
- 'MOD Facilities Management Marketplace description',
+ '<ul class="govuk-list govuk-list--bullet">
+<li>Facilities management solutions developed towards specific defence requirements, provided on a national basis</li>
+<li>Range of services offered including maintenance services, statutory obligations, catering, and cleaning services </li>
+<li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
+</ul> ',
  13,
  'Services',
  '25-Jan-2019',
