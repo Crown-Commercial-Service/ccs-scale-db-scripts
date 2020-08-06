@@ -715,13 +715,6 @@ select distinct st.search_id,
 from   search_terms st
 join   temp_domain_values td on lower(td.search_term) = st.search_term
 join   temp_journeys tj on tj.domain_name = td.domain_name;
---order by td.domain_name
 
-select * from search_domains;
-
-drop table if exists temp_domain_values;
-create table temp_domain_values (search_term varchar(75),
-								 domain_name varchar(50),
-								 domain_desc varchar(2000));
-								 
+drop table if exists temp_domain_values;								 
 drop table if exists temp_journeys;
