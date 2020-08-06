@@ -706,9 +706,10 @@ from    temp_domain_values
 where   domain_name in ('Technology','Legal','Linen','Software');
 
 delete from search_domains;
-insert into search_domains (search_id,journey_id,modifier_journey_name,journey_selection_text)
+insert into search_domains (search_id,journey_id,modifier_journey_name,journey_selection_text,journey_selection_description)
 select distinct st.search_id,
        tj.journey_uuid,
+	   td.domain_name,
 	   td.domain_name,
 	   td.domain_desc
 from   search_terms st
