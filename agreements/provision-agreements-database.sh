@@ -3,9 +3,7 @@
 # Create and Populate an Agreements Database.
 # 
 # Prerequisites:
-#   - Create ~/.pgpass file to hold authentication details
-#     - *:*:*:sysadmin:PASSWORD
-#     - https://www.postgresql.org/docs/current/libpq-pgpass.html
+#   - export PGPASSWORD=<<FILL THIS IN>>
 #   - An SSH tunnel has been established to the remote database via an EC2 bastion host, such that it appears as a local DB
 #     - Using a command similar to:
 #     - ssh -i  {ENV}-bastion-key.pem -L 5432:{RDS_ENDPOINT}:5432 ubuntu@{BASTION_EC2_IP}
