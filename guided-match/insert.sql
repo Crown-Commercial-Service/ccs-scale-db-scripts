@@ -632,7 +632,7 @@ insert into temp_domain_values values ('Special need','Housing','Services in rel
 insert into temp_domain_values values ('Stairs','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Stock Management ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('The Northern Ireland Federation of Housing Associations (NIFHA)','Housing','Services in relation to housing requests');
-insert into temp_domain_values values ('The Scottish Federation of Housing Associations (SFHA)','Housing','Services in relation to housing requests');"
+insert into temp_domain_values values ('The Scottish Federation of Housing Associations (SFHA)','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Vacant','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Void','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Rail Legal Services','Legal','Services involving Legal or Law related matters');
