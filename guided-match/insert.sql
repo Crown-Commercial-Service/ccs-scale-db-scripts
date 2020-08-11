@@ -705,8 +705,8 @@ select distinct domain_name from temp_domain_values;
 delete from search_terms;
 insert into search_terms (search_term) 
 select  distinct lower(search_term) 
-from    temp_domain_values
-where   domain_name in ('Technology','Legal','Linen','Software','Security','Housing','Facilities Management');
+from    temp_domain_values td
+join   temp_journeys tj on tj.domain_name = td.domain_name;
 
 delete from search_domains;
 insert into search_domains (search_id,journey_id,modifier_journey_name,journey_selection_text,journey_selection_description)
