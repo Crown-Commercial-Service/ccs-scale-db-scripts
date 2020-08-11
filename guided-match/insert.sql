@@ -30,7 +30,7 @@ INSERT INTO temp_journeys values ('Linen','b87a0636-654e-11ea-bc55-0242ac130003'
 INSERT INTO temp_journeys values ('Legal','ccb5c730-75b5-11ea-bc55-0242ac130003'); 
 INSERT INTO temp_journeys values ('Technology','ccb6174e-75b5-11ea-bc55-0242ac130003');
 INSERT INTO temp_journeys values ('Software','ccb6174e-75b5-11ea-bc55-0242ac130003');
-INSERT INTO temp_journeys values ('Security','63f1b00f-530d-4271-a74d-e584c04d8e1b');
+INSERT INTO temp_journeys values ('Security Services','63f1b00f-530d-4271-a74d-e584c04d8e1b');
 INSERT INTO temp_journeys values ('Housing','f08a2055-6502-4d5f-81f8-2e3f111ff7ae');
 INSERT INTO temp_journeys values ('Facilities Management','7f7dcab1-9736-4012-960e-03da3b841c4c');
 
