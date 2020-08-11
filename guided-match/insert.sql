@@ -582,8 +582,7 @@ insert into temp_domain_values values ('Care Homes','Housing','Services in relat
 insert into temp_domain_values values ('Central Government Housing','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Certification','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Communal','Housing','Services in relation to housing requests');
-"insert into temp_domain_values values ('Community Housing Cymru (CHC),
-','Housing','Services in relation to housing requests');"
+insert into temp_domain_values values ('Community Housing Cymru (CHC),','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Corridors','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Decent Homes Standards 2006 ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('disability','Housing','Services in relation to housing requests');
@@ -609,8 +608,7 @@ insert into temp_domain_values values ('Local Authority Housing ','Housing','Ser
 insert into temp_domain_values values ('Local Housing Companies ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Maintenance ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Management','Housing','Services in relation to housing requests');
-"insert into temp_domain_values values ('National Housing Federation
-','Housing','Services in relation to housing requests');"
+insert into temp_domain_values values ('National Housing Federation','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Occupation','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Outsourcing Playbook','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Pathways','Housing','Services in relation to housing requests');
@@ -618,8 +616,7 @@ insert into temp_domain_values values ('Play Areas','Housing','Services in relat
 insert into temp_domain_values values ('Private Registered Providers (PRPs). ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Property','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('PRPs','Housing','Services in relation to housing requests');
-"insert into temp_domain_values values ('Public Sector Housing 
-','Housing','Services in relation to housing requests');"
+insert into temp_domain_values values ('Public Sector Housing ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Radon','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Reactive Repairs','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Recreational Facilities ','Housing','Services in relation to housing requests');
@@ -634,10 +631,8 @@ insert into temp_domain_values values ('Social Value','Housing','Services in rel
 insert into temp_domain_values values ('Special need','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Stairs','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Stock Management ','Housing','Services in relation to housing requests');
-"insert into temp_domain_values values ('The Northern Ireland Federation of Housing Associations (NIFHA)
-','Housing','Services in relation to housing requests');"
-"insert into temp_domain_values values ('The Scottish Federation of Housing Associations (SFHA)
-','Housing','Services in relation to housing requests');"
+insert into temp_domain_values values ('The Northern Ireland Federation of Housing Associations (NIFHA)','Housing','Services in relation to housing requests');
+insert into temp_domain_values values ('The Scottish Federation of Housing Associations (SFHA)','Housing','Services in relation to housing requests');"
 insert into temp_domain_values values ('Vacant','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Void','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Rail Legal Services','Legal','Services involving Legal or Law related matters');
