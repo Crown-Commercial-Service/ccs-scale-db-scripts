@@ -9,22 +9,31 @@ DELETE FROM journeys;
 INSERT INTO journeys (journey_id, journey_name, published)
 VALUES ('b87a0636-654e-11ea-bc55-0242ac130003', 'Linen & Laundry', true),
 ('ccb5c730-75b5-11ea-bc55-0242ac130003', 'Wider Public Sector Legal Services', true),
-('ccb6174e-75b5-11ea-bc55-0242ac130003', 'Tech & EduTech', true);
+('ccb6174e-75b5-11ea-bc55-0242ac130003', 'Tech & EduTech', true),
+('63f1b00f-530d-4271-a74d-e584c04d8e1b','FM2 Security',true),
+('f08a2055-6502-4d5f-81f8-2e3f111ff7ae','FM2 Housing',true),
+('7f7dcab1-9736-4012-960e-03da3b841c4c','FM2 Facilities',true);
 
 drop table if exists temp_domain_values;
 create table temp_domain_values (search_term varchar(75),
-								 domain_name varchar(50),
-								 domain_desc varchar(2000));
+				 domain_name varchar(50),
+				 domain_desc varchar(2000));
 								 
 drop table if exists temp_journeys;
 create table temp_journeys (domain_name varchar(50),
 						    journey_uuid uuid);
-							
+
+-- The domain name links to the domain used in the spreadsheet. Have set up this temp table as names in the Journeys are slightly different. Plus
+-- Software falls under Tech & Edu Tech annd doesn't have its own journey
+
 INSERT INTO temp_journeys values ('Linen','b87a0636-654e-11ea-bc55-0242ac130003');
-INSERT INTO temp_journeys values ('Legal','ccb5c730-75b5-11ea-bc55-0242ac130003');
+INSERT INTO temp_journeys values ('Legal','ccb5c730-75b5-11ea-bc55-0242ac130003'); 
 INSERT INTO temp_journeys values ('Technology','ccb6174e-75b5-11ea-bc55-0242ac130003');
 INSERT INTO temp_journeys values ('Software','ccb6174e-75b5-11ea-bc55-0242ac130003');
-						   
+INSERT INTO temp_journeys values ('Security','63f1b00f-530d-4271-a74d-e584c04d8e1b');
+INSERT INTO temp_journeys values ('Housing','f08a2055-6502-4d5f-81f8-2e3f111ff7ae');
+INSERT INTO temp_journeys values ('Facilities Management','7f7dcab1-9736-4012-960e-03da3b841c4c');
+
 insert into temp_domain_values values ('education','Technology','Technology related products from Laptops to printers, including hardware and software');
 insert into temp_domain_values values ('education technology','Technology','Technology related products from Laptops to printers, including hardware and software');
 insert into temp_domain_values values ('audio visual','Technology','Technology related products from Laptops to printers, including hardware and software');
@@ -188,7 +197,7 @@ insert into temp_domain_values values ('linen','Linen','Standard collection, was
 insert into temp_domain_values values ('laundry','Linen','Standard collection, wash, finish and return of buyer owned and hired laundry from the supplier, specialist laundry and cleanroom services.');
 insert into temp_domain_values values ('linen','Linen','Standard collection, wash, finish and return of buyer owned and hired laundry from the supplier, specialist laundry and cleanroom services.');
 insert into temp_domain_values values ('laundry','Linen','Standard collection, wash, finish and return of buyer owned and hired laundry from the supplier, specialist laundry and cleanroom services.');
-insert into temp_domain_values values ('Security','Software','Computer Software related');
+insert into temp_domain_values values ('Security','Software','Computer programs designed to enhance IT security');
 insert into temp_domain_values values ('technology products','Technology','Technology related products from Laptops to printers, including hardware and software');
 insert into temp_domain_values values ('technology','Technology','Technology related products from Laptops to printers, including hardware and software');
 insert into temp_domain_values values ('technology products 2','Technology','Technology related products from Laptops to printers, including hardware and software');
@@ -225,7 +234,7 @@ insert into temp_domain_values values ('video','Technology','Technology related 
 insert into temp_domain_values values ('ipad','Technology','Technology related products from Laptops to printers, including hardware and software');
 insert into temp_domain_values values ('Technology products 2','Technology','Technology related products from Laptops to printers, including hardware and software');
 insert into temp_domain_values values ('ICT','Technology','Technology related products from Laptops to printers, including hardware and software');
-insert into temp_domain_values values ('security','Software','Security Software such as Antivirus');
+insert into temp_domain_values values ('security','Software','Computer programs designed to enhance IT security');
 insert into temp_domain_values values ('products 2','Technology','Technology related products from Laptops to printers, including hardware and software');
 insert into temp_domain_values values ('TECHNOLOGY PRODUCTS 2','Technology','Technology related products from Laptops to printers, including hardware and software');
 insert into temp_domain_values values ('technology products 2 ','Technology','Technology related products from Laptops to printers, including hardware and software');
@@ -391,47 +400,47 @@ insert into temp_domain_values values ('Video Conferencing','Technology','Techno
 insert into temp_domain_values values ('Security','Physical','Manned Gaurding, Physical Personalle');
 insert into temp_domain_values values ('Security','Technical','CCTV Support, Camerca Installation');
 insert into temp_domain_values values ('Security','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Security','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Alarm','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Barrier','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Biometric','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Blockers','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Bollard','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Canine','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Cash','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('CCTV','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('CCTV','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('closed circuit','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Control','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Detection','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('DVR','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Electronic','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Emergency','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Fence','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Gate','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Guarding','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Intruder','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Intrusion','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Key Holding','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Lighting','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Lock Up','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Locking','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Monitoring','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Monitoring','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('NVR','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Panic','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Patrols','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Perimeter','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Physical','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Protection','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Response','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Risk','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Screening','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Security','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Security consultant','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Security services','Security Services','Physical Security services such as gaurding, or physical presence');
-insert into temp_domain_values values ('Systems','Technical Security','Technical support such as CCTV Support, Camera Installation');
-insert into temp_domain_values values ('Technical security','Technical Security','Technical support such as CCTV Support, Camera Installation');
+insert into temp_domain_values values ('Security','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Alarm','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Barrier','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Biometric','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Blockers','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Bollard','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Canine','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Cash','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('CCTV','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('CCTV','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('closed circuit','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Control','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Detection','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('DVR','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Electronic','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Emergency','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Fence','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Gate','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Guarding','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Intruder','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Intrusion','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Key Holding','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Lighting','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Lock Up','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Locking','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Monitoring','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Monitoring','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('NVR','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Panic','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Patrols','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Perimeter','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Physical','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Protection','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Response','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Risk','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Screening','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Security','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Security consultant','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Security services','Security Services','For example guarding, patrols, CCTV monitoring and alarm response');
+insert into temp_domain_values values ('Systems','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
+insert into temp_domain_values values ('Technical security','Technical Security','For example risk assessments, and the design and installation of electronic or physical security systems');
 insert into temp_domain_values values ('Access','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('AC','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('AV','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
@@ -455,13 +464,13 @@ insert into temp_domain_values values ('Catering','Facilities Management','Facil
 insert into temp_domain_values values ('Catering','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('christmas tree','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Classified Waste','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
-insert into temp_domain_values values ('Clean ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
+insert into temp_domain_values values ('Clean  ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Cleaning','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Clinical Waste','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Clocks','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('condition','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Curtains','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
-insert into temp_domain_values values ('Deep ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
+insert into temp_domain_values values ('Deep  ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Deep cleaning','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Deli-Bar','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Electrical','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
@@ -472,7 +481,7 @@ insert into temp_domain_values values ('External','Facilities Management','Facil
 insert into temp_domain_values values ('Fabric','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Facilities','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Feminine Hygiene Waste','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
-insert into temp_domain_values values ('Fire ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
+insert into temp_domain_values values ('Fire  ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Fire alarm','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('flag','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('flowers','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
@@ -538,11 +547,11 @@ insert into temp_domain_values values ('Service Delivery Plan','Facilities Manag
 insert into temp_domain_values values ('SFG20','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Signage','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('snow','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
-insert into temp_domain_values values ('soft ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
+insert into temp_domain_values values ('soft  ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Soft landings','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Specialist','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Standby','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
-insert into temp_domain_values values ('Statutory ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
+insert into temp_domain_values values ('Statutory   ','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('Statutory Obligations','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('survey','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
 insert into temp_domain_values values ('switchgear','Facilities Management','Facility management typically include a wide range of function and support services, including janitorial services');
@@ -573,8 +582,8 @@ insert into temp_domain_values values ('Care Homes','Housing','Services in relat
 insert into temp_domain_values values ('Central Government Housing','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Certification','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Communal','Housing','Services in relation to housing requests');
-insert into temp_domain_values values ('Community Housing Cymru (CHC),
-','Housing','Services in relation to housing requests');
+"insert into temp_domain_values values ('Community Housing Cymru (CHC),
+','Housing','Services in relation to housing requests');"
 insert into temp_domain_values values ('Corridors','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Decent Homes Standards 2006 ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('disability','Housing','Services in relation to housing requests');
@@ -600,8 +609,8 @@ insert into temp_domain_values values ('Local Authority Housing ','Housing','Ser
 insert into temp_domain_values values ('Local Housing Companies ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Maintenance ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Management','Housing','Services in relation to housing requests');
-insert into temp_domain_values values ('National Housing Federation
-','Housing','Services in relation to housing requests');
+"insert into temp_domain_values values ('National Housing Federation
+','Housing','Services in relation to housing requests');"
 insert into temp_domain_values values ('Occupation','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Outsourcing Playbook','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Pathways','Housing','Services in relation to housing requests');
@@ -609,8 +618,8 @@ insert into temp_domain_values values ('Play Areas','Housing','Services in relat
 insert into temp_domain_values values ('Private Registered Providers (PRPs). ','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Property','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('PRPs','Housing','Services in relation to housing requests');
-insert into temp_domain_values values ('Public Sector Housing 
-','Housing','Services in relation to housing requests');
+"insert into temp_domain_values values ('Public Sector Housing 
+','Housing','Services in relation to housing requests');"
 insert into temp_domain_values values ('Radon','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Reactive Repairs','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Recreational Facilities ','Housing','Services in relation to housing requests');
@@ -625,10 +634,10 @@ insert into temp_domain_values values ('Social Value','Housing','Services in rel
 insert into temp_domain_values values ('Special need','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Stairs','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Stock Management ','Housing','Services in relation to housing requests');
-insert into temp_domain_values values ('The Northern Ireland Federation of Housing Associations (NIFHA)
-','Housing','Services in relation to housing requests');
-insert into temp_domain_values values ('The Scottish Federation of Housing Associations (SFHA)
-','Housing','Services in relation to housing requests');
+"insert into temp_domain_values values ('The Northern Ireland Federation of Housing Associations (NIFHA)
+','Housing','Services in relation to housing requests');"
+"insert into temp_domain_values values ('The Scottish Federation of Housing Associations (SFHA)
+','Housing','Services in relation to housing requests');"
 insert into temp_domain_values values ('Vacant','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Void','Housing','Services in relation to housing requests');
 insert into temp_domain_values values ('Rail Legal Services','Legal','Services involving Legal or Law related matters');
@@ -689,7 +698,6 @@ insert into temp_domain_values values ('e-Discovery','Legal','Services involving
 insert into temp_domain_values values ('costs draftman','Legal','Services involving Legal or Law related matters');
 insert into temp_domain_values values ('draftsman','Legal','Services involving Legal or Law related matters');
 insert into temp_domain_values values ('eDisclosure','Legal','Services involving Legal or Law related matters');
-
 /*
 select * from temp_domain_values
 where domain_name in ('Technology','Legal','Linen','Software')
@@ -703,7 +711,7 @@ delete from search_terms;
 insert into search_terms (search_term) 
 select  distinct lower(search_term) 
 from    temp_domain_values
-where   domain_name in ('Technology','Legal','Linen','Software');
+where   domain_name in ('Technology','Legal','Linen','Software','Security','Housing','Facilities Management');
 
 delete from search_domains;
 insert into search_domains (search_id,journey_id,modifier_journey_name,journey_selection_text,journey_selection_description)
