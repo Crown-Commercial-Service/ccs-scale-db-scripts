@@ -228,9 +228,7 @@ values
  '<ul class="govuk-list govuk-list--bullet">
 <li>Provision of Information and Communications Technologies (ICT) goods and services. Services include a new build requirement or an ICT refresh</li>
 <li>Open to all public sector educational organisations</li>
-</ul> 
-<p class="govuk-body">Lot 1 replaces RM1050 agreement, ICT Services for Education.
-</p>',
+</ul>',
  3,
  'Services',
  '10-Jun-2019',
@@ -252,9 +250,7 @@ values
  '<ul class="govuk-list govuk-list--bullet">
 <li>Design and installation of broadband fibre infrastructure for new premises</li>
 <li>Suppliers can provide overall design, fibre, run fibre tests, and do ''last mile'' installation from the node to the premises</li>
-</ul> 
-<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
-</p>',
+</ul>,
  3,
  'Services',
  '10-Jun-2019',
@@ -277,9 +273,7 @@ values
 <li>Provision of connectivity services</li>
 <li>Suppliers can provide full fibre broadband services for both new services and upgrading existing services</li>
 <li>This includes support and maintenance, internet filtering, firewall, eSafety, and IP connectivity</li>
-</ul> 
-<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
-</p>',
+</ul>,
  3,
  'Services',
  '10-Jun-2019',
@@ -301,9 +295,7 @@ values
  '<ul class="govuk-list govuk-list--bullet">
 <li>Provision of Information and Communication Technologies (ICT) hardware</li>
 <li>Suppliers can also provide some networking equipment such as switches and routers, peripheral ICT equipment such as printers, and software when offered as part of a package</li>
-</ul> 
-<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
-</p>',
+</ul>',
  3,
  'Services',
  '10-Jun-2019',
@@ -325,9 +317,7 @@ values
  '<ul class="govuk-list govuk-list--bullet">
 <li>Provision and installation of sound and visual equipment</li>
 <li>Suppliers can  provide interactive solutions such as whiteboards, digital signage, TVs, AV software, auditorium solutions and training</li>
-</ul> 
-<p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
-</p>',
+</ul>,
  3,
  'Services',
  '10-Jun-2019',
@@ -787,7 +777,7 @@ values
  7,
  'Services',
  '19-Oct-2018',
- '18-Oct-2021');
+ '30-Sep-2021');
  
 INSERT INTO lOTS
 (lot_id,
