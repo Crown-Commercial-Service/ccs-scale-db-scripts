@@ -250,7 +250,7 @@ values
  '<ul class="govuk-list govuk-list--bullet">
 <li>Design and installation of broadband fibre infrastructure for new premises</li>
 <li>Suppliers can provide overall design, fibre, run fibre tests, and do ''last mile'' installation from the node to the premises</li>
-</ul>,
+</ul>',
  3,
  'Services',
  '10-Jun-2019',
@@ -273,7 +273,7 @@ values
 <li>Provision of connectivity services</li>
 <li>Suppliers can provide full fibre broadband services for both new services and upgrading existing services</li>
 <li>This includes support and maintenance, internet filtering, firewall, eSafety, and IP connectivity</li>
-</ul>,
+</ul>',
  3,
  'Services',
  '10-Jun-2019',
@@ -317,7 +317,7 @@ values
  '<ul class="govuk-list govuk-list--bullet">
 <li>Provision and installation of sound and visual equipment</li>
 <li>Suppliers can  provide interactive solutions such as whiteboards, digital signage, TVs, AV software, auditorium solutions and training</li>
-</ul>,
+</ul>',
  3,
  'Services',
  '10-Jun-2019',
