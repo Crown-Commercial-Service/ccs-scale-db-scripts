@@ -20,7 +20,7 @@ values (     1,
              'RM3733',
              'Technology Products 2',
              'CCS',
-             '<p class="govuk-body">Lots 1-5 on this framework have expired and been replaced by Technology Products and Associated Services - RM6068 https://www.crowncommercial.gov.uk/agreements/RM6068.  Lot 6 has been extended to 31 October 2021.
+             '<p class="govuk-body">Lots 1-5 on this framework have expired and been replaced by <a href="https://www.crowncommercial.gov.uk/agreements/RM6068">Technology Products and Associated Services - RM6068</a>.  Lot 6 has been extended to 31 October 2021.
 </p>',
              '31-Oct-2016',
              '31-Oct-2021',
@@ -144,12 +144,12 @@ values (     7,
              'RM3788',
              'Legal Services for the Wider Public Sector',
              'CCS',
-             '<p class="govuk-body">This framework contains 4 lots offering both general and more specific legal services. You can find suitable suppliers from the lots on this agreement using the our filtering tool (hyperlink to https://marketplace.service.crowncommercial.gov.uk/legal-services).
+             '<p class="govuk-body">This panel contains 4 lots offering both general and more specific legal services. You can find suitable suppliers from the lots on this agreement using the our <a href="https://marketplace.service.crowncommercial.gov.uk/legal-services">filtering tool.</a>        
 </p>        
 <p class="govuk-body">Both direct award and further competition is enabled under this panel.
 </p>',
              '01-Oct-2018',
-             '18-Oct-2021',
+             '30-Sep-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM3788');
              
 Insert into Commercial_Agreements
@@ -250,7 +250,7 @@ values (     11,
 <p class="govuk-body">Direct award and further competition are both enabled on this panel. Schedule 5 of the agreement gives further information.
 </p>',
              '28-Feb-2017',
-             '17-Dec-2021',
+             '27-Dec-2021',
              'https://www.crowncommercial.gov.uk/agreements/RM3786');
              
 Insert into Commercial_Agreements
