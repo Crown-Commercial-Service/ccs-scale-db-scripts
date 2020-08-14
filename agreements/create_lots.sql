@@ -228,6 +228,8 @@ values
  '<ul class="govuk-list govuk-list--bullet">
 <li>Provision of Information and Communications Technologies (ICT) goods and services. Services include a new build requirement or an ICT refresh</li>
 <li>Open to all public sector educational organisations</li>
+ <p class="govuk-body">Lot 1 replaces RM1050 agreement, ICT Services for Education.
+</p> 
 </ul>',
  3,
  'Services',
