@@ -146,7 +146,7 @@ values (     7,
              'RM3788',
              'Legal Services for the Wider Public Sector',
              'CCS',
-             '<p class="govuk-body">This panel contains 4 lots offering both general and more specific legal services. You can find suitable suppliers from the lots on this agreement using the our <a href="https://marketplace.service.crowncommercial.gov.uk/legal-services">filtering tool</a>        
+             '<p class="govuk-body">This panel contains 4 lots offering both general and more specific legal services. You can find suitable suppliers from the lots on this agreement using the our <a href="https://marketplace.service.crowncommercial.gov.uk/legal-services">filtering tool.</a>        
 </p>        
 <p class="govuk-body">Both direct award and further competition is enabled under this panel.
 </p>',
