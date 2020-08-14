@@ -64,8 +64,6 @@ values (     3,
 </ul> 
 <p class="govuk-body">This framework contains 5 different lots, including managed services, broadband services, hardware and audio visual (AV).
 </p>
-<p class="govuk-body">Lot 1 replaces RM1050 agreement, ICT Services for Education.
-</p>        
 <p class="govuk-body">Further competition is enabled on all lots. Simplified competition and direct award is enabled on Lots 4 and 5. 
 </p>',
              '10-Jun-2019',
