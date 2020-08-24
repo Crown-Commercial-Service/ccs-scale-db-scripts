@@ -124,7 +124,8 @@ values (     6,
              '<ul class="govuk-list govuk-list--bullet">
 <li>UK-wide Facilities Management (FM) services organised regionally and available to all public sector entities</li>
 <li>Range of services offered including cleaning, catering, maintenance and helpdesk services </li>
-</ul> ',
+</ul><p>This agreement has 3 sub-lots, divided by total contract value. 
+Direct competition is offered if certain criteria are met, such as the anticipated contract value being less than £1.5 million.</p>',
              '10-Jul-2018',
              '09-Jul-2022',
              'https://www.crowncommercial.gov.uk/agreements/RM3830');  
