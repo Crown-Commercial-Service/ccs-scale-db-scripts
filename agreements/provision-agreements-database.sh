@@ -22,9 +22,9 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_commercial_ag
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lots.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_rules.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_related_lots.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f lot_rule_attributes.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f lot_rule_transaction_objects.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f commercial_agreement_contacts.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_rule_attributes.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_rule_transaction_objects.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_commercial_agreement_contacts.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_sectors.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_sectors.sql 
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_route_to_market.sql
