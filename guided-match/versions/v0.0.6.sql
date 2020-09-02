@@ -1,7 +1,7 @@
 /*
 Version No Version Description
 
-v0.0.4     This file is a script to create additional tables and insert values into the tables for error handling in Find a Thing.
+v0.0.6     This file is a script to create additional tables and insert values into the tables for error handling in Find a Thing.
 */
 
 -- Failure Validation Types
@@ -12,7 +12,8 @@ CREATE TABLE failure_validation_types
 
 CREATE TABLE error_messages
 (error_message_code varchar(10)  PRIMARY KEY,
- error_message      varchar(100)
+ error_message      varchar(1000),
+ error_summary      varchar(1000)
 );
 
 CREATE TABLE error_usage
