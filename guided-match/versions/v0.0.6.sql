@@ -12,7 +12,8 @@ CREATE TABLE failure_validation_types
 
 CREATE TABLE error_messages
 (error_message_code varchar(10)  PRIMARY KEY,
- error_message      varchar(100)
+ error_message      varchar(1000),
+ errro_summary.     varchar(1000)
 );
 
 CREATE TABLE error_usage
