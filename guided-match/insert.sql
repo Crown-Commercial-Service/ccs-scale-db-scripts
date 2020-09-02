@@ -18,7 +18,7 @@ drop table if exists temp_domain_values;
 create table temp_domain_values (search_term varchar(75),
 				 domain_name varchar(50),
 				 domain_desc varchar(2000));
-								 
+
 drop table if exists temp_journeys;
 create table temp_journeys (domain_name varchar(50),
 						    journey_uuid uuid);
@@ -27,7 +27,7 @@ create table temp_journeys (domain_name varchar(50),
 -- Software falls under Tech & Edu Tech annd doesn't have its own journey
 
 INSERT INTO temp_journeys values ('Linen','b87a0636-654e-11ea-bc55-0242ac130003');
-INSERT INTO temp_journeys values ('Legal','ccb5c730-75b5-11ea-bc55-0242ac130003'); 
+INSERT INTO temp_journeys values ('Legal','ccb5c730-75b5-11ea-bc55-0242ac130003');
 INSERT INTO temp_journeys values ('Technology','ccb6174e-75b5-11ea-bc55-0242ac130003');
 INSERT INTO temp_journeys values ('Software','ccb6174e-75b5-11ea-bc55-0242ac130003');
 INSERT INTO temp_journeys values ('Security Services','63f1b00f-530d-4271-a74d-e584c04d8e1b');
@@ -696,8 +696,8 @@ select distinct domain_name from temp_domain_values;
 */
 
 delete from search_terms;
-insert into search_terms (search_term) 
-select  distinct lower(search_term) 
+insert into search_terms (search_term)
+select  distinct lower(search_term)
 from    temp_domain_values td
 join   temp_journeys tj on tj.domain_name = td.domain_name;
 
@@ -712,5 +712,36 @@ from   search_terms st
 join   temp_domain_values td on lower(td.search_term) = st.search_term
 join   temp_journeys tj on tj.domain_name = td.domain_name;
 
-drop table if exists temp_domain_values;								 
+drop table if exists temp_domain_values;
 drop table if exists temp_journeys;
+
+/*
+* Error handling seed data
+*/
+insert into failure_validation_types(failure_validation_type_code, failure_validation_type_name)
+values ('noSelection', 'User has not selected an option in a select list where a selection is needed.'),
+('noValue', 'User has not entered a value where a value is required.'),
+('checkNumber', 'User has entered text into a number selection field.'),
+('checkWholeNumber', 'User has entered a non whole number');
+
+insert into error_messages(error_message_code, error_summary, error_message)
+values ('ERR_GM001', "<p>If you know your budget, enter it here.</p><p>Select No if you don't know your budget", "<p>If you know your budget, enter it here.</p><p>Select No if you don't know your budget"),
+('ERR_GM002', 'Enter your budget in £', 'Enter your budget in £'),
+('ERR_GM003', 'Enter your budget using numbers not letters', 'Enter your budget using numbers not letters'),
+('ERR_GM004', 'Enter your budget using whole numbers', 'Enter your budget using whole numbers'),
+('ERR_GM005', "<p>Enter the length of your contract in months if you know it.</p><p>Select No if you don't know the length of your contract</p>", "<p>Enter the length of your contract in months if you know it.</p><p>Select No if you don't know the length of your contract</p>"),
+('ERR_GM006', 'Enter the length of your contract in numbers not letters. The length of your contract must be in months.', 'Enter the length of your contract in numbers not letters. The length of your contract must be in months.'),
+('ERR_GM007', "Select if you're looking for a product or service. If you're looking for both, select a service.", "Select if you're looking for a product, service or both. If you're looking for both, select a service."),
+('ERR_GM008', "Select which service you need", "Select which service you need"),
+('ERR_GM009', "Select an option for additional facilities management services, if you need one. Select no if you don't need any additional services", "Select an option for additional facilities management services, if you need one. Select no if you don't need any additional services"),
+('ERR_GM010', "Select which sector you are buying for", "Select which sector you are buying for"),
+('ERR_GM011', "Select which service area you need. You can choose multiple options.", "Select which service area you need. You can choose multiple options."),
+('ERR_GM012', "Select if you need this service in England and Wales, Scotland or Northern Ireland", "Select if you need this service in England and Wales, Scotland or Northern Ireland"),
+('ERR_GM013', "Select if you're looking for a product, service or both", "Select if you're looking for a product, service or both"),
+('ERR_GM014', "Select which services you need. You can choose multiple options", "Select which services you need. You can choose multiple options"),
+('ERR_GM015', "Select what type of security you need", "Select what type of security you need"),
+('ERR_GM016', "Select what type of security services you need. You can choose multiple options", "Select what type of security services you need. You can choose multiple options"),
+('ERR_GM017', "Select an option for additional facilities management services, if you need one. You can choose multiple options. Select No if you don't need any additional services", "Select an option for additional facilities management services, if you need one. You can choose multiple options. Select No if you don't need any additional services"),
+('ERR_GM018', "Select what type of technical security you need", "Select what type of technical security you need"),
+('ERR_GM018', "Select what type of technical security you need", "Select what type of technical security you need"),
+('ERR_GM019', "Select what type of services you need", "Select what type of services you need");
