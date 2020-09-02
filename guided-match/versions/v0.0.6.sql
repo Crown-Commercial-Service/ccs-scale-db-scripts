@@ -1,7 +1,7 @@
 /*
 Version No Version Description
 
-v0.0.4     This file is a script to create additional tables and insert values into the tables for error handling in Find a Thing.
+v0.0.6     This file is a script to create additional tables and insert values into the tables for error handling in Find a Thing.
 */
 
 -- Failure Validation Types
