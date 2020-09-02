@@ -718,30 +718,54 @@ drop table if exists temp_journeys;
 /*
 * Error handling seed data
 */
-insert into failure_validation_types(failure_validation_type_code, failure_validation_type_name)
+insert into failure_validation_types (failure_validation_type_code, failure_validation_type_name)
 values ('noSelection', 'User has not selected an option in a select list where a selection is needed.'),
 ('noValue', 'User has not entered a value where a value is required.'),
 ('checkNumber', 'User has entered text into a number selection field.'),
 ('checkWholeNumber', 'User has entered a non whole number');
 
-insert into error_messages(error_message_code, error_summary, error_message)
-values ('ERR_GM001', "<p>If you know your budget, enter it here.</p><p>Select No if you don't know your budget", "<p>If you know your budget, enter it here.</p><p>Select No if you don't know your budget"),
+insert into error_messages (error_message_code, error_summary, error_message)
+values ('ERR_GM001', '<p>If you know your budget, enter it here.</p><p>Select No if you don''t know your budget', '<p>If you know your budget, enter it here.</p><p>Select No if you don''t know your budget'),
 ('ERR_GM002', 'Enter your budget in £', 'Enter your budget in £'),
 ('ERR_GM003', 'Enter your budget using numbers not letters', 'Enter your budget using numbers not letters'),
 ('ERR_GM004', 'Enter your budget using whole numbers', 'Enter your budget using whole numbers'),
-('ERR_GM005', "<p>Enter the length of your contract in months if you know it.</p><p>Select No if you don't know the length of your contract</p>", "<p>Enter the length of your contract in months if you know it.</p><p>Select No if you don't know the length of your contract</p>"),
+('ERR_GM005', '<p>Enter the length of your contract in months if you know it.</p><p>Select No if you don''t know the length of your contract</p>', '<p>Enter the length of your contract in months if you know it.</p><p>Select No if you don''t know the length of your contract</p>'),
 ('ERR_GM006', 'Enter the length of your contract in numbers not letters. The length of your contract must be in months.', 'Enter the length of your contract in numbers not letters. The length of your contract must be in months.'),
-('ERR_GM007', "Select if you're looking for a product or service. If you're looking for both, select a service.", "Select if you're looking for a product, service or both. If you're looking for both, select a service."),
-('ERR_GM008', "Select which service you need", "Select which service you need"),
-('ERR_GM009', "Select an option for additional facilities management services, if you need one. Select no if you don't need any additional services", "Select an option for additional facilities management services, if you need one. Select no if you don't need any additional services"),
-('ERR_GM010', "Select which sector you are buying for", "Select which sector you are buying for"),
-('ERR_GM011', "Select which service area you need. You can choose multiple options.", "Select which service area you need. You can choose multiple options."),
-('ERR_GM012', "Select if you need this service in England and Wales, Scotland or Northern Ireland", "Select if you need this service in England and Wales, Scotland or Northern Ireland"),
-('ERR_GM013', "Select if you're looking for a product, service or both", "Select if you're looking for a product, service or both"),
-('ERR_GM014', "Select which services you need. You can choose multiple options", "Select which services you need. You can choose multiple options"),
-('ERR_GM015', "Select what type of security you need", "Select what type of security you need"),
-('ERR_GM016', "Select what type of security services you need. You can choose multiple options", "Select what type of security services you need. You can choose multiple options"),
-('ERR_GM017', "Select an option for additional facilities management services, if you need one. You can choose multiple options. Select No if you don't need any additional services", "Select an option for additional facilities management services, if you need one. You can choose multiple options. Select No if you don't need any additional services"),
-('ERR_GM018', "Select what type of technical security you need", "Select what type of technical security you need"),
-('ERR_GM018', "Select what type of technical security you need", "Select what type of technical security you need"),
-('ERR_GM019', "Select what type of services you need", "Select what type of services you need");
+('ERR_GM007', 'Select if you''re looking for a product or service.', 'Select if you''re looking for a product, service or both. If you''re looking for both, select a service.'),
+('ERR_GM008', 'Select which service you need', 'Select which service you need'),
+('ERR_GM009', 'Select an option for additional facilities management services, if you need one. Select no if you don''t need any additional services', 'Select an option for additional facilities management services, if you need one. Select no if you don''t need any additional services'),
+('ERR_GM010', 'Select which sector you are buying for', 'Select which sector you are buying for'),
+('ERR_GM011', 'Select which service area you need. You can choose multiple options.', 'Select which service area you need. You can choose multiple options.'),
+('ERR_GM012', 'Select if you need this service in England and Wales, Scotland or Northern Ireland', 'Select if you need this service in England and Wales, Scotland or Northern Ireland'),
+('ERR_GM013', 'Select if you''re looking for a product, service or both', 'Select if you''re looking for a product, service or both'),
+('ERR_GM014', 'Select which services you need. You can choose multiple options', 'Select which services you need. You can choose multiple options'),
+('ERR_GM015', 'Select what type of security you need', 'Select what type of security you need'),
+('ERR_GM016', 'Select what type of security services you need. You can choose multiple options', 'Select what type of security services you need. You can choose multiple options'),
+('ERR_GM017', 'Select an option for additional facilities management services, if you need one. You can choose multiple options. Select No if you don''t need any additional services', 'Select an option for additional facilities management services, if you need one. You can choose multiple options. Select No if you don''t need any additional services'),
+('ERR_GM018', 'Select what type of technical security you need', 'Select what type of technical security you need'),
+('ERR_GM019', 'Select what type of services you need', 'Select what type of services you need'),
+('ERR_GM020', 'Select what type of housing services you need', 'Select what type of housing services you need'),
+('ERR_GM021', 'Select where you need this service', 'Select where you need this service'),
+
+insert into error_usage (failure_validation_type_code, error_message_code, question_id)
+-- Decision Tree Graph Question Definition UUIDs (see https://github.com/Crown-Commercial-Service/ccs-scale-decision-tree-db/blob/develop/graph/common.cypher)
+values ('noSelection', 'ERR_GM013', 'b879c040-654e-11ea-bc55-0242ac130003'), --Prod/Service/Both v1
+('noSelection', 'ERR_GM007', '00888ff8-4327-4f46-a03b-8c6556b1fcac'), --Prod/Service/Both v2
+('noSelection', 'ERR_GM001', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
+('noValue', 'ERR_GM002', '931a3024-8612-422b-8e6f-480007105c2e'), --Budget
+('checkNumber', 'ERR_GM003', '931a3024-8612-422b-8e6f-480007105c2e'), --Budget
+('checkWholeNumber', 'ERR_GM004', '931a3024-8612-422b-8e6f-480007105c2e'), --Budget
+('noSelection', 'ERR_GM005', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
+('checkNumber', 'ERR_GM006', '754c6fbb-4525-4468-89d6-148ac26ec7f9'), --Contract
+('noSelection', 'ERR_GM009', '1ecbbf8d-7d40-4711-b9e8-9e4e710d8ced'), --Additional Fac/Man v1 (single)
+('noSelection', 'ERR_GM017', 'b879c342-654e-11ea-bc55-0242ac130003'), --Additional Fac/Man v2 (multi-select)
+('noSelection', 'ERR_GM010', 'b879c46e-654e-11ea-bc55-0242ac130003'), --Sector
+('noSelection', 'ERR_GM020', '4d9acc00-13eb-4854-8455-3213f381e0de'), --Housing services
+('noSelection', 'ERR_GM008', 'b879c55e-654e-11ea-bc55-0242ac130003'), --Service v1
+('noSelection', 'ERR_GM008', 'e415219f-f3e9-40a6-ab2b-ba73f44ce56d'), --Service v2
+('noSelection', 'ERR_GM014', 'b87a0014-654e-11ea-bc55-0242ac130003'), --Services v3
+('noSelection', 'ERR_GM015', 'b879c784-654e-11ea-bc55-0242ac130003'), --Security
+('noSelection', 'ERR_GM016', '1b99e1a4-432f-4700-bcc2-7cbb2538fc20'), --Security services
+('noSelection', 'ERR_GM018', '9a6301b0-e9f7-46b4-ad64-14da3396b2c7'), --Technical security
+('noSelection', 'ERR_GM012', 'ccb5c64a-75b5-11ea-bc55-0242ac130003'), --Service location
+('noSelection', 'ERR_GM011', '59561c74-8d8f-4863-a01d-5cca0a289986'); --Service area
