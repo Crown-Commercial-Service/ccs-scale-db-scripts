@@ -5,6 +5,9 @@
 DELETE FROM search_domains;
 DELETE FROM search_terms;
 DELETE FROM journeys;
+DELETE FROM error_usage;
+DELETE FROM error_messages;
+DELETE FROM failure_validation_types;
 
 INSERT INTO journeys (journey_id, journey_name, published)
 VALUES ('b87a0636-654e-11ea-bc55-0242ac130003', 'Linen & Laundry', true),
@@ -685,15 +688,6 @@ insert into temp_domain_values values ('e-Discovery','Legal','Services involving
 insert into temp_domain_values values ('costs draftman','Legal','Services involving Legal or Law related matters');
 insert into temp_domain_values values ('draftsman','Legal','Services involving Legal or Law related matters');
 insert into temp_domain_values values ('eDisclosure','Legal','Services involving Legal or Law related matters');
-
-/*
-select * from temp_domain_values
-where domain_name in ('Technology','Legal','Linen','Software')
-
-select max(length(search_term)) from temp_domain_values
-
-select distinct domain_name from temp_domain_values;
-*/
 
 delete from search_terms;
 insert into search_terms (search_term)

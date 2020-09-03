@@ -2,7 +2,7 @@
 ----------      -------------------
 -- v0.0.4       Amend columns and constraint on search_terms and search_domains
 
-create extension pg_trgm;
+create extension if not exists pg_trgm;
 
 alter table search_terms alter column search_term TYPE varchar(75);
 
