@@ -23,4 +23,10 @@ DROP TABLE IF EXISTS journeys;
 
 DROP TABLE IF EXISTS search_terms;
 
+DROP TABLE IF EXISTS error_usage;
+
+DROP TABLE IF EXISTS error_messages;
+
+DROP TABLE IF EXISTS failure_validation_types;
+
 DROP TYPE IF EXISTS enum_outcome_type;
