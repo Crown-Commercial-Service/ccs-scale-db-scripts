@@ -745,7 +745,7 @@ values ('ERR_GM001', '<p>If you know your budget, enter it here.</p><p>Select No
 ('ERR_GM018', 'Select what type of technical security you need', 'Select what type of technical security you need'),
 ('ERR_GM019', 'Select what type of services you need', 'Select what type of services you need'),
 ('ERR_GM020', 'Select what type of housing services you need', 'Select what type of housing services you need'),
-('ERR_GM021', 'Select where you need this service', 'Select where you need this service'),
+('ERR_GM021', 'Select where you need this service', 'Select where you need this service');
 
 insert into error_usage (failure_validation_type_code, error_message_code, question_id)
 -- Decision Tree Graph Question Definition UUIDs (see https://github.com/Crown-Commercial-Service/ccs-scale-decision-tree-db/blob/develop/graph/common.cypher)
