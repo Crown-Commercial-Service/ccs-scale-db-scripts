@@ -4,6 +4,10 @@
 
 DELETE FROM search_domains;
 DELETE FROM search_terms;
+DELETE FROM journey_instance_answers;
+DELETE FROM journey_instance_questions;
+DELETE FROM journey_instance_outcome_details;
+DELETE FROM journey_instances;
 DELETE FROM journeys;
 DELETE FROM error_usage;
 DELETE FROM error_messages;
