@@ -748,11 +748,15 @@ insert into error_usage (failure_validation_type_code, error_message_code, quest
 values ('noSelection', 'ERR_GM013', 'b879c040-654e-11ea-bc55-0242ac130003'), --Prod/Service/Both v1
 ('noSelection', 'ERR_GM007', '00888ff8-4327-4f46-a03b-8c6556b1fcac'), --Prod/Service/Both v2
 ('noSelection', 'ERR_GM001', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
-('noValue', 'ERR_GM002', '931a3024-8612-422b-8e6f-480007105c2e'), --Budget
-('checkNumber', 'ERR_GM003', '931a3024-8612-422b-8e6f-480007105c2e'), --Budget
-('checkWholeNumber', 'ERR_GM004', '931a3024-8612-422b-8e6f-480007105c2e'), --Budget
+('noValue', 'ERR_GM002', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
+('checkNumber', 'ERR_GM003', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
+('checkWholeNumber', 'ERR_GM004', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
+('noSelection', 'ERR_GM001', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
+('noValue', 'ERR_GM002', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
+('checkNumber', 'ERR_GM003', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
+('checkWholeNumber', 'ERR_GM004', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('noSelection', 'ERR_GM005', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
-('checkNumber', 'ERR_GM006', '754c6fbb-4525-4468-89d6-148ac26ec7f9'), --Contract
+('checkNumber', 'ERR_GM006', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
 ('noSelection', 'ERR_GM009', '1ecbbf8d-7d40-4711-b9e8-9e4e710d8ced'), --Additional Fac/Man v1 (single)
 ('noSelection', 'ERR_GM017', 'b879c342-654e-11ea-bc55-0242ac130003'), --Additional Fac/Man v2 (multi-select)
 ('noSelection', 'ERR_GM010', 'b879c46e-654e-11ea-bc55-0242ac130003'), --Sector
