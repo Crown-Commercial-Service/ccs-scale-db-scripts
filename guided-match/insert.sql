@@ -731,7 +731,7 @@ values ('ERR_GM001', '<p>If you know your budget, enter it here.</p><p>Select No
 ('ERR_GM008', 'Select which service you need', 'Select which service you need'),
 ('ERR_GM009', 'Select an option for additional facilities management services, if you need one. Select no if you don''t need any additional services', 'Select an option for additional facilities management services, if you need one. Select no if you don''t need any additional services'),
 ('ERR_GM010', 'Select which sector you are buying for', 'Select which sector you are buying for'),
-('ERR_GM011', 'Select which service area you need. You can choose multiple options.', 'Select which service area you need. You can choose multiple options.'),
+('ERR_GM011', 'Select which service you need', 'Select which service you need'),
 ('ERR_GM012', 'Select if you need this service in England and Wales, Scotland or Northern Ireland', 'Select if you need this service in England and Wales, Scotland or Northern Ireland'),
 ('ERR_GM013', 'Select if you''re looking for a product, service or both', 'Select if you''re looking for a product, service or both'),
 ('ERR_GM014', 'Select which services you need. You can choose multiple options', 'Select which services you need. You can choose multiple options'),
