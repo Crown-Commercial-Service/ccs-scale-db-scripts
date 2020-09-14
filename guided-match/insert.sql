@@ -719,6 +719,7 @@ values ('noSelection', 'User has not selected an option in a select list where a
 ('noValue', 'User has not entered a value where a value is required.'),
 ('checkNumber', 'User has entered text into a number selection field.'),
 ('checkWholeNumber', 'User has entered a non whole number');
+('checkPositiveNumber', 'User has entered zero or a negative number');
 
 insert into error_messages (error_message_code, error_summary, error_message)
 values ('ERR_GM001', '<p>If you know your budget, enter it here.</p><p>Select No if you don''t know your budget', '<p>If you know your budget, enter it here.</p><p>Select No if you don''t know your budget'),
@@ -742,6 +743,7 @@ values ('ERR_GM001', '<p>If you know your budget, enter it here.</p><p>Select No
 ('ERR_GM019', 'Select what type of services you need', 'Select what type of services you need'),
 ('ERR_GM020', 'Select what type of housing services you need', 'Select what type of housing services you need'),
 ('ERR_GM021', 'Select where you need this service', 'Select where you need this service');
+('ERR_GM022', 'Enter your budget using numbers above 0', 'Enter your budget using numbers above 0');
 
 insert into error_usage (failure_validation_type_code, error_message_code, question_id)
 -- Decision Tree Graph Question Definition UUIDs (see https://github.com/Crown-Commercial-Service/ccs-scale-decision-tree-db/blob/develop/graph/common.cypher)
@@ -751,10 +753,12 @@ values ('noSelection', 'ERR_GM013', 'b879c040-654e-11ea-bc55-0242ac130003'), --P
 ('noValue', 'ERR_GM002', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
 ('checkNumber', 'ERR_GM003', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
 ('checkWholeNumber', 'ERR_GM004', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
+('checkPositiveNumber', 'ERR_GM022', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
 ('noSelection', 'ERR_GM001', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('noValue', 'ERR_GM002', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('checkNumber', 'ERR_GM003', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('checkWholeNumber', 'ERR_GM004', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
+('checkWholeNumber', 'ERR_GM022', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('noSelection', 'ERR_GM005', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
 ('checkNumber', 'ERR_GM006', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
 ('noSelection', 'ERR_GM009', '1ecbbf8d-7d40-4711-b9e8-9e4e710d8ced'), --Additional Fac/Man v1 (single)
