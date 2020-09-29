@@ -718,7 +718,8 @@ insert into failure_validation_types (failure_validation_type_code, failure_vali
 values ('noSelection', 'User has not selected an option in a select list where a selection is needed.'),
 ('noValue', 'User has not entered a value where a value is required.'),
 ('checkNumber', 'User has entered text into a number selection field.'),
-('checkWholeNumber', 'User has entered a non whole number');
+('checkWholeNumber', 'User has entered a non whole number'),
+('checkPositiveNumber', 'User has entered zero or a negative number');
 
 insert into error_messages (error_message_code, error_summary, error_message)
 values ('ERR_GM001', '<p>If you know your budget, enter it here.</p><p>Select No if you don''t know your budget', '<p>If you know your budget, enter it here.</p><p>Select No if you don''t know your budget'),
@@ -731,7 +732,7 @@ values ('ERR_GM001', '<p>If you know your budget, enter it here.</p><p>Select No
 ('ERR_GM008', 'Select which service you need', 'Select which service you need'),
 ('ERR_GM009', 'Select an option for additional facilities management services, if you need one. Select no if you don''t need any additional services', 'Select an option for additional facilities management services, if you need one. Select no if you don''t need any additional services'),
 ('ERR_GM010', 'Select which sector you are buying for', 'Select which sector you are buying for'),
-('ERR_GM011', 'Select which service area you need. You can choose multiple options.', 'Select which service area you need. You can choose multiple options.'),
+('ERR_GM011', 'Select which service you need', 'Select which service you need'),
 ('ERR_GM012', 'Select if you need this service in England and Wales, Scotland or Northern Ireland', 'Select if you need this service in England and Wales, Scotland or Northern Ireland'),
 ('ERR_GM013', 'Select if you''re looking for a product, service or both', 'Select if you''re looking for a product, service or both'),
 ('ERR_GM014', 'Select which services you need. You can choose multiple options', 'Select which services you need. You can choose multiple options'),
@@ -741,7 +742,11 @@ values ('ERR_GM001', '<p>If you know your budget, enter it here.</p><p>Select No
 ('ERR_GM018', 'Select what type of technical security you need', 'Select what type of technical security you need'),
 ('ERR_GM019', 'Select what type of services you need', 'Select what type of services you need'),
 ('ERR_GM020', 'Select what type of housing services you need', 'Select what type of housing services you need'),
-('ERR_GM021', 'Select where you need this service', 'Select where you need this service');
+('ERR_GM021', 'Select where you need this service', 'Select where you need this service'),
+('ERR_GM022', 'Enter your budget using numbers above 0', 'Enter your budget using numbers above 0'),
+('ERR_GM023', 'Enter the length of your contract using whole numbers', 'Enter the length of your contract using whole numbers'),
+('ERR_GM024', 'Enter the length of your contract using numbers above 0', 'Enter the length of your contract using numbers above 0'),
+('ERR_GM025', 'Enter the length of your contract in months', 'Enter the length of your contract in months');
 
 insert into error_usage (failure_validation_type_code, error_message_code, question_id)
 -- Decision Tree Graph Question Definition UUIDs (see https://github.com/Crown-Commercial-Service/ccs-scale-decision-tree-db/blob/develop/graph/common.cypher)
@@ -751,12 +756,17 @@ values ('noSelection', 'ERR_GM013', 'b879c040-654e-11ea-bc55-0242ac130003'), --P
 ('noValue', 'ERR_GM002', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
 ('checkNumber', 'ERR_GM003', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
 ('checkWholeNumber', 'ERR_GM004', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
+('checkPositiveNumber', 'ERR_GM022', 'b879c16c-654e-11ea-bc55-0242ac130003'), --Budget
 ('noSelection', 'ERR_GM001', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('noValue', 'ERR_GM002', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('checkNumber', 'ERR_GM003', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('checkWholeNumber', 'ERR_GM004', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
+('checkPositiveNumber', 'ERR_GM022', 'd3a82a1e-ed20-11ea-adc1-0242ac120002'), --Budget (Legal)
 ('noSelection', 'ERR_GM005', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
+('noValue', 'ERR_GM025', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
 ('checkNumber', 'ERR_GM006', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
+('checkWholeNumber', 'ERR_GM023', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
+('checkPositiveNumber', 'ERR_GM024', 'b879c25c-654e-11ea-bc55-0242ac130003'), --Contract
 ('noSelection', 'ERR_GM009', '1ecbbf8d-7d40-4711-b9e8-9e4e710d8ced'), --Additional Fac/Man v1 (single)
 ('noSelection', 'ERR_GM017', 'b879c342-654e-11ea-bc55-0242ac130003'), --Additional Fac/Man v2 (multi-select)
 ('noSelection', 'ERR_GM010', 'b879c46e-654e-11ea-bc55-0242ac130003'), --Sector
