@@ -1,7 +1,7 @@
 /*
 Version No   Version Description
 ----------   -------------------
-v0.0.7       Inserts additional values into the tables for error handling in Find a Thing.
+v0.0.1       Inserts additional values into the tables for error handling in Find a Thing.
 */
 
 insert into failure_validation_types (failure_validation_type_code, failure_validation_type_name)
