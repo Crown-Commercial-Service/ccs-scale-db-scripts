@@ -78,19 +78,6 @@ CREATE TABLE lot_route_to_market (
   PRIMARY KEY (lot_id,route_to_market_name)          
 );
 
-CREATE TABLE commercial_agreement_contacts (
-  commercial_agreement_contact_id   SERIAL PRIMARY KEY,
-  contact_id                        SERIAL NOT NULL, -- Have made this serial as conclave does not exist to hold contacts.
-  commercial_agreement_id           INTEGER NOT NULL,          
-  contact_type                      VARCHAR(100) NOT NULL,
-  email_address                     VARCHAR(254) NOT NULL
-);
-  
-CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX1 on COMMERCIAL_AGREEMENT_CONTACTS (contact_id);
-CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX2 on COMMERCIAL_AGREEMENT_CONTACTS (contact_type);
-CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX3 on COMMERCIAL_AGREEMENT_CONTACTS (contact_type);
-
-
 CREATE TABLE lot_rules (
   lot_rule_id                       INTEGER PRIMARY KEY,
   lot_id                            INTEGER NOT NULL,
@@ -272,12 +259,6 @@ ALTER TABLE lot_route_to_market
 ADD CONSTRAINT lot_route_to_market_route_to_market_fk FOREIGN KEY (route_to_market_name) 
     REFERENCES route_to_market (route_to_market_name);     
      
-ALTER TABLE commercial_agreement_contacts
-ADD CONSTRAINT commercial_agreement_contacts_commercial_agreements_fk FOREIGN KEY (commercial_agreement_id) 
-    REFERENCES commercial_agreements (commercial_agreement_id);
-    
--- No FK to contacts as that entitry doesn't exist in our model.
-
 ALTER TABLE lot_rules 
 ADD CONSTRAINT lot_rules_lots_fk FOREIGN KEY (lot_id) 
     REFERENCES lots (lot_id);
