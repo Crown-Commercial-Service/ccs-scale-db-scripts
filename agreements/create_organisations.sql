@@ -11,8 +11,7 @@ INSERT INTO ORGANISATIONS (
   incorporation_date,
   country_of_incorporation,
   parent_org_id,
-  ultimate_org_id,
-  organisation_status)
+  ultimate_org_id)
   values 
 ('ACS Business Supplies Ltd',
  1,
@@ -20,6 +19,5 @@ INSERT INTO ORGANISATIONS (
  '01-Jan-2018',
  'GB',
  null,
- null,
- 1);
+ null);
         
