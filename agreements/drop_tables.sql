@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS contact_points;
 
 DROP TABLE IF EXISTS contact_point_reasons; 
 
-DROP TABLE IF EXISTS contact_methods; 
+DROP TABLE IF EXISTS contact_details; 
 
 DROP TABLE IF EXISTS contact_method_types;
 
