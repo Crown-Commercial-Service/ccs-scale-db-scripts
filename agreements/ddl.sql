@@ -237,7 +237,7 @@ CREATE TABLE contact_details (
   country_code           VARCHAR(2),
   uprn                   INTEGER);
   
-CREATE INDEX CONTACT_METHODS_IDX1 ON CONTACT_METHODS (effective_from);
+CREATE INDEX CONTACT_DETAILS_IDX1 ON CONTACT_DETAILS (effective_from);
   
 CREATE TABLE contact_points(
   contact_point_id BIGSERIAL PRIMARY KEY,
@@ -335,11 +335,11 @@ ADD CONSTRAINT trading_organisations_organisations_fk FOREIGN KEY (organisation_
     REFERENCES organisations (organisation_id );
 	
 ALTER TABLE contact_details 
-ADD CONSTRAINT contact_methods_contact_method_types_fk FOREIGN KEY (contact_method_type_id) 
+ADD CONSTRAINT contact_details_contact_method_types_fk FOREIGN KEY (contact_method_type_id) 
     REFERENCES contact_method_types (contact_method_type_id);
 	
 ALTER TABLE contact_points
-ADD CONSTRAINT contact_points_contact_methods_fk FOREIGN KEY(contact_detail_id)
+ADD CONSTRAINT contact_points_contact_details_fk FOREIGN KEY(contact_detail_id)
     REFERENCES contact_details (contact_detail_id);
 
 ALTER TABLE contact_points
