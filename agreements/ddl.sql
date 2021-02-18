@@ -225,8 +225,8 @@ CREATE TABLE contact_point_reasons (
   
 CREATE INDEX CONTACT_POINT_REASONS_IDX1 ON CONTACT_POINT_REASONS (contact_point_reason_name); 
   
-CREATE TABLE contact_methods (
-  contact_method_id      BIGSERIAL PRIMARY KEY,
+CREATE TABLE contact_details (
+  contact_detail_id      BIGSERIAL PRIMARY KEY,
   contact_method_type_id INTEGER NOT NULL,
   effective_from         TIMESTAMP NOT NULL,
   effective_to           TIMESTAMP,
@@ -242,9 +242,9 @@ CREATE INDEX CONTACT_METHODS_IDX1 ON CONTACT_METHODS (effective_from);
   
 CREATE TABLE contact_points(
   contact_point_id BIGSERIAL PRIMARY KEY,
-  contact_method_id INTEGER NOT NULL,
+  contact_detail_id INTEGER NOT NULL,
   contact_point_reason_id INTEGER NOT NULL,
-  party_id                INTEGER NOT NULL,
+  party_id                INTEGER NOT NULL, /* That will the fk to the table for which the party id is referencing */
   party_table_name        VARCHAR(100) NOT NULL,	
   effective_from          TIMESTAMP NOT NULL,
   effecive_to             TIMESTAMP,
@@ -335,13 +335,13 @@ ALTER TABLE trading_organisations
 ADD CONSTRAINT trading_organisations_organisations_fk FOREIGN KEY (organisation_id ) 
     REFERENCES organisations (organisation_id );
 	
-ALTER TABLE contact_methods 
+ALTER TABLE contact_details 
 ADD CONSTRAINT contact_methods_contact_method_types_fk FOREIGN KEY (contact_method_type_id) 
     REFERENCES contact_method_types (contact_method_type_id);
 	
 ALTER TABLE contact_points
-ADD CONSTRAINT contact_points_contact_methods_fk FOREIGN KEY(contact_method_id)
-    REFERENCES contact_methods (contact_method_id);
+ADD CONSTRAINT contact_points_contact_methods_fk FOREIGN KEY(contact_detail_id)
+    REFERENCES contact_details (contact_detail_id);
 
 ALTER TABLE contact_points
 ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
