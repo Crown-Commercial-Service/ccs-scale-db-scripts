@@ -127,6 +127,7 @@ CREATE TABLE organisations (
   legal_name               VARCHAR(255)   NOT NULL UNIQUE,
   business_type            INTEGER        NOT NULL,
   organisation_uri         VARCHAR(2000),
+  status                   VARCHAR(100),	
   incorporation_date       DATE           NOT NULL,
   country_of_incorporation VARCHAR(3)     NOT NULL,
   parent_org_id            INTEGER,
