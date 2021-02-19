@@ -106,7 +106,7 @@ CREATE TABLE lot_rule_attributes (
   attribute_data_type               VARCHAR(20),
   value_number                      NUMERIC,
   value_text                        VARCHAR(200),
-  value_date                        DATE,          
+  attribute_uom                     VARCHAR(20)	
   PRIMARY KEY (lot_rule_id,attribute_name)
 );
 
