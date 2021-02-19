@@ -128,9 +128,12 @@ CREATE TABLE organisations (
   business_type            INTEGER        NOT NULL,
   organisation_uri         VARCHAR(2000),
   incorporation_date       DATE           NOT NULL,
-  country_of_incorporation VARCHAR(2)    NOT NULL,
+  country_of_incorporation VARCHAR(3)     NOT NULL,
   parent_org_id            INTEGER,
-  ultimate_org_id          INTEGER
+  ultimate_org_id          INTEGER,
+  is_sme		   BOOLEAN,
+  is_vcse		   BOOLEAN,
+  active                   BOOLEAN		
 );
 
 CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
@@ -238,6 +241,28 @@ CREATE TABLE contact_points(
   source_application_system        VARCHAR(100));
   
 CREATE INDEX CONTACT_POINTS_IDX1 ON CONTACT_POINTS (party_id, effective_from);
+					   
+CREATE TABLE commercial_agreement_benefits(
+  commercial_agreement_benefit_id INTEGER  PRIMARY KEY,	
+  commercial_agreement_id         INTEGER  NOT NULL,
+  benefit_name                    VARCHAR(100),
+  benefit_description             VARCHAR(2000),
+  benefit_url                     VARCHAR(2000));
+					  
+CREATE INDEX commercial_agreement_benefits_IDX1 ON commercial_agreement_benefits (commercial_agreement_id);
+CREATE INDEX commercial_agreement_benefits_IDX2 ON commercial_agreement_benefits (benefit_name);
+
+CREATE TABLE commercial_agreement_updates(
+  commercial_agreement_update_id INTEGER  PRIMARY KEY,	
+  commercial_agreement_id        INTEGER  NOT NULL,
+  update_name                    VARCHAR(100),
+  update_description             VARCHAR(2000),
+  update_url                     VARCHAR(2000),
+  published_date                 TIMESTAMP);
+					  
+CREATE INDEX commercial_agreement_updates_IDX1 ON commercial_agreement_benefits (commercial_agreement_id);
+CREATE INDEX commercial_agreement_updates_IDX2 ON commercial_agreement_benefits (update_name);
+
 
 ALTER TABLE lots 
 ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
@@ -337,7 +362,15 @@ ADD CONSTRAINT lot_people_roles_people_fk FOREIGN KEY (role_type_id)
 					   
 ALTER TABLE people 
 ADD CONSTRAINT people_organisations_fk FOREIGN KEY (organisation_id)
-    REFERENCES organisations (organisation_id);					   
+    REFERENCES organisations (organisation_id);	
+					  
+ALTER TABLE commercial_agreement_benefits
+ADD CONSTRAINT coab_commercial_agreement(commercial_agreement_id)
+    REFERENCES commercial_agreements (commercial_agreement_id);    
+					  
+ALTER TABLE commercial_agreement_updates
+ADD CONSTRAINT coau_commercial_agreement(commercial_agreement_id)
+    REFERENCES commercial_agreements (commercial_agreement_id);    
 
 
   
