@@ -106,7 +106,7 @@ CREATE TABLE lot_rule_attributes (
   attribute_data_type               VARCHAR(20),
   value_number                      NUMERIC,
   value_text                        VARCHAR(200),
-  attribute_uom                     VARCHAR(20)	
+  attribute_uom                     VARCHAR(20),	
   PRIMARY KEY (lot_rule_id,attribute_name)
 );
 
@@ -365,11 +365,11 @@ ADD CONSTRAINT people_organisations_fk FOREIGN KEY (organisation_id)
     REFERENCES organisations (organisation_id);	
 					  
 ALTER TABLE commercial_agreement_benefits
-ADD CONSTRAINT coab_commercial_agreement(commercial_agreement_id)
+ADD CONSTRAINT coab_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id)
     REFERENCES commercial_agreements (commercial_agreement_id);    
 					  
 ALTER TABLE commercial_agreement_updates
-ADD CONSTRAINT coau_commercial_agreement(commercial_agreement_id)
+ADD CONSTRAINT coau_commercial_agreement_fk FOREIGN KEY(commercial_agreement_id)
     REFERENCES commercial_agreements (commercial_agreement_id);    
 
 
