@@ -260,8 +260,8 @@ CREATE TABLE commercial_agreement_updates(
   update_url                     VARCHAR(2000),
   published_date                 TIMESTAMP);
 					  
-CREATE INDEX commercial_agreement_updates_IDX1 ON commercial_agreement_benefits (commercial_agreement_id);
-CREATE INDEX commercial_agreement_updates_IDX2 ON commercial_agreement_benefits (update_name);
+CREATE INDEX commercial_agreement_updates_IDX1 ON commercial_agreement_updates (commercial_agreement_id);
+CREATE INDEX commercial_agreement_updates_IDX2 ON commercial_agreement_updates (update_name);
 
 
 ALTER TABLE lots 
