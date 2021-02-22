@@ -11,7 +11,7 @@ V0.0.1       Initial Release
 */
 
 CREATE TABLE commercial_agreements (
-  commercial_agreement_id           INTEGER PRIMARY KEY,
+  commercial_agreement_id           SERIAL PRIMARY KEY,
   commercial_agreement_number       VARCHAR(20) NOT NULL,
   commercial_agreement_name         VARCHAR(200) NOT NULL,
   commercial_agreement_owner        VARCHAR(200) NOT NULL,
@@ -26,7 +26,7 @@ CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTS (commercial_agreement_name);
 CREATE INDEX COAG_IDX3 on COMMERCIAL_AGREEMENTS  (commercial_agreement_owner);
 
 CREATE TABLE lots (
-  lot_id                            INTEGER PRIMARY KEY,
+  lot_id                            SERIAL PRIMARY KEY,
   lot_number                        VARCHAR(20) NOT NULL,
   lot_name                          VARCHAR(200) NOT NULL,
   lot_description                   VARCHAR(2000) NOT NULL,          
