@@ -264,6 +264,17 @@ CREATE TABLE commercial_agreement_updates(
 CREATE INDEX commercial_agreement_updates_IDX1 ON commercial_agreement_updates (commercial_agreement_id);
 CREATE INDEX commercial_agreement_updates_IDX2 ON commercial_agreement_updates (update_name);
 
+CREATE TABLE commercial_agreement_documents(
+  commercial_agreement_document_id SERIAL  PRIMARY KEY,	
+  commercial_agreement_id          INTEGER NOT NULL,
+  document_name                    VARCHAR(100),
+  update_description               VARCHAR(2000),
+  document_url                     VARCHAR(2000),
+  document_type                    VARCHAR(20)	
+  published_date                   TIMESTAMP);
+					  
+CREATE INDEX commercial_agreement_documents_IDX1 ON commercial_agreement_documents (commercial_agreement_id);
+CREATE INDEX commercial_agreement_documents_IDX2 ON commercial_agreement_documents (document_name);
 
 ALTER TABLE lots 
 ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
@@ -371,6 +382,10 @@ ADD CONSTRAINT coab_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id
 					  
 ALTER TABLE commercial_agreement_updates
 ADD CONSTRAINT coau_commercial_agreement_fk FOREIGN KEY(commercial_agreement_id)
+    REFERENCES commercial_agreements (commercial_agreement_id);    
+
+ALTER TABLE commercial_agreement_documents
+ADD CONSTRAINT coad_commercial_agreement_fk FOREIGN KEY(commercial_agreement_id)
     REFERENCES commercial_agreements (commercial_agreement_id);    
 
 
