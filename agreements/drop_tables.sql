@@ -37,8 +37,6 @@ DROP TABLE IF EXISTS contact_details;
 
 DROP TABLE IF EXISTS contact_method_types;
 
-DROP TABLE IF EXISTS commercial_agreement_contacts;
-
 DROP TABLE IF EXISTS lot_rule_transaction_objects;
 
 DROP TABLE IF EXISTS lot_rule_attributes;
