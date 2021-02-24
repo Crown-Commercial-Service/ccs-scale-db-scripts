@@ -51,6 +51,8 @@ DROP TABLE IF EXISTS commercial_agreement_benefits;
 
 DROP TABLE IF EXISTS commercial_agreement_updates;
 
+DROP TABLE IF EXISTS commercial_agreement_documents;
+
 DROP TABLE IF EXISTS commercial_agreements;
 
 DROP TABLE IF EXISTS lot_people_role_types;
