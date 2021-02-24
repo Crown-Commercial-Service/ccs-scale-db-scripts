@@ -268,9 +268,9 @@ CREATE TABLE commercial_agreement_documents(
   commercial_agreement_document_id SERIAL  PRIMARY KEY,	
   commercial_agreement_id          INTEGER NOT NULL,
   document_name                    VARCHAR(100),
-  update_description               VARCHAR(2000),
   document_url                     VARCHAR(2000),
-  document_type                    VARCHAR(20)	
+  document_type                    VARCHAR(20),
+  document_version                 INTEGER,	
   published_date                   TIMESTAMP);
 					  
 CREATE INDEX commercial_agreement_documents_IDX1 ON commercial_agreement_documents (commercial_agreement_id);
