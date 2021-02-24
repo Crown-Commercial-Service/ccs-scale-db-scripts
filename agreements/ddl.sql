@@ -125,7 +125,7 @@ CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id);
 CREATE TABLE organisations (
   organisation_id          SERIAL         NOT NULL PRIMARY KEY,
   legal_name               VARCHAR(255)   NOT NULL UNIQUE,
-  business_type            INTEGER        NOT NULL,
+  business_type            VARCHAR(20)        NOT NULL,
   organisation_uri         VARCHAR(2000),
   status                   VARCHAR(100),	
   incorporation_date       DATE           NOT NULL,
@@ -154,8 +154,8 @@ CREATE TABLE lot_organisation_roles (
   organisation_id                 INTEGER   NOT NULL,
   role_type_id	                  INTEGER   NOT NULL,
   trading_organisation_id         INTEGER,           	
-  start_date                      TIMESTAMP NOT NULL,
-  end_date                        TIMESTAMP,
+  start_date                      DATE NOT NULL,
+  end_date                        DATE,
   PRIMARY KEY (lot_id, organisation_id, role_type_id)
 );
 
@@ -164,17 +164,17 @@ CREATE TABLE lot_people_roles (
   lot_id                          INTEGER   NOT NULL,
   person_id                       INTEGER   NOT NULL,
   role_type_id                    INTEGER   NOT NULL,	
-  start_date                      TIMESTAMP NOT NULL,
-  end_date                        TIMESTAMP,
+  start_date                      DATE NOT NULL,
+  end_date                        DATE,
   PRIMARY KEY (lot_id,  person_id, role_type_id)
 );
 
 CREATE TABLE commercial_agreement_organisation_roles (
   commercial_agreement_id      INTEGER   NOT NULL,
   organisation_id              INTEGER   NOT NULL,
-  role_type_id INTEGER         NOT NULL,
-  start_date                   TIMESTAMP NOT NULL,
-  end_date                     TIMESTAMP,
+  role_type_id                 INTEGER   NOT NULL,
+  start_date                   DATE      NOT NULL,
+  end_date                     DATE,
   PRIMARY KEY (commercial_agreement_id, organisation_id, role_type_id)
 );
 
@@ -218,8 +218,8 @@ CREATE INDEX CONTACT_POINT_REASONS_IDX1 ON CONTACT_POINT_REASONS (contact_point_
 CREATE TABLE contact_details (
   contact_detail_id      BIGSERIAL PRIMARY KEY,
   contact_method_type_id INTEGER NOT NULL,
-  effective_from         TIMESTAMP NOT NULL,
-  effective_to           TIMESTAMP,
+  effective_from         DATE NOT NULL,
+  effective_to           DATE,
   virtual_address_value  VARCHAR(500),
   street_address         VARCHAR(100),
   locality               VARCHAR(100),
@@ -236,8 +236,8 @@ CREATE TABLE contact_points(
   contact_point_reason_id INTEGER NOT NULL,
   party_id                INTEGER NOT NULL, /* That will the fk to the table for which the party id is referencing */
   party_table_name        VARCHAR(100) NOT NULL,	
-  effective_from          TIMESTAMP NOT NULL,
-  effecive_to             TIMESTAMP,
+  effective_from          DATE NOT NULL,
+  effecive_to             DATE,
   primary_ind             BOOLEAN,
   source_application_system        VARCHAR(100));
   
