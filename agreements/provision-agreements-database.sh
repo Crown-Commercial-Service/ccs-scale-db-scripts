@@ -25,9 +25,6 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_commercial_ag
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_method_types.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_details.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_reasons.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_lot_prs.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_lot_ors.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_commercial_agreement_ors.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_people_role_types.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lots.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_organisations.sql
@@ -46,4 +43,8 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_rule_tran
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_sectors.sql 
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_route_to_market.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_commercial_agreement_documents.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_lot_prs.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_lot_ors.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_commercial_agreement_ors.sql
+
 
