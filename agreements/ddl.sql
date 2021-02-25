@@ -239,7 +239,7 @@ CREATE TABLE contact_point_lot_prs(
   effecive_to             DATE,
   primary_ind             BOOLEAN);
   
-CREATE INDEX CONTACT_POINT_LOT_PRS_IDX1 ON CONTACT_POINTS (lot_person_role_id, effective_from);
+CREATE INDEX CONTACT_POINT_LOT_PRS_IDX1 ON CONTACT_POINT_LOT_PRS (lot_person_role_id, effective_from);
 					   
 CREATE TABLE contact_point_lot_ors(
   contact_point_id         BIGSERIAL PRIMARY KEY,
@@ -250,7 +250,7 @@ CREATE TABLE contact_point_lot_ors(
   effecive_to              DATE,
   primary_ind              BOOLEAN);
   
-CREATE INDEX CONTACT_POINTS_LOT_ORS_IDX1 ON CONTACT_POINTS (lot_organisation_role_id, effective_from);
+CREATE INDEX CONTACT_POINTS_LOT_ORS_IDX1 ON CONTACT_POINTS_LOT_ORS (lot_organisation_role_id, effective_from);
 					   
 CREATE TABLE contact_point_commercial_agreement_ors(
   contact_point_id                              BIGSERIAL PRIMARY KEY,
@@ -261,7 +261,7 @@ CREATE TABLE contact_point_commercial_agreement_ors(
   effecive_to                                   DATE,
   primary_ind                                   BOOLEAN);
   
-CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINTS (lot_commercial_agreement_organisation_role_id, effective_from);
+CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS (lot_commercial_agreement_organisation_role_id, effective_from);
 					   
 CREATE TABLE commercial_agreement_benefits(
   commercial_agreement_benefit_id INTEGER  PRIMARY KEY,	
