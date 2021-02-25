@@ -398,7 +398,7 @@ ADD CONSTRAINT contact_point_lot_ors_contact_point_reason_fk FOREIGN KEY (contac
 					   
 ALTER TABLE contact_point_lot_ors
 ADD CONSTRAINT contact_point_lot_ors_lot_people_roles_fk FOREIGN KEY (lot_organisation_role_id)
-    REFERENCES lot_orgnisation_roles (lot_organisation_role_id);
+    REFERENCES lot_organisation_roles (lot_organisation_role_id);
 
 ALTER TABLE contact_point_commercial_agreement_ors
 ADD CONSTRAINT contact_point_commercial_agreement_ors_contact_details_fk FOREIGN KEY(contact_detail_id)
