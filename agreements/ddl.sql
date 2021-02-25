@@ -150,32 +150,32 @@ title           VARCHAR(50)  NOT NULL
 
 
 CREATE TABLE lot_organisation_roles (
+  lot_organisation_role_id        SERIAL    NOT NULL PRIMARY KEY,	
   lot_id                          INTEGER   NOT NULL,
   organisation_id                 INTEGER   NOT NULL,
   role_type_id	                  INTEGER   NOT NULL,
   trading_organisation_id         INTEGER,           	
   start_date                      DATE NOT NULL,
-  end_date                        DATE,
-  PRIMARY KEY (lot_id, organisation_id, role_type_id)
+  end_date                        DATE
 );
 
 
 CREATE TABLE lot_people_roles (
+  lot_person_role_id              SERIAL    NOT NULL PRIMARY KEY,	
   lot_id                          INTEGER   NOT NULL,
   person_id                       INTEGER   NOT NULL,
   role_type_id                    INTEGER   NOT NULL,	
   start_date                      DATE NOT NULL,
-  end_date                        DATE,
-  PRIMARY KEY (lot_id,  person_id, role_type_id)
+  end_date                        DATE
 );
 
 CREATE TABLE commercial_agreement_organisation_roles (
-  commercial_agreement_id      INTEGER   NOT NULL,
-  organisation_id              INTEGER   NOT NULL,
-  role_type_id                 INTEGER   NOT NULL,
-  start_date                   DATE      NOT NULL,
-  end_date                     DATE,
-  PRIMARY KEY (commercial_agreement_id, organisation_id, role_type_id)
+  commercial_agreement_organisation_role_id SERIAL    NOT NULL PRIMARY KEY,
+  commercial_agreement_id                   INTEGER   NOT NULL,
+  organisation_id                           INTEGER   NOT NULL,
+  role_type_id                              INTEGER   NOT NULL,
+  start_date                                DATE      NOT NULL,
+  end_date                                  DATE
 );
 
 CREATE TABLE lot_people_role_types (
@@ -230,18 +230,38 @@ CREATE TABLE contact_details (
   
 CREATE INDEX CONTACT_DETAILS_IDX1 ON CONTACT_DETAILS (effective_from);
   
-CREATE TABLE contact_points(
+CREATE TABLE contact_point_lot_prs(
   contact_point_id BIGSERIAL PRIMARY KEY,
   contact_detail_id INTEGER NOT NULL,
   contact_point_reason_id INTEGER NOT NULL,
-  party_id                INTEGER NOT NULL, /* That will the fk to the table for which the party id is referencing */
-  party_table_name        VARCHAR(100) NOT NULL,	
+  lot_person_role_id      INTEGER NOT NULL, 
   effective_from          DATE NOT NULL,
   effecive_to             DATE,
-  primary_ind             BOOLEAN,
-  source_application_system        VARCHAR(100));
+  primary_ind             BOOLEAN);
   
-CREATE INDEX CONTACT_POINTS_IDX1 ON CONTACT_POINTS (party_id, effective_from);
+CREATE INDEX CONTACT_POINT_LOT_PRS_IDX1 ON CONTACT_POINTS (lot_person_role_id, effective_from);
+					   
+CREATE TABLE contact_point_lot_ors(
+  contact_point_id         BIGSERIAL PRIMARY KEY,
+  contact_detail_id        INTEGER NOT NULL,
+  contact_point_reason_id  INTEGER NOT NULL,
+  lot_organisation_role_id INTEGER NOT NULL, 
+  effective_from           DATE NOT NULL,
+  effecive_to              DATE,
+  primary_ind              BOOLEAN);
+  
+CREATE INDEX CONTACT_POINTS_LOT_ORS_IDX1 ON CONTACT_POINTS (lot_organisation_role_id, effective_from);
+					   
+CREATE TABLE contact_point_commercial_agreement_ors(
+  contact_point_id                              BIGSERIAL PRIMARY KEY,
+  contact_detail_id                             INTEGER NOT NULL,
+  contact_point_reason_id                       INTEGER NOT NULL,
+  lot_commercial_agreement_organisation_role_id INTEGER NOT NULL, 
+  effective_from                                DATE NOT NULL,
+  effecive_to                                   DATE,
+  primary_ind                                   BOOLEAN);
+  
+CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINTS (lot_commercial_agreement_organisation_role_id, effective_from);
 					   
 CREATE TABLE commercial_agreement_benefits(
   commercial_agreement_benefit_id INTEGER  PRIMARY KEY,	
@@ -356,14 +376,42 @@ ALTER TABLE contact_details
 ADD CONSTRAINT contact_details_contact_method_types_fk FOREIGN KEY (contact_method_type_id) 
     REFERENCES contact_method_types (contact_method_type_id);
 	
-ALTER TABLE contact_points
-ADD CONSTRAINT contact_points_contact_details_fk FOREIGN KEY(contact_detail_id)
+ALTER TABLE contact_point_lot_prs
+ADD CONSTRAINT contact_point_lot_prs_contact_details_fk FOREIGN KEY(contact_detail_id)
     REFERENCES contact_details (contact_detail_id);
 
-ALTER TABLE contact_points
-ADD CONSTRAINT contact_points_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
+ALTER TABLE contact_point_lot_prs
+ADD CONSTRAINT contact_point_lot_prs_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
     REFERENCES contact_point_reasons (contact_point_reason_id);
 					   
+ALTER TABLE contact_point_lot_prs
+ADD CONSTRAINT contact_point_lot_prs_lot_people_roles_fk FOREIGN KEY (lot_person_role_id)
+    REFERENCES lot_people_roles (lot_person_role_id);
+
+ALTER TABLE contact_point_lot_ors
+ADD CONSTRAINT contact_point_lot_ors_contact_details_fk FOREIGN KEY(contact_detail_id)
+    REFERENCES contact_details (contact_detail_id);
+
+ALTER TABLE contact_point_lot_ors
+ADD CONSTRAINT contact_point_lot_ors_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
+    REFERENCES contact_point_reasons (contact_point_reason_id);
+					   
+ALTER TABLE contact_point_lot_ors
+ADD CONSTRAINT contact_point_lot_ors_lot_people_roles_fk FOREIGN KEY (lot_organisation_role_id)
+    REFERENCES lot_orgnisation_roles (lot_organisation_role_id);
+
+ALTER TABLE contact_point_commercial_agreement_ors
+ADD CONSTRAINT contact_point_commercial_agreement_ors_contact_details_fk FOREIGN KEY(contact_detail_id)
+    REFERENCES contact_details (contact_detail_id);
+
+ALTER TABLE contact_point_commercial_agreement_ors
+ADD CONSTRAINT contact_point_commercial_agreement_ors_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
+    REFERENCES contact_point_reasons (contact_point_reason_id);
+					   
+ALTER TABLE contact_point_commercial_agreement_ors
+ADD CONSTRAINT contact_point_commercial_agreement_ors_lot_people_roles_fk FOREIGN KEY (commercial_agreement_organisation_role_id)
+    REFERENCES commercial_agreement_organisation_roles (commercial_agreement_organisation_role_id);
+					  
 ALTER TABLE lot_people_roles 
 ADD CONSTRAINT lot_people_role_people_fk FOREIGN KEY (person_id)
     REFERENCES people (person_id);						   				   
