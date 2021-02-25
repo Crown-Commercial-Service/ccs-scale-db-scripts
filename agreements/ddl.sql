@@ -250,7 +250,7 @@ CREATE TABLE contact_point_lot_ors(
   effecive_to              DATE,
   primary_ind              BOOLEAN);
   
-CREATE INDEX CONTACT_POINTS_LOT_ORS_IDX1 ON CONTACT_POINTS_LOT_ORS (lot_organisation_role_id, effective_from);
+CREATE INDEX CONTACT_POINT_LOT_ORS_IDX1 ON CONTACT_POINT_LOT_ORS (lot_organisation_role_id, effective_from);
 					   
 CREATE TABLE contact_point_commercial_agreement_ors(
   contact_point_id                              BIGSERIAL PRIMARY KEY,
