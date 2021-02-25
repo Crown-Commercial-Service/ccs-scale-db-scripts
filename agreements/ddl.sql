@@ -256,12 +256,12 @@ CREATE TABLE contact_point_commercial_agreement_ors(
   contact_point_id                              BIGSERIAL PRIMARY KEY,
   contact_detail_id                             INTEGER NOT NULL,
   contact_point_reason_id                       INTEGER NOT NULL,
-  lot_commercial_agreement_organisation_role_id INTEGER NOT NULL, 
+  commercial_agreement_organisation_role_id INTEGER NOT NULL, 
   effective_from                                DATE NOT NULL,
   effecive_to                                   DATE,
   primary_ind                                   BOOLEAN);
   
-CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS (lot_commercial_agreement_organisation_role_id, effective_from);
+CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS (commercial_agreement_organisation_role_id, effective_from);
 					   
 CREATE TABLE commercial_agreement_benefits(
   commercial_agreement_benefit_id INTEGER  PRIMARY KEY,	
