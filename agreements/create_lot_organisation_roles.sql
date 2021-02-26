@@ -13,7 +13,7 @@ INSERT INTO LOT_ORGANISATION_ROLES (lot_id,
 values
                           (6, 
                            (select organisation_id from organisations where legal_name = 'ACS Business Supplies Ltd'),
-                           1,
+                           2,
                            1,
                            '31-OCT-2016',
                            '31-OCT-2021');
