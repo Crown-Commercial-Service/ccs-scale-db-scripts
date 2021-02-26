@@ -21,11 +21,10 @@ export USERNAME=<<FILL THIS IN>>
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ddl.sql
 
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_commercial_agreements.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_commercial_agreement_role_types.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_role_types.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_method_types.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_details.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_reasons.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_people_role_types.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lots.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_organisations.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_people.sql
@@ -33,7 +32,6 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_route_to_mark
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_sectors.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_trading_organisations.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_commercial_agreement_organisation_roles.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_organisation_role_types.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_organisation_roles.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_people_roles.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lot_rules.sql
