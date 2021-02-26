@@ -59,9 +59,8 @@ DROP TABLE IF EXISTS commercial_agreement_documents;
 
 DROP TABLE IF EXISTS commercial_agreements;
 
-DROP TABLE IF EXISTS lot_people_role_types;
+DROP TABLE IF EXISTS role_types;
 
-DROP TABLE IF EXISTS commercial_agreement_role_types;
+DROP TYPE IF EXISTS DOMAIN_TYPE;
 
-DROP TABLE IF EXISTS lot_organisation_role_types;
 
