@@ -126,6 +126,7 @@ CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id);
 
 CREATE TABLE organisations (
   organisation_id          SERIAL         NOT NULL PRIMARY KEY,
+  entity_id                VARCHAR(255)   NOT NULL,	
   legal_name               VARCHAR(255)   NOT NULL UNIQUE,
   business_type            VARCHAR(20)        NOT NULL,
   organisation_uri         VARCHAR(2000),
@@ -141,6 +142,8 @@ CREATE TABLE organisations (
 
 CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
 CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (ultimate_org_id);
+CREATE INDEX ORGANISATIONS_IDX3 ON ORGANISATIONS (entity_id);
+
             
 CREATE TABLE people (
 person_id       SERIAL       NOT NULL PRIMARY KEY,
