@@ -5,6 +5,7 @@ Author      Trevor Cummings
 Description This file is a script to create data for ORGANISATIONS. This data eventually will reside in Conclave     
 */
 INSERT INTO ORGANISATIONS (
+  entity_id,
   legal_name,
   business_type,
   organisation_uri,
@@ -13,7 +14,8 @@ INSERT INTO ORGANISATIONS (
   parent_org_id,
   ultimate_org_id)
   values 
-('ACS Business Supplies Ltd',
+('AAAA',
+ 'ACS Business Supplies Ltd',
  1,
  'www.acsacs.co.uk',
  '01-Jan-2018',
