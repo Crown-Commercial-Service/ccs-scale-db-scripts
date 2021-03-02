@@ -10,43 +10,43 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('3','Lot 3','Combined Hardware and Packaged Software','Combined Hardware and Packaged Software description','1','Products','2016-10-31','2020-03-31');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('4','Lot 4','Information Assured Products','Information Assured Products description','1','Products','2016-10-31','2020-03-31');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('5','Lot 5','Volume Hardware Requirements (Direct from Original Equipment Manufacturer (OEM))','Volume Hardware Requirements (Direct from Original Equipment Manufacturer (OEM))','1','Products','2016-10-31','2020-03-31');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('6','Lot 6','Catalogue','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('6','Lot 6','Catalogue','<ul class="govuk-list govuk-list--bullet">
 <li>Search and filter for day to day purchases</li>
 <li>Suppliers on this lot can accommodate for low complexity requirements or high urgency products</li>
 </ul> ','1','Products','2016-10-31','2021-10-31');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('7','Lot 1','Hardware & Software & Associated Services','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('7','Lot 1','Hardware & Software & Associated Services','<ul class="govuk-list govuk-list--bullet">
 <li>Provision of technology product needs</li>
 <li>Suppliers on Lot 1 can provide hardware and software, combined with service requirements if needed</li>
 </ul>','2','Services','2019-12-10','2021-12-09');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('8','Lot 2','Hardware and Associated Services','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('8','Lot 2','Hardware and Associated Services','<ul class="govuk-list govuk-list--bullet">
 <li>Provision of technology product needs</li>
 <li>Suppliers on Lot 2 can provide hardware requirements only. This includes end user devices, consumables and peripheral equipment</li>
 </ul> ','2','Services','2019-12-10','2021-12-19');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('9','Lot 3','Software and Associated Services','Software and Associated Services description','2','Services','2019-12-10','2021-12-09');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('10','Lot 4','Information Assured Products & Associated Services','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('10','Lot 4','Information Assured Products & Associated Services','<ul class="govuk-list govuk-list--bullet">
 <li>Provision of technology product needs</li>
 <li>Suppliers on Lot 4 can provide hardware and software with protective and information assurance</li>
 </ul>','2','Services','2019-12-10','2021-12-09');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('11','Lot 1','ICT Solutions','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('11','Lot 1','ICT Solutions','<ul class="govuk-list govuk-list--bullet">
 <li>Provision of Information and Communications Technologies (ICT) goods and services. Services include a new build requirement or an ICT refresh</li>
 <li>Open to all public sector educational organisations</li> 
 </ul>
- <p class=""govuk-body"">Lot 1 replaces RM1050 agreement, ICT Services for Education.
+ <p class="govuk-body">Lot 1 replaces RM1050 agreement, ICT Services for Education.
 </p>','3','Services','2019-06-10','2022-06-10');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('12','Lot 2','Broadband Fibre Infrastructure','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('12','Lot 2','Broadband Fibre Infrastructure','<ul class="govuk-list govuk-list--bullet">
 <li>Design and installation of broadband fibre infrastructure for new premises</li>
 <li>Suppliers can provide overall design, fibre, run fibre tests, and do ''last mile'' installation from the node to the premises</li>
 </ul>','3','Services','2019-06-10','2022-06-10');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('13','Lot 3','Broadband Services','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('13','Lot 3','Broadband Services','<ul class="govuk-list govuk-list--bullet">
 <li>Provision of connectivity services</li>
 <li>Suppliers can provide full fibre broadband services for both new services and upgrading existing services</li>
 <li>This includes support and maintenance, internet filtering, firewall, eSafety, and IP connectivity</li>
 </ul>','3','Services','2019-06-10','2022-06-10');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('14','Lot 4','Hardware','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('14','Lot 4','Hardware','<ul class="govuk-list govuk-list--bullet">
 <li>Provision of Information and Communication Technologies (ICT) hardware</li>
 <li>Suppliers can also provide some networking equipment such as switches and routers, peripheral ICT equipment such as printers, and software when offered as part of a package</li>
 </ul>','3','Services','2019-06-10','2022-06-10');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('15','Lot 5','Audio Visual (AV)','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('15','Lot 5','Audio Visual (AV)','<ul class="govuk-list govuk-list--bullet">
 <li>Provision and installation of sound and visual equipment</li>
 <li>Suppliers can  provide interactive solutions such as whiteboards, digital signage, TVs, AV software, auditorium solutions and training</li>
 </ul>','3','Services','2019-06-10','2022-06-10');
@@ -64,59 +64,59 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('27','Lot 12','Security and surveillance services','Includes the provision of CCTV and physical security monitoring equipment, including services to access real time audio and video activities and associated equipment maintenance and support services.','4','Services','2019-08-12','2022-08-16');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('98','1.2.2','Civil Engineering Works & Minor Associated Building Works & Servs√¢‚Ç¨‚ÄúSouth England','Value band √Ç¬£0-3m','68','Services','2019-10-31','2026-10-30');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('28','Lot 13','Contact centre services','The provision of call/contact centre services for the use of Buyer employees only. With the ability to make outbound contact and respond to an incoming contact and route the contact to a predefined destination and associated equipment maintenance and supp','4','Services','2019-08-12','2022-08-16');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('29','Lot 1a','Standard wash, collection and return','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('29','Lot 1a','Standard wash, collection and return','<ul class="govuk-list govuk-list--bullet">
 <li>The suppliers on Lot 1a are responsible for providing standard wash linen and laundry services for laundry rented from the supplier</li>
 <li>For buyer-owned laundry, refer to lot 1b </li>
 </ul> 
-<p class=""govuk-body"">Provided your needs met the criteria, Lot 1a  has a direct award facility.
+<p class="govuk-body">Provided your needs met the criteria, Lot 1a  has a direct award facility.
 </p>','5','Services','2020-02-01','2023-03-19');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('30','Lot 2','Specialist Laundry Services for CE marked Barrier Theatre Textiles','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('30','Lot 2','Specialist Laundry Services for CE marked Barrier Theatre Textiles','<ul class="govuk-list govuk-list--bullet">
 <li>Collection, wash, finish and return of CE marked barrier theatre textiles</li>
 <li>Laundry can be owned by you or rented from the supplier </li>
 </ul> 
-<p class=""govuk-body"">The suppliers on Lot 2 are responsible for providing specialist laundry services for  CE marked barrier theatre textiles such as surgical drapes, gowns and packs. This will either be performed to the standard as described in the framework specification, or you can specify the standard you need. 
+<p class="govuk-body">The suppliers on Lot 2 are responsible for providing specialist laundry services for  CE marked barrier theatre textiles such as surgical drapes, gowns and packs. This will either be performed to the standard as described in the framework specification, or you can specify the standard you need. 
 </p>
-<p class=""govuk-body"">There is no direct award so to use Lot 2 you are required to run a further competition.
+<p class="govuk-body">There is no direct award so to use Lot 2 you are required to run a further competition.
 </p>','5','Services','2020-02-01','2023-03-19');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('31','Lot 3','Specialist Cleanroom Laundry Services','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('31','Lot 3','Specialist Cleanroom Laundry Services','<ul class="govuk-list govuk-list--bullet">
 <li>Collection, wash, finish and return of laundry to the ISO classification stated by you</li>
 <li>Laundry can be owned by you or rented from the supplier </li>
 </ul> 
-<p class=""govuk-body"">There is no direct award so to use Lot 3 you are required to run a further competition. 
+<p class="govuk-body">There is no direct award so to use Lot 3 you are required to run a further competition. 
 </p>','5','Services','2020-02-01','2023-03-19');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('32','Lot 1b','Standard wash collection and return','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('32','Lot 1b','Standard wash collection and return','<ul class="govuk-list govuk-list--bullet">
 <li>Standard collection, wash, finish and return of laundry owned by you</li>
 <li>For linen hire, refer to Lot 1a</li>
 </ul> 
-<p class=""govuk-body"">Provided your needs met the criteria, Lot 1b has a direct award facility. 
+<p class="govuk-body">Provided your needs met the criteria, Lot 1b has a direct award facility. 
 </p>','5','Services','2020-02-01','2023-03-19');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('33','Lot 1a','Total contract value up to £7M','Total contract value up to £7M description','6','Services','2018-07-10','2022-07-09');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('34','Lot 1b','Total contract value £7M - £50M','Total contract value £7M - £50M','6','Services','2018-07-10','2022-07-09');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('35','Lot 1c','Total contract value £50M+','Total contract value £50M+ description','6','Services','2018-07-10','2022-07-09');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('36','Lot 1','Regional Service Provision','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('36','Lot 1','Regional Service Provision','<ul class="govuk-list govuk-list--bullet">
 <li>Legal services provided by regional firms, covering a range of legal specialisms</li>
 <li>Suitable for low to medium value transactions</li>
 </ul> 
 ','7','Services','2018-10-19','2021-10-18');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('37','Lot 2a','Full Service Firms - England & Wales','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('37','Lot 2a','Full Service Firms - England & Wales','<ul class="govuk-list govuk-list--bullet">
 <li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
 <li>This lot covers English and Welsh law</li>
 </ul> 
 ','7','Services','2018-10-19','2021-09-30');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('38','Lot 2b','Full Service Firms - Scotland','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('38','Lot 2b','Full Service Firms - Scotland','<ul class="govuk-list govuk-list--bullet">
 <li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
 <li>This lot covers Scottish law</li>
 </ul> 
 ','7','Services','2018-10-19','2021-10-18');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('39','Lot 2c','Full Service Firms - Northern Ireland','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('39','Lot 2c','Full Service Firms - Northern Ireland','<ul class="govuk-list govuk-list--bullet">
 <li>Commercial legal services for all legal specialisms provided by firms that offer full services</li>
 <li>This lot covers Northern Irish law</li>
 </ul>','7','Services','2018-10-19','2021-10-18');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('40','Lot 3','Property & Construction','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('40','Lot 3','Property & Construction','<ul class="govuk-list govuk-list--bullet">
 <li>Legal services for property and construction</li>
 <li>UK-wide services provided</li>
 </ul>','7','Services','2018-10-19','2021-10-18');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('41','Lot 4','Transport Rail','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('41','Lot 4','Transport Rail','<ul class="govuk-list govuk-list--bullet">
 <li>Legal services for transport rail</li>
 <li>UK-wide services provided</li>
 </ul>','7','Services','2018-10-19','2021-10-18');
@@ -137,32 +137,32 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('56','Lot 1','General Legal Services Tier 1','General Legal Services Tier 1 description','11','Services','2017-02-28','2021-02-27');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('57','Lot 2','General Legal Services Tier 2','General Legal Services Tier 2 description','11','Services','2017-02-28','2021-02-27');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('58','Lot 2','Finance & Complex Legal Services','Finance & Complex Legal Services description','12','Services','2017-08-21','2021-08-20');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('59','Lot 1a','Security Services','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('59','Lot 1a','Security Services','<ul class="govuk-list govuk-list--bullet">
 <li>Access to security and guarding services using approved contractors accredited by the Security Industry Authority (SIA)</li>
 <li>Services include guarding, assessment of security risk and design of security systems</li>
 <li>Suppliers offer technical and security services, where a single supplier is needed to deliver both </li>
 <li>UK-wide and European coverage</li>
 </ul>','13','Services','2019-01-25','2023-01-24');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('60','Lot 1b','Technical Security','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('60','Lot 1b','Technical Security','<ul class="govuk-list govuk-list--bullet">
 <li>Design, supply, installation and maintenance of technical security systems, including electronic and physical security</li>
 <li>Security risk assessments and design services provided by accreditation bodies recognised by the Centre for the Protection of National Insurance (CPNI)</li>
 <li>UK-wide and European coverage</li>
 </ul> ','13','Services','2019-01-25','2023-01-24');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('99','1.2.3','Civil Engineering Works & Minor Associated Building Works & Servs√¢‚Ç¨‚ÄúWales','Value band √Ç¬£0-3m','68','Services','2019-10-31','2026-10-30');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('161','105','Liquid Fuel - England North West','No description','35','Services','2017-07-24','2021-07-23');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('61','Lot 2a','Defence Housing Management Services (National)','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('61','Lot 2a','Defence Housing Management Services (National)','<ul class="govuk-list govuk-list--bullet">
 <li>Portfolio and estate management, including contact centres, provided on a national basis</li>
 <li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
 </ul>','13','Services','2019-01-25','2023-01-24');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('62','Lot 2b','Defence Housing Maintenance Services (Regional)','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('62','Lot 2b','Defence Housing Maintenance Services (Regional)','<ul class="govuk-list govuk-list--bullet">
 <li>Housing maintenance services including all types of housing, garages, communal areas, grounds and facilities, provided on a regional basis</li>
 <li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
 </ul>','13','Services','2019-01-25','2023-01-24');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('63','Lot 2c','Housing Maintenance and Management Services','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('63','Lot 2c','Housing Maintenance and Management Services','<ul class="govuk-list govuk-list--bullet">
 <li>Services are planned maintenance, compliance, void management, responsive repairs and helpdesk services</li>
 <li>This is for central government, public sector departments, devolved administrations and third parties </li>
 </ul>','13','Services','2019-01-25','2023-01-24');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('64','Lot 3','MOD Facilities Management Marketplace','<ul class=""govuk-list govuk-list--bullet"">
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('64','Lot 3','MOD Facilities Management Marketplace','<ul class="govuk-list govuk-list--bullet">
 <li>Facilities management solutions developed towards specific defence requirements, provided on a national basis</li>
 <li>Range of services offered including maintenance services, statutory obligations, catering, and cleaning services </li>
 <li>This lot is restricted to use by the Ministry of Defence and its related agencies and arms length bodies</li>
@@ -180,11 +180,11 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('76','2','Logistics - Warehousing and Storage','Internal storage, external storage and warehousing. Managed operations and facilities at the buyer''s premises is available.','67','Services','2020-10-20','2024-11-16');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('77','7','Healthcare Logistics - Transportation and Storage','Transportation, storage and management of pharmaceuticals, blood, tissue, biological samples, healthcare materials, medical equipment and other healthcare-related services.','67','Services','2020-10-20','2024-11-16');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('78','8','Logistics and Warehousing Solutions, Design and Support Services','Logistics and warehousing design and support services including supply chain integration, optimisation and resource management.','67','Services','2020-10-20','2024-11-16');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('79','1','Logistics - Transport','<span style=""font-weight: 400;"">Secure collection, transportation and delivery </span><span style=""font-weight: 400;"">using road transportation through the provision of lorries, vans, motorcycles, bicycles and other appropriate means of transportation</span>','67','Services','2020-10-20','2024-11-16');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('80','3','Waste Logistics, Recycling, Disposal and Destruction','<span style=""font-weight: 400;"">Secure collection, transportation and delivery</span><span style=""font-weight: 400;""> of waste and waste related services, </span><span style=""font-weight: 400;"">such as </span><span style=""font-weight: 400;"">collection of waste material from origin (wholesaler, manufacturer, storage, field operations, laboratory) and delivery to point of storage or processor.</span>','67','Services','2020-10-20','2024-11-16');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('81','4','Removals and Relocations','<span style=""font-weight: 400;"">Removal, relocation and related services through the deployment of fit for purpose vehicles, such as lorries, vans and any other appropriate means of transportation.</span>','67','Services','2020-10-20','2024-11-16');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('82','5','Vehicle, Plant and Industrial Equipment - Transportation and Storage','<span style=""font-weight: 400;"">Transportation and storage of vehicles (including aviation, maritime, military), plant and industrial equipment.</span>','67','Services','2020-10-20','2024-11-16');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('83','6','Construction Logistics - Transportation and Storage','<span style=""font-weight: 400;"">Transportation, storage and management of construction material and related services, such as secure storage capacity at supplier premises including temporary √¢‚Ç¨ÀúLay Down√¢‚Ç¨‚Ñ¢ facilities.</span>','67','Services','2020-10-20','2024-11-16');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('79','1','Logistics - Transport','<span style="font-weight: 400;">Secure collection, transportation and delivery </span><span style="font-weight: 400;">using road transportation through the provision of lorries, vans, motorcycles, bicycles and other appropriate means of transportation</span>','67','Services','2020-10-20','2024-11-16');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('80','3','Waste Logistics, Recycling, Disposal and Destruction','<span style="font-weight: 400;">Secure collection, transportation and delivery</span><span style="font-weight: 400;"> of waste and waste related services, </span><span style="font-weight: 400;">such as </span><span style="font-weight: 400;">collection of waste material from origin (wholesaler, manufacturer, storage, field operations, laboratory) and delivery to point of storage or processor.</span>','67','Services','2020-10-20','2024-11-16');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('81','4','Removals and Relocations','<span style="font-weight: 400;">Removal, relocation and related services through the deployment of fit for purpose vehicles, such as lorries, vans and any other appropriate means of transportation.</span>','67','Services','2020-10-20','2024-11-16');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('82','5','Vehicle, Plant and Industrial Equipment - Transportation and Storage','<span style="font-weight: 400;">Transportation and storage of vehicles (including aviation, maritime, military), plant and industrial equipment.</span>','67','Services','2020-10-20','2024-11-16');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('83','6','Construction Logistics - Transportation and Storage','<span style="font-weight: 400;">Transportation, storage and management of construction material and related services, such as secure storage capacity at supplier premises including temporary √¢‚Ç¨ÀúLay Down√¢‚Ç¨‚Ñ¢ facilities.</span>','67','Services','2020-10-20','2024-11-16');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('84','1','General Recruitment - Administrative & Operational Roles','No description','52','Services','2018-11-13','2022-04-12');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('85','2','General Recruitment - Digital, Data and Technology (DDaT)','No description','52','Services','2018-11-13','2022-04-12');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('86','3','General Recruitment - Corporate','No description','52','Services','2018-11-13','2022-04-12');
@@ -362,8 +362,8 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('257','1','National UK coverage for work over £25m','No description','66','Services','2017-06-19','2021-06-18');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('258','2','Northern UK coverage for work under £25m','No description','66','Services','2017-06-19','2021-06-18');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('259','3','Southern UK coverage for work under £25m','No description','66','Services','2017-06-19','2021-06-18');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('260','1','Insurance Brokerage and Associated Services','<span style=""font-weight: 400;"">Access to a range of insurance brokers and services such as insurance placement for all classes of insurance. Also, a wide range of support services including general advice and consultancy, actuarial services, claims handl','62','Services','2020-02-08','2024-02-07');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('261','2','Claims Handling','<span style=""font-weight: 400;"">Access to specialist claims handling suppliers and their services for employer/public liability, third party motor claims and property damage and loss. Accessing a claims handling supplier is by further competition only.</s','62','Services','2020-02-08','2024-02-07');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('260','1','Insurance Brokerage and Associated Services','<span style="font-weight: 400;">Access to a range of insurance brokers and services such as insurance placement for all classes of insurance. Also, a wide range of support services including general advice and consultancy, actuarial services, claims handl','62','Services','2020-02-08','2024-02-07');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('261','2','Claims Handling','<span style="font-weight: 400;">Access to specialist claims handling suppliers and their services for employer/public liability, third party motor claims and property damage and loss. Accessing a claims handling supplier is by further competition only.</s','62','Services','2020-02-08','2024-02-07');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('262','2','Office and Electronic Office Supplies','No description','63','Services','2020-04-06','2022-04-05');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('263','1','Office Stationery and Electronic Office Supplies','No description','63','Services','2020-04-06','2022-04-05');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('264','3','Electronic Office Supplies','No description','63','Services','2020-04-06','2022-04-05');
@@ -513,14 +513,14 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('396','6','Ancillary Staff','No description','88','Services','2019-07-30','2023-07-25');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('397','1','Public Sector Passenger Transport Services - Taxi & Coaches','No description','77','Services','2019-03-29','2022-03-28');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('398','1','Employee Benefits','No description','78','Services','2019-08-30','2022-08-29');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('399','1','Office Furniture','<span style=""font-weight: 400;"">Includes: office desks and workstations, office seating, office storage, general sundry items, conference room furniture, break out furniture.</span>','76','Services','2020-06-23','2023-03-29');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('400','2','Residential Furniture','<span style=""font-weight: 400;"">Includes: beds, bedroom furniture, living room furniture, dining room furniture, residential seating, additional sundry items.</span>','76','Services','2020-06-23','2023-03-29');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('401','3','Secure Furniture','<span style=""font-weight: 400;"">Includes: key and document boxes, filing cabinets, security cupboards (and fixtures), office cupboards, computer containers, ammunition storage.</span>','76','Services','2020-06-23','2023-03-29');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('402','4','Bespoke/Fitted Furniture','<span style=""font-weight: 400;"">Includes: fitted/bespoke core furniture such as beam seating.</span>','76','Services','2020-06-23','2023-03-29');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('403','5','High Density Steel Storage','<span style=""font-weight: 400;"">Includes: steel storage solutions like static and mobile storage, gondola library shelving.</span>','76','Services','2020-06-23','2023-03-29');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('404','6','Education Furniture','<span style=""font-weight: 400;"">Includes: chairs and tables (for pupils and teachers), stools, storage, teacher pedestals.</span>','76','Services','2020-06-23','2023-03-29');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('405','7','Repair & Renovation Services','<span style=""font-weight: 400;"">Includes: repair and renovation services for a range of furniture products. Key items have been priced at agreement level.</span>','76','Services','2020-06-23','2023-03-29');
-INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('406','8','Hubs Furniture','<span style=""font-weight: 400;"">Includes: office furniture that meets the Government Hub Programme√Ç¬†including office desks and workstations, office seating, office storage, general sundry items, conference room furniture, break out furniture.</span>','76','Services','2020-06-23','2023-03-29');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('399','1','Office Furniture','<span style="font-weight: 400;">Includes: office desks and workstations, office seating, office storage, general sundry items, conference room furniture, break out furniture.</span>','76','Services','2020-06-23','2023-03-29');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('400','2','Residential Furniture','<span style="font-weight: 400;">Includes: beds, bedroom furniture, living room furniture, dining room furniture, residential seating, additional sundry items.</span>','76','Services','2020-06-23','2023-03-29');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('401','3','Secure Furniture','<span style="font-weight: 400;">Includes: key and document boxes, filing cabinets, security cupboards (and fixtures), office cupboards, computer containers, ammunition storage.</span>','76','Services','2020-06-23','2023-03-29');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('402','4','Bespoke/Fitted Furniture','<span style="font-weight: 400;">Includes: fitted/bespoke core furniture such as beam seating.</span>','76','Services','2020-06-23','2023-03-29');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('403','5','High Density Steel Storage','<span style="font-weight: 400;">Includes: steel storage solutions like static and mobile storage, gondola library shelving.</span>','76','Services','2020-06-23','2023-03-29');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('404','6','Education Furniture','<span style="font-weight: 400;">Includes: chairs and tables (for pupils and teachers), stools, storage, teacher pedestals.</span>','76','Services','2020-06-23','2023-03-29');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('405','7','Repair & Renovation Services','<span style="font-weight: 400;">Includes: repair and renovation services for a range of furniture products. Key items have been priced at agreement level.</span>','76','Services','2020-06-23','2023-03-29');
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('406','8','Hubs Furniture','<span style="font-weight: 400;">Includes: office furniture that meets the Government Hub Programme√Ç¬†including office desks and workstations, office seating, office storage, general sundry items, conference room furniture, break out furniture.</span>','76','Services','2020-06-23','2023-03-29');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('407','1','Flexible Resource Pool - Staff Bank','No description','87','Services','2019-07-15','2023-07-02');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('408','1','Digital Outcomes','No description','17','Services','2019-10-01','2021-06-30');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('409','2','Digital Specialists','No description','17','Services','2019-10-01','2021-06-30');
