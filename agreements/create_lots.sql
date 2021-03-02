@@ -3,7 +3,7 @@ Title       create_lots.sql
 Date        June 15th 2020
 Author      Trevor Cummings
 Description This file is a script to create test data for lots         
-*/
+ */
 
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('98','Lot 1.2.2','Civil Engineering Works & Minor Associated Building Works & Servs√¢‚Ç¨‚ÄúSouth England','Value band √Ç¬£0-3m','68','Services','2019-10-31','2026-10-30');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('108','Lot 3.2','Construction Works and Associated Services - South England','Value band √Ç¬£10-30m','68','Services','2019-10-31','2026-10-30');
