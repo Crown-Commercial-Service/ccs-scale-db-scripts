@@ -4,6 +4,7 @@ Date        July 19th 2020
 Author      Trevor Cummings
 Description This file is a script to create data for contact_method_types. This data eventually will reside in Conclave     
 */
+/*
 INSERT INTO public.contact_method_types(
 	contact_method_type_id, contact_method_type_name, contact_method_type_description)
 	VALUES (1, 'Email', 'Communication from one email address to another');
@@ -19,3 +20,4 @@ INSERT INTO public.contact_method_types(
 INSERT INTO public.contact_method_types(
 	contact_method_type_id, contact_method_type_name, contact_method_type_description)
 	VALUES (5, 'Fax', 'A telephone number for receiving facsimile document');	
+*/
