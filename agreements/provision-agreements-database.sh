@@ -22,7 +22,6 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ddl.sql
 
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_commercial_agreements.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_role_types.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_method_types.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_details.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_contact_point_reasons.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f create_lots.sql
