@@ -197,13 +197,6 @@ CREATE TABLE trading_organisations (
   
 CREATE INDEX TRADING_ORGANISATIONS_IDX1 ON TRADING_ORGANISATIONS(trading_organisation_name); 
   
-CREATE TABLE contact_method_types (
-  contact_method_type_id          INTEGER PRIMARY KEY,
-  contact_method_type_name        VARCHAR(20) NOT NULL,
-  contact_method_type_description VARCHAR(1000));
-  
-CREATE INDEX CONTACT_METHOD_TYPES_IDX1 ON CONTACT_METHOD_TYPES (contact_method_type_name); 
-
 CREATE TABLE contact_point_reasons (
   contact_point_reason_id          INTEGER PRIMARY KEY,
   contact_point_reason_name        VARCHAR(100) NOT NULL,
@@ -214,7 +207,6 @@ CREATE INDEX CONTACT_POINT_REASONS_IDX1 ON CONTACT_POINT_REASONS (contact_point_
   
 CREATE TABLE contact_details (
   contact_detail_id      SERIAL PRIMARY KEY,
-  contact_method_type_id INTEGER NOT NULL,
   effective_from         DATE NOT NULL,
   effective_to           DATE,
   virtual_address_value  VARCHAR(500),
@@ -223,7 +215,12 @@ CREATE TABLE contact_details (
   region                 VARCHAR(100),
   postal_code            VARCHAR(20),
   country_code           VARCHAR(2),
-  uprn                   INTEGER);
+  uprn                   INTEGER,
+  telephone_number       VARCHAR(100),
+  fax_number             VARCHAR(100),	
+  email_address          VARCHAR(500),
+  url                    VARCHAR(2000)	
+  );
   
 CREATE INDEX CONTACT_DETAILS_IDX1 ON CONTACT_DETAILS (effective_from);
   
@@ -232,6 +229,7 @@ CREATE TABLE contact_point_lot_prs(
   contact_detail_id       INTEGER NOT NULL,
   contact_point_reason_id INTEGER NOT NULL,
   lot_person_role_id      INTEGER NOT NULL, 
+  contact_point_name      VARCHAR(100),	
   effective_from          DATE NOT NULL,
   effecive_to             DATE,
   primary_ind             BOOLEAN);
@@ -243,6 +241,7 @@ CREATE TABLE contact_point_lot_ors(
   contact_detail_id        INTEGER NOT NULL,
   contact_point_reason_id  INTEGER NOT NULL,
   lot_organisation_role_id INTEGER NOT NULL, 
+  contact_point_name       VARCHAR(100),	
   effective_from           DATE NOT NULL,
   effecive_to              DATE,
   primary_ind              BOOLEAN);
@@ -254,6 +253,7 @@ CREATE TABLE contact_point_commercial_agreement_ors(
   contact_detail_id                         INTEGER NOT NULL,
   contact_point_reason_id                   INTEGER NOT NULL,
   commercial_agreement_organisation_role_id INTEGER NOT NULL, 
+  contact_point_name                        VARCHAR(100),	
   effective_from                            DATE NOT NULL,
   effecive_to                               DATE,
   primary_ind                               BOOLEAN);
@@ -368,11 +368,7 @@ ADD CONSTRAINT caor_commercial_agreement_roles_fk FOREIGN KEY (role_type_id)
 ALTER TABLE trading_organisations 
 ADD CONSTRAINT trading_organisations_organisations_fk FOREIGN KEY (organisation_id ) 
     REFERENCES organisations (organisation_id );
-	
-ALTER TABLE contact_details 
-ADD CONSTRAINT contact_details_contact_method_types_fk FOREIGN KEY (contact_method_type_id) 
-    REFERENCES contact_method_types (contact_method_type_id);
-	
+		
 ALTER TABLE contact_point_lot_prs
 ADD CONSTRAINT contact_point_lot_prs_contact_details_fk FOREIGN KEY(contact_detail_id)
     REFERENCES contact_details (contact_detail_id);
