@@ -9,6 +9,12 @@ Description This file is a script to drop the tables for the Agreements database
 
 */
 
+DROP TABLE IF EXISTS contact_point_lot_prs;
+
+DROP TABLE IF EXISTS contact_point_lot_ors;
+
+DROP TABLE IF EXISTS contact_point_commercial_agreement_ors;
+
 DROP TABLE IF EXISTS commercial_agreement_organisation_roles;
 
 DROP TABLE IF EXISTS lot_people_roles;
@@ -29,13 +35,9 @@ DROP TABLE IF EXISTS lot_sectors;
 
 DROP TABLE IF EXISTS sectors;
 
-DROP TABLE IF EXISTS contact_points;
-
 DROP TABLE IF EXISTS contact_point_reasons; 
 
 DROP TABLE IF EXISTS contact_details; 
-
-DROP TABLE IF EXISTS contact_method_types;
 
 DROP TABLE IF EXISTS lot_rule_transaction_objects;
 
@@ -51,11 +53,12 @@ DROP TABLE IF EXISTS commercial_agreement_benefits;
 
 DROP TABLE IF EXISTS commercial_agreement_updates;
 
+DROP TABLE IF EXISTS commercial_agreement_documents;
+
 DROP TABLE IF EXISTS commercial_agreements;
 
-DROP TABLE IF EXISTS lot_people_role_types;
+DROP TABLE IF EXISTS role_types;
 
-DROP TABLE IF EXISTS commercial_agreement_role_types;
+DROP TYPE IF EXISTS DOMAIN_TYPE;
 
-DROP TABLE IF EXISTS lot_organisation_role_types;
 
