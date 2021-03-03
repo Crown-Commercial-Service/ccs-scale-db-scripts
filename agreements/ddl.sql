@@ -209,7 +209,6 @@ CREATE TABLE contact_details (
   contact_detail_id      SERIAL PRIMARY KEY,
   effective_from         DATE NOT NULL,
   effective_to           DATE,
-  virtual_address_value  VARCHAR(500),
   street_address         VARCHAR(100),
   locality               VARCHAR(100),
   region                 VARCHAR(100),
