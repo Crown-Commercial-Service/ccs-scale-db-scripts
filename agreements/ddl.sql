@@ -231,7 +231,7 @@ CREATE TABLE contact_point_lot_prs(
   lot_person_role_id      INTEGER NOT NULL, 
   contact_point_name      VARCHAR(100),	
   effective_from          DATE NOT NULL,
-  effecive_to             DATE,
+  effective_to             DATE,
   primary_ind             BOOLEAN);
   
 CREATE INDEX CONTACT_POINT_LOT_PRS_IDX1 ON CONTACT_POINT_LOT_PRS (lot_person_role_id, effective_from);
@@ -243,7 +243,7 @@ CREATE TABLE contact_point_lot_ors(
   lot_organisation_role_id INTEGER NOT NULL, 
   contact_point_name       VARCHAR(100),	
   effective_from           DATE NOT NULL,
-  effecive_to              DATE,
+  effective_to              DATE,
   primary_ind              BOOLEAN);
   
 CREATE INDEX CONTACT_POINT_LOT_ORS_IDX1 ON CONTACT_POINT_LOT_ORS (lot_organisation_role_id, effective_from);
@@ -255,7 +255,7 @@ CREATE TABLE contact_point_commercial_agreement_ors(
   commercial_agreement_organisation_role_id INTEGER NOT NULL, 
   contact_point_name                        VARCHAR(100),	
   effective_from                            DATE NOT NULL,
-  effecive_to                               DATE,
+  effective_to                               DATE,
   primary_ind                               BOOLEAN);
   
 CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS (commercial_agreement_organisation_role_id, effective_from);
