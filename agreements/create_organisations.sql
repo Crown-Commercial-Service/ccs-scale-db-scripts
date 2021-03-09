@@ -6,6 +6,7 @@ Description This file is a script to create data for ORGANISATIONS. This data ev
 */
 INSERT INTO ORGANISATIONS (
   entity_id,
+  registry_code,
   legal_name,
   business_type,
   organisation_uri,
@@ -15,6 +16,7 @@ INSERT INTO ORGANISATIONS (
   ultimate_org_id)
   values 
 ('AAAA',
+ 'GB-COH',
  'ACS Business Supplies Ltd',
  1,
  'www.acsacs.co.uk',
