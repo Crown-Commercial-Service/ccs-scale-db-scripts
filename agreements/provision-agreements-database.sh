@@ -18,7 +18,7 @@ export DATABASE=agreements
 export USERNAME=<<FILL THIS IN>>
 
 # psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f drop_tables.sql
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ddl.sql
+# psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ddl.sql
 
 
 
