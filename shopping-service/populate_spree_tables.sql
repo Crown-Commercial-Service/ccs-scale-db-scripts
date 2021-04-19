@@ -194,12 +194,19 @@ where sp.parent_id is null;
 
 /* Populate load_spree_option value variants */
 
-INSERT INTO public.spree_option_value_variants(
+INSERT INTO public.load_spree_option_value_variants(
 	variant_id, option_value_id)
-select count(*)
-from   load_spree_option_types sot
-join   load_spree_option_values sov on sov.option_type_id = sot.id
-join   load_spree_product_option_types spot on spot.option_type_id = sot.id
-join   load_spree_variants sv on sv.product_id = sp.id
-join   load_spree_product_properties spp on spp.product_id = sp.id
-join   load_spree_
+select sv.id, sov.id	
+from   load_spree_properties lsp
+join   load_spree_product_properties lspp on lspp.property_id   = lsp.id
+join   load_spree_option_types sot        on sot.name           = lspp."group"||'//'||lsp.name
+join   load_spree_option_values sov       on sov.option_type_id = sot.id
+                                         and sov.name           = lspp.value
+join   load_spree_products sp             on sp.id              = lspp.product_id
+                                         and sp.parent_id       is null
+join   load_spree_variants sv             on sv.product_id      = sp.id
+where  lsp.name = 'Colour';
+
+/* Populate spree_assets */
+
+
