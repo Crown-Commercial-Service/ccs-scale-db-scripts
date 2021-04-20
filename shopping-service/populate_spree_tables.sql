@@ -208,5 +208,51 @@ join   load_spree_variants sv             on sv.product_id      = sp.id
 where  lsp.name = 'Colour';
 
 /* Populate spree_assets */
+-- spree assets documents
+INSERT INTO public.load_spree_assets(viewable_type, viewable_id, 
+	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
+select 'Spree::Variant',sv.id,1,'Scale::Document', -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
+       now(),now(), dcs.content_guid, dcs.url,
+       dcmts.media_type_description
+from   digital_content_links_stage       dcls
+join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
+join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.content_guid
+join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
+join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
+join   load_spree_variants               sv    on sv.product_id                = sp.id
+where  dcs.content_guid = 'A69E5EA6-AFCF-4D3B-95F4-000000024049'
+and    sp.parent_id is null
+and    dcmts.media_type_id in (11,12,13);
 
+-- spree assets images
+INSERT INTO public.load_spree_assets(viewable_type, viewable_id, 
+	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
+select 'Spree::Variant',sv.id,1,'Scale::Image', -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
+       now(),now(), dcs.content_guid, dcs.url,
+       dcmts.media_type_description
+from   digital_content_links_stage       dcls
+join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
+join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.content_guid
+join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
+join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
+join   load_spree_variants               sv    on sv.product_id                = sp.id
+where  dcs.content_guid = 'A69E5EA6-AFCF-4D3B-95F4-000000024049'
+and    sp.parent_id is null
+and    dcmts.media_type_id in (1,15);
 
+-- spree assets which don't link to an image or document
+
+INSERT INTO public.load_spree_assets(viewable_type, viewable_id, 
+	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
+select 'Spree::Variant',sv.id,1,null, -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
+       now(),now(), dcs.content_guid, dcs.url,
+       dcmts.media_type_description
+from   digital_content_links_stage       dcls
+join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
+join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.content_guid
+join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
+join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
+join   load_spree_variants               sv    on sv.product_id                = sp.id
+where  dcs.content_guid = 'A69E5EA6-AFCF-4D3B-95F4-000000024049'
+and    sp.parent_id is null
+and    dcmts.media_type_id not in (1,11,12,13,15);
