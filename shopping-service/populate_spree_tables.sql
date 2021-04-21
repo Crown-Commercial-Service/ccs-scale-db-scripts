@@ -2,6 +2,9 @@
 
 /* scale_manufacturers */
 
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- This allows uuid to be generated
+
 insert into load_scale_manufacturers (id,name,created_at,updated_at)
 select cnet_company_id,company_name,now(),now() from distivoc_stage;
 
@@ -9,7 +12,7 @@ select cnet_company_id,company_name,now(),now() from distivoc_stage;
 
 insert into load_spree_products (name, description,slug,created_at,updated_at,promotionable,
 							cnet_id,mpn_number,manufacturer_id)
-select stst.description,stst.description,'Still need to determine this column',now(),now(),true,
+select stst.description,stst.description,uuid_generate_v4(),now(),now(),true,
        stst.prod_id,prst.mf_pid,lsm.id
 from   stdnee_stage stst
 join   prod_stage prst on prst.prod_id = stst.prod_id
@@ -220,8 +223,7 @@ join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.co
 join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
 join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
 join   load_spree_variants               sv    on sv.product_id                = sp.id
-where  dcs.content_guid = 'A69E5EA6-AFCF-4D3B-95F4-000000024049'
-and    sp.parent_id is null
+where  sp.parent_id is null
 and    dcmts.media_type_id in (11,12,13);
 
 -- spree assets images
@@ -236,8 +238,7 @@ join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.co
 join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
 join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
 join   load_spree_variants               sv    on sv.product_id                = sp.id
-where  dcs.content_guid = 'A69E5EA6-AFCF-4D3B-95F4-000000024049'
-and    sp.parent_id is null
+where  sp.parent_id is null
 and    dcmts.media_type_id in (1,15);
 
 -- spree assets which don't link to an image or document
@@ -253,6 +254,5 @@ join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.co
 join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
 join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
 join   load_spree_variants               sv    on sv.product_id                = sp.id
-where  dcs.content_guid = 'A69E5EA6-AFCF-4D3B-95F4-000000024049'
-and    sp.parent_id is null
+where  sp.parent_id is null
 and    dcmts.media_type_id not in (1,11,12,13,15);
