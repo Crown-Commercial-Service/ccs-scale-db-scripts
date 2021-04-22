@@ -219,7 +219,6 @@ select 'Spree::Variant',sv.id,1,'Scale::Document', -- Type, could possibly be 'S
        dcmts.media_type_description
 from   digital_content_links_stage       dcls
 join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
-join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.content_guid
 join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
 join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
 join   load_spree_variants               sv    on sv.product_id                = sp.id
@@ -234,7 +233,6 @@ select 'Spree::Variant',sv.id,1,'Scale::Image', -- Type, could possibly be 'Scal
        dcmts.media_type_description
 from   digital_content_links_stage       dcls
 join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
-join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.content_guid
 join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
 join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
 join   load_spree_variants               sv    on sv.product_id                = sp.id
@@ -250,7 +248,6 @@ select 'Spree::Variant',sv.id,1,null, -- Type, could possibly be 'Scale::Documen
        dcmts.media_type_description
 from   digital_content_links_stage       dcls
 join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
-join   digital_content_meta_stage        dcms  on dcms.content_guid    = dcls.content_guid
 join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
 join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
 join   load_spree_variants               sv    on sv.product_id                = sp.id
