@@ -150,6 +150,10 @@ select distinct lspp."group"||'//'||lsp.name,lsp.name,1,now(),now(),lspp."group"
 from   load_spree_properties lsp
 join   load_spree_product_properties lspp on lspp.property_id = lsp.id
 where  lsp.name = 'Colour';
+					
+-- set the position to the same as the id for the table. This query could be eliminated by using the sequence which populates the table.
+					
+update load_spree_option_types set position = id;					
 
 -- Populate spree_option_values
 
