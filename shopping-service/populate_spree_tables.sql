@@ -145,31 +145,28 @@ join   evocee_stage evst_group   on evst_group.id = esst.sect_id;
 
 -- Populate spree_option_types just for Colour
 
-insert into public.load_spree_option_types(name,presentation,"position",created_at,updated_at,"group",filterable)
-select distinct lspp."group"||'//'||lsp.name,lsp.name,1,now(),now(),lspp."group",true
+with cte_load_spree_product_types as
+(select distinct lspp."group"||'//'||lsp.name as option_type_name,lsp.name as presentation,1,lspp."group" as group_name
 from   load_spree_properties lsp
 join   load_spree_product_properties lspp on lspp.property_id = lsp.id
-where  lsp.name = 'Colour';
+where  lsp.name = 'Colour')
+insert into public.load_spree_option_types(name,presentation,"position",created_at,updated_at,"group",filterable)
+select option_type_name, presentation ,row_number() over (order by  option_type_name),now(),now(),group_name,true 
+from   cte_load_spree_product_types;
 					
--- set the position to the same as the id for the table. This query could be eliminated by using the sequence which populates the table.
-					
-update load_spree_option_types set position = id;					
-
 -- Populate spree_option_values
 
-insert into public.load_spree_option_values ("position", name, presentation, option_type_id, 
-											created_at, updated_at)
-select distinct 1, -- position need to work this out 
-       lspp.value,
-	   lspp.value,
-	   lsot.id,
-	   now(),
-	   now()
+with cte_load_spree_option_values as
+(select distinct lspp.value as value_name, lsot.id as option_type_id
 from   load_spree_properties lsp
 join   load_spree_product_properties lspp on lspp.property_id = lsp.id
 join   load_spree_option_types lsot on lsot.name = lspp."group"||'//'||lsp.name
-where  lsp.name = 'Colour' order by id,value;
-
+where  lsp.name = 'Colour')
+insert into public.load_spree_option_values ("position", name, presentation, option_type_id, created_at, updated_at)
+select row_number() over (partition by option_type_id order by value_name), value_name, value_name, option_type_id,
+       now(),now()
+from cte_load_spree_option_values;
+					
 /* Populate spree_product_option_types */
 
 INSERT INTO public.load_spree_product_option_types(
