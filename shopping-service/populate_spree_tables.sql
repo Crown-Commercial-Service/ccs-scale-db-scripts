@@ -171,12 +171,11 @@ from cte_load_spree_option_values;
 
 INSERT INTO public.load_spree_product_option_types(
 	"position", product_id, option_type_id, created_at, updated_at)
-select 1, lspp.product_id , sot.id,now(),now()
+select row_number () over (partition by lspp.product_id,sot.id), lspp.product_id , sot.id,now(),now()
 from   load_spree_properties lsp
 join   load_spree_product_properties lspp on lspp.property_id = lsp.id
 join   load_spree_option_types sot on sot.name = lspp."group"||'//'||lsp.name
-where  lsp.name = 'Colour'
-order by lspp.product_id, lspp.position;
+where  lsp.name = 'Colour';
 
 /* Populate Spree Variants */
 
