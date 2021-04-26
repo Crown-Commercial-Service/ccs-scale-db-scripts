@@ -103,3 +103,14 @@ create table digital_content_meta_value_voc_stage(meta_value_id   int,
 										    language_code   varchar(20),
 										    meta_value_name varchar(36));								  
 						   
+CREATE TABLE public.digital_content_media_types_stage
+(
+    media_type_id integer,
+    media_type_description character varying(1000) COLLATE pg_catalog."default"
+);
+													    
+CREATE TABLE public.digital_content_meta_atr_voc_stage
+(
+    meta_atr_id integer,
+    meta_value_name character varying(200) COLLATE pg_catalog."default"
+);													    
