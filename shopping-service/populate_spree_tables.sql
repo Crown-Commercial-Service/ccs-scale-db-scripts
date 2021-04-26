@@ -1,9 +1,22 @@
 /* Script to populate the spree base tables */
 
-/* scale_manufacturers */
+/* Create indexes for load tables */
+
+create index digital_content_stage_idx1 on digital_content_stage (content_guid);
+create index digital_content_links_stage_idx1 on digital_content_links_stage (content_guid);
+create index digital_content_meta_stage_idx1 on digital_content_meta_stage (content_guid);
+create index digital_content_media_types_stage_idx1 on digital_content_media_types_stage (media_type_id);
+create index load_spree_products_idxs on load_spree_products (cnet_id);
+create index load_spree_variants_idxs on load_spree_variants (product_id);
+
+
+/* Extension for UUID creation */
 
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- This allows uuid to be generated
+
+/* scale_manufacturers */
+
 
 insert into load_scale_manufacturers (id,name,created_at,updated_at)
 select cnet_company_id,company_name,now(),now() from distivoc_stage;
