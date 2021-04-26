@@ -43,7 +43,7 @@ CREATE TABLE public.load_spree_taxonomies
     "position" integer DEFAULT 0,
     filterable boolean,
     CONSTRAINT spree_taxonomies_pkey PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE public.load_spree_taxons
 (
@@ -74,7 +74,7 @@ CREATE TABLE public.load_spree_products_taxons
     id serial,
     "position" integer,
     CONSTRAINT spree_products_taxons_pkey PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE public.load_spree_properties
 (
