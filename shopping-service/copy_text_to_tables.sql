@@ -63,6 +63,41 @@ FROM '/Users/trevorcummings/cnet_tfr/Digital_Content_MetaF.txt';
 copy public.digital_content_meta_value_voc_stage (meta_value_id,language_code,meta_value_name) 
 FROM '/Users/trevorcummings/cnet_tfr/Digital_Content_Meta_Value_Voc.txt';
 
+/* Populate Digital_content_meta_atr_voc */
+
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (10,'Clipping Path');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (7,'Image Weight');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (9,'Copyright');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (1,'Image Angle');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (6,'Resolution');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (8,'Image ID');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (2,'Image Type');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (3,'Image Width');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (4,'Image Height');
+insert into digital_content_meta_atr_voc_stage(meta_atr_id,meta_value_name) values (5,'File Size');
+
+/* populate digital_content_media_types */
+
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(1,	'Standard Image (200x150)');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(4,	'Marketing description');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(5,	'Key Selling Points');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(10,	'What''s in the Box');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(11,	'Product Data Sheet / Brochure');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(12,	'User Manual');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(13,	'Quick Start Guide');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(14,	'Product Features');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(15,	'CCS Product Image');
+insert into digital_content_media_types_stage(media_type_id ,media_type_description) values 
+(17,	'Logo Image');
 /*
 select count(*) from  distivoc_stage; -- 45,782
 select count(*) from  cct_products_stage; -- 22,668,946
