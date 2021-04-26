@@ -42,7 +42,7 @@ CREATE TABLE public.load_spree_taxonomies
     updated_at timestamp without time zone NOT NULL,
     "position" integer DEFAULT 0,
     filterable boolean,
-    CONSTRAINT spree_taxonomies_pkey PRIMARY KEY (id)
+    CONSTRAINT load_spree_taxonomies_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE public.load_spree_taxons
@@ -64,7 +64,7 @@ CREATE TABLE public.load_spree_taxons
     depth integer,
     hide_from_nav boolean DEFAULT false,
     cnet_category_id character varying COLLATE pg_catalog."default",
-    CONSTRAINT spree_taxons_pkey PRIMARY KEY (id)
+    CONSTRAINT load_spree_taxons_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE public.load_spree_products_taxons
@@ -73,7 +73,7 @@ CREATE TABLE public.load_spree_products_taxons
     taxon_id integer,
     id serial,
     "position" integer,
-    CONSTRAINT spree_products_taxons_pkey PRIMARY KEY (id)
+    CONSTRAINT load_spree_products_taxons_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE public.load_spree_properties
@@ -84,7 +84,7 @@ CREATE TABLE public.load_spree_properties
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     filterable boolean,
-    CONSTRAINT spree_properties_pkey PRIMARY KEY (id)
+    CONSTRAINT load_spree_properties_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE public.load_spree_product_properties
@@ -98,7 +98,7 @@ CREATE TABLE public.load_spree_product_properties
     "position" integer DEFAULT 0,
     "group" character varying COLLATE pg_catalog."default",
     show_property boolean DEFAULT true,
-    CONSTRAINT spree_product_properties_pkey PRIMARY KEY (id)
+    CONSTRAINT load_spree_product_properties_pkey PRIMARY KEY (id)
 );
 
 create table public.load_spree_option_types(
@@ -110,7 +110,7 @@ create table public.load_spree_option_types(
     updated_at timestamp without time zone NOT NULL,
     "group" character varying COLLATE pg_catalog."default",
     filterable boolean,
-    CONSTRAINT spree_option_types_pkey PRIMARY KEY (id)
+    CONSTRAINT load_spree_option_types_pkey PRIMARY KEY (id)
 );
 
 create table public.load_spree_option_values(
@@ -121,7 +121,7 @@ create table public.load_spree_option_values(
 	option_type_id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    CONSTRAINT spree_option_values_pkey PRIMARY KEY (id)
+    CONSTRAINT load_spree_option_values_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE public.load_spree_product_option_types
@@ -154,7 +154,7 @@ CREATE TABLE public.load_spree_variants
     updated_at timestamp without time zone NOT NULL,
     discontinue_on timestamp without time zone,
     created_at timestamp without time zone NOT NULL,
-    CONSTRAINT spree_variants_pkey PRIMARY KEY (id)
+    CONSTRAINT load_spree_variants_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE public.load_spree_prices
