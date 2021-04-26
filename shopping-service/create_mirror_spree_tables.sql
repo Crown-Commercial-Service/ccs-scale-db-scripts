@@ -124,6 +124,17 @@ create table public.load_spree_option_values(
     CONSTRAINT spree_option_values_pkey PRIMARY KEY (id)
 );
 
+CREATE TABLE public.load_spree_product_option_types
+(
+    id serial,
+    "position" integer,
+    product_id integer,
+    option_type_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    CONSTRAINT load_spree_product_option_types_pkey PRIMARY KEY (id)
+);
+
 CREATE TABLE public.load_spree_variants
 (
     id serial ,
@@ -157,4 +168,34 @@ CREATE TABLE public.load_spree_prices
     updated_at timestamp without time zone NOT NULL,
     compare_at_amount numeric(10,2),
     CONSTRAINT load_spree_prices_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.load_spree_option_value_variants
+(
+    variant_id integer,
+    option_value_id integer,
+    id serial,
+    CONSTRAINT load_spree_option_value_variants_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.load_spree_assets
+(
+    id serial,
+    viewable_type character varying COLLATE pg_catalog."default",
+    viewable_id integer,
+    attachment_width integer,
+    attachment_height integer,
+    attachment_file_size integer,
+    "position" integer,
+    attachment_content_type character varying COLLATE pg_catalog."default",
+    attachment_file_name character varying COLLATE pg_catalog."default",
+    type character varying(75) COLLATE pg_catalog."default",
+    attachment_updated_at timestamp without time zone,
+    alt text COLLATE pg_catalog."default",
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    cnet_content_id character varying COLLATE pg_catalog."default",
+    cnet_url character varying COLLATE pg_catalog."default",
+    "group" character varying COLLATE pg_catalog."default",
+    CONSTRAINT load_spree_assets_pkey PRIMARY KEY (id)
 );
