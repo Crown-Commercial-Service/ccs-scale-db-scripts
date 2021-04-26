@@ -2,12 +2,12 @@
 
 /* Create indexes for load tables */
 
-create index digital_content_stage_idx1 on digital_content_stage (content_guid);
-create index digital_content_links_stage_idx1 on digital_content_links_stage (content_guid);
-create index digital_content_meta_stage_idx1 on digital_content_meta_stage (content_guid);
-create index digital_content_media_types_stage_idx1 on digital_content_media_types_stage (media_type_id);
-create index load_spree_products_idxs on load_spree_products (cnet_id);
-create index load_spree_variants_idxs on load_spree_variants (product_id);
+create index if not exists digital_content_stage_idx1 on digital_content_stage (content_guid);
+create index if not exists digital_content_links_stage_idx1 on digital_content_links_stage (content_guid);
+create index if not exists digital_content_meta_stage_idx1 on digital_content_meta_stage (content_guid);
+create index if not exists digital_content_media_types_stage_idx1 on digital_content_media_types_stage (media_type_id);
+create index if not exists load_spree_products_idxs on load_spree_products (cnet_id);
+create index if not exists load_spree_variants_idxs on load_spree_variants (product_id);
 
 
 /* Extension for UUID creation */
