@@ -265,4 +265,4 @@ join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.med
 join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
 join   load_spree_variants               sv    on sv.product_id                = sp.id
 where  sp.parent_id is null
-and    dcmts.media_type_id not in (4,5,10,14);
+and    dcmts.media_type_id in (4,5,10,14);
