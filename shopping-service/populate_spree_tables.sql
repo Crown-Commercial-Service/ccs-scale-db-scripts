@@ -254,15 +254,4 @@ and    dcmts.media_type_id in (1,15,17);
 
 -- spree assets which don't link to an image or document
 
-INSERT INTO public.load_spree_assets(viewable_type, viewable_id, 
-	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
-select 'Spree::Variant',sv.id,1,null, -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
-       now(),now(), dcs.content_guid, dcs.url,
-       dcmts.media_type_description
-from   digital_content_links_stage       dcls
-join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
-join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
-join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
-join   load_spree_variants               sv    on sv.product_id                = sp.id
-where  sp.parent_id is null
-and    dcmts.media_type_id in (4,5,10,14);
+-- removed insert for media types 4,5,10,14 as that data is stored in spree_products
