@@ -40,7 +40,45 @@ INSERT INTO public.load_spree_taxonomies(
 	
 /* spree taxons */
 
--- First load the parent records
+-- Load record associated with spree_taxonomies
+
+INSERT INTO public.load_spree_taxons(
+	   id, 
+	    parent_id, 
+	    position, 
+	    name, 
+	    permalink, 
+	    taxonomy_id, 
+	    lft, 
+	    rgt, 
+	    description, 
+	    created_at, 
+	    updated_at, 
+	    meta_title, 
+	    meta_description, 
+	    meta_keywords, 
+	    depth, 
+	    hide_from_nav, 
+	    cnet_category_id)
+values( 0, -- taxon id
+	   null , --parent_taxon_id
+	   0, -- position
+	   'Tech Products', -- taxon name
+       'tech-products/', --permalink
+	   1, -- taxonym id
+	   null, --lft
+	   null, --rgt
+	   null, -- description
+	   now(), -- created_at
+	   now(), -- updated_at
+	   null, --meta_title, 
+	   null, -- meta_description, 
+	   null, -- meta_keywords, 
+	   null,
+	   false,
+	   null);
+  
+-- Then load the immediate child records
 INSERT INTO public.load_spree_taxons(
 	   id, 
 	    parent_id, 
@@ -60,7 +98,7 @@ INSERT INTO public.load_spree_taxons(
 	    hide_from_nav, 
 	    cnet_category_id)
 select id, -- taxon id
-	   null , --parent_taxon_id
+	   0 , --parent_taxon_id
 	   0, -- position
 	   category_name, -- taxon name
        'tech-products/'||lower (category_name), --permalink
@@ -137,12 +175,13 @@ join   cct_products_stage cps on cps.prod_id = lsp.cnet_id
 join   cct_categories_stage ccs on ccs.cat_id = cps.cat_id;
 
 -- populate spree_properties
--- need to discover why some ar efilterable and others aren't 
+-- need to discover why some are filterable and others aren't 
 
 INSERT INTO public.load_spree_properties(
 	     name, presentation, created_at, updated_at, filterable)
 select   evocee_text, evocee_text,now(),now(), true
-from     evocee_stage where id like 'T%';
+from     evocee_stage where id like 'T%'
+and      evocee_text not in ('Colour','Weight');
 
 -- populate spree_products_properties
 
@@ -154,27 +193,32 @@ join   especee_stage esst        on esst.prod_id  = sppr.cnet_id
 join   evocee_stage evst_prop    on evst_prop.id  = esst.hdr_id
 join   load_spree_properties lsp on lsp.name      = evst_prop.evocee_text 
 join   evocee_stage evst_value   on evst_value.id = esst.body_id
-join   evocee_stage evst_group   on evst_group.id = esst.sect_id;
+join   evocee_stage evst_group   on evst_group.id = esst.sect_id
+where  sppr.parent_id is null;
 
 -- Populate spree_option_types just for Colour
 
 with cte_load_spree_product_types as
-(select distinct lspp."group"||'//'||lsp.name as option_type_name,lsp.name as presentation,1,lspp."group" as group_name
-from   load_spree_properties lsp
-join   load_spree_product_properties lspp on lspp.property_id = lsp.id
-where  lsp.name = 'Colour')
+(select distinct evoc_group.evocee_text||'//'||evoc_prop.evocee_text as option_type_name,'Colour' as presentation,1,evoc_group.evocee_text as group_name
+from   evocee_stage evoc_prop
+join   especee_stage espe      on espe.hdr_id = evoc_prop.id
+join   evocee_stage evoc_group on espe.sect_id = evoc_group.id
+where  evoc_prop.evocee_text = 'Colour')
 insert into public.load_spree_option_types(name,presentation,"position",created_at,updated_at,"group",filterable)
 select option_type_name, presentation ,row_number() over (order by  option_type_name),now(),now(),group_name,true 
 from   cte_load_spree_product_types;
+
 					
 -- Populate spree_option_values
 
 with cte_load_spree_option_values as
-(select distinct lspp.value as value_name, lsot.id as option_type_id
-from   load_spree_properties lsp
-join   load_spree_product_properties lspp on lspp.property_id = lsp.id
-join   load_spree_option_types lsot on lsot.name = lspp."group"||'//'||lsp.name
-where  lsp.name = 'Colour')
+(select distinct evoc_value.evocee_text as value_name, lsot.id as option_type_id
+from   evocee_stage evoc_prop
+join   especee_stage espe           on espe.hdr_id = evoc_prop.id
+join   evocee_stage evoc_group      on espe.sect_id = evoc_group.id
+join   load_spree_option_types lsot on lsot.name = evoc_group.evocee_text||'//'||evoc_prop.evocee_text
+join   evocee_stage evoc_value      on evoc_value.id = espe.body_id            
+where  evoc_prop.evocee_text = 'Colour')
 insert into public.load_spree_option_values ("position", name, presentation, option_type_id, created_at, updated_at)
 select row_number() over (partition by option_type_id order by value_name), value_name, value_name, option_type_id,
        now(),now()
@@ -184,11 +228,20 @@ from cte_load_spree_option_values;
 
 INSERT INTO public.load_spree_product_option_types(
 	"position", product_id, option_type_id, created_at, updated_at)
-select row_number () over (partition by lspp.product_id,sot.id), lspp.product_id , sot.id,now(),now()
-from   load_spree_properties lsp
-join   load_spree_product_properties lspp on lspp.property_id = lsp.id
-join   load_spree_option_types sot on sot.name = lspp."group"||'//'||lsp.name
-where  lsp.name = 'Colour';
+select row_number () over (partition by lsp.id,lsot.id),
+       lsp.id,
+       lsot.id,
+       now(),
+       now()
+--       evoc_value.evocee_text as value_name, lsot.id as option_type_id
+from   evocee_stage evoc_prop
+join   especee_stage espe           on espe.hdr_id = evoc_prop.id
+join   load_spree_products lsp      on lsp.cnet_id = espe.prod_id and lsp.parent_id is null
+join   evocee_stage evoc_group      on espe.sect_id = evoc_group.id
+join   load_spree_option_types lsot on lsot.name = evoc_group.evocee_text||'//'||evoc_prop.evocee_text
+--join   evocee_stage evoc_value      on evoc_value.id = espe.body_id            
+where  evoc_prop.evocee_text = 'Colour';
+
 
 /* Populate Spree Variants */
 
