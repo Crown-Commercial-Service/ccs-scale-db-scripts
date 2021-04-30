@@ -122,3 +122,4 @@ CREATE TABLE option_values_stage
     option_value_id integer,
     variant_id      integer
 );
+

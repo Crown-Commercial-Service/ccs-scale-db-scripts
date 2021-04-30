@@ -6,8 +6,8 @@ create index if not exists digital_content_stage_idx1 on digital_content_stage (
 create index if not exists digital_content_links_stage_idx1 on digital_content_links_stage (content_guid);
 create index if not exists digital_content_meta_stage_idx1 on digital_content_meta_stage (content_guid);
 create index if not exists digital_content_media_types_stage_idx1 on digital_content_media_types_stage (media_type_id);
-create index if not exists load_spree_products_idxs on load_spree_products (cnet_id);
-create index if not exists load_spree_variants_idxs on load_spree_variants (product_id);
+create index if not exists load_spree_products_idxs on spree_products (cnet_id);
+create index if not exists load_spree_variants_idxs on spree_variants (product_id);
 
 
 /* Extension for UUID creation */
@@ -37,7 +37,7 @@ select stst.description,stst.description,uuid_generate_v4(),now(),now(),true,
 from   stdnee_stage stst
 join   prod_stage prst on prst.prod_id = stst.prod_id
 join   distivoc_stage dist on dist.cnet_company_code = prst.mf_id
-join   load_scale_manufacturers lsm on lsm.id = dist.cnet_company_id;
+join   scale_manufacturers lsm on lsm.id = dist.cnet_company_id;
 
 /* spree_taxonomies */
 
@@ -257,7 +257,9 @@ INSERT INTO public.spree_variants(
 	cost_price, "position", cost_currency, track_inventory, tax_category_id, 
 	updated_at, discontinue_on, created_at)
 select ' ', null, null, null, null, null, true, sp.id, 0, 1, 'GBP', null, null, now(),null, now()
-from spree_products sp where parent_id is null;
+from spree_products sp 
+where parent_id is null;
+
 
 
 /* Populate load_spree_option value variants */
