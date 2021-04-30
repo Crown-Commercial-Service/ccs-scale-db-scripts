@@ -21,6 +21,13 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- This allows uuid to be generated
 insert into load_scale_manufacturers (id,name,created_at,updated_at)
 select cnet_company_id,company_name,now(),now() from distivoc_stage;
 
+/* populate cnet_identies for the above records */
+
+insert into scale_cnet_identities (cnet_id,cnet_type,item_id,item_type,created_at,updated_at)
+select cnet_company_code, 'manufacturer',cnet_company_id,'Scale::Manufacturer',now(),now()
+from   distivoc_stage;
+   
+
 /* spree_products */
 
 insert into load_spree_products (name, description,slug,created_at,updated_at,promotionable,
