@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS digital_content_stage;
 DROP TABLE IF EXISTS digital_content_links_stage;
 DROP TABLE IF EXISTS digital_content_meta_stage;
 DROP TABLE IF EXISTS digital_content_meta_value_voc_stage;
+DROP TABLE IF EXISTS option_values_stage;
 
 /* Cat string copmmand will convert file cat file.txt | tr -s '[:blank:]' ',' > fileCSV.csv */
 
@@ -114,3 +115,10 @@ CREATE TABLE public.digital_content_meta_atr_voc_stage
     meta_atr_id integer,
     meta_value_name character varying(200) COLLATE pg_catalog."default"
 );													    
+
+CREATE TABLE option_values_stage
+(   product_id      integer,
+    option_type_id  integer,
+    option_value_id integer,
+    variant_id      integer
+);

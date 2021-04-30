@@ -233,7 +233,7 @@ select row_number () over (partition by lsp.id,lsot.id),
        lsot.id,
        now(),
        now()
---       evoc_value.evocee_text as value_name, lsot.id as option_type_id
+--       evoc_value.evocee_text as value_name
 from   evocee_stage evoc_prop
 join   especee_stage espe           on espe.hdr_id = evoc_prop.id
 join   load_spree_products lsp      on lsp.cnet_id = espe.prod_id and lsp.parent_id is null
@@ -243,7 +243,7 @@ join   load_spree_option_types lsot on lsot.name = evoc_group.evocee_text||'//'|
 where  evoc_prop.evocee_text = 'Colour';
 
 
-/* Populate Spree Variants */
+/* Populate Spree Variants master records */
 
 INSERT INTO public.load_spree_variants(
 	sku, weight, height, width, depth, deleted_at, is_master, product_id, 
@@ -252,29 +252,44 @@ INSERT INTO public.load_spree_variants(
 select ' ', null, null, null, null, null, true, sp.id, 0, 1, 'GBP', null, null, now(),null, now()
 from load_spree_products sp where parent_id is null;
 
+
+/* Populate load_spree_option value variants */
+
+-- first populate the stage table to link product_id, variant_id and option_value_id
+insert into option_values_stage (product_id, option_type_id,option_value_id, variant_id)
+select spot.product_id,
+       spot.option_type_id,
+       sov.id as option_value_id,
+       nextval('spree_variants_id_seq')
+from load_spree_product_option_types spot
+join load_spree_products sp       on sp.id         = spot.product_id
+join especee_stage espe           on espe.prod_id  = sp.cnet_id
+join evocee_stage evoc_value      on evoc_value.id = espe.body_id 
+join evocee_stage evoc_prop       on evoc_prop.id  = espe.hdr_id 
+join load_spree_option_values sov on sov.option_type_id = spot.option_type_id
+                                 and sov."name"         = evoc_value.evocee_text
+where  evoc_prop.evocee_text = 'Colour'          
+order by spot.product_id;
+
+
+INSERT INTO public.load_spree_option_value_variants(variant_id, option_value_id)
+select variant_id, option_value_id
+from   option_values_stage;
+
+/* Populate Spree Variants for option value type records */
+
+INSERT INTO public.load_spree_variants(id,sku,is_master,product_id,cost_price, "position", cost_currency, updated_at,created_at)
+select ovs.variant_id, ' ', false, ovs.product_id, 0, 2, 'GBP', now(),now()
+from   option_values_stage ovs;
+
 /* Populate Spree Prices */
 
 INSERT INTO public.load_spree_prices(
 	variant_id, amount, currency, deleted_at, created_at, updated_at, compare_at_amount)
 select sv.id,0,'GBP',null,now(),now(),null
 from load_spree_products sp
-join load_spree_variants sv on sv.product_id = sp.id
-where sp.parent_id is null;
+join load_spree_variants sv on sv.product_id = sp.id;
 
-/* Populate load_spree_option value variants */
-
-INSERT INTO public.load_spree_option_value_variants(
-	variant_id, option_value_id)
-select sv.id, sov.id	
-from   load_spree_properties lsp
-join   load_spree_product_properties lspp on lspp.property_id   = lsp.id
-join   load_spree_option_types sot        on sot.name           = lspp."group"||'//'||lsp.name
-join   load_spree_option_values sov       on sov.option_type_id = sot.id
-                                         and sov.name           = lspp.value
-join   load_spree_products sp             on sp.id              = lspp.product_id
-                                         and sp.parent_id       is null
-join   load_spree_variants sv             on sv.product_id      = sp.id
-where  lsp.name = 'Colour';
 
 /* Populate spree_assets */
 -- spree assets documents
