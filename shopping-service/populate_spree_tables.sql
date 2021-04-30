@@ -330,3 +330,19 @@ and    dcmts.media_type_id in (1,15,17);
 -- spree assets which don't link to an image or document
 
 -- removed insert for media types 4,5,10,14 as that data is stored in spree_products
+
+/* populate friendly_id_slugs */
+
+-- spree_taxons
+insert into friendly_id_slugs (slug,sluggable_id,sluggable_type,created_at)
+select permalink, id, 'Spree::Taxon', now()
+from   spree_taxons;
+
+-- spree_products
+
+insert into friendly_id_slugs (slug,sluggable_id,sluggable_type,created_at)
+select slug, id, 'Spree::Product', now()
+from   spree_products
+where  parent_id is NULL
+and    slug is NOT NULL;
+
