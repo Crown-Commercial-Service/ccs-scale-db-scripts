@@ -18,7 +18,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- This allows uuid to be generated
 /* scale_manufacturers */
 
 
-insert into load_scale_manufacturers (id,name,created_at,updated_at)
+insert into scale_manufacturers (id,name,created_at,updated_at)
 select cnet_company_id,company_name,now(),now() from distivoc_stage;
 
 /* populate cnet_identies for the above records */
@@ -30,7 +30,7 @@ from   distivoc_stage;
 
 /* spree_products */
 
-insert into load_spree_products (name, description,slug,created_at,updated_at,promotionable,
+insert into spree_products (name, description,slug,created_at,updated_at,promotionable,
 							cnet_id,mpn_number,manufacturer_id)
 select stst.description,stst.description,uuid_generate_v4(),now(),now(),true,
        stst.prod_id,prst.mf_pid,lsm.id
@@ -41,7 +41,7 @@ join   load_scale_manufacturers lsm on lsm.id = dist.cnet_company_id;
 
 /* spree_taxonomies */
 
-INSERT INTO public.load_spree_taxonomies(
+INSERT INTO public.spree_taxonomies(
 	id, name, created_at, updated_at, "position", filterable)
 	VALUES (1, 'Tech Products', now(), now(), 1, true);
 	
@@ -49,7 +49,7 @@ INSERT INTO public.load_spree_taxonomies(
 
 -- Load record associated with spree_taxonomies
 
-INSERT INTO public.load_spree_taxons(
+INSERT INTO public.spree_taxons(
 	   id, 
 	    parent_id, 
 	    position, 
@@ -86,7 +86,7 @@ values( 0, -- taxon id
 	   null);
   
 -- Then load the immediate child records
-INSERT INTO public.load_spree_taxons(
+INSERT INTO public.spree_taxons(
 	   id, 
 	    parent_id, 
 	    position, 
@@ -135,7 +135,7 @@ and    parent_cat_id not like '9%' ;
 
 -- Populate the child records
 
-INSERT INTO public.load_spree_taxons(
+INSERT INTO public.spree_taxons(
 	   id, 
 	    parent_id, 
 	    position, 
@@ -175,16 +175,16 @@ where length(parent_cat_id) > 1 ;
 
 -- Create spree_products_taxons
 
-insert into load_spree_products_taxons(product_id,taxon_id)
+insert into spree_products_taxons(product_id,taxon_id)
 select lsp.id, ccs.id
-from   load_spree_products lsp
+from   spree_products lsp
 join   cct_products_stage cps on cps.prod_id = lsp.cnet_id
 join   cct_categories_stage ccs on ccs.cat_id = cps.cat_id;
 
 -- populate spree_properties
 -- need to discover why some are filterable and others aren't 
 
-INSERT INTO public.load_spree_properties(
+INSERT INTO public.spree_properties(
 	     name, presentation, created_at, updated_at, filterable)
 select   evocee_text, evocee_text,now(),now(), true
 from     evocee_stage where id like 'T%'
@@ -192,13 +192,13 @@ and      evocee_text not in ('Colour','Weight');
 
 -- populate spree_products_properties
 
-INSERT INTO public.load_spree_product_properties 
+INSERT INTO public.spree_product_properties 
            (product_id, property_id,value, created_at,updated_at,position,"group",show_property)
 select sppr.id, lsp.id, evst_value.evocee_text,now(),now(),esst.display_order,evst_group.evocee_text,true
-from   load_spree_products sppr
+from   spree_products sppr
 join   especee_stage esst        on esst.prod_id  = sppr.cnet_id
 join   evocee_stage evst_prop    on evst_prop.id  = esst.hdr_id
-join   load_spree_properties lsp on lsp.name      = evst_prop.evocee_text 
+join   spree_properties lsp on lsp.name      = evst_prop.evocee_text 
 join   evocee_stage evst_value   on evst_value.id = esst.body_id
 join   evocee_stage evst_group   on evst_group.id = esst.sect_id
 where  sppr.parent_id is null;
@@ -211,7 +211,7 @@ from   evocee_stage evoc_prop
 join   especee_stage espe      on espe.hdr_id = evoc_prop.id
 join   evocee_stage evoc_group on espe.sect_id = evoc_group.id
 where  evoc_prop.evocee_text = 'Colour')
-insert into public.load_spree_option_types(name,presentation,"position",created_at,updated_at,"group",filterable)
+insert into public.spree_option_types(name,presentation,"position",created_at,updated_at,"group",filterable)
 select option_type_name, presentation ,row_number() over (order by  option_type_name),now(),now(),group_name,true 
 from   cte_load_spree_product_types;
 
@@ -223,17 +223,17 @@ with cte_load_spree_option_values as
 from   evocee_stage evoc_prop
 join   especee_stage espe           on espe.hdr_id = evoc_prop.id
 join   evocee_stage evoc_group      on espe.sect_id = evoc_group.id
-join   load_spree_option_types lsot on lsot.name = evoc_group.evocee_text||'//'||evoc_prop.evocee_text
+join   spree_option_types lsot on lsot.name = evoc_group.evocee_text||'//'||evoc_prop.evocee_text
 join   evocee_stage evoc_value      on evoc_value.id = espe.body_id            
 where  evoc_prop.evocee_text = 'Colour')
-insert into public.load_spree_option_values ("position", name, presentation, option_type_id, created_at, updated_at)
+insert into public.spree_option_values ("position", name, presentation, option_type_id, created_at, updated_at)
 select row_number() over (partition by option_type_id order by value_name), value_name, value_name, option_type_id,
        now(),now()
 from cte_load_spree_option_values;
 					
 /* Populate spree_product_option_types */
 
-INSERT INTO public.load_spree_product_option_types(
+INSERT INTO public.spree_product_option_types(
 	"position", product_id, option_type_id, created_at, updated_at)
 select row_number () over (partition by lsp.id,lsot.id),
        lsp.id,
@@ -243,21 +243,21 @@ select row_number () over (partition by lsp.id,lsot.id),
 --       evoc_value.evocee_text as value_name
 from   evocee_stage evoc_prop
 join   especee_stage espe           on espe.hdr_id = evoc_prop.id
-join   load_spree_products lsp      on lsp.cnet_id = espe.prod_id and lsp.parent_id is null
+join   spree_products lsp           on lsp.cnet_id = espe.prod_id and lsp.parent_id is null
 join   evocee_stage evoc_group      on espe.sect_id = evoc_group.id
-join   load_spree_option_types lsot on lsot.name = evoc_group.evocee_text||'//'||evoc_prop.evocee_text
+join   spree_option_types lsot      on lsot.name = evoc_group.evocee_text||'//'||evoc_prop.evocee_text
 --join   evocee_stage evoc_value      on evoc_value.id = espe.body_id            
 where  evoc_prop.evocee_text = 'Colour';
 
 
 /* Populate Spree Variants master records */
 
-INSERT INTO public.load_spree_variants(
+INSERT INTO public.spree_variants(
 	sku, weight, height, width, depth, deleted_at, is_master, product_id, 
 	cost_price, "position", cost_currency, track_inventory, tax_category_id, 
 	updated_at, discontinue_on, created_at)
 select ' ', null, null, null, null, null, true, sp.id, 0, 1, 'GBP', null, null, now(),null, now()
-from load_spree_products sp where parent_id is null;
+from spree_products sp where parent_id is null;
 
 
 /* Populate load_spree_option value variants */
@@ -268,39 +268,39 @@ select spot.product_id,
        spot.option_type_id,
        sov.id as option_value_id,
        nextval('spree_variants_id_seq')
-from load_spree_product_option_types spot
-join load_spree_products sp       on sp.id         = spot.product_id
+from spree_product_option_types spot
+join spree_products sp       on sp.id         = spot.product_id
 join especee_stage espe           on espe.prod_id  = sp.cnet_id
 join evocee_stage evoc_value      on evoc_value.id = espe.body_id 
 join evocee_stage evoc_prop       on evoc_prop.id  = espe.hdr_id 
-join load_spree_option_values sov on sov.option_type_id = spot.option_type_id
+join spree_option_values sov on sov.option_type_id = spot.option_type_id
                                  and sov."name"         = evoc_value.evocee_text
 where  evoc_prop.evocee_text = 'Colour'          
 order by spot.product_id;
 
 
-INSERT INTO public.load_spree_option_value_variants(variant_id, option_value_id)
+INSERT INTO public.spree_option_value_variants(variant_id, option_value_id)
 select variant_id, option_value_id
 from   option_values_stage;
 
 /* Populate Spree Variants for option value type records */
 
-INSERT INTO public.load_spree_variants(id,sku,is_master,product_id,cost_price, "position", cost_currency, updated_at,created_at)
+INSERT INTO public.spree_variants(id,sku,is_master,product_id,cost_price, "position", cost_currency, updated_at,created_at)
 select ovs.variant_id, ' ', false, ovs.product_id, 0, 2, 'GBP', now(),now()
 from   option_values_stage ovs;
 
 /* Populate Spree Prices */
 
-INSERT INTO public.load_spree_prices(
+INSERT INTO public.spree_prices(
 	variant_id, amount, currency, deleted_at, created_at, updated_at, compare_at_amount)
 select sv.id,0,'GBP',null,now(),now(),null
-from load_spree_products sp
-join load_spree_variants sv on sv.product_id = sp.id;
+from spree_products sp
+join spree_variants sv on sv.product_id = sp.id;
 
 
 /* Populate spree_assets */
 -- spree assets documents
-INSERT INTO public.load_spree_assets(viewable_type, viewable_id, 
+INSERT INTO public.spree_assets(viewable_type, viewable_id, 
 	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
 select 'Spree::Variant',sv.id,1,'Scale::Document', -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
        now(),now(), dcs.content_guid, dcs.url,
@@ -308,13 +308,13 @@ select 'Spree::Variant',sv.id,1,'Scale::Document', -- Type, could possibly be 'S
 from   digital_content_links_stage       dcls
 join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
 join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
-join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
-join   load_spree_variants               sv    on sv.product_id                = sp.id
+join   spree_products               sp    on sp.cnet_id           = dcls.prod_id
+join   spree_variants               sv    on sv.product_id                = sp.id
 where  sp.parent_id is null
 and    dcmts.media_type_id in (11,12,13);
 
 -- spree assets images
-INSERT INTO public.load_spree_assets(viewable_type, viewable_id, 
+INSERT INTO public.spree_assets(viewable_type, viewable_id, 
 	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
 select 'Spree::Variant',sv.id,1,'Scale::Image', -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
        now(),now(), dcs.content_guid, dcs.url,
@@ -322,8 +322,8 @@ select 'Spree::Variant',sv.id,1,'Scale::Image', -- Type, could possibly be 'Scal
 from   digital_content_links_stage       dcls
 join   digital_content_stage             dcs   on dcs.content_guid     = dcls.content_guid 
 join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.media_type_id 
-join   load_spree_products               sp    on sp.cnet_id           = dcls.prod_id
-join   load_spree_variants               sv    on sv.product_id                = sp.id
+join   spree_products               sp    on sp.cnet_id           = dcls.prod_id
+join   spree_variants               sv    on sv.product_id                = sp.id
 where  sp.parent_id is null
 and    dcmts.media_type_id in (1,15,17);
 
