@@ -348,3 +348,11 @@ from   spree_products
 where  parent_id is NULL
 and    slug is NOT NULL;
 
+-- scale_product_xmls
+
+INSERT into scale_product_xmls(cnet_id, url, media_type_id, content_guid, created_at, updated_at )
+select prod_id, url, dcs.media_type_id, dcls.content_guid, now(), now()
+from digital_content_stage dcs 
+join digital_content_links_stage dcls on dcs.content_guid =  dcls.content_guid
+where media_type_id in (4,5);
+
