@@ -315,7 +315,7 @@ join   spree_variants               sv    on sv.product_id                = sp.i
 where  sp.parent_id is null
 and    dcmts.media_type_id in (11,12,13);
 
--- spree assets images
+-- spree assets images -- standard image
 INSERT INTO public.spree_assets(viewable_type, viewable_id, 
 	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
 select 'Spree::Variant',sv.id,1,'Scale::Image', -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
@@ -327,7 +327,56 @@ join   digital_content_media_types_stage dcmts on dcmts.media_type_id  = dcs.med
 join   spree_products               sp    on sp.cnet_id           = dcls.prod_id
 join   spree_variants               sv    on sv.product_id                = sp.id
 where  sp.parent_id is null
-and    dcmts.media_type_id in (1,15,17);
+and    dcmts.media_type_id in (1)
+and    sv.is_master = TRUE;
+
+
+-- spree assets images -- CCS Product Image
+
+with CTA_Image_Size as(
+select dcls.prod_id,
+       dcmts.media_type_description, 
+       max(cast (dcmvvs_w.meta_value_name as integer)) * 1 as image_weight,
+       max(cast (dcmvvs_h.meta_value_name as integer) * cast (dcmvvs_iw.meta_value_name as integer)) as h_times_w
+from   digital_content_links_stage          dcls
+join   digital_content_stage                dcs    on dcs.content_guid     = dcls.content_guid 
+join   digital_content_media_types_stage    dcmts  on dcmts.media_type_id  = dcs.media_type_id 
+left  join   digital_content_meta_stage           dcms_w   on dcms_w.content_guid    = dcs.content_guid and dcms_w.meta_atr_id = 7  
+left  join   digital_content_meta_value_voc_stage dcmvvs_w on dcmvvs_w.meta_value_id = dcms_w.meta_value_id 
+left  join   digital_content_meta_atr_voc_stage   dcmavs_w on dcmavs_w.meta_atr_id   = dcms_w.meta_atr_id and dcmavs_w.meta_atr_id = 7
+left join   digital_content_meta_stage           dcms_h   on dcms_h.content_guid    = dcs.content_guid and dcms_h.meta_atr_id = 4  
+left join   digital_content_meta_value_voc_stage dcmvvs_h on dcmvvs_h.meta_value_id = dcms_h.meta_value_id 
+left join   digital_content_meta_atr_voc_stage   dcmavs_h on dcmavs_h.meta_atr_id   = dcms_h.meta_atr_id and dcmavs_h.meta_atr_id = 4
+left join   digital_content_meta_stage           dcms_iw   on dcms_iw.content_guid    = dcs.content_guid and dcms_iw.meta_atr_id = 3  
+left join   digital_content_meta_value_voc_stage dcmvvs_iw on dcmvvs_iw.meta_value_id = dcms_iw.meta_value_id 
+left join   digital_content_meta_atr_voc_stage   dcmavs_iw on dcmavs_iw.meta_atr_id   = dcms_iw.meta_atr_id and dcmavs_iw.meta_atr_id = 3
+where  dcmts.media_type_id in (15)
+group by dcls.prod_id, dcmts.media_type_description )
+INSERT INTO public.spree_assets(viewable_type, viewable_id, 
+	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
+select 'Spree::Variant',sv.id,1,'Scale::Image', 
+       now(),now(), dcs1.content_guid, dcs1.url,
+       CTA_Image_Size.media_type_description       
+from CTA_Image_Size 
+join digital_content_links_stage             dcls1      on dcls1.prod_id            = CTA_Image_Size.prod_id
+ join   digital_content_meta_stage           dcms_w1    on dcms_w1.content_guid     = dcls1.content_guid and dcms_w1.meta_atr_id = 7   
+ join   digital_content_meta_value_voc_stage dcmvvs_w1  on dcmvvs_w1.meta_value_id  = dcms_w1.meta_value_id 
+ join   digital_content_meta_atr_voc_stage   dcmavs_w1  on dcmavs_w1.meta_atr_id    = dcms_w1.meta_atr_id and dcmavs_w1.meta_atr_id = 7
+ join   digital_content_meta_stage           dcms_h1    on dcms_h1.content_guid     = dcls1.content_guid and dcms_h1.meta_atr_id = 4  
+ join   digital_content_meta_value_voc_stage dcmvvs_h1  on dcmvvs_h1.meta_value_id  = dcms_h1.meta_value_id 
+ join   digital_content_meta_atr_voc_stage   dcmavs_h1  on dcmavs_h1.meta_atr_id    = dcms_h1.meta_atr_id and dcmavs_h1.meta_atr_id = 4
+ join   digital_content_meta_stage           dcms_iw1   on dcms_iw1.content_guid    = dcls1.content_guid and dcms_iw1.meta_atr_id  = 3  
+ join   digital_content_meta_value_voc_stage dcmvvs_iw1 on dcmvvs_iw1.meta_value_id = dcms_iw1.meta_value_id 
+ join   digital_content_meta_atr_voc_stage   dcmavs_iw1 on dcmavs_iw1.meta_atr_id   = dcms_iw1.meta_atr_id and dcmavs_iw1.meta_atr_id = 3
+ join   digital_content_stage                dcs1       on dcs1.content_guid        = dcls1.content_guid
+ join   spree_products                       sp         on sp.cnet_id               = dcls1.prod_id
+ join   spree_variants                       sv         on sv.product_id            = sp.id
+where CTA_Image_Size.image_weight = cast (dcmvvs_w1.meta_value_name as integer) 
+and   CTA_Image_Size.h_times_w    = cast (dcmvvs_h1.meta_value_name as integer) * cast (dcmvvs_iw1.meta_value_name as integer)  
+and   sp.parent_id is NULL
+and   sv.is_master = TRUE  
+order by CTA_Image_Size.prod_id
+;
 
 -- spree assets which don't link to an image or document
 
