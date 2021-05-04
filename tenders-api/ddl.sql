@@ -24,7 +24,7 @@ CREATE TABLE procurement_projects (project_id                  SERIAL PRIMARY KE
                                    
 CREATE TABLE procurement_events  (event_id            SERIAL PRIMARY KEY, -- This comprises of the OCID as the prfix and an a unique id for the procurement
                                   ocds_authority_name VARCHAR(20) NOT NULL, -- default will be OCDS and probably never change
-                                  ocds_prefix         VARCHAR(50) NOT NULL, -- current value is 
+                                  ocds_prefix         VARCHAR(50) NOT NULL, -- current value is b5fd17
                                   jaggaer_event_id    VARCHAR(50) NOT NULL,
                                   project_id          INTEGER     NOT NULL,
                                   event_name          VARCHAR(2000), 
