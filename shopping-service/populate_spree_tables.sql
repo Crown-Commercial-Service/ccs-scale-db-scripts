@@ -6,12 +6,13 @@ create index if not exists digital_content_stage_idx1 on digital_content_stage (
 create index if not exists digital_content_links_stage_idx1 on digital_content_links_stage (content_guid);
 create index if not exists digital_content_meta_stage_idx1 on digital_content_meta_stage (content_guid);
 create index if not exists digital_content_media_types_stage_idx1 on digital_content_media_types_stage (media_type_id);
-create index if not exists digital_content_meta_value_voc_stage_idx1 on digital_content_meta_value_voc_stage(meta_value_id)
+create index if not exists digital_content_meta_value_voc_stage_idx1 on digital_content_meta_value_voc_stage(meta_value_id);
 create index if not exists digital_content_links_stage_idx2 on digital_content_links_stage(prod_id);
 
 create index if not exists load_spree_products_idxs on spree_products (cnet_id);
 create index if not exists load_spree_variants_idxs on spree_variants (product_id);
 
+drop index if exists index_scale_manufacturers_on_name;
 
 /* Extension for UUID creation */
 
@@ -388,6 +389,7 @@ order by CTA_Image_Size.prod_id
 /* populate friendly_id_slugs */
 
 -- spree_taxons
+
 insert into friendly_id_slugs (slug,sluggable_id,sluggable_type,created_at)
 select permalink, id, 'Spree::Taxon', now()
 from   spree_taxons;
