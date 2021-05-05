@@ -6,6 +6,9 @@ create index if not exists digital_content_stage_idx1 on digital_content_stage (
 create index if not exists digital_content_links_stage_idx1 on digital_content_links_stage (content_guid);
 create index if not exists digital_content_meta_stage_idx1 on digital_content_meta_stage (content_guid);
 create index if not exists digital_content_media_types_stage_idx1 on digital_content_media_types_stage (media_type_id);
+create index if not exists digital_content_meta_value_voc_stage_idx1 on digital_content_meta_value_voc_stage(meta_value_id)
+create index if not exists digital_content_links_stage_idx2 on digital_content_links_stage(prod_id);
+
 create index if not exists load_spree_products_idxs on spree_products (cnet_id);
 create index if not exists load_spree_variants_idxs on spree_variants (product_id);
 
@@ -354,7 +357,7 @@ where  dcmts.media_type_id in (15)
 group by dcls.prod_id, dcmts.media_type_description )
 INSERT INTO public.spree_assets(viewable_type, viewable_id, 
 	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
-select 'Spree::Variant',sv.id,1,'Scale::Image', 
+select 'Spree::Variant',sv.id,2,'Scale::Image', 
        now(),now(), dcs1.content_guid, dcs1.url,
        CTA_Image_Size.media_type_description       
 from CTA_Image_Size 
