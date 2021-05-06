@@ -410,3 +410,19 @@ from digital_content_stage dcs
 join digital_content_links_stage dcls on dcs.content_guid =  dcls.content_guid
 where media_type_id in (4,5);
 
+-- Update spree_variants with their weight
+
+with cte_weight as(select sv.id, cast (REGEXP_REPLACE(evst_value.evocee_text,'[[:alpha:]]','','g') as numeric) as weight_numeric
+from   spree_products sppr
+join   especee_stage esst        on esst.prod_id  = sppr.cnet_id
+join   evocee_stage evst_prop    on evst_prop.id  = esst.hdr_id
+join   evocee_stage evst_value   on evst_value.id = esst.body_id
+join   spree_variants sv         on sv.product_id = sppr.id				   
+where  esst.hdr_id = 'T0000021' /* weight property */
+and    sppr.parent_id is NULL
+and    sv.is_master = TRUE)
+update spree_variants 
+set    weight            = cte_weight.weight_numeric
+from   cte_weight
+where  spree_variants.id = cte_weight.id;
+
