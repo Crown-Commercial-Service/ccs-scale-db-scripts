@@ -1,13 +1,25 @@
 /* Script to create local versions of spree tables */
 
-CREATE TABLE public.load_scale_manufacturers
+CREATE TABLE public.scale_manufacturers -- tab 1
 (
     id serial primary key,
     name character varying COLLATE pg_catalog."default",
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL);
 	
-CREATE TABLE public.load_spree_products
+CREATE TABLE public.scale_cnet_identities --tab 2
+(
+    id SERIAL,
+    cnet_id character varying COLLATE pg_catalog."default",
+    cnet_type character varying COLLATE pg_catalog."default",
+    item_id bigint,
+    item_type character varying COLLATE pg_catalog."default",
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL,
+    CONSTRAINT scale_cnet_identities_pkey PRIMARY KEY (id)
+);	
+	
+CREATE TABLE public.spree_products --tab 3
 (
     id serial primary key,
     name character varying COLLATE pg_catalog."default" NOT NULL DEFAULT ''::character varying,
@@ -34,7 +46,7 @@ CREATE TABLE public.load_spree_products
     catalog_id integer)
 ;
 
-CREATE TABLE public.load_spree_taxonomies
+CREATE TABLE public.spree_taxonomies -- tab 4
 (
     id integer NOT NULL ,
     name character varying COLLATE pg_catalog."default" NOT NULL,
@@ -45,7 +57,7 @@ CREATE TABLE public.load_spree_taxonomies
     CONSTRAINT load_spree_taxonomies_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_taxons
+CREATE TABLE public.spree_taxons -- tab 5
 (
     id serial,
     parent_id integer,
@@ -67,7 +79,7 @@ CREATE TABLE public.load_spree_taxons
     CONSTRAINT load_spree_taxons_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_products_taxons
+CREATE TABLE public.spree_products_taxons -- tab 6
 (
     product_id integer,
     taxon_id integer,
@@ -76,7 +88,7 @@ CREATE TABLE public.load_spree_products_taxons
     CONSTRAINT load_spree_products_taxons_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_properties
+CREATE TABLE public.spree_properties -- tab 7
 (
     id serial,
     name character varying COLLATE pg_catalog."default",
@@ -87,7 +99,7 @@ CREATE TABLE public.load_spree_properties
     CONSTRAINT load_spree_properties_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_product_properties
+CREATE TABLE public.spree_product_properties -- tab 8
 (
     id serial,
     value character varying COLLATE pg_catalog."default",
@@ -101,7 +113,7 @@ CREATE TABLE public.load_spree_product_properties
     CONSTRAINT load_spree_product_properties_pkey PRIMARY KEY (id)
 );
 
-create table public.load_spree_option_types(
+create table public.spree_option_types( -- tab 9
     id serial,
     name character varying COLLATE pg_catalog."default",
     presentation character varying COLLATE pg_catalog."default" NOT NULL,
@@ -113,7 +125,7 @@ create table public.load_spree_option_types(
     CONSTRAINT load_spree_option_types_pkey PRIMARY KEY (id)
 );
 
-create table public.load_spree_option_values(
+create table public.spree_option_values( -- tab 10
     id serial,
     "position" integer DEFAULT 0,
     name character varying COLLATE pg_catalog."default",
@@ -124,7 +136,7 @@ create table public.load_spree_option_values(
     CONSTRAINT load_spree_option_values_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_product_option_types
+CREATE TABLE public.spree_product_option_types -- tab 11
 (
     id serial,
     "position" integer,
@@ -135,7 +147,7 @@ CREATE TABLE public.load_spree_product_option_types
     CONSTRAINT load_spree_product_option_types_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_variants
+CREATE TABLE public.spree_variants -- tab 12
 (
     id serial ,
     sku character varying COLLATE pg_catalog."default" NOT NULL DEFAULT ''::character varying,
@@ -157,7 +169,7 @@ CREATE TABLE public.load_spree_variants
     CONSTRAINT load_spree_variants_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_prices
+CREATE TABLE public.spree_prices -- tab 13
 (
     id serial,
     variant_id integer NOT NULL,
@@ -170,7 +182,7 @@ CREATE TABLE public.load_spree_prices
     CONSTRAINT load_spree_prices_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_option_value_variants
+CREATE TABLE public.spree_option_value_variants -- tab 14
 (
     variant_id integer,
     option_value_id integer,
@@ -178,7 +190,7 @@ CREATE TABLE public.load_spree_option_value_variants
     CONSTRAINT load_spree_option_value_variants_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE public.load_spree_assets
+CREATE TABLE public.spree_assets -- tab 15
 (
     id serial,
     viewable_type character varying COLLATE pg_catalog."default",
@@ -198,4 +210,28 @@ CREATE TABLE public.load_spree_assets
     cnet_url character varying COLLATE pg_catalog."default",
     "group" character varying COLLATE pg_catalog."default",
     CONSTRAINT load_spree_assets_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE public.friendly_id_slugs -- tab 16
+(
+    id SERIAL,
+    slug character varying COLLATE pg_catalog."default" NOT NULL,
+    sluggable_id integer NOT NULL,
+    sluggable_type character varying(50) COLLATE pg_catalog."default",
+    scope character varying COLLATE pg_catalog."default",
+    created_at timestamp without time zone,
+    deleted_at timestamp without time zone,
+    CONSTRAINT friendly_id_slugs_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE "public"."scale_product_xmls" ( -- tab 17
+    id SERIAL,
+    cnet_id varchar,
+    url varchar,
+    media_type_id int4,
+    content_guid varchar,
+    created_at timestamp NOT NULL,
+    updated_at timestamp NOT NULL,
+    status varchar DEFAULT 'new'::character varying,
+    PRIMARY KEY (id)
 );

@@ -2,6 +2,9 @@
 
 /* Create indexes for load tables */
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('1. Create Indexes','Create indexes');
+
 create index if not exists digital_content_stage_idx1 on digital_content_stage (content_guid);
 create index if not exists digital_content_links_stage_idx1 on digital_content_links_stage (content_guid);
 create index if not exists digital_content_meta_stage_idx1 on digital_content_meta_stage (content_guid);
@@ -12,27 +15,54 @@ create index if not exists digital_content_links_stage_idx2 on digital_content_l
 create index if not exists load_spree_products_idxs on spree_products (cnet_id);
 create index if not exists load_spree_variants_idxs on spree_variants (product_id);
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('1. Create Indexes','End Create indexes');
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('2. Drop Indexes','Drop scale_manufacturer index');
+
 drop index if exists index_scale_manufacturers_on_name;
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('2. Drop Indexes','End drop scale_manufacturers indexes');
 
 /* Extension for UUID creation */
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('3. uuid-ossp','Create extension');
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- This allows uuid to be generated
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('3. uuid-ossp','End reate extension');
+
 /* scale_manufacturers */
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('4. Scale_Manufacturers','Start insert');
 
 insert into scale_manufacturers (id,name,created_at,updated_at)
 select cnet_company_id,company_name,now(),now() from distivoc_stage;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('4. Scale_Manufacturers','End insert');
+
 /* populate cnet_identies for the above records */
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('5. Scale_Cnet_identities','Start insert');
 
 insert into scale_cnet_identities (cnet_id,cnet_type,item_id,item_type,created_at,updated_at)
 select cnet_company_code, 'manufacturer',cnet_company_id,'Scale::Manufacturer',now(),now()
 from   distivoc_stage;
    
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('5. Scale_Cnet_identities','End insert');
 
 /* spree_products */
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('6. Spree_products','Start insert');
 
 insert into spree_products (name, description,slug,created_at,updated_at,promotionable,
 							cnet_id,mpn_number,manufacturer_id)
@@ -43,15 +73,28 @@ join   prod_stage prst on prst.prod_id = stst.prod_id
 join   distivoc_stage dist on dist.cnet_company_code = prst.mf_id
 join   scale_manufacturers lsm on lsm.id = dist.cnet_company_id;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('6. Spree_products','End insert');
+
 /* spree_taxonomies */
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('7. Spree_taxonomies','Start insert');
 
 INSERT INTO public.spree_taxonomies(
 	id, name, created_at, updated_at, "position", filterable)
 	VALUES (1, 'Tech Products', now(), now(), 1, true);
 	
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('7. Spree_taxonomies','End insert');
+
 /* spree taxons */
 
 -- Load record associated with spree_taxonomies
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('8a. Spree_taxons Top Level','Start insert');
 
 INSERT INTO public.spree_taxons(
 	   id, 
@@ -88,8 +131,16 @@ values( 0, -- taxon id
 	   null,
 	   false,
 	   null);
-  
+
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('8a. Spree_taxons Top Level','End insert');
+
 -- Then load the immediate child records
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('8b. Spree_taxons - Parents','Start insert');
+
 INSERT INTO public.spree_taxons(
 	   id, 
 	    parent_id, 
@@ -136,8 +187,14 @@ and    parent_cat_id not like '7%'
 and    parent_cat_id not like '8%'
 and    parent_cat_id not like '9%' ;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('8b. Spree_taxons - Parents','End insert');
 
 -- Populate the child records
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('8c. Spree_taxons - Children','Start insert');
+
 
 INSERT INTO public.spree_taxons(
 	   id, 
@@ -177,7 +234,13 @@ select id, -- taxon id
 from   cct_categories_stage ccs
 where length(parent_cat_id) > 1 ;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('8c. Spree_taxons - Children','End insert');
+
 -- Create spree_products_taxons
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('9. Spree_product_taxons','Start insert');
 
 insert into spree_products_taxons(product_id,taxon_id)
 select lsp.id, ccs.id
@@ -185,8 +248,14 @@ from   spree_products lsp
 join   cct_products_stage cps on cps.prod_id = lsp.cnet_id
 join   cct_categories_stage ccs on ccs.cat_id = cps.cat_id;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('9. Spree_product_taxons','End insert');
+
 -- populate spree_properties
 -- need to discover why some are filterable and others aren't 
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('10. Spree_properties','Start insert');
 
 INSERT INTO public.spree_properties(
 	     name, presentation, created_at, updated_at, filterable)
@@ -194,7 +263,13 @@ select   evocee_text, evocee_text,now(),now(), true
 from     evocee_stage where id like 'T%'
 and      evocee_text not in ('Colour','Weight');
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('10. Spree_properties','End insert');
+
 -- populate spree_products_properties
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('11. Spree_product_properties','Start insert');
 
 INSERT INTO public.spree_product_properties 
            (product_id, property_id,value, created_at,updated_at,position,"group",show_property)
@@ -207,7 +282,13 @@ join   evocee_stage evst_value   on evst_value.id = esst.body_id
 join   evocee_stage evst_group   on evst_group.id = esst.sect_id
 where  sppr.parent_id is null;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('11. Spree_product_properties','End insert');
+
 -- Populate spree_option_types just for Colour
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('12. Spree_product_types','Start insert');
 
 with cte_load_spree_product_types as
 (select distinct evoc_group.evocee_text||'//'||evoc_prop.evocee_text as option_type_name,'Colour' as presentation,1,evoc_group.evocee_text as group_name
@@ -219,8 +300,13 @@ insert into public.spree_option_types(name,presentation,"position",created_at,up
 select option_type_name, presentation ,row_number() over (order by  option_type_name),now(),now(),group_name,true 
 from   cte_load_spree_product_types;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('12. Spree_product_types','End insert');
 					
 -- Populate spree_option_values
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('13. Spree_product_values','Start insert');
 
 with cte_load_spree_option_values as
 (select distinct evoc_value.evocee_text as value_name, lsot.id as option_type_id
@@ -234,8 +320,16 @@ insert into public.spree_option_values ("position", name, presentation, option_t
 select row_number() over (partition by option_type_id order by value_name), value_name, value_name, option_type_id,
        now(),now()
 from cte_load_spree_option_values;
-					
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('13. Spree_product_values','End insert');
+
+
 /* Populate spree_product_option_types */
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('14. Spree_product_option_types','Start insert');
+
 
 INSERT INTO public.spree_product_option_types(
 	"position", product_id, option_type_id, created_at, updated_at)
@@ -253,8 +347,14 @@ join   spree_option_types lsot      on lsot.name = evoc_group.evocee_text||'//'|
 --join   evocee_stage evoc_value      on evoc_value.id = espe.body_id            
 where  evoc_prop.evocee_text = 'Colour';
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('14. Spree_product_option_types','End insert');
 
 /* Populate Spree Variants master records */
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('15. Spree_variants - Master','Start insert');
+
 
 INSERT INTO public.spree_variants(
 	sku, weight, height, width, depth, deleted_at, is_master, product_id, 
@@ -264,9 +364,14 @@ select ' ', null, null, null, null, null, true, sp.id, 0, 1, 'GBP', null, null, 
 from spree_products sp 
 where parent_id is null;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('15. Spree_variants - Master','End insert');
 
 
 /* Populate load_spree_option value variants */
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('16. Option_value_stage','Start insert');
 
 -- first populate the stage table to link product_id, variant_id and option_value_id
 insert into option_values_stage (product_id, option_type_id,option_value_id, variant_id)
@@ -284,18 +389,38 @@ join spree_option_values sov on sov.option_type_id = spot.option_type_id
 where  evoc_prop.evocee_text = 'Colour'          
 order by spot.product_id;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('16. Option_value_stage','End insert');
+
+-- Spree Option value variants
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('17. Spree_value_variants','Start insert');
 
 INSERT INTO public.spree_option_value_variants(variant_id, option_value_id)
 select variant_id, option_value_id
 from   option_values_stage;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('17. Spree_value_variants','End insert');
+
+
 /* Populate Spree Variants for option value type records */
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('18. Spree_variants - value variants','Start insert');
 
 INSERT INTO public.spree_variants(id,sku,is_master,product_id,cost_price, "position", cost_currency, updated_at,created_at)
 select ovs.variant_id, ' ', false, ovs.product_id, 0, 2, 'GBP', now(),now()
 from   option_values_stage ovs;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('18. Spree_variants - value variants','End insert');
+
 /* Populate Spree Prices */
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('19. Spree_prices','Start insert');
+
 
 INSERT INTO public.spree_prices(
 	variant_id, amount, currency, deleted_at, created_at, updated_at, compare_at_amount)
@@ -303,9 +428,15 @@ select sv.id,0,'GBP',null,now(),now(),null
 from spree_products sp
 join spree_variants sv on sv.product_id = sp.id;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('19. Spree_prices','End insert');
 
 /* Populate spree_assets */
 -- spree assets documents
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('20. Spree_assets - Document','Start insert');
+
 INSERT INTO public.spree_assets(viewable_type, viewable_id, 
 	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
 select 'Spree::Variant',sv.id,1,'Scale::Document', -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
@@ -319,7 +450,15 @@ join   spree_variants               sv    on sv.product_id                = sp.i
 where  sp.parent_id is null
 and    dcmts.media_type_id in (11,12,13);
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('20. Spree_assets - Document','End insert');
+
+
 -- spree assets images -- standard image
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('21. Spree_assets - Standard Image','Start insert');
+
 INSERT INTO public.spree_assets(viewable_type, viewable_id, 
 	"position", type,created_at, updated_at, cnet_content_id, cnet_url, "group")
 select 'Spree::Variant',sv.id,1,'Scale::Image', -- Type, could possibly be 'Scale::Document' or 'Scale::Image'
@@ -334,8 +473,13 @@ where  sp.parent_id is null
 and    dcmts.media_type_id in (1)
 and    sv.is_master = TRUE;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('21. Spree_assets - Standard Image','End insert');
 
 -- spree assets images -- CCS Product Image
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('22. Spree_assets - CCS Product Image','Start insert');
 
 with CTA_Image_Size as(
 select dcls.prod_id,
@@ -382,6 +526,9 @@ and   sv.is_master = TRUE
 order by CTA_Image_Size.prod_id
 ;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('22. Spree_assets - CCS Product Image','End insert');
+
 -- spree assets which don't link to an image or document
 
 -- removed insert for media types 4,5,10,14 as that data is stored in spree_products
@@ -390,11 +537,20 @@ order by CTA_Image_Size.prod_id
 
 -- spree_taxons
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('23. friendly_id_slugs - Taxons','Start insert');
+
 insert into friendly_id_slugs (slug,sluggable_id,sluggable_type,created_at)
 select permalink, id, 'Spree::Taxon', now()
 from   spree_taxons;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('23. friendly_id_slugs - Taxons','End insert');
+
 -- spree_products
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('24. friendly_id_slugs - Products','Start insert');
 
 insert into friendly_id_slugs (slug,sluggable_id,sluggable_type,created_at)
 select slug, id, 'Spree::Product', now()
@@ -402,7 +558,13 @@ from   spree_products
 where  parent_id is NULL
 and    slug is NOT NULL;
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('24. friendly_id_slugs - Products','End insert');
+
 -- scale_product_xmls
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('25. scale_product_xmls','Start insert');
 
 INSERT into scale_product_xmls(cnet_id, url, media_type_id, content_guid, created_at, updated_at )
 select prod_id, url, dcs.media_type_id, dcls.content_guid, now(), now()
@@ -410,7 +572,13 @@ from digital_content_stage dcs
 join digital_content_links_stage dcls on dcs.content_guid =  dcls.content_guid
 where media_type_id in (4,5);
 
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('26. scale_product_xmls','End insert');
+
 -- Update spree_variants with their weight
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('26. spree_variants','Start update');
 
 with cte_weight as(select sv.id, cast (REGEXP_REPLACE(evst_value.evocee_text,'[[:alpha:]]','','g') as numeric) as weight_numeric
 from   spree_products sppr
@@ -425,4 +593,8 @@ update spree_variants
 set    weight            = cte_weight.weight_numeric
 from   cte_weight
 where  spree_variants.id = cte_weight.id;
+
+insert into scale_cnet_log (spree_table_name,load_action)
+values ('26. spree_variants','End update');
+
 

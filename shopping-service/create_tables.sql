@@ -11,6 +11,8 @@ DROP TABLE IF EXISTS digital_content_stage;
 DROP TABLE IF EXISTS digital_content_links_stage;
 DROP TABLE IF EXISTS digital_content_meta_stage;
 DROP TABLE IF EXISTS digital_content_meta_value_voc_stage;
+DROP TABLE IF EXISTS digital_content_meta_atr_voc_stage;
+DROP TABLE IF EXISTS digital_content_media_types_stage;
 DROP TABLE IF EXISTS option_values_stage;
 
 /* Cat string copmmand will convert file cat file.txt | tr -s '[:blank:]' ',' > fileCSV.csv */
@@ -123,3 +125,10 @@ CREATE TABLE option_values_stage
     variant_id      integer
 );
 
+create table scale_cnet_log
+(   run_id           serial primary key,
+    spree_table_name varchar(60),
+    created_at       date default now(),
+    started_at       timestamp default now(),
+    finished_at      timestamp,
+    load_action      varchar(100)); -- load action started finished perhaps error
