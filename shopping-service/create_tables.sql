@@ -14,6 +14,8 @@ DROP TABLE IF EXISTS digital_content_meta_value_voc_stage;
 DROP TABLE IF EXISTS digital_content_meta_atr_voc_stage;
 DROP TABLE IF EXISTS digital_content_media_types_stage;
 DROP TABLE IF EXISTS option_values_stage;
+DROP TABLE IF EXISTS digital_content_guids_stage;
+DROP TABLE IF EXISTS scale_cnet_log;
 
 /* Cat string copmmand will convert file cat file.txt | tr -s '[:blank:]' ',' > fileCSV.csv */
 
@@ -132,3 +134,5 @@ create table scale_cnet_log
     started_at       timestamp default now(),
     finished_at      timestamp,
     load_action      varchar(100)); -- load action started finished perhaps error
+	
+create table digital_content_guids_stage(content_guid  varchar(36));	
