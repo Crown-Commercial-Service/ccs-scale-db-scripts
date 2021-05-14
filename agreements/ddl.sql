@@ -16,7 +16,6 @@ CREATE TABLE commercial_agreements (
   commercial_agreement_id           SERIAL PRIMARY KEY,
   commercial_agreement_number       VARCHAR(20) NOT NULL,
   commercial_agreement_name         VARCHAR(200) NOT NULL,
-  commercial_agreement_owner        VARCHAR(200) NOT NULL,
   commercial_agreement_description  VARCHAR(2000) NOT NULL, -- perhaps this needs to be a different type
   start_date                        DATE NOT NULL,
   end_date                          DATE NOT NULL,
