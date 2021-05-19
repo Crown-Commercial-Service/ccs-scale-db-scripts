@@ -24,7 +24,6 @@ CREATE TABLE commercial_agreements (
 
 CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
 CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTS (commercial_agreement_name);
-CREATE INDEX COAG_IDX3 on COMMERCIAL_AGREEMENTS  (commercial_agreement_owner);
 
 CREATE TABLE lots (
   lot_id                            SERIAL PRIMARY KEY,
@@ -284,10 +283,14 @@ CREATE TABLE commercial_agreement_documents(
   commercial_agreement_document_id SERIAL  PRIMARY KEY,	
   commercial_agreement_id          INTEGER NOT NULL,
   document_name                    VARCHAR(200),
+  document_description             VARCHAR(2000),
   document_url                     VARCHAR(2000),
   document_type                    VARCHAR(20),
   document_version                 INTEGER,	
-  published_date                   TIMESTAMP);
+  "language"                       VARCHAR(2),
+  format                           VARCHAR(50),	
+  published_date                   TIMESTAMP,
+  modified_at                      TIMESTAMP);
 					  
 CREATE INDEX commercial_agreement_documents_IDX1 ON commercial_agreement_documents (commercial_agreement_id);
 CREATE INDEX commercial_agreement_documents_IDX2 ON commercial_agreement_documents (document_name);
