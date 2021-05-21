@@ -259,11 +259,12 @@ CREATE TABLE contact_point_commercial_agreement_ors(
 CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS (commercial_agreement_organisation_role_id, effective_from);
 					   
 CREATE TABLE commercial_agreement_benefits(
-  commercial_agreement_benefit_id INTEGER  PRIMARY KEY,	
+  commercial_agreement_benefit_id SERIAL   PRIMARY KEY,	
   commercial_agreement_id         INTEGER  NOT NULL,
-  benefit_name                    VARCHAR(100),
+  benefit_name                    VARCHAR(2000),
   benefit_description             VARCHAR(2000),
-  benefit_url                     VARCHAR(2000));
+  benefit_url                     VARCHAR(2000),
+  order_seq                       INTEGER);
 					  
 CREATE INDEX commercial_agreement_benefits_IDX1 ON commercial_agreement_benefits (commercial_agreement_id);
 CREATE INDEX commercial_agreement_benefits_IDX2 ON commercial_agreement_benefits (benefit_name);
