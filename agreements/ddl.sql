@@ -289,7 +289,7 @@ CREATE TABLE commercial_agreement_documents(
   document_type                    VARCHAR(20),
   document_version                 INTEGER,	
   "language"                       VARCHAR(2),
-  format                           VARCHAR(50),	
+  format                           VARCHAR(100),	
   published_date                   TIMESTAMP,
   modified_at                      TIMESTAMP);
 					  
