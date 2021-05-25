@@ -270,10 +270,10 @@ CREATE INDEX commercial_agreement_benefits_IDX1 ON commercial_agreement_benefits
 CREATE INDEX commercial_agreement_benefits_IDX2 ON commercial_agreement_benefits (benefit_name);
 
 CREATE TABLE commercial_agreement_updates(
-  commercial_agreement_update_id INTEGER  PRIMARY KEY,	
+  commercial_agreement_update_id SERIAL   PRIMARY KEY,	
   commercial_agreement_id        INTEGER  NOT NULL,
   update_name                    VARCHAR(100),
-  update_description             VARCHAR(2000),
+  update_description             VARCHAR(4000),
   update_url                     VARCHAR(2000),
   published_date                 TIMESTAMP);
 					  
