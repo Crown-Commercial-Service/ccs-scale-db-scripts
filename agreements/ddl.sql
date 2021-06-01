@@ -16,7 +16,6 @@ CREATE TABLE commercial_agreements (
   commercial_agreement_id           SERIAL PRIMARY KEY,
   commercial_agreement_number       VARCHAR(20) NOT NULL,
   commercial_agreement_name         VARCHAR(200) NOT NULL,
-  commercial_agreement_owner        VARCHAR(200) NOT NULL,
   commercial_agreement_description  VARCHAR(2000) NOT NULL, -- perhaps this needs to be a different type
   start_date                        DATE NOT NULL,
   end_date                          DATE NOT NULL,
@@ -25,7 +24,6 @@ CREATE TABLE commercial_agreements (
 
 CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
 CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTS (commercial_agreement_name);
-CREATE INDEX COAG_IDX3 on COMMERCIAL_AGREEMENTS  (commercial_agreement_owner);
 
 CREATE TABLE lots (
   lot_id                            SERIAL PRIMARY KEY,
@@ -126,10 +124,10 @@ CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id);
 
 CREATE TABLE organisations (
   organisation_id          SERIAL         NOT NULL PRIMARY KEY,
-  entity_id                VARCHAR(255)   NOT NULL,
+  entity_id                VARCHAR(255),
   registry_code            VARCHAR(20), 	
   legal_name               VARCHAR(255)   NOT NULL UNIQUE,
-  business_type            VARCHAR(20)        NOT NULL,
+  business_type            VARCHAR(20)    ,
   organisation_uri         VARCHAR(2000),
   status                   VARCHAR(100),
   incorporation_date       DATE           NOT NULL,
@@ -261,20 +259,21 @@ CREATE TABLE contact_point_commercial_agreement_ors(
 CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS (commercial_agreement_organisation_role_id, effective_from);
 					   
 CREATE TABLE commercial_agreement_benefits(
-  commercial_agreement_benefit_id INTEGER  PRIMARY KEY,	
+  commercial_agreement_benefit_id SERIAL   PRIMARY KEY,	
   commercial_agreement_id         INTEGER  NOT NULL,
-  benefit_name                    VARCHAR(100),
+  benefit_name                    VARCHAR(2000),
   benefit_description             VARCHAR(2000),
-  benefit_url                     VARCHAR(2000));
+  benefit_url                     VARCHAR(2000),
+  order_seq                       INTEGER);
 					  
 CREATE INDEX commercial_agreement_benefits_IDX1 ON commercial_agreement_benefits (commercial_agreement_id);
 CREATE INDEX commercial_agreement_benefits_IDX2 ON commercial_agreement_benefits (benefit_name);
 
 CREATE TABLE commercial_agreement_updates(
-  commercial_agreement_update_id INTEGER  PRIMARY KEY,	
+  commercial_agreement_update_id SERIAL   PRIMARY KEY,	
   commercial_agreement_id        INTEGER  NOT NULL,
   update_name                    VARCHAR(100),
-  update_description             VARCHAR(2000),
+  update_description             VARCHAR(4000),
   update_url                     VARCHAR(2000),
   published_date                 TIMESTAMP);
 					  
@@ -285,10 +284,14 @@ CREATE TABLE commercial_agreement_documents(
   commercial_agreement_document_id SERIAL  PRIMARY KEY,	
   commercial_agreement_id          INTEGER NOT NULL,
   document_name                    VARCHAR(200),
+  document_description             VARCHAR(2000),
   document_url                     VARCHAR(2000),
   document_type                    VARCHAR(20),
   document_version                 INTEGER,	
-  published_date                   TIMESTAMP);
+  "language"                       VARCHAR(2),
+  format                           VARCHAR(100),	
+  published_date                   TIMESTAMP,
+  modified_at                      TIMESTAMP);
 					  
 CREATE INDEX commercial_agreement_documents_IDX1 ON commercial_agreement_documents (commercial_agreement_id);
 CREATE INDEX commercial_agreement_documents_IDX2 ON commercial_agreement_documents (document_name);
