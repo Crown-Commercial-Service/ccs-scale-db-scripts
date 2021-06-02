@@ -132,6 +132,7 @@ CREATE TABLE organisations (
   status                   VARCHAR(100),
   incorporation_date       DATE           NOT NULL,
   country_of_incorporation VARCHAR(3)     NOT NULL,
+  country_name             VARCHAR(100),
   parent_org_id            INTEGER,
   ultimate_org_id          INTEGER,
   is_sme		   BOOLEAN,
