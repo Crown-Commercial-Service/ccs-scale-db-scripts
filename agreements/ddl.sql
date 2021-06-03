@@ -214,6 +214,7 @@ CREATE TABLE contact_details (
   region                 VARCHAR(100),
   postal_code            VARCHAR(20),
   country_code           VARCHAR(3),
+  country_name           VARCHAR(100),
   uprn                   INTEGER,
   telephone_number       VARCHAR(100),
   fax_number             VARCHAR(100),	
