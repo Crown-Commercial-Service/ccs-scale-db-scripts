@@ -298,6 +298,38 @@ CREATE TABLE commercial_agreement_documents(
 CREATE INDEX commercial_agreement_documents_IDX1 ON commercial_agreement_documents (commercial_agreement_id);
 CREATE INDEX commercial_agreement_documents_IDX2 ON commercial_agreement_documents (document_name);
 
+create table procurement_event_types
+(procurement_event_type_id        integer     not null,
+ procurement_event_type_name varchar(20) not null,
+ CONSTRAINT procurement_event_types_pkey PRIMARY KEY (procurement_event_type_id),
+ CONSTRAINT procurement_event_types_ukey UNIQUE      (procurement_event_type_name));
+
+-- Create table Lot Procurement Event Types
+create table lot_procurement_event_types
+( lot_id                    integer not null,
+  procurement_event_type_id integer not null,
+  mandatory_event_ind       boolean not null,
+  repeatable_event_ind      boolean not null,
+  CONSTRAINT lot_procurement_event_types_pkey PRIMARY KEY (lot_id,procurement_event_type_id));
+
+-- Create table Procurement Question Templates
+
+create table procurement_question_templates
+( template_id      serial       not null,
+  template_name    varchar(200) not null,
+  template_url     varchar(2000),
+  template_payload jsonb,
+  CONSTRAINT procurement_question_templates_pkey PRIMARY KEY (template_id),
+  CONSTRAINT procurement_question_templates_ukey UNIQUE      (template_name));
+
+
+-- Create table Lot Procurement Question Templates
+create table lot_procurement_question_templates
+( lot_id      integer not null,
+  template_id integer not null,
+  CONSTRAINT lot_procurement_question_templatess_pkey PRIMARY KEY (lot_id,template_id));
+
+
 ALTER TABLE lots 
 ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
     REFERENCES commercial_agreements (commercial_agreement_id);
@@ -432,7 +464,24 @@ ADD CONSTRAINT coau_commercial_agreement_fk FOREIGN KEY(commercial_agreement_id)
 
 ALTER TABLE commercial_agreement_documents
 ADD CONSTRAINT coad_commercial_agreement_fk FOREIGN KEY(commercial_agreement_id)
-    REFERENCES commercial_agreements (commercial_agreement_id);    
+    REFERENCES commercial_agreements (commercial_agreement_id); 
+    
+ALTER TABLE lot_procurement_event_types
+ADD CONSTRAINT lot_procurement_event_types_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);
+	
+ALTER TABLE lot_procurement_event_types
+ADD CONSTRAINT lot_procurement_event_types_lpet_fk FOREIGN KEY (procurement_event_type_id) 
+    REFERENCES procurement_event_types (procurement_event_type_id);
+	
+ALTER TABLE lot_procurement_question_templates
+ADD CONSTRAINT lot_procurement_question_templates_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);	
+	
+ALTER TABLE lot_procurement_question_templates
+ADD CONSTRAINT lot_procurement_question_templates_pqt_fk FOREIGN KEY (template_id) 
+    REFERENCES procurement_question_templates (template_id);
+	    
 
 
   

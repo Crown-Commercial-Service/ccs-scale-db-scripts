@@ -9,6 +9,14 @@ Description This file is a script to drop the tables for the Agreements database
 
 */
 
+DROP TABLE  IF EXISTS lot_procurement_event_types;
+
+DROP TABLE  IF EXISTS lot_procurement_question_templates;
+
+DROP TABLE  IF EXISTS procurement_event_types;
+
+DROP TABLE  IF EXISTS procurement_question_templates;
+
 DROP TABLE IF EXISTS contact_point_lot_prs;
 
 DROP TABLE IF EXISTS contact_point_lot_ors;
