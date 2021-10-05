@@ -299,8 +299,9 @@ CREATE INDEX commercial_agreement_documents_IDX1 ON commercial_agreement_documen
 CREATE INDEX commercial_agreement_documents_IDX2 ON commercial_agreement_documents (document_name);
 
 create table procurement_event_types
-(procurement_event_type_id        integer     not null,
- procurement_event_type_name varchar(20) not null,
+(procurement_event_type_id           integer       not null,
+ procurement_event_type_name         varchar(20)   not null,
+ procurement_event_type__description varchar(2000) not null,
  CONSTRAINT procurement_event_types_pkey PRIMARY KEY (procurement_event_type_id),
  CONSTRAINT procurement_event_types_ukey UNIQUE      (procurement_event_type_name));
 
@@ -310,6 +311,7 @@ create table lot_procurement_event_types
   procurement_event_type_id integer not null,
   mandatory_event_ind       boolean not null,
   repeatable_event_ind      boolean not null,
+  max_repeats               integer,
   CONSTRAINT lot_procurement_event_types_pkey PRIMARY KEY (lot_id,procurement_event_type_id));
 
 -- Create table Procurement Question Templates
@@ -325,9 +327,10 @@ create table procurement_question_templates
 
 -- Create table Lot Procurement Question Templates
 create table lot_procurement_question_templates
-( lot_id      integer not null,
-  template_id integer not null,
-  CONSTRAINT lot_procurement_question_templatess_pkey PRIMARY KEY (lot_id,template_id));
+( lot_id      integer       not null,
+  template_id integer       not null,
+  procurement_event_type_id not null integer,
+  CONSTRAINT lot_procurement_question_templatess_pkey PRIMARY KEY (lot_id,template_id,procurement_event_type_id));
 
 
 ALTER TABLE lots 
@@ -482,6 +485,8 @@ ALTER TABLE lot_procurement_question_templates
 ADD CONSTRAINT lot_procurement_question_templates_pqt_fk FOREIGN KEY (template_id) 
     REFERENCES procurement_question_templates (template_id);
 	    
-
+ALTER TABLE lot_procurement_question_templates
+ADD CONSTRAINT lot_procurement_question_templates_pet_fk FOREIGN KEY (procurement_event_type_id) 
+    REFERENCES procurement_event_types (procurement_event_type_id);
 
   
