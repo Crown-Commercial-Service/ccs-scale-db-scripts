@@ -327,9 +327,9 @@ create table procurement_question_templates
 
 -- Create table Lot Procurement Question Templates
 create table lot_procurement_question_templates
-( lot_id      integer       not null,
-  template_id integer       not null,
-  procurement_event_type_id not null integer,
+( lot_id                    integer not null,
+  template_id               integer not null,
+  procurement_event_type_id integer not null,
   CONSTRAINT lot_procurement_question_templatess_pkey PRIMARY KEY (lot_id,template_id,procurement_event_type_id));
 
 
