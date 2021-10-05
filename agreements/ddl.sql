@@ -301,7 +301,7 @@ CREATE INDEX commercial_agreement_documents_IDX2 ON commercial_agreement_documen
 create table procurement_event_types
 (procurement_event_type_id           integer       not null,
  procurement_event_type_name         varchar(20)   not null,
- procurement_event_type__description varchar(2000) not null,
+ procurement_event_type_description varchar(2000) not null,
  CONSTRAINT procurement_event_types_pkey PRIMARY KEY (procurement_event_type_id),
  CONSTRAINT procurement_event_types_ukey UNIQUE      (procurement_event_type_name));
 
