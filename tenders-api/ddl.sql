@@ -11,6 +11,12 @@ V0.0.1       Initial Release
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
+CREATE TABLE tender_organisation_mapping (organisation_id SERIAL PRIMARY KEY,
+					  external_organisation INTEGER NOT NULL,
+					  created_by                  VARCHAR(2000) NOT NULL,
+					  created_at                  TIMESTAMP);
+                                           
+
 
 CREATE TABLE procurement_projects (project_id                  SERIAL PRIMARY KEY,
                                    commercial_agreement_number VARCHAR(20)   NOT NULL,
