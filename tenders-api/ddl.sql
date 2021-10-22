@@ -11,10 +11,11 @@ V0.0.1       Initial Release
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-CREATE TABLE organisation_mapping (organisation_id INTEGER PRIMARY KEY,
-					  external_organisation_id INTEGER NOT NULL,
-					  created_by                  VARCHAR(2000) NOT NULL,
-					  created_at                  TIMESTAMP);
+CREATE TABLE organisation_mapping (organisation_mapping_id SERIAL PRIMARY KEY,
+                                   organisation_id          VARCHAR(255)  NOT NULL,
+				   external_organisation_id INTEGER       NOT NULL,
+			  	   created_by               VARCHAR(2000) NOT NULL,
+				   created_at                             TIMESTAMP);
                                            
 
 
@@ -24,7 +25,7 @@ CREATE TABLE procurement_projects (project_id                  SERIAL PRIMARY KE
                                    external_project_id         VARCHAR(50)   NOT NULL,
                                    external_reference_id       VARCHAR(50)   NOT NULL,
                                    project_name                VARCHAR(2000),
-                                   organisation_id             INTEGER       NOT NULL,
+                                   organisation_mapping_id             INTEGER       NOT NULL,
                                    created_by                  VARCHAR(2000) NOT NULL,
                                    created_at                  TIMESTAMP,
                                    updated_by                  VARCHAR(2000) NOT NULL,
@@ -55,8 +56,8 @@ CREATE TABLE procurement_event_history (event_history_id             SERIAL PRIM
                                   
 
 ALTER TABLE procurement_projects
-ADD CONSTRAINT procurement_projects_organisation_mapping_fk FOREIGN KEY (organisation_id)
-    REFERENCES organisation_mapping(organisation_id);  
+ADD CONSTRAINT procurement_projects_organisation_mapping_fk FOREIGN KEY (organisation_mapping_id)
+    REFERENCES organisation_mapping(organisation_mapping_id);  
 
 ALTER TABLE procurement_events
 ADD CONSTRAINT procurement_event_procurement_project_fk FOREIGN KEY (project_id)
