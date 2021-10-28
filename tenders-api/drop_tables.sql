@@ -10,3 +10,5 @@ DROP TABLE IF EXISTS procurement_event_history;
 DROP TABLE IF EXISTS procurement_events;
 
 DROP TABLE IF EXISTS procurement_projects;
+
+DROP TABLE IF EXISTS organisation_mapping;
