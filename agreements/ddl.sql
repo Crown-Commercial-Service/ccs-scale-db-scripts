@@ -302,6 +302,7 @@ create table procurement_event_types
 (procurement_event_type_id           integer       not null,
  procurement_event_type_name         varchar(20)   not null,
  procurement_event_type_description varchar(2000) not null,
+ premarket_activity_ind              BOOLEAN       not null,
  CONSTRAINT procurement_event_types_pkey PRIMARY KEY (procurement_event_type_id),
  CONSTRAINT procurement_event_types_ukey UNIQUE      (procurement_event_type_name));
 
