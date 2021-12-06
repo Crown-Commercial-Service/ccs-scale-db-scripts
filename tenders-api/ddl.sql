@@ -18,8 +18,8 @@ CREATE TABLE procurement_projects (project_id                  SERIAL PRIMARY KE
                                    external_reference_id       VARCHAR(50)   NOT NULL,
                                    project_name                VARCHAR(2000),
                                    created_by                  VARCHAR(2000) NOT NULL,
-                                   created_at                  TIMESTAMP,
-                                   updated_by                  VARCHAR(2000) NOT NULL,
+                                   created_at                  TIMESTAMP     NOT NULL,
+                                   updated_by                  VARCHAR(2000) ,
                                    updated_at                  TIMESTAMP);
                                    
 CREATE TABLE procurement_events  (event_id                     SERIAL PRIMARY KEY, -- 
@@ -33,16 +33,16 @@ CREATE TABLE procurement_events  (event_id                     SERIAL PRIMARY KE
                                   down_selected_suppliers_ind  BOOLEAN NOT NULL,
 		                          procurement_template_payload JSONB,
                                   created_by                   VARCHAR(2000) NOT NULL,
-                                  created_at                   TIMESTAMP,
-                                  updated_by                   VARCHAR(2000) NOT NULL,
+                                  created_at                   TIMESTAMP     NOT NULL,
+                                  updated_by                   VARCHAR(2000) ,
                                   updated_at                   TIMESTAMP);
                                   
 CREATE TABLE procurement_event_history (event_history_id             SERIAL PRIMARY KEY, -- 
                                         event_id                     INTEGER NOT NULL,
 			    procurement_template_payload JSONB,
                                         created_by                   VARCHAR(2000) NOT NULL,
-                                        created_at                   TIMESTAMP,
-                                        updated_by                   VARCHAR(2000) NOT NULL,
+                                        created_at                   TIMESTAMP     NOT NULL,
+                                        updated_by                   VARCHAR(2000) ,
                                         updated_at                   TIMESTAMP);
 
 CREATE TABLE journeys ( journey_id      SERIAL PRIMARY KEY,
@@ -50,8 +50,8 @@ CREATE TABLE journeys ( journey_id      SERIAL PRIMARY KEY,
                         external_id     VARCHAR(100) NOT NULL,
                         journey_details JSONB NOT NULL,
                         created_by      VARCHAR(2000) NOT NULL,
-                        created_at      TIMESTAMP,
-                        updated_by      VARCHAR(2000) NOT NULL,
+                        created_at      TIMESTAMP     NOT NULL,
+                        updated_by      VARCHAR(2000) ,
                         updated_at      TIMESTAMP);
 
                                   
