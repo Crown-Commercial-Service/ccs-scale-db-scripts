@@ -44,6 +44,16 @@ CREATE TABLE procurement_event_history (event_history_id             SERIAL PRIM
                                         created_at                   TIMESTAMP,
                                         updated_by                   VARCHAR(2000) NOT NULL,
                                         updated_at                   TIMESTAMP);
+
+CREATE TABLE journeys ( journey_id      SERIAL PRIMARY KEY,
+                        client_id       VARCHAR(100) NOT NULL,
+                        external_id     VARCHAR(100) NOT NULL,
+                        journey_details JSONB NOT NULL,
+                        created_by      VARCHAR(2000) NOT NULL,
+                        created_at      TIMESTAMP,
+                        updated_by      VARCHAR(2000) NOT NULL,
+                        updated_at      TIMESTAMP);
+
                                   
 ALTER TABLE procurement_events
 ADD CONSTRAINT procurement_event_procurement_project_fk FOREIGN KEY (project_id)
