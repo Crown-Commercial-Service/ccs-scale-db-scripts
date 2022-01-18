@@ -18,20 +18,25 @@ create table cap_load_jobs
 
 
 
--- Create table cap_dimensions
+-- Create table dimensions
 
 
-create table cap_dimensions 
-( dimension_name  varchar(30)   primary key,
-  dimension_descr varchar(2000) not null,
-  created_by      varchar(2000) not null,                                   
-  created_at      timestamp     not null,
-  updated_by      varchar(2000) ,
-  updated_at      timestamp);
+create table dimensions 
+( dimension_name               varchar(30)   primary key,
+  dimension_descr              varchar(2000) not null,
+  min_weighting_pct            decimal,
+  max_weighting_pct            decimal,
+  allow_multiple_selection_ind boolean,
+  min_allowed_value            decimal,
+  max_allowed_value            decimal,
+  created_by                   varchar(2000) not null,                                   
+  created_at                   timestamp     not null,
+  updated_by                   varchar(2000) ,
+  updated_at                   timestamp);
 
 -- Create table cap_dimension_valid_values
 
-create table cap_dimension_valid_values
+create table dimension_valid_values
 (dimension_name    varchar(30)   not null,
  valid_value_code  varchar(30)   not null,
  valid_value_name  varchar(30)   not null,
@@ -44,101 +49,178 @@ create table cap_dimension_valid_values
 
 -- Create table submission_types
 
-create table cap_submission_types 
-( submission_type_code varchar(30)   primary key,
-  submission_type_name varchar(2000) not null,
-  created_by           varchar(2000) not null,                                   
+create table submission_types 
+( submission_type_code  varchar(30)   primary key,
+  submission_type_name  varchar(100)  not null,
+  submission_type_descr varchar(2000) not null,
+  created_by            varchar(2000) not null,                                   
+  created_at            timestamp     not null,
+  updated_by            varchar(2000),
+  updated_at            timestamp);
+ 
+
+
+-- Create table assessment submission types
+
+create table assessment_submission_types 
+( assessment_submission_type_id       serial primary key,
+  assessment_tool_id    integer       not null,
+  submission_type_code  varchar(30)   not null,
+  created_by            varchar(2000) not null,                                   
+  created_at            timestamp     not null,
+  updated_by            varchar(2000),
+  updated_at            timestamp);
+
+
+-- Create table Assessement Tools - Originally know as Taxonomies
+
+create table assessment_tools
+( assessment_tool_id    integer       primary key,
+  assessment_tool_name  varchar(100)  unique,
+  assessment_tool_descr varchar(2000)
+  created_by            varchar(2000) not null,
+  created_at            timestamp     not null,
+  updated_by            varchar(2000),
+  updated_at            timestamp);
+ 
+-- Create table assessment taxons;
+
+create table assessment_taxons
+( assessment_taxon_id        integer       primary key,
+  assessment_tool_id         integer       not null,
+  parent_assessment_taxon_id integer,
+  assessment_taxon_name      varchar(50),
+  permalink                  varchar(500),
+  assessment_taxon_descr     varchar(2000),
+  created_by                 varchar(2000) not null,
+  created_at                 timestamp     not null,
+  updated_by                 varchar(2000),
+  updated_at                 timestamp);
+ 
+-- Create table taxon_dimensions
+
+create table assessment_taxon_dimensions
+( assessment_taxon_dimension_id serial        primary key,
+  assessment_taxon_id           integer       not null,
+  dimension_name                varchar(30)   not null,
+  created_by                    varchar(2000) not null,
+  created_at                    timestamp     not null,
+  updated_by                    varchar(2000),
+  updated_at                    timestamp);
+
+
+-- Create table requirements (products & services)
+
+create table requirements
+( requirement_id    serial        primary key,
+  requirement_name  varchar(100)  not null,
+  requirement_descr varchar(2000) not null,
+  created_by        varchar(2000) not null,
+  created_at        timestamp     not null,
+  updated_by        varchar(2000),
+  updated_at        timestamp);
+
+ 
+-- Create table requirement_taxons
+
+create table requirement_taxons
+( requirement_taxon_id serial        primary key,
+  requirement_id       integer       not null,
+  assessment_taxon_id  integer       not null,
+  created_by           varchar(2000) not null,
   created_at           timestamp     not null,
   updated_by           varchar(2000),
   updated_at           timestamp);
- 
-
--- Create table cap_taxonomies;
-create table cap_taxonomies
-( taxonomy_id   integer       primary key,
-  taxonomy_name varchar(100)  unique,
-  created_by    varchar(2000) not null,
-  created_at    timestamp     not null,
-  updated_by    varchar(2000),
-  updated_at    timestamp);
- 
--- Create table cap_taxons;
-
-create table cap_taxons
-( taxon_id        integer       primary key,
-  taxonomy_id     integer       not null,
-  parent_taxon_id integer,
-  taxon_name      varchar(50),
-  permalink       varchar(500),
-  taxon_descr     varchar(2000),
-  created_by      varchar(2000) not null,
-  created_at      timestamp     not null,
-  updated_by      varchar(2000),
-  updated_at      timestamp);
- 
--- Create table cap_taxon_dimensions
-
-create table cap_taxon_dimensions
-( taxon_dimension_id serial        primary key,
-  taxon_id           integer       not null,
-  dimension_name     varchar(30)   not null,
-  created_by         varchar(2000) not null,
-  created_at         timestamp     not null,
-  updated_by         varchar(2000),
-  updated_at         timestamp);
-
-
--- Create table cap_products
-
-create table cap_products
-( product_id    serial        primary key,
-  product_name  varchar(100)  not null,
-  product_descr varchar(2000) not null,
-  created_by    varchar(2000) not null,
-  created_at    timestamp     not null,
-  updated_by    varchar(2000),
-  updated_at    timestamp);
-
- 
--- Create table cap_product_taxons
-
-create table cap_product_taxons
-( product_taxon_id serial        primary key,
-  product_id       integer       not null,
-  taxon_id         integer       not null,
-  created_by       varchar(2000) not null,
-  created_at       timestamp     not null,
-  updated_by       varchar(2000),
-  updated_at       timestamp);
 
   
 
--- Create table cap_lot_product_taxons
+-- Create table lot_requirement_taxons
 
-create table cap_lot_product_taxons
-( lot_product_taxon_id serial        primary key,
+create table lot_requirement_taxons
+( lot_requirement_taxon_id serial        primary key,
   lot_id               integer       not null,
-  product_taxon_id     integer       not null,
+  requirement_taxon_id integer       not null,
   created_by           varchar(2000) not null,
   created_at           timestamp     not null,
   updated_by           varchar(2000),
   updated_at           timestamp);
 
 
--- Create table cap_supplier_submissions 
+-- Create table supplier_submissions 
   
-create table cap_supplier_submissions
-( cap_supplier_submission_id serial        primary key,
-  lot_product_taxon_id       integer       not null,
-  supplier_id                integer       not null,
-  submission_type_code       varchar(30)   not null,
-  submission_reference       varchar(30),
-  submission_value           integer,
-  created_by                 varchar(2000) not null,
-  created_at                 timestamp     not null,
-  updated_by                 varchar(2000),
-  updated_at                 timestamp);
+create table supplier_submissions
+( supplier_submission_id       serial        primary key,
+  lot_product_taxon_id         integer       not null,
+  supplier_id                  integer       not null,
+  assesment_submission_type_id integer       not null,
+  submission_reference         varchar(30),
+  submission_value             integer,
+  created_by                   varchar(2000) not null,
+  created_at                   timestamp     not null,
+  updated_by                   varchar(2000),
+  updated_at                   timestamp);
 
 
+-- Create table Assessments
+
+create table asseessments(
+  assessment_id         integer       primary key,
+  buyer_organisation_id integer       not null,
+  assesment_name        varchar(100)  not null,
+  assessment_descr      varchar(2000) not null,
+  status                varchar(30)   not null,
+  assessment_tool_id    integer       not null,
+  created_by            varchar(2000) not null,
+  created_at            timestamp     not null,
+  updated_by            varchar(2000),
+  updated_at            timestamp);
+
+-- Create table assessment selection
+
+create table assessment_selections
+( assessment_selection_id serial        primary key,
+  assessment_id           integer       not null,
+  dimension_name          varchar(30)   not null,
+  requirement_taxon_id    integer       not null,
+  weighting_pct           decimal       not null,
+  created_by              varchar(2000) not null,
+  created_at              timestamp     not null,
+  updated_by              varchar(2000),
+  updated_at              timestamp);
+
+
+-- Create table assessment results
+
+create table assessment_result
+( assessment_result_id                  serial primary key,
+  assessment_id                         integer not null,
+  supplier_organisation_id              integer not null,
+  assessment_result_value               decimal not null,
+  assessment_selection_result_reference varchar(30),
+  created_by                            varchar(2000) not null,
+  created_at                            timestamp     not null,
+  updated_by                            varchar(2000),
+  updated_at                            timestamp);
+
+-- Create table assessment_selection_results
+
+create table assessment_selection_results
+( assessment_selection_result_id        serial  primary key,
+  assessment_selection_id               integer not null,
+  assessment_selection_result_value     decimal not null,
+  assessment_selection_result_reference varchar(30),
+  created_by                            varchar(2000) not null,
+  created_at                            timestamp     not null,
+  updated_by                            varchar(2000),
+  updated_at                            timestamp);
+
+-- Create table assessment_dimension_weighting
+( assessment_dimension_weighting_id serial        primary key,
+  assessment_id                     integer       not null,
+  weighting_pct                     decimal       not null,
+  created_by                        varchar(2000) not null,
+  created_at                        timestamp     not null,
+  updated_by                        varchar(2000),
+  updated_at                        timestamp);
 
 
