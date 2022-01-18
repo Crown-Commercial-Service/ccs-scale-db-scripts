@@ -15,7 +15,7 @@ drop table IF EXISTS submission_types;
 
 drop table IF EXISTS assessment_submission_types;
 
-drop table IF EXISTS assessement_tools; 
+drop table IF EXISTS assessment_tools; 
 
 drop table IF EXISTS assessment_taxons;
 
@@ -29,13 +29,11 @@ drop table IF EXISTS lot_requirement_taxons;
 
 drop table IF EXISTS supplier_submissions;
 
-drop table IF EXISTS asseessments;
+drop table IF EXISTS assessments;
 
 drop table IF EXISTS assessment_selections;
 
 drop table IF EXISTS assessment_result;
-
-drop table IF EXISTS assessment_selection_results;
 
 drop table IF EXISTS assessment_selection_results;
 

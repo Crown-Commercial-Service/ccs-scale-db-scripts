@@ -72,7 +72,7 @@ create table assessment_submission_types
   updated_at            timestamp);
 
 
--- Create table Assessement Tools - Originally know as Taxonomies
+-- Create table Assessment Tools - Originally know as Taxonomies
 
 create table assessment_tools
 ( assessment_tool_id    integer       primary key,
@@ -150,7 +150,7 @@ create table lot_requirement_taxons
   
 create table supplier_submissions
 ( supplier_submission_id       serial        primary key,
-  lot_product_taxon_id         integer       not null,
+  lot_requiremennt_taxon_id         integer       not null,
   supplier_id                  integer       not null,
   assesment_submission_type_id integer       not null,
   submission_reference         varchar(30),
@@ -163,7 +163,7 @@ create table supplier_submissions
 
 -- Create table Assessments
 
-create table asseessments(
+create table assessments(
   assessment_id         integer       primary key,
   buyer_organisation_id integer       not null,
   assesment_name        varchar(100)  not null,
@@ -195,7 +195,7 @@ create table assessment_result
 ( assessment_result_id                  serial primary key,
   assessment_id                         integer not null,
   supplier_organisation_id              integer not null,
-  assessment_result_value               decimal not null,
+  assessment_result_value               decimal ,
   assessment_selection_result_reference varchar(30),
   created_by                            varchar(2000) not null,
   created_at                            timestamp     not null,
@@ -207,7 +207,7 @@ create table assessment_result
 create table assessment_selection_results
 ( assessment_selection_result_id        serial  primary key,
   assessment_selection_id               integer not null,
-  assessment_selection_result_value     decimal not null,
+  assessment_selection_result_value     decimal ,
   assessment_selection_result_reference varchar(30),
   created_by                            varchar(2000) not null,
   created_at                            timestamp     not null,
