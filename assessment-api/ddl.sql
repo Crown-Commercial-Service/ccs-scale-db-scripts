@@ -77,7 +77,7 @@ create table assessment_submission_types
 create table assessment_tools
 ( assessment_tool_id    integer       primary key,
   assessment_tool_name  varchar(100)  unique,
-  assessment_tool_descr varchar(2000)
+  assessment_tool_descr varchar(2000),
   created_by            varchar(2000) not null,
   created_at            timestamp     not null,
   updated_by            varchar(2000),
@@ -214,7 +214,7 @@ create table assessment_selection_results
   updated_by                            varchar(2000),
   updated_at                            timestamp);
 
--- Create table assessment_dimension_weighting
+create table assessment_dimension_weighting
 ( assessment_dimension_weighting_id serial        primary key,
   assessment_id                     integer       not null,
   weighting_pct                     decimal       not null,
