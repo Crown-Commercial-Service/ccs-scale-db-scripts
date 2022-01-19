@@ -14,3 +14,7 @@ DROP TABLE IF EXISTS procurement_projects;
 DROP TABLE IF EXISTS organisation_mapping;
 
 DROP TABLE IF EXISTS journeys;
+
+DROP TABLE IF EXISTS document_template_sources;
+
+DROP TABLE IF EXISTS document_templates;
