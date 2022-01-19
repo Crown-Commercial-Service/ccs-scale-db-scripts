@@ -149,16 +149,16 @@ create table lot_requirement_taxons
 -- Create table supplier_submissions 
   
 create table supplier_submissions
-( supplier_submission_id       serial        primary key,
-  lot_requiremennt_taxon_id         integer       not null,
-  supplier_id                  integer       not null,
-  assesment_submission_type_id integer       not null,
-  submission_reference         varchar(30),
-  submission_value             integer,
-  created_by                   varchar(2000) not null,
-  created_at                   timestamp     not null,
-  updated_by                   varchar(2000),
-  updated_at                   timestamp);
+( supplier_submission_id        serial        primary key,
+  lot_requirement_taxon_id      integer       not null,
+  supplier_id                   integer       not null,
+  assessment_submission_type_id integer       not null,
+  submission_reference          varchar(30),
+  submission_value              integer,
+  created_by                    varchar(2000) not null,
+  created_at                    timestamp     not null,
+  updated_by                    varchar(2000),
+  updated_at                    timestamp);
 
 
 -- Create table Assessments
@@ -191,7 +191,7 @@ create table assessment_selections
 
 -- Create table assessment results
 
-create table assessment_result
+create table assessment_results
 ( assessment_result_id                  serial primary key,
   assessment_id                         integer not null,
   supplier_organisation_id              integer not null,
@@ -217,6 +217,7 @@ create table assessment_selection_results
 create table assessment_dimension_weighting
 ( assessment_dimension_weighting_id serial        primary key,
   assessment_id                     integer       not null,
+  dimension_name                    varchar(30)   not null,
   weighting_pct                     decimal       not null,
   created_by                        varchar(2000) not null,
   created_at                        timestamp     not null,
