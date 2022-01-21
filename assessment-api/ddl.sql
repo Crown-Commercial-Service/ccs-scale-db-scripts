@@ -76,7 +76,8 @@ create table assessment_submission_types
 
 create table assessment_tools
 ( assessment_tool_id    integer       primary key,
-  assessment_tool_name  varchar(100)  unique,
+  internal_tool_name    varchar(100)  unique,
+  assessment_tool_name  varchar(100)  ,
   assessment_tool_descr varchar(2000),
   created_by            varchar(2000) not null,
   created_at            timestamp     not null,
@@ -166,8 +167,6 @@ create table supplier_submissions
 create table assessments(
   assessment_id         integer       primary key,
   buyer_organisation_id integer       not null,
-  assesment_name        varchar(100)  not null,
-  assessment_descr      varchar(2000) not null,
   status                varchar(30)   not null,
   assessment_tool_id    integer       not null,
   created_by            varchar(2000) not null,
