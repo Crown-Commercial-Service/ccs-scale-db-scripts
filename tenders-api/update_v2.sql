@@ -13,8 +13,11 @@ CREATE TABLE IF NOT EXISTS document_template_sources (
     source_type                   VARCHAR(32) NOT NULL,
     source_path                   VARCHAR(2048) NOT NULL,
     target_type                   VARCHAR(32) NOT NULL,
+    table_name                    VARCHAR(128) NULL, -- For target_type = 'TABLE' only
+    options_property              VARCHAR(32) NULL, -- For source_type = 'JSON' only
 
     -- Constraints
     CONSTRAINT document_templates_fk FOREIGN KEY(document_template_id) REFERENCES document_templates(document_template_id),
     CONSTRAINT check_source_type CHECK (source_type IN ('JSON', 'JAVA', 'SQL')),
-    CONSTRAINT check_target_type CHECK (target_type IN ('SIMPLE', 'LIST', 'TABLE', 'DATETIME')));
+    CONSTRAINT check_target_type CHECK (target_type IN ('SIMPLE', 'LIST', 'TABLE', 'DATETIME')),
+    CONSTRAINT check_options_property CHECK (options_property IN ('TEXT', 'VALUE')));
