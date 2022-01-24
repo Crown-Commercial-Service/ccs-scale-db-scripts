@@ -7,6 +7,16 @@ drop table IF EXISTS cap_load_service_capability;
 
 drop table IF EXISTS cap_load_jobs;
 
+drop table IF EXISTS load_capability_resources;
+
+drop table IF EXISTS load_capability_services;
+
+drop table IF EXISTS load_capability_locations;
+ 
+drop table IF EXISTS load_capability_scalability;
+ 
+drop table IF EXISTS load_pricing;
+
 drop table IF EXISTS dimension_valid_values;
 
 drop table IF EXISTS assessment_submission_types;

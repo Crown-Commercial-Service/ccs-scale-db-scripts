@@ -16,6 +16,45 @@ create table cap_load_jobs
  role_name    varchar(100),
  role_level   varchar(100));
 
+create table load_capability_resources
+( supplier_id                varchar(100) not null,
+  taxon_name                 varchar(50)  not null,
+  requirement_name           varchar(100) not null,
+  staff_supplier_return      varchar(30),
+  staff_subcontractor_return varchar(30),
+  sc_supplier_return         varchar(30),
+  sc_subcontractor_return    varchar(30));
+
+create table load_capability_services
+( supplier_id                             varchar(100) not null,
+  requirement_name                        varchar(100) not null,
+  service_capability_supplier_return      varchar(30),
+  service_capability_subcontractor_return varchar(30));
+
+create table load_capability_locations
+( supplier_id                   varchar(100) not null,
+  requirement_name              varchar(100) not null,
+  location_supplier_return      varchar(30),
+  location_subcontractor_return varchar(30));    
+ 
+create table load_capability_scalability
+( supplier_id                      varchar(100) not null,
+  requirement_name                 varchar(100) not null,
+  scalability_supplier_return      varchar(30),
+  scalability_subcontractor_return varchar(30));                   
+ 
+create table load_pricing
+( supplier_id        varchar(100) not null,
+  ddat               varchar(100) not null,  
+  role_number        varchar(10)  not null,
+  parent_taxon_name  varchar(100) not null,  
+  taxon_name         varchar(100) not null, 
+  requirement_name   varchar(100) not null,
+  sfia_level         varchar(10)  not null,
+  qty_evaluation     varchar(10),
+  national_day_rate  varchar(10),
+  national_home_rate varchar(10)); 
+
 
 
 -- Create table dimensions
