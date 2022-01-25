@@ -204,7 +204,7 @@ create table supplier_submissions
 -- Create table Assessments
 
 create table assessments(
-  assessment_id         integer       primary key,
+  assessment_id         serial       primary key,
   buyer_organisation_id integer       not null,
   status                varchar(30)   not null,
   assessment_tool_id    integer       not null,
@@ -234,7 +234,6 @@ create table assessment_results
   assessment_id                         integer not null,
   supplier_organisation_id              integer not null,
   assessment_result_value               decimal ,
-  assessment_selection_result_reference varchar(30),
   created_by                            varchar(2000) not null,
   created_at                            timestamp     not null,
   updated_by                            varchar(2000),
@@ -246,7 +245,6 @@ create table assessment_selection_results
 ( assessment_selection_result_id        serial  primary key,
   assessment_selection_id               integer not null,
   assessment_selection_result_value     decimal ,
-  assessment_selection_result_reference varchar(30),
   created_by                            varchar(2000) not null,
   created_at                            timestamp     not null,
   updated_by                            varchar(2000),
