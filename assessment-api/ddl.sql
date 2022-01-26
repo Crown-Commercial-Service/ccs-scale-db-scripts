@@ -1,6 +1,7 @@
 -- Prototype database design for Cabability assessment
 -- load tables
 
+-- These tables are for setting up the reference data
 create table cap_load_resources
 (resource_cluster varchar(100),
  resource_family varchar(100));
@@ -15,52 +16,58 @@ create table cap_load_jobs
  role_family  varchar(100),
  role_name    varchar(100),
  role_level   varchar(100));
+ 
+-- These tables are for loading supplier submissions 
 
 create table load_capability_resources
-( supplier_id                varchar(100) not null,
-  taxon_name                 varchar(50)  not null,
-  requirement_name           varchar(100) not null,
+( supplier_id                varchar(100),
+  ddat_cluster               varchar(50)  not null,
+  role_family                varchar(100) not null,
   staff_supplier_return      varchar(30),
   staff_subcontractor_return varchar(30),
   sc_supplier_return         varchar(30),
   sc_subcontractor_return    varchar(30));
 
 create table load_capability_services
-( supplier_id                             varchar(100) not null,
-  requirement_name                        varchar(100) not null,
+( supplier_id                             varchar(100),
+  requirement_name                        varchar(100) not null, -- No corrsponding column on the sheet
   service_capability_supplier_return      varchar(30),
   service_capability_subcontractor_return varchar(30));
 
 create table load_capability_locations
-( supplier_id                   varchar(100) not null,
-  requirement_name              varchar(100) not null,
+( supplier_id                   varchar(100),
+  requirement_name              varchar(100) not null, -- Column called location on sheet
   location_supplier_return      varchar(30),
   location_subcontractor_return varchar(30));    
  
 create table load_capability_scalability
-( supplier_id                      varchar(100) not null,
-  requirement_name                 varchar(100) not null,
+( supplier_id                      varchar(100),
+  requirement_name                 varchar(100) not null, -- Column called location on Team
   scalability_supplier_return      varchar(30),
   scalability_subcontractor_return varchar(30));                   
  
 create table load_pricing
-( supplier_id        varchar(100) not null,
+( supplier_id        varchar(100),
   ddat               varchar(100) not null,  
   role_number        varchar(10)  not null,
   parent_taxon_name  varchar(100) not null,  
   taxon_name         varchar(100) not null, 
-  requirement_name   varchar(100) not null,
+  requirement_name   varchar(100),
   sfia_level         varchar(10)  not null,
   qty_evaluation     varchar(10),
   national_day_rate  varchar(10),
-  national_home_rate varchar(10)); 
+  national_home_rate varchar(10),
+  evaluated_cost     varchar(10),
+  opt1               varchar(10),
+  opt2               varchar(10),
+  opt3               varchar(10)); 
 
 
 
 -- Create table dimensions
 
 
-create table dimensions 
+create table dimensions
 ( dimension_name               varchar(30)   primary key,
   dimension_descr              varchar(2000) not null,
   min_weighting_pct            decimal,
