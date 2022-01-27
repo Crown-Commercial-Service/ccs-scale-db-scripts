@@ -121,14 +121,16 @@ create table assessment_submission_types
 -- Create table Assessment Tools - Originally know as Taxonomies
 
 create table assessment_tools
-( assessment_tool_id    integer       primary key,
-  internal_tool_name    varchar(100)  unique,
-  assessment_tool_name  varchar(100)  ,
-  assessment_tool_descr varchar(2000),
-  created_by            varchar(2000) not null,
-  created_at            timestamp     not null,
-  updated_by            varchar(2000),
-  updated_at            timestamp);
+( assessment_tool_id          integer primary key,
+
+  -- Maps to lot_procurement_event_types.assessment_tool_id in AS DB
+  external_assessment_tool_id varchar(128) unique,
+  assessment_tool_name        varchar(100),
+  assessment_tool_descr       varchar(2000),
+  created_by                  varchar(2000) not null,
+  created_at                  timestamp     not null,
+  updated_by                  varchar(2000),
+  updated_at                  timestamp);
  
 -- Create table assessment taxons;
 
