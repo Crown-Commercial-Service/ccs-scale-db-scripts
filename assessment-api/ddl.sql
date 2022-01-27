@@ -68,14 +68,15 @@ create table load_pricing
 
 
 create table dimensions
-( dimension_name               varchar(30)   primary key,
+( dimension_id                 integer primary key,
+  dimension_name               varchar(30) unique,
   dimension_descr              varchar(2000) not null,
   min_weighting_pct            decimal,
   max_weighting_pct            decimal,
-  allow_multiple_selection_ind boolean,
+  selection_type               varchar(30), -- valid values Single, Multiple,Integer
   min_allowed_value            decimal,
   max_allowed_value            decimal,
-  created_by                   varchar(2000) not null,                                   
+  created_by                   varchar(2000) not null,                         
   created_at                   timestamp     not null,
   updated_by                   varchar(2000) ,
   updated_at                   timestamp);
@@ -83,7 +84,7 @@ create table dimensions
 -- Create table cap_dimension_valid_values
 
 create table dimension_valid_values
-(dimension_name    varchar(30)   not null,
+(dimension_id    integer         not null,
  valid_value_code  varchar(30)   not null,
  valid_value_name  varchar(30)   not null,
  valid_value_descr varchar(2000) not null,
@@ -91,7 +92,7 @@ create table dimension_valid_values
  created_at        timestamp     not null,
  updated_by        varchar(2000),
  updated_at        timestamp,
- primary key (dimension_name, valid_value_code));
+ primary key (dimension_id, valid_value_code));
 
 -- Create table submission_types
 
@@ -151,7 +152,7 @@ create table assessment_taxons
 create table assessment_taxon_dimensions
 ( assessment_taxon_dimension_id serial        primary key,
   assessment_taxon_id           integer       not null,
-  dimension_name                varchar(30)   not null,
+  dimension_id                  integer       not null,
   created_by                    varchar(2000) not null,
   created_at                    timestamp     not null,
   updated_by                    varchar(2000),
@@ -227,7 +228,7 @@ create table assessments(
 create table assessment_selections
 ( assessment_selection_id serial        primary key,
   assessment_id           integer       not null,
-  dimension_name          varchar(30)   not null,
+  dimension_id            integer       not null,
   requirement_taxon_id    integer       not null,
   weighting_pct           decimal       not null,
   created_by              varchar(2000) not null,
@@ -262,7 +263,7 @@ create table assessment_selection_results
 create table assessment_dimension_weighting
 ( assessment_dimension_weighting_id serial        primary key,
   assessment_id                     integer       not null,
-  dimension_name                    varchar(30)   not null,
+  dimension_id                      integer       not null,
   weighting_pct                     decimal       not null,
   created_by                        varchar(2000) not null,
   created_at                        timestamp     not null,

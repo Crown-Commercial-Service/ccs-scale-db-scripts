@@ -1,6 +1,6 @@
 ALTER TABLE dimension_valid_values
-ADD CONSTRAINT dimension_valid_values_dimensions_fk FOREIGN KEY (dimension_name)
-    REFERENCES dimensions(dimension_name);
+ADD CONSTRAINT dimension_valid_values_dimensions_fk FOREIGN KEY (dimension_id)
+    REFERENCES dimensions(dimension_id);
 
 ALTER TABLE assessment_submission_types
 ADD CONSTRAINT assessment_submission_types_assessment_tools_fk FOREIGN KEY  (assessment_tool_id)
@@ -19,8 +19,8 @@ ADD CONSTRAINT assessment_taxons_assessment_taxons_fk FOREIGN KEY (parent_assess
     REFERENCES assessment_taxons (assessment_taxon_id);
 
 ALTER TABLE assessment_taxon_dimensions
-ADD CONSTRAINT assessment_taxon_dimensions_dimensions_fk FOREIGN KEY (dimension_name)
-    REFERENCES dimensions(dimension_name);
+ADD CONSTRAINT assessment_taxon_dimensions_dimensions_fk FOREIGN KEY (dimension_id)
+    REFERENCES dimensions(dimension_id);
 
 ALTER TABLE assessment_taxon_dimensions
 ADD CONSTRAINT assessment_taxon_dimensions_assessment_taxons_fk FOREIGN KEY (assessment_taxon_id)
@@ -55,8 +55,8 @@ ADD CONSTRAINT assessment_selections_assessments_fk FOREIGN KEY (assessment_id)
     REFERENCES assessments(assessment_id);
 
 ALTER TABLE assessment_selections
-ADD CONSTRAINT assessment_selections_dimensions_fk FOREIGN KEY (dimension_name)
-    REFERENCES dimensions(dimension_name);
+ADD CONSTRAINT assessment_selections_dimensions_fk FOREIGN KEY (dimension_id)
+    REFERENCES dimensions(dimension_id);
 
 ALTER TABLE assessment_selections
 ADD CONSTRAINT assessment_selections_requirement_taxons_fk FOREIGN KEY (requirement_taxon_id)
@@ -75,7 +75,7 @@ ADD CONSTRAINT assessment_dimension_weighting_assessments_fk FOREIGN KEY (assess
     REFERENCES assessments(assessment_id);
 
 ALTER TABLE assessment_dimension_weighting
-ADD CONSTRAINT assessment_dimension_weighting_dimensions_fk FOREIGN KEY (dimension_name)
-    REFERENCES dimensions(dimension_name);
+ADD CONSTRAINT assessment_dimension_weighting_dimensions_fk FOREIGN KEY (dimension_id)
+    REFERENCES dimensions(dimension_id);
 
 
