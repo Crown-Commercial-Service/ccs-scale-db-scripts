@@ -86,7 +86,7 @@ create table dimensions
 create table dimension_valid_values
 (dimension_id    integer         not null,
  valid_value_code  varchar(30)   not null,
- valid_value_name  varchar(30)   not null,
+ valid_value_name  varchar(100)   not null,
  valid_value_descr varchar(2000) not null,
  created_by        varchar(2000) not null,                                   
  created_at        timestamp     not null,
