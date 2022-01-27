@@ -7,6 +7,10 @@ drop table IF EXISTS cap_load_service_capability;
 
 drop table IF EXISTS cap_load_jobs;
 
+drop table IF EXISTS cap_load_scalability;
+
+drop table IF EXISTS cap_load_locations;
+
 drop table IF EXISTS load_capability_resources;
 
 drop table IF EXISTS load_capability_services;

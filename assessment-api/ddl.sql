@@ -6,6 +6,14 @@ create table cap_load_resources
 (resource_cluster varchar(100),
  resource_family varchar(100));
 
+create table cap_load_locations
+(location_hdr varchar(100),
+ location     varchar(100));
+
+create table cap_load_scalability
+(scalability_hdr        varchar(100),
+ scalability varchar(100));
+
 create table cap_load_service_capability
 (service_capability_hdr varchar(100),
  service_capability     varchar(100));
