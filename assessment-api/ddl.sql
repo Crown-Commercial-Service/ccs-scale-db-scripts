@@ -222,8 +222,8 @@ create table supplier_submissions
 -- Create table Assessments
 
 create table assessments(
-  assessment_id         serial       primary key,
-  buyer_organisation_id integer       not null,
+  assessment_id         serial        primary key,
+  buyer_organisation_id varchar(50)   not null,
   status                varchar(30)   not null,
   assessment_tool_id    integer       not null,
   created_by            varchar(2000) not null,
