@@ -35,7 +35,7 @@ drop table IF EXISTS supplier_submissions;
 
 drop table IF EXISTS lot_requirement_taxons;
 
-drop table IF EXISTS assessments;
+drop table IF EXISTS assessment_selection_details;
 
 drop table IF EXISTS assessment_selections;
 
@@ -44,6 +44,8 @@ drop table IF EXISTS assessment_results;
 drop table IF EXISTS assessment_selection_results;
 
 drop table IF EXISTS assessment_dimension_weighting;
+
+drop table IF EXISTS assessments;
 
 drop table IF EXISTS dimensions;
 

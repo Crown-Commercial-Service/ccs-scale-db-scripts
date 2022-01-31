@@ -244,6 +244,18 @@ create table assessment_selections
   updated_by              varchar(2000),
   updated_at              timestamp);
 
+-- Create table assessment selection details
+
+create table assessment_selection_details
+( assessment_selection_detail_id serial        primary key,
+  assessment_selection_id       integer       not null,
+  requirement_quantity           integer       ,
+  requirement_value              decimal       ,
+  requirement_valid_value_id     integer       ,
+  created_by                     varchar(2000) not null,
+  created_at                     timestamp     not null,
+  updated_by                     varchar(2000),
+  updated_at                     timestamp);
 
 -- Create table assessment results
 
@@ -261,7 +273,7 @@ create table assessment_results
 
 create table assessment_selection_results
 ( assessment_selection_result_id        serial  primary key,
-  assessment_selection_id               integer not null,
+  assessment_selection_detail_id        integer not null,
   assessment_selection_result_value     decimal ,
   created_by                            varchar(2000) not null,
   created_at                            timestamp     not null,

@@ -32,10 +32,13 @@ ALTER TABLE assessment_selections DROP CONSTRAINT assessment_selections_requirem
 
 ALTER TABLE assessment_results DROP CONSTRAINT assessment_results_assessments_fk;
 
-ALTER TABLE assessment_selection_results DROP CONSTRAINT assessment_selection_results_assessment_selections;
-
 ALTER TABLE assessment_dimension_weighting DROP CONSTRAINT assessment_dimension_weighting_assessments_fk;
 
 ALTER TABLE assessment_dimension_weighting DROP CONSTRAINT assessment_dimension_weighting_dimensions_fk;
+
+ALTER TABLE assessment_selection_details DROP CONSTRAINT assessment_selection_details_assessment_selections_fk; 
+
+ALTER TABLE assessment_selection_results DROP CONSTRAINT assessment_selection_results_assessment_selection_details_fk;
+
 
 

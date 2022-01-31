@@ -66,9 +66,13 @@ ALTER TABLE assessment_results
 ADD CONSTRAINT assessment_results_assessments_fk FOREIGN KEY (assessment_id)
     REFERENCES assessments(assessment_id);
 
-ALTER TABLE assessment_selection_results
-ADD CONSTRAINT assessment_selection_results_assessment_selections FOREIGN KEY (assessment_selection_id)
+ALTER TABLE assessment_selection_details
+ADD CONSTRAINT assessment_selection_details_assessment_selections_fk FOREIGN KEY (assessment_selection_id)
     REFERENCES assessment_selections(assessment_selection_id);
+
+ALTER TABLE assessment_selection_results
+ADD CONSTRAINT assessment_selection_results_assessment_selection_details_fk FOREIGN KEY (assessment_selection_detail_id)
+    REFERENCES assessment_selection_details(assessment_selection_detail_id);
 
 ALTER TABLE assessment_dimension_weighting
 ADD CONSTRAINT assessment_dimension_weighting_assessments_fk FOREIGN KEY (assessment_id)
