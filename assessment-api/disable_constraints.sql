@@ -40,5 +40,5 @@ ALTER TABLE assessment_selection_details DROP CONSTRAINT assessment_selection_de
 
 ALTER TABLE assessment_selection_results DROP CONSTRAINT assessment_selection_results_assessment_selection_details_fk;
 
-
+ALTER TABLE assessment_selection_details DROP CONSTRAINT assessment_selection_details_assessment_submission_types_fk;
 

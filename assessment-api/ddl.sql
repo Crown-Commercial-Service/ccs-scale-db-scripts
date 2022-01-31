@@ -248,10 +248,11 @@ create table assessment_selections
 
 create table assessment_selection_details
 ( assessment_selection_detail_id serial        primary key,
-  assessment_selection_id       integer       not null,
+  assessment_selection_id        integer       not null,
   requirement_quantity           integer       ,
   requirement_value              decimal       ,
   requirement_valid_value_id     integer       ,
+  assessment_submission_type_id  integer       not null,
   created_by                     varchar(2000) not null,
   created_at                     timestamp     not null,
   updated_by                     varchar(2000),

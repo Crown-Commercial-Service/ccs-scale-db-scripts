@@ -70,6 +70,10 @@ ALTER TABLE assessment_selection_details
 ADD CONSTRAINT assessment_selection_details_assessment_selections_fk FOREIGN KEY (assessment_selection_id)
     REFERENCES assessment_selections(assessment_selection_id);
 
+ALTER TABLE assessment_selection_details
+ADD CONSTRAINT assessment_selection_details_assessment_submission_types_fk FOREIGN KEY (assessment_submission_type_id)
+    REFERENCES assessment_submission_types (assessment_submission_type_id);
+
 ALTER TABLE assessment_selection_results
 ADD CONSTRAINT assessment_selection_results_assessment_selection_details_fk FOREIGN KEY (assessment_selection_detail_id)
     REFERENCES assessment_selection_details(assessment_selection_detail_id);
