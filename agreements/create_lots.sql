@@ -580,3 +580,5 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('438','Lot 3','One Stop Shop (Combined Lot 1 and Lot 2)','No description','95','Services','2020-12-01','2024-11-30');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('439','Lot 2','Ancillary Services','No description','95','Services','2020-12-01','2024-11-30');
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('442','Lot 2','Cloud Software','Software as a Service (SaaS) applications, usually accessed over the internet or private network and hosted in the cloud.','21','Services','2020-09-28','2021-09-27');
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('458','Lot 2','Print Management Services','<p>No description</p>','104','Services','2020-12-28','2024-12-27');
