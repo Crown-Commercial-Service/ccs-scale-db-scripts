@@ -28,7 +28,7 @@ create table cap_load_jobs
 -- These tables are for loading supplier submissions 
 
 create table load_capability_resources
-( supplier_id                varchar(100),
+( supplier_id                varchar(50),
   ddat_cluster               varchar(50)  not null,
   role_family                varchar(100) not null,
   staff_supplier_return      varchar(30),
@@ -37,25 +37,25 @@ create table load_capability_resources
   sc_subcontractor_return    varchar(30));
 
 create table load_capability_services
-( supplier_id                             varchar(100),
+( supplier_id                             varchar(50),
   requirement_name                        varchar(100) not null, -- No corrsponding column on the sheet
   service_capability_supplier_return      varchar(30),
   service_capability_subcontractor_return varchar(30));
 
 create table load_capability_locations
-( supplier_id                   varchar(100),
+( supplier_id                   varchar(50),
   requirement_name              varchar(100) not null, -- Column called location on sheet
   location_supplier_return      varchar(30),
   location_subcontractor_return varchar(30));    
  
 create table load_capability_scalability
-( supplier_id                      varchar(100),
+( supplier_id                      varchar(50),
   requirement_name                 varchar(100) not null, -- Column called location on Team
   scalability_supplier_return      varchar(30),
   scalability_subcontractor_return varchar(30));                   
  
 create table load_pricing
-( supplier_id        varchar(100),
+( supplier_id        varchar(50),
   ddat               varchar(100) not null,  
   role_number        varchar(10)  not null,
   parent_taxon_name  varchar(100) not null,  
@@ -209,7 +209,7 @@ create table lot_requirement_taxons
 create table supplier_submissions
 ( supplier_submission_id        serial        primary key,
   lot_requirement_taxon_id      integer       not null,
-  supplier_id                   integer       not null,
+  supplier_id                   varchar(50)   not null,
   assessment_submission_type_id integer       not null,
   submission_reference          varchar(30),
   submission_value              integer,
@@ -262,7 +262,7 @@ create table assessment_selection_details
 create table assessment_results
 ( assessment_result_id                  serial primary key,
   assessment_id                         integer not null,
-  supplier_organisation_id              integer not null,
+  supplier_organisation_id              varchar(50) not null,
   assessment_result_value               decimal ,
   created_by                            varchar(2000) not null,
   created_at                            timestamp     not null,
