@@ -313,6 +313,7 @@ create table lot_procurement_event_types
   mandatory_event_ind       boolean not null,
   repeatable_event_ind      boolean not null,
   max_repeats               integer,
+  assessment_tool_id        varchar(128) null,
   CONSTRAINT lot_procurement_event_types_pkey PRIMARY KEY (lot_id,procurement_event_type_id));
 
 -- Create table Procurement Question Templates
