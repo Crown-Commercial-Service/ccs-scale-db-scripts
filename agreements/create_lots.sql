@@ -582,3 +582,23 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('442','Lot 2','Cloud Software','Software as a Service (SaaS) applications, usually accessed over the internet or private network and hosted in the cloud.','21','Services','2020-09-28','2021-09-27');
 
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES ('458','Lot 2','Print Management Services','<p>Available through further competition only.</p>','104','Services','2020-12-28','2024-12-27');
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
+('459','Lot 2','Liquefied gas','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('460','Lot 3','Solid fuel and biomass fuel','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('461','Lot 4','Greases, lubricants and antifreeze','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('462','Lot 5','Associated services','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('463','Lot 101','Liquid Fuel - Scotland North','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('464','Lot 102','Liquid Fuel - Scotland West','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('465','Lot 103','Liquid Fuel - Scotland Central','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('466','Lot 104','Liquid Fuel - Scotland South','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('467','Lot 105','Liquid Fuel - England North West','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('468','Lot 106','Liquid Fuel - England North East','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('469','Lot 107','Liquid Fuel - England Midlands','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('470','Lot 108','Liquid Fuel - England East Anglia','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('471','Lot 109','Liquid Fuel - England London and South East','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('472','Lot 110','Liquid Fuel - England South','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('473','Lot 111','Liquid Fuel - England South West','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('474','Lot 112','Liquid Fuel - South Wales','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('475','Lot 113','Liquid Fuel - North Wales','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
+('476','Lot 114','Liquid Fuel - Northern Ireland','<p>No description</p>','105','Services','2021-02-01','2025-01-31');
