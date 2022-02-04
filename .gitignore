@@ -1,3 +1,6 @@
 **/node_modules
 guided-match/.DS_Store
 guided-match/dml-versions/.DS_Store
+
+guided-match/provision-gm-database.sh
+agreements/provision-agreements-database.sh
