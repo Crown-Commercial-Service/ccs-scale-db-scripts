@@ -3,7 +3,7 @@ Tenders DB Update script: v5: Add supplier_selections table
 */
 
 CREATE TABLE IF NOT EXISTS supplier_selections (
-	event_id		INTEGER NOT NULL,
+    event_id                    INTEGER NOT NULL,
     organisation_mapping_id     INTEGER NOT NULL);
 
 ALTER TABLE supplier_selections
