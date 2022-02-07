@@ -31,28 +31,28 @@ create table load_capability_resources
 ( supplier_id                varchar(50),
   ddat_cluster               varchar(50)  not null,
   role_family                varchar(100) not null,
-  staff_supplier_return      varchar(30),
-  staff_subcontractor_return varchar(30),
-  sc_supplier_return         varchar(30),
-  sc_subcontractor_return    varchar(30));
+  staff_supplier_return      varchar(100),
+  staff_subcontractor_return varchar(100),
+  sc_supplier_return         varchar(100),
+  sc_subcontractor_return    varchar(100));
 
 create table load_capability_services
 ( supplier_id                             varchar(50),
   requirement_name                        varchar(100) not null, -- No corrsponding column on the sheet
-  service_capability_supplier_return      varchar(30),
-  service_capability_subcontractor_return varchar(30));
+  service_capability_supplier_return      varchar(100),
+  service_capability_subcontractor_return varchar(100));
 
 create table load_capability_locations
 ( supplier_id                   varchar(50),
   requirement_name              varchar(100) not null, -- Column called location on sheet
-  location_supplier_return      varchar(30),
-  location_subcontractor_return varchar(30));    
+  location_supplier_return      varchar(100),
+  location_subcontractor_return varchar(100));    
  
 create table load_capability_scalability
 ( supplier_id                      varchar(50),
   requirement_name                 varchar(100) not null, -- Column called location on Team
-  scalability_supplier_return      varchar(30),
-  scalability_subcontractor_return varchar(30));                   
+  scalability_supplier_return      varchar(100),
+  scalability_subcontractor_return varchar(100));                   
  
 create table load_pricing
 ( supplier_id        varchar(50),
