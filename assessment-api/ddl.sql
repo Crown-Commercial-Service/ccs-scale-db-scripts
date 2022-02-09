@@ -65,7 +65,7 @@ create table load_pricing
   qty_evaluation     varchar(10),
   national_day_rate  varchar(10),
   national_home_rate varchar(10),
-  evaluated_cost     varchar(10),
+  evaluated_cost     varchar(32),
   opt1               varchar(10),
   opt2               varchar(10),
   opt3               varchar(10)); 
