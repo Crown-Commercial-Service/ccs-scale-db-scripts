@@ -11,10 +11,8 @@
 #     - ssh -i  {ENV}-bastion-key.pem -L 5432:{RDS_ENDPOINT}:5432 ubuntu@{BASTION_EC2_IP}
 
 
-export SERVER=localhost
+export SERVER=127.0.0.1
 export PORT=5432
-export DATABASE=agreements
-export USERNAME=<<FILL THIS IN>>
 
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f drop_tables.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ddl.sql
