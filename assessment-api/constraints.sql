@@ -86,4 +86,14 @@ ALTER TABLE assessment_dimension_weighting
 ADD CONSTRAINT assessment_dimension_weighting_dimensions_fk FOREIGN KEY (dimension_id)
     REFERENCES dimensions(dimension_id);
 
+ALTER TABLE assessment_dimension_submission_types
+ADD CONSTRAINT assessment_dimension_submission_types_dimension_weighting_fk FOREIGN KEY (assessment_dimension_weighting_id)
+    REFERENCES assessment_dimension_weighting(assessment_dimension_weighting_id);
+
+ALTER TABLE assessment_dimension_submission_types
+ADD CONSTRAINT assessment_dimension_submission_types_submission_type_fk FOREIGN KEY (assessment_submission_type_id)
+    REFERENCES assessment_submission_types(assessment_submission_type_id);
+
+
+
 

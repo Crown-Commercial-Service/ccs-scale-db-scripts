@@ -4,6 +4,7 @@ DROP VIEW IF EXISTS calculation_base;
 
 DROP TABLE IF EXISTS supplier_submissions;
 DROP TABLE IF EXISTS lot_requirement_taxons;
+DROP TABLE IF EXISTS assessment_dimension_submission_types;
 DROP TABLE IF EXISTS assessment_dimension_weighting;
 DROP TABLE IF EXISTS assessment_selection_results;
 DROP TABLE IF EXISTS assessment_selection_details;
