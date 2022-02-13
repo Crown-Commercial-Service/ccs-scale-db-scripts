@@ -293,11 +293,11 @@ create table assessment_dimension_weighting
 create table assessment_dimension_submission_types (
   assessment_dimension_submission_type_id serial        primary key,
   assessment_dimension_weighting_id       integer       not null,
-  assessment_submission_type_id           integer       not null,
-  created_by                              varchar(2000) not null,
-  created_at                              timestamp     not null,
-  updated_by                              varchar(2000),
-  updated_at                              timestamp);
+  assessment_submission_type_id           integer       not null);
+  --created_by                              varchar(2000) not null,
+  --created_at                              timestamp     not null,
+  --updated_by                              varchar(2000),
+  --updated_at                              timestamp);
 
 -- Views to support assessment result calculations
 CREATE OR REPLACE VIEW public.calculation_base AS
