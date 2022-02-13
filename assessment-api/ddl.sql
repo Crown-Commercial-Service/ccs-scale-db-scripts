@@ -290,4 +290,51 @@ create table assessment_dimension_weighting
   updated_by                        varchar(2000),
   updated_at                        timestamp);
 
+create table assessment_dimension_submission_types (
+  assessment_dimension_submission_type_id serial        primary key,
+  assessment_dimension_weighting_id       integer       not null,
+  assessment_submission_type_id           integer       not null);
+  --created_by                              varchar(2000) not null,
+  --created_at                              timestamp     not null,
+  --updated_by                              varchar(2000),
+  --updated_at                              timestamp);
+
+-- Views to support assessment result calculations
+CREATE OR REPLACE VIEW public.calculation_base AS
+SELECT row_number() OVER () AS id,
+	core.*
+FROM (SELECT DISTINCT
+    asel.assessment_id,
+    ss.supplier_id,
+    atool.assessment_tool_name,
+    st.submission_type_name,
+	  st.submission_type_code,
+    d.dimension_name,
+    d.dimension_id,
+    r.requirement_name,
+    ss.submission_reference,
+    dvv.valid_value_code AS submission_value,
+    adw.weighting_pct AS adw_weighting_pct,
+    asel.weighting_pct AS asel_weighting_pct,
+    (( SELECT count(*)
+       FROM dimension_valid_values dvv
+       WHERE dvv.valid_value_code <> '0' AND dvv.dimension_id = d.dimension_id))::integer AS dimension_divisor
+  FROM dimensions d
+	JOIN assessment_taxon_dimensions td ON d.dimension_id = td.dimension_id
+	JOIN assessment_selections asel ON d.dimension_id = asel.dimension_id
+	JOIN requirement_taxons rt ON rt.requirement_taxon_id = asel.requirement_taxon_id
+	JOIN lot_requirement_taxons lrt ON rt.requirement_taxon_id = lrt.requirement_taxon_id
+	JOIN supplier_submissions ss ON ss.lot_requirement_taxon_id = lrt.lot_requirement_taxon_id
+	JOIN assessment_submission_types ast ON ast.assessment_submission_type_id = ss.assessment_submission_type_id
+	JOIN submission_types st ON st.submission_type_code = ast.submission_type_code
+	JOIN assessment_tools atool ON atool.assessment_tool_id = ast.assessment_tool_id
+	JOIN requirements r ON r.requirement_id = rt.requirement_id
+	JOIN assessment_taxons atax ON atax.assessment_taxon_id = rt.assessment_taxon_id
+	JOIN dimension_valid_values dvv ON dvv.valid_value_name = ss.submission_reference AND dvv.dimension_id = d.dimension_id
+	JOIN assessment_dimension_weighting adw ON d.dimension_id = adw.dimension_id
+	JOIN assessments ass ON ass.assessment_id = asel.assessment_id
+  WHERE ss.submission_reference IS NOT NULL 
+    OR ss.submission_value IS NOT NULL 
+    AND ass.status = 'ACTIVE') as core;
+
 

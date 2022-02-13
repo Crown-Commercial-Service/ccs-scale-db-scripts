@@ -42,3 +42,7 @@ ALTER TABLE assessment_selection_results DROP CONSTRAINT assessment_selection_re
 
 ALTER TABLE assessment_selection_details DROP CONSTRAINT assessment_selection_details_assessment_submission_types_fk;
 
+ALTER TABLE assessment_dimension_submission_types DROP CONSTRAINT assessment_dimension_submission_types_submission_type_fk;
+
+ALTER TABLE assessment_dimension_submission_types DROP CONSTRAINT assessment_dimension_submission_types_dimension_weighting_fk;
+
