@@ -331,8 +331,8 @@ FROM (SELECT DISTINCT
 	JOIN requirements r ON r.requirement_id = rt.requirement_id
 	JOIN assessment_taxons atax ON atax.assessment_taxon_id = rt.assessment_taxon_id
 	JOIN dimension_valid_values dvv ON dvv.valid_value_name = ss.submission_reference AND dvv.dimension_id = d.dimension_id
-	JOIN assessment_dimension_weighting adw ON d.dimension_id = adw.dimension_id
-	JOIN assessments ass ON ass.assessment_id = asel.assessment_id
+  JOIN assessments ass ON ass.assessment_id = asel.assessment_id
+  JOIN assessment_dimension_weighting adw ON ass.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id
   WHERE ss.submission_reference IS NOT NULL 
     OR ss.submission_value IS NOT NULL 
     AND ass.status = 'ACTIVE') as core;
