@@ -115,16 +115,16 @@ create table submission_types
  
 
 
--- Create table assessment submission types
+-- Create table dimension submission types
 
-create table assessment_submission_types 
-( assessment_submission_type_id       serial primary key,
-  assessment_tool_id    integer       not null,
-  submission_type_code  varchar(30)   not null,
-  created_by            varchar(2000) not null,                                   
-  created_at            timestamp     not null,
-  updated_by            varchar(2000),
-  updated_at            timestamp);
+create table dimension_submission_types 
+( dimension_submission_type_id	serial primary key,
+  dimension_id					integer       not null,
+  submission_type_code  		varchar(30)   not null,
+  created_by            		varchar(2000) not null,                                   
+  created_at					timestamp     not null,
+  updated_by            		varchar(2000),
+  updated_at            		timestamp);
 
 
 -- Create table Assessment Tools - Originally know as Taxonomies
@@ -210,7 +210,7 @@ create table supplier_submissions
 ( supplier_submission_id        serial        primary key,
   lot_requirement_taxon_id      integer       not null,
   supplier_id                   varchar(50)   not null,
-  assessment_submission_type_id integer       not null,
+  dimension_submission_type_id integer       not null,
   submission_reference          varchar(30),
   submission_value              integer,
   created_by                    varchar(2000) not null,
@@ -251,7 +251,7 @@ create table assessment_selection_details
   assessment_selection_id        integer       not null,
   requirement_value              decimal           ,
   requirement_valid_value_code   varchar(30)       ,
-  assessment_submission_type_id  integer       not null,
+  dimension_submission_type_id   integer       not null,
   created_by                     varchar(2000) not null,
   created_at                     timestamp     not null,
   updated_by                     varchar(2000),
@@ -293,7 +293,7 @@ create table assessment_dimension_weighting
 create table assessment_dimension_submission_types (
   assessment_dimension_submission_type_id serial        primary key,
   assessment_dimension_weighting_id       integer       not null,
-  assessment_submission_type_id           integer       not null);
+  dimension_submission_type_id            integer       not null);
   --created_by                              varchar(2000) not null,
   --created_at                              timestamp     not null,
   --updated_by                              varchar(2000),
@@ -325,11 +325,11 @@ FROM (SELECT DISTINCT
 	JOIN requirement_taxons rt ON rt.requirement_taxon_id = asel.requirement_taxon_id
 	JOIN lot_requirement_taxons lrt ON rt.requirement_taxon_id = lrt.requirement_taxon_id
 	JOIN supplier_submissions ss ON ss.lot_requirement_taxon_id = lrt.lot_requirement_taxon_id
-	JOIN assessment_submission_types ast ON ast.assessment_submission_type_id = ss.assessment_submission_type_id
-	JOIN submission_types st ON st.submission_type_code = ast.submission_type_code
-	JOIN assessment_tools atool ON atool.assessment_tool_id = ast.assessment_tool_id
+	JOIN dimension_submission_types dst ON dst.dimension_submission_type_id = ss.dimension_submission_type_id
+	JOIN submission_types st ON st.submission_type_code = dst.submission_type_code
 	JOIN requirements r ON r.requirement_id = rt.requirement_id
 	JOIN assessment_taxons atax ON atax.assessment_taxon_id = rt.assessment_taxon_id
+	JOIN assessment_tools atool ON atool.assessment_tool_id = atax.assessment_tool_id
 	JOIN dimension_valid_values dvv ON dvv.valid_value_name = ss.submission_reference AND dvv.dimension_id = d.dimension_id
   JOIN assessments ass ON ass.assessment_id = asel.assessment_id
   JOIN assessment_dimension_weighting adw ON ass.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id

@@ -13,6 +13,10 @@
 
 export SERVER=127.0.0.1
 export PORT=5432
+#export DATABASE=TODO
+#export USERNAME=TODO
 
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f disable_constraints.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f drop_tables.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ddl.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f constraints.sql

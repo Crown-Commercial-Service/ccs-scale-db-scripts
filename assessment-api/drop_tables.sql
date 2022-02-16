@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS load_capability_locations;
 DROP TABLE IF EXISTS load_capability_scalability;
 DROP TABLE IF EXISTS load_pricing;
 DROP TABLE IF EXISTS dimension_valid_values;
-DROP TABLE IF EXISTS assessment_submission_types;
+DROP TABLE IF EXISTS dimension_submission_types;
 DROP TABLE IF EXISTS assessment_taxon_dimensions;
 DROP TABLE IF EXISTS requirement_taxons;
 DROP TABLE IF EXISTS requirements;
