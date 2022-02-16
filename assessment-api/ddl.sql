@@ -52,7 +52,7 @@ create table load_capability_scalability
 ( supplier_id                      varchar(50),
   requirement_name                 varchar(100) not null, -- Column called location on Team
   scalability_supplier_return      varchar(100),
-  scalability_subcontractor_return varchar(100));                   
+  scalability_subcontractor_return varchar(100));
  
 create table load_pricing
 ( supplier_id        varchar(50),
@@ -84,7 +84,7 @@ create table dimensions
   selection_type               varchar(30), -- valid values Single, Multiple,Integer
   min_allowed_value            decimal,
   max_allowed_value            decimal,
-  created_by                   varchar(2000) not null,                         
+  created_by                   varchar(2000) not null,
   created_at                   timestamp     not null,
   updated_by                   varchar(2000) ,
   updated_at                   timestamp);
@@ -96,7 +96,7 @@ create table dimension_valid_values
  valid_value_code  varchar(30)   not null,
  valid_value_name  varchar(100)   not null,
  valid_value_descr varchar(2000) not null,
- created_by        varchar(2000) not null,                                   
+ created_by        varchar(2000) not null,
  created_at        timestamp     not null,
  updated_by        varchar(2000),
  updated_at        timestamp,
@@ -108,7 +108,7 @@ create table submission_types
 ( submission_type_code  varchar(30)   primary key,
   submission_type_name  varchar(100)  not null,
   submission_type_descr varchar(2000) not null,
-  created_by            varchar(2000) not null,                                   
+  created_by            varchar(2000) not null,
   created_at            timestamp     not null,
   updated_by            varchar(2000),
   updated_at            timestamp);
@@ -118,13 +118,13 @@ create table submission_types
 -- Create table dimension submission types
 
 create table dimension_submission_types 
-( dimension_submission_type_id	serial primary key,
-  dimension_id					integer       not null,
-  submission_type_code  		varchar(30)   not null,
-  created_by            		varchar(2000) not null,                                   
-  created_at					timestamp     not null,
-  updated_by            		varchar(2000),
-  updated_at            		timestamp);
+( dimension_submission_type_id  serial primary key,
+  dimension_id                  integer       not null,
+  submission_type_code          varchar(30)   not null,
+  created_by                    varchar(2000) not null,
+  created_at                    timestamp     not null,
+  updated_by                    varchar(2000),
+  updated_at                    timestamp);
 
 
 -- Create table Assessment Tools - Originally know as Taxonomies
