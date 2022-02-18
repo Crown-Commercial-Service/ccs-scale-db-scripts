@@ -4,19 +4,23 @@
 -- These tables are for setting up the reference data
 create table cap_load_resources
 (resource_cluster varchar(100),
- resource_family varchar(100));
+ resource_family  varchar(100),
+ group_requirement boolean);
 
 create table cap_load_locations
-(location_hdr varchar(100),
- location     varchar(100));
+(location_hdr     varchar(100),
+ location         varchar(100),
+ group_requirement boolean);
 
 create table cap_load_scalability
-(scalability_hdr        varchar(100),
- scalability varchar(100));
+(scalability_hdr  varchar(100),
+ scalability      varchar(100),
+ group_requirement boolean);
 
 create table cap_load_service_capability
 (service_capability_hdr varchar(100),
- service_capability     varchar(100));
+ service_capability     varchar(100),
+ group_requirement       boolean);
 
 create table cap_load_jobs
 (role_cluster varchar(100),
@@ -173,6 +177,7 @@ create table requirements
 ( requirement_id    serial        primary key,
   requirement_name  varchar(100)  not null,
   requirement_descr varchar(2000) not null,
+  group_requirement  boolean       not null,
   created_by        varchar(2000) not null,
   created_at        timestamp     not null,
   updated_by        varchar(2000),
