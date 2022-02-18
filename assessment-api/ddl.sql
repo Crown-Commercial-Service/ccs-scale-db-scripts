@@ -173,6 +173,7 @@ create table requirements
 ( requirement_id    serial        primary key,
   requirement_name  varchar(100)  not null,
   requirement_descr varchar(2000) not null,
+  groupRequirement  boolean       not null,
   created_by        varchar(2000) not null,
   created_at        timestamp     not null,
   updated_by        varchar(2000),
