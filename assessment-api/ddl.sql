@@ -340,6 +340,7 @@ FROM (SELECT DISTINCT
   JOIN assessment_dimension_weighting adw ON ass.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id
   WHERE ss.submission_reference IS NOT NULL 
     OR ss.submission_value IS NOT NULL 
-    AND ass.status = 'ACTIVE') as core;
+    AND ass.status = 'ACTIVE'
+    AND d.max_weighting_pct > 0) as core;
 
 
