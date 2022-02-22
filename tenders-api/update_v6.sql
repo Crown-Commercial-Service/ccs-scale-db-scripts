@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS project_user_mapping (
     project_id                   INTEGER     NOT NULL,
     event_id                     INTEGER NOT NULL,
     event_type                   VARCHAR(20) NOT NULL,
-    jaggaer_id                   VARCHAR(20) NOT NULL,
+    user_id                   VARCHAR(20) NOT NULL,
     created_at                   TIMESTAMP   NOT NULL,
     updated_at                   TIMESTAMP,
     PRIMARY KEY (project_id,event_id)  );
