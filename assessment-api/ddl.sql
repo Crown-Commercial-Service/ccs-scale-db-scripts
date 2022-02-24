@@ -318,7 +318,7 @@ FROM (SELECT DISTINCT
     d.dimension_id,
     r.requirement_name,
     ss.submission_reference,
-    ss.submission_value AS submission_value,
+    COALESCE(ss.submission_value::varchar, dvv.valid_value_code) AS submission_value,
     adw.weighting_pct AS adw_weighting_pct,
     asel.weighting_pct AS asel_weighting_pct,
     (SELECT requirement_value
