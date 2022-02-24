@@ -125,6 +125,7 @@ create table dimension_submission_types
 ( dimension_submission_type_id  serial primary key,
   dimension_id                  integer       not null,
   submission_type_code          varchar(30)   not null,
+  selection_type                varchar(30), -- valid values Single, Multiple,Integer
   created_by                    varchar(2000) not null,
   created_at                    timestamp     not null,
   updated_by                    varchar(2000),
