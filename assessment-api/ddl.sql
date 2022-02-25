@@ -85,7 +85,6 @@ create table dimensions
   dimension_descr              varchar(2000) not null,
   min_weighting_pct            decimal,
   max_weighting_pct            decimal,
-  selection_type               varchar(30), -- valid values Single, Multiple,Integer
   min_allowed_value            decimal,
   max_allowed_value            decimal,
   created_by                   varchar(2000) not null,
