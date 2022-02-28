@@ -313,33 +313,37 @@ FROM (SELECT DISTINCT
     ss.supplier_id,
     atool.assessment_tool_name,
     st.submission_type_name,
-	  st.submission_type_code,
+    st.submission_type_code,
     d.dimension_name,
     d.dimension_id,
     r.requirement_name,
     ss.submission_reference,
-    dvv.valid_value_code AS submission_value,
+    COALESCE(ss.submission_value::varchar, dvv.valid_value_code) AS submission_value,
     adw.weighting_pct AS adw_weighting_pct,
     asel.weighting_pct AS asel_weighting_pct,
-    (( SELECT count(*)
-       FROM dimension_valid_values dvv
-       WHERE dvv.valid_value_code <> '0' AND dvv.dimension_id = d.dimension_id))::integer AS dimension_divisor
+    (SELECT requirement_value
+      FROM assessment_selection_details asd 
+      WHERE asd.assessment_selection_id = asel.assessment_selection_id
+    AND asd.dimension_submission_type_id = dst.dimension_submission_type_id) as requirement_value,
+    (SELECT count(*)
+      FROM dimension_valid_values dvv
+      WHERE dvv.valid_value_code <> '0' AND dvv.dimension_id = d.dimension_id)::integer AS dimension_divisor
   FROM dimensions d
-	JOIN assessment_taxon_dimensions td ON d.dimension_id = td.dimension_id
-	JOIN assessment_selections asel ON d.dimension_id = asel.dimension_id
-	JOIN requirement_taxons rt ON rt.requirement_taxon_id = asel.requirement_taxon_id
-	JOIN lot_requirement_taxons lrt ON rt.requirement_taxon_id = lrt.requirement_taxon_id
-	JOIN supplier_submissions ss ON ss.lot_requirement_taxon_id = lrt.lot_requirement_taxon_id
-	JOIN dimension_submission_types dst ON dst.dimension_submission_type_id = ss.dimension_submission_type_id
-	JOIN submission_types st ON st.submission_type_code = dst.submission_type_code
-	JOIN requirements r ON r.requirement_id = rt.requirement_id
-	JOIN assessment_taxons atax ON atax.assessment_taxon_id = rt.assessment_taxon_id
-	JOIN assessment_tools atool ON atool.assessment_tool_id = atax.assessment_tool_id
-	JOIN dimension_valid_values dvv ON dvv.valid_value_name = ss.submission_reference AND dvv.dimension_id = d.dimension_id
-  JOIN assessments ass ON ass.assessment_id = asel.assessment_id
-  JOIN assessment_dimension_weighting adw ON ass.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id
-  WHERE ss.submission_reference IS NOT NULL 
-    OR ss.submission_value IS NOT NULL 
+    JOIN assessment_taxon_dimensions td ON d.dimension_id = td.dimension_id
+    JOIN assessment_selections asel ON d.dimension_id = asel.dimension_id
+    JOIN requirement_taxons rt ON rt.requirement_taxon_id = asel.requirement_taxon_id
+    JOIN lot_requirement_taxons lrt ON rt.requirement_taxon_id = lrt.requirement_taxon_id
+    JOIN supplier_submissions ss ON ss.lot_requirement_taxon_id = lrt.lot_requirement_taxon_id
+    JOIN dimension_submission_types dst ON dst.dimension_submission_type_id = ss.dimension_submission_type_id
+    JOIN submission_types st ON st.submission_type_code = dst.submission_type_code
+    JOIN requirements r ON r.requirement_id = rt.requirement_id
+    JOIN assessment_taxons atax ON atax.assessment_taxon_id = rt.assessment_taxon_id
+    JOIN assessment_tools atool ON atool.assessment_tool_id = atax.assessment_tool_id
+    LEFT JOIN dimension_valid_values dvv ON dvv.valid_value_name = ss.submission_reference AND dvv.dimension_id = d.dimension_id
+    JOIN assessments ass ON ass.assessment_id = asel.assessment_id
+    JOIN assessment_dimension_weighting adw ON ass.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id
+  WHERE (ss.submission_reference IS NOT NULL 
+    OR ss.submission_value IS NOT NULL) 
     AND ass.status = 'ACTIVE'
     AND d.max_weighting_pct > 0) as core;
 
