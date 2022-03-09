@@ -602,3 +602,7 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 ('474','Lot 112','Liquid Fuel - South Wales','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
 ('475','Lot 113','Liquid Fuel - North Wales','<p>No description</p>','105','Services','2021-02-01','2025-01-31'),
 ('476','Lot 114','Liquid Fuel - Northern Ireland','<p>No description</p>','105','Services','2021-02-01','2025-01-31');
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
+('477','Lot 1','Contact Centres','<p>No description</p>','112','Services','2021-08-10','2025-08-09'),
+('478','Lot 2','Business Services','<p>No description</p>','112','Services','2021-08-10','2025-08-09');
