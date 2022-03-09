@@ -18,3 +18,5 @@ DROP TABLE IF EXISTS journeys;
 DROP TABLE IF EXISTS document_template_sources;
 
 DROP TABLE IF EXISTS document_templates;
+
+DROP TABLE IF EXISTS buyer_user_details;
