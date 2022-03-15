@@ -606,3 +606,32 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
 ('477','Lot 1','Contact Centres','<p>No description</p>','112','Services','2021-08-10','2025-08-09'),
 ('478','Lot 2','Business Services','<p>No description</p>','112','Services','2021-08-10','2025-08-09');
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
+('479','Lot 1','Contact Centres','<p>Overnight economy and same day delivery of documents, parcels, pallets and bulk movements to UK and international locations.</p>','113','Services','2021-08-11','2025-08-10'),
+('480','Lot 2','Contact Centres','<p>Secure same day and overnight services of documents, parcels, pallets and bulk movements to the UK and international locations. Suppliers provide additional insurances and double manned vehicles for high value secure items.</p>','113','Services','2021-08-11','2025-08-10'),
+('481','Lot 3','Contact Centres','<p>Secure overnight and same-day services to distribute exam papers and associated materials to test centres, awarding organisations and examiners to the UK and International locations.</p>','113','Services','2021-08-11','2025-08-10'),
+('482','Lot 4','Contact Centres','<p>A fully managed service for the secure collection, delivery and disposal of:</p>
+<ul>
+<li><p style="margin-bottom:0px">pathogens</p></li>
+<li><p style="margin-bottom:0px">infectious and non-infectious substances</p></li>
+<li><p style="margin-bottom:0px">pharmaceuticals</p></li>
+<li><p style="margin-bottom:0px">controlled drugs</p></li>
+<li><p style="margin-bottom:0px">associated medical equipment and documents</p></li>
+</ul>','113','Services','2021-08-11','2025-08-10'),
+('483','Lot 5','Contact Centres','<p>A fully managed service for the secure collection, delivery and disposal of:</p>
+<ul>
+<li><p style="margin-bottom:0px">firearms (Sections 1,2 and 5)</p></li>
+<li><p style="margin-bottom:0px">explosives (UN Class 1)</p></li>
+<li><p style="margin-bottom:0px">CS spray</p></li>
+<li><p style="margin-bottom:0px">PAVA spray</p></li>
+<li><p style="margin-bottom:0px">weapons</p></li>
+</ul>','113','Services','2021-08-11','2025-08-10'),
+('484','Lot 6','Contact Centres','<p>A fully managed service for the transportation, resale or disposal of any item or asset including:</p>
+<ul>
+<li><p style="margin-bottom:0px">high value items</p></li>
+<li><p style="margin-bottom:0px">electrical equipment</p></li>
+<li><p style="margin-bottom:0px">office equipment and machinery</p></li>
+<li><p style="margin-bottom:0px">vehicles</p></li>
+</ul>
+<p>This also includes anything confiscated or seized under a forfeiture order Proceeds of Crime Act (POCA).</p>','113','Services','2021-08-11','2025-08-10');
