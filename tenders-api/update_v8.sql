@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS document_uploads (
     external_status VARCHAR(64) NOT NULL, -- Document upload service state
     audience VARCHAR(64) NOT NULL, -- BUYER / SUPPLIER
     document_description VARCHAR(1024) NULL,
+    size BIGINT NOT NULL, -- File size in bytes
+    mimetype VARCHAR(256) NOT NULL, -- MIME (content) type e.g. 'application/pdf'
     created_by VARCHAR(2000) NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_by VARCHAR(2000),
