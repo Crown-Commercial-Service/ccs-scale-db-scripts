@@ -635,3 +635,52 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 <li><p style="margin-bottom:0px">vehicles</p></li>
 </ul>
 <p>This also includes anything confiscated or seized under a forfeiture order Proceeds of Crime Act (POCA).</p>','113','Services','2021-08-11','2025-08-10');
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
+('485','Lot 1','Records Information Management Services','<p>Provides Off Site storage of physical records as well as scanning, shredding destruction and disposal services and also helps buyers to transition from their current On Site service to an Off Site solution. Lot 1 is made up of 5 service lines (SL) these are:</p>
+<ul>
+<li><p style="margin-bottom:0px">SL1: Off Site Records Information Management Service</p></li>
+<li><p style="margin-bottom:0px">SL2: Off Site Storage of Inactive Records</p></li>
+<li><p style="margin-bottom:0px">SL3: On and/or Off Site Secure Shredding, Destruction and Disposal Services</p></li>
+<li><p style="margin-bottom:0px">SL4: On and/or Off Site Combined Records Information Management Services</p></li>
+<li><p style="margin-bottom:0px">SL5: On and/or Off Site Scanning Services (this service line cannot be used in isolation)</p></li>
+</ul>
+<p>Buyers can contract one or more of the service lines, except scanning services which is a support service for the other service lines.</p>','114','Services','2021-03-22','2025-03-22'),
+('486','Lot 2','Digital Workflow, Cloud Based Hosting Solutions','<p>Provides bespoke digital workflow solutions for example, document, content, records and workflow management and hybrid mail.  SaaS, PaaS and IaaS software solutions hosted in the Cloud supported by National Cyber Security Centre (NCSC) principles.  Interim Technical Resources for example, fleet, technical and security architects along with scanning services. Lot 2 is made up of 4 service lines (SL) these are:</p>
+<ul>
+<li><p style="margin-bottom:0px">SL1: Digital Workflow Solutions</p></li>
+<li><p style="margin-bottom:0px">SL2: Cloud Based Hosting Service</p></li>
+<li><p style="margin-bottom:0px">SL3: Scanning Services</p></li>
+<li><p style="margin-bottom:0px">SL4: Interim Technical Resource</p></li>
+</ul>
+<p>Buyers can contract one or more of the service lines</p>','114','Services','2021-03-22','2025-03-22'),
+('487','Lot 3','Full Management of National Health Service (NHS) Patient Records (Off site)','<p>Provides clinic preparation services involving preparing records for clinic, loose filing service (reuniting of loose paperwork with original notes), creation of new patient records along with storage, transportation (delivery/collection), sorting, scanning and shredding, destruction and disposal of records.  Also offers third party interim resources and an On Site managed service when needed. .  Services under this lot include:</p>
+<ul>
+<li><p style="margin-bottom:0px">clinic preparation and management of NHS patient records</p></li>
+<li><p style="margin-bottom:0px">digitisation (scanning) of patient records</p></li>
+<li><p style="margin-bottom:0px">Off Site storage of patient records at supplier’s site(s)</p></li>
+<li><p style="margin-bottom:0px">On Site managed service</p></li>
+<li><p style="margin-bottom:0px">shredding, destruction and disposal (On and/or Off Site)</p></li>
+</ul>
+<p>Buyers can contract one of more of the service lines</p>','114','Services','2021-03-22','2025-03-22'),
+('488','Lot 4','Specialist Records Management Services','<p>Supports the Public Records Act under the 30/20 year rule requiring central government departments to identify records of historic value. Central government can use these services to identify, select, appraise and sensitivity review content before transferring them for permanent preservation at The National Archives or another approved place of deposit.  Lot 4 is made up of 5 service lines:</p>
+<ul>
+<li><p style="margin-bottom:0px">SL1: Listing service</p></li>
+<li><p style="margin-bottom:0px">SL2: Cataloguing service</p></li>
+<li><p style="margin-bottom:0px">SL3: Appraisal and Selection service</p></li>
+<li><p style="margin-bottom:0px">SL4: Sensitivity Review service</p></li>
+<li><p style="margin-bottom:0px">SL5: Record Preparation service</p></li>
+</ul>
+<p>Buyers can contract one or more of the service lines</p>','114','Services','2021-03-22','2025-03-22'),
+('489','Lot 5','Combined Digital Workflow, Cloud Based Hosting and Records Information Management','<p>Services from lots 1 and  2 are combined enabling buyers to reduce existing physical paper records for example, by back scanning, and implementing their digital strategies by digitising records at source using workflow solutions through to hosting these records in the cloud. Lot 5 is made up of 8 service lines:</p>
+<ul>
+<li><p style="margin-bottom:0px">SL1: Digital Workflow Solutions</p></li>
+<li><p style="margin-bottom:0px">SL2: Cloud Based Hosting Services</p></li>
+<li><p style="margin-bottom:0px">SL3: Scanning Services</p></li>
+<li><p style="margin-bottom:0px">SL4: Interim Technical Resource</p></li>
+<li><p style="margin-bottom:0px">SL5: Off Site Records Information Management Service</p></li>
+<li><p style="margin-bottom:0px">SL6: Off Site Storage of Inactive Records</p></li>
+<li><p style="margin-bottom:0px">SL7: Secure Shredding, Destruction and Disposal Services</p></li>
+<li><p style="margin-bottom:0px">SL8: Off site and/or On Site Combined Records Information Management Services</p></li>
+</ul>
+<p>Buyers can contract one or more of the service lines</p>','114','Services','2021-03-22','2025-03-22');
