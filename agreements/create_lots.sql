@@ -608,10 +608,10 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 ('478','Lot 2','Business Services','<p>No description</p>','112','Services','2021-08-10','2025-08-09');
 
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
-('479','Lot 1','Contact Centres','<p>Overnight economy and same day delivery of documents, parcels, pallets and bulk movements to UK and international locations.</p>','113','Services','2021-08-11','2025-08-10'),
-('480','Lot 2','Contact Centres','<p>Secure same day and overnight services of documents, parcels, pallets and bulk movements to the UK and international locations. Suppliers provide additional insurances and double manned vehicles for high value secure items.</p>','113','Services','2021-08-11','2025-08-10'),
-('481','Lot 3','Contact Centres','<p>Secure overnight and same-day services to distribute exam papers and associated materials to test centres, awarding organisations and examiners to the UK and International locations.</p>','113','Services','2021-08-11','2025-08-10'),
-('482','Lot 4','Contact Centres','<p>A fully managed service for the secure collection, delivery and disposal of:</p>
+('479','Lot 1','Collection and Delivery','<p>Overnight economy and same day delivery of documents, parcels, pallets and bulk movements to UK and international locations.</p>','113','Services','2021-08-11','2025-08-10'),
+('480','Lot 2','Secure Services','<p>Secure same day and overnight services of documents, parcels, pallets and bulk movements to the UK and international locations. Suppliers provide additional insurances and double manned vehicles for high value secure items.</p>','113','Services','2021-08-11','2025-08-10'),
+('481','Lot 3','Secure Collection and Delivery of Examination and Test Papers and Materials','<p>Secure overnight and same-day services to distribute exam papers and associated materials to test centres, awarding organisations and examiners to the UK and International locations.</p>','113','Services','2021-08-11','2025-08-10'),
+('482','Lot 4','Managed Service for Specialist Movements','<p>A fully managed service for the secure collection, delivery and disposal of:</p>
 <ul>
 <li><p style="margin-bottom:0px">pathogens</p></li>
 <li><p style="margin-bottom:0px">infectious and non-infectious substances</p></li>
@@ -619,7 +619,7 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 <li><p style="margin-bottom:0px">controlled drugs</p></li>
 <li><p style="margin-bottom:0px">associated medical equipment and documents</p></li>
 </ul>','113','Services','2021-08-11','2025-08-10'),
-('483','Lot 5','Contact Centres','<p>A fully managed service for the secure collection, delivery and disposal of:</p>
+('483','Lot 5','Managed Service for Explosive Substances (Class 1), Firearms and Weapons','<p>A fully managed service for the secure collection, delivery and disposal of:</p>
 <ul>
 <li><p style="margin-bottom:0px">firearms (Sections 1,2 and 5)</p></li>
 <li><p style="margin-bottom:0px">explosives (UN Class 1)</p></li>
@@ -627,7 +627,7 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 <li><p style="margin-bottom:0px">PAVA spray</p></li>
 <li><p style="margin-bottom:0px">weapons</p></li>
 </ul>','113','Services','2021-08-11','2025-08-10'),
-('484','Lot 6','Contact Centres','<p>A fully managed service for the transportation, resale or disposal of any item or asset including:</p>
+('484','Lot 6','Managed Service for Asset Recovery','<p>A fully managed service for the transportation, resale or disposal of any item or asset including:</p>
 <ul>
 <li><p style="margin-bottom:0px">high value items</p></li>
 <li><p style="margin-bottom:0px">electrical equipment</p></li>
