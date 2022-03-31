@@ -672,7 +672,7 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 <li><p style="margin-bottom:0px">SL5: Record Preparation service</p></li>
 </ul>
 <p>Buyers can contract one or more of the service lines</p>','114','Services','2021-03-22','2025-03-22'),
-('489','Lot 5','Combined Digital Workflow, Cloud Based Hosting and Records Information Management','<p>Services from lots 1 and  2 are combined enabling buyers to reduce existing physical paper records for example, by back scanning, and implementing their digital strategies by digitising records at source using workflow solutions through to hosting these records in the cloud. Lot 5 is made up of 8 service lines:</p>
+('489','Lot 5','Digital Workflow, Cloud Based Hosting and Records Information Management Services','<p>Services from lots 1 and  2 are combined enabling buyers to reduce existing physical paper records for example, by back scanning, and implementing their digital strategies by digitising records at source using workflow solutions through to hosting these records in the cloud. Lot 5 is made up of 8 service lines:</p>
 <ul>
 <li><p style="margin-bottom:0px">SL1: Digital Workflow Solutions</p></li>
 <li><p style="margin-bottom:0px">SL2: Cloud Based Hosting Services</p></li>
