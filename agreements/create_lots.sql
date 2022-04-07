@@ -684,3 +684,9 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 <li><p style="margin-bottom:0px">SL8: Off site and/or On Site Combined Records Information Management Services</p></li>
 </ul>
 <p>Buyers can contract one or more of the service lines</p>','114','Services','2021-03-22','2025-03-22');
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
+('490','Lot 1a','Single Staff Group Sourcing: Nursing and Midwifery','<p>No description</p>','115','Services','20219-03-20','2023-03-19'),
+('491','Lot 1b','Single Staff Group Sourcing: Medical (Including GPs) and Dental Staff','<p>No description</p>','115','Services','20219-03-20','2023-03-19'),
+('492','Lot 1c','Single Staff Group Sourcing: Other Staff','<p>No description</p>','115','Services','20219-03-20','2023-03-19'),
+('493','Lot 2','Multi-Staff Group Sourcing','<p>No description</p>','115','Services','20219-03-20','2023-03-19');
