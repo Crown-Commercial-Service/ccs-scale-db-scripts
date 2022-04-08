@@ -232,7 +232,7 @@ from   search_terms st
 join   temp_domain_values td on lower(td.search_term) = st.search_term
 join   temp_journeys tj on tj.domain_name = td.domain_name;
 ------------------------------------
-// Power construction, gloves, tools,
+
 -- MAPPING OLD KEYWORDS WITH THE NEW JOURNEY
 insert into temp_domain_values values
 ('Batteries','Building Materials and Equipment', 'Building materials, equipment and associated services'),
