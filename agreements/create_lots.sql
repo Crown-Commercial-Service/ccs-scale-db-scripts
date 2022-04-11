@@ -690,3 +690,68 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 ('491','Lot 1b','Single Staff Group Sourcing: Medical (Including GPs) and Dental Staff','<p>No description</p>','115','Services','20219-03-20','2023-03-19'),
 ('492','Lot 1c','Single Staff Group Sourcing: Other Staff','<p>No description</p>','115','Services','20219-03-20','2023-03-19'),
 ('493','Lot 2','Multi-Staff Group Sourcing','<p>No description</p>','115','Services','20219-03-20','2023-03-19');
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
+('494','Lot 1','Multifunctional Print Devices (MFDs) and Basic Print Management Software','<p>Buyers can buy from a condensed catalogue of multifunctional devices and basic print management software through the sole supplier''s web-based online solution. All sectors across government can use this lot. However, we find the education sector and local authorities will have a preference for these services. Services available under this lot includes: </p>
+<ul>
+<li><p style="margin-bottom:0px">a range of 14 devices to choose from</p></li>
+<li><p style="margin-bottom:0px">consumables (such as, paper trays, staple finishers, hole punches)</p></li>
+<li><p style="margin-bottom:0px">basic print management software (for example, PIN Access Software to release jobs)</p></li>
+<li><p style="margin-bottom:0px">maintenance and support services</p></li>
+<li><p style="margin-bottom:0px">catalogue provided by a web-based online solution hosted by the supplier</p></li>
+<li><p style="margin-bottom:0px">operating and / or finance leases available</p></li>
+</ul>','116','Services','2021-09-13','2025-09-12'),
+('495','Lot 2','Multifunctional Print Devices (MFDs) Print Management and / or digital Workflow','<p>An extensive catalogue of MFDs ranging from entry level, standalone to fully networked, including:</p>
+<ul>
+<li><p style="margin-bottom:0px">hardware print devices (including remanufactured)</p></li>
+<li><p style="margin-bottom:0px">consumables</p></li>
+<li><p style="margin-bottom:0px">print room equipment</p></li>
+<li><p style="margin-bottom:0px">software options</p></li>
+<li><p style="margin-bottom:0px">maintenance and support services</p></li>
+<li><p style="margin-bottom:0px">cloud hosting and digital workflow solutions</p></li>
+</ul>
+<p>You can buy all the above services either as a combined service or independently. Our suppliers can also provide you with interim technical resources such as:</p>
+<ul>
+<li><p style="margin-bottom:0px">project managers</p></li>
+<li><p style="margin-bottom:0px">service need analyst or fleet</p></li>
+<li><p style="margin-bottom:0px">security, service or technical architects to help with the development and / or implementing your service design needs</p></li>
+</ul>
+<p>Some of the ways you can use lot 2 includes:</p>
+<li><p style="margin-bottom:0px">accessing hardware (devices), software, consumables, service and maintenance</p></li>
+<li><p style="margin-bottom:0px">having the option to outright buy and / or lease</p></li>
+<li><p style="margin-bottom:0px">designing and implementing digital workflow and / or cloud based hosting solutions specific to your organisations needs</p></li>
+<li><p style="margin-bottom:0px">managing your existing fleet, supported by service maintenance and potentially software upgrades if needed</p></li>
+</ul>','116','Services','2021-09-13','2025-09-12'),
+('496','Lot 3','Multifunctional Print Devices (MFDs), Print Management and / or Digital Workflow', '<p>The managed print service can support you to review your current printing and document workflow practices. It can also help you to consider new approaches in light of changing behaviours across your organisation. You can adapt these services to your specific needs, but we have provided some examples of how you can use this lot below:</p>
+<ul>
+<li><p style="margin-bottom:0px">to determine the type of device(s) needed for different locations across your estate footprint (across different offices)</p></li>
+<li><p style="margin-bottom:0px">suppliers can install and manage these devices on your behalf and work alongside your internal stakeholders such as IT and security</p>
+<ul>
+<li><p style="margin-bottom:0px">suppliers will remove the devices once the contract has ended</p></li>
+</ul>
+</li>
+<li><p style="margin-bottom:0px">where you own your fleet of devices, our suppliers can take over management of that fleet</p></li>
+<li><p style="margin-bottom:0px">if some of your devices need replacing during that contract period, the supplier can discuss replacement options with you</p>
+<ul>
+<li><p style="margin-bottom:0px">suppliers will remove any replacement devices once the contract has ended
+</p></li>
+</ul>
+</li>
+<li><p style="margin-bottom:0px">design and put in place a digital workflow solution specific for your organisations needs (either as an independent contract, or as part of a wider service)</p></li>
+<li><p style="margin-bottom:0px">design and put in place a cloud based hosting service specific for your organisations needs (either as an independent contract, or as part of a wider service)</p></li>
+</ul>', '116','Services','2021-09-13','2025-09-12'),
+('497','Lot 4','Print Consultancy Services','<p>Provides independent vendor neutral audits and consultancy services such as:</p>
+<ul>
+<li><p style="margin-bottom:0px">conducting audits of your existing devices to determine print volumes, future needs or new print strategy</p></li>
+<li><p style="margin-bottom:0px">conducting audits on your print management process and / or services</p></li>
+<li><p style="margin-bottom:0px">advice on the use of software options</p></li>
+<li><p style="margin-bottom:0px">advice on benefits of using digital workflow solutions</p></li>
+<li><p style="margin-bottom:0px">developing your competition documents (such as specifications and award criteria)</p></li>
+</ul>
+<p>Suppliers on this lot can help you with:</p>
+<ul>
+<li><p style="margin-bottom:0px">advice and recommendations on your options</p></li>
+<li><p style="margin-bottom:0px">strategic change</p></li>
+<li><p style="margin-bottom:0px">process efficiencies</p></li>
+<li><p style="margin-bottom:0px">savings and cost control opportunities</p></li>
+</ul>','116','Services','2021-09-13','2025-09-12');
