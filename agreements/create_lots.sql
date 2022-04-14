@@ -754,4 +754,15 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 <li><p style="margin-bottom:0px">strategic change</p></li>
 <li><p style="margin-bottom:0px">process efficiencies</p></li>
 <li><p style="margin-bottom:0px">savings and cost control opportunities</p></li>
-</ul>','116','Services','2021-09-13','2025-09-12');
+</ul>','116','Services','2021-09-13','2025-09-12')
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
+('498','Lot 1','Heavy Building Materials And One Stop Shop','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
+('499','Lot 2','Plumbing, Heating And Bathrooms','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
+('500','Lot 3','Electrical Products','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
+('501','Lot 4','Paints And Solvents','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
+('502','Lot 5','Flooring','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
+('503','Lot 6','Kitchens (Domestic)','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
+('504','Lot 7','Personal Protective Equipment (Workwear, General And Specialist)','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
+('505','Lot 8','Building And Construction Tools & Equipment - Purchase','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
+('506','Lot 9','Building And Construction Tools & Equipment - Hire','<p>No description</p>','108','Services','2021-07-27','2025-07-26');
