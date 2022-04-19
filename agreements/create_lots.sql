@@ -754,7 +754,7 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 <li><p style="margin-bottom:0px">strategic change</p></li>
 <li><p style="margin-bottom:0px">process efficiencies</p></li>
 <li><p style="margin-bottom:0px">savings and cost control opportunities</p></li>
-</ul>','116','Services','2021-09-13','2025-09-12')
+</ul>','116','Services','2021-09-13','2025-09-12');
 
 INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
 ('498','Lot 1','Heavy Building Materials And One Stop Shop','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
