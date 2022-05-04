@@ -25,3 +25,10 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v1.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v2.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v3.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v4.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v5.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v6.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v7.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v8.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v9.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v10.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v11.sql
