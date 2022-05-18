@@ -31,4 +31,4 @@ declare -a FILES_ARRAY=(\
 
 for i in ${FILES_ARRAY[@]}; do cat $i >> .combined.sql;done
 
-cf conduit ${env}-ccs-scale-cat-tenders-pg-dbb  -- psql <  .combined.sql
+cf conduit ${env}-ccs-scale-cat-tenders-pg-db  -- psql <  .combined.sql
