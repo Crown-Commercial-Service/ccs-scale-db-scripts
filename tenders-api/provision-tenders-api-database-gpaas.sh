@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Convenience provisioning script for clearing and re-provisioning the data into GOV.UK PaaS DB instances via Conduit
+# Convenience provisioning script for clearing and re-provisioning the Tenders DB schema into GOV.UK PaaS DB instances via Conduit
 # Must be logged into the target space via CF CLI
 # 
 # Uaage (env is CF space environment alias, e.g. sbx1, sbx2, dev, int etc): 
