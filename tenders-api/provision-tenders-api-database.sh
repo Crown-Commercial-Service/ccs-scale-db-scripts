@@ -21,6 +21,7 @@ export PORT=5432
 
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f drop_tables.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ddl.sql
+
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v1.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v2.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v3.sql
@@ -34,3 +35,4 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v10.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v11.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v12.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v13.sql
+
