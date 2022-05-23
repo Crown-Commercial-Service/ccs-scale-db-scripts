@@ -26,7 +26,8 @@ declare -a FILES_ARRAY=(\
     "update_v9.sql" \
     "update_v10.sql" \
     "update_v11.sql" \
-    "update_v12.sql"
+    "update_v12.sql" \
+    "update_v13.sql"
 )
 
 for i in ${FILES_ARRAY[@]}; do cat $i >> .combined.sql;done
