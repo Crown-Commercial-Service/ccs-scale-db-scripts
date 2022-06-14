@@ -35,4 +35,5 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v10.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v11.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v12.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v13.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f udpate_v14.sql
 
