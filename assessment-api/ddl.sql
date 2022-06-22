@@ -321,10 +321,7 @@ FROM (SELECT DISTINCT
     COALESCE(ss.submission_value::varchar, dvv.valid_value_code) AS submission_value,
     adw.weighting_pct AS adw_weighting_pct,
     asel.weighting_pct AS asel_weighting_pct,
-    (SELECT requirement_value
-      FROM assessment_selection_details asd 
-      WHERE asd.assessment_selection_id = asel.assessment_selection_id
-    AND asd.dimension_submission_type_id = dst.dimension_submission_type_id) as requirement_value,
+    asd.requirement_value,
     (SELECT count(*)
       FROM dimension_valid_values dvv
       WHERE dvv.valid_value_code <> '0' AND dvv.dimension_id = d.dimension_id)::integer AS dimension_divisor
@@ -342,6 +339,7 @@ FROM (SELECT DISTINCT
     LEFT JOIN dimension_valid_values dvv ON dvv.valid_value_name = ss.submission_reference AND dvv.dimension_id = d.dimension_id
     JOIN assessments ass ON ass.assessment_id = asel.assessment_id
     JOIN assessment_dimension_weighting adw ON ass.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id
+    LEFT JOIN assessment_selection_details asd ON asd.assessment_selection_id = asel.assessment_selection_id AND asd.dimension_submission_type_id = dst.dimension_submission_type_id
   WHERE (ss.submission_reference IS NOT NULL 
     OR ss.submission_value IS NOT NULL) 
     AND ass.status = 'ACTIVE'
