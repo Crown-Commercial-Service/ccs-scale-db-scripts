@@ -3,7 +3,7 @@
 Tenders DB Update script: v17 (Award details table)
 */
 
-CREATE TABLE public.award_details (
+CREATE TABLE award_details (
 	contract_id SERIAL PRIMARY KEY NOT NULL,
 	award_id int4 NOT NULL,
 	event_id int4 NOT NULL,
@@ -16,6 +16,6 @@ CREATE TABLE public.award_details (
 	updated_at timestamp NULL
 );
 
-ALTER TABLE public.award_details
+ALTER TABLE award_details
 ADD CONSTRAINT procurement_event_fk FOREIGN KEY (event_id)
-    REFERENCES public.procurement_events(event_id); 
+    REFERENCES procurement_events(event_id); 
