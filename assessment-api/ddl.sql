@@ -312,7 +312,7 @@ SELECT dimension_id, count(*) dimension_divisor
        WHERE dvv.valid_value_code <> '0'
        group by dvv.dimension_id )
  SELECT
- concat(substring(supplier_id from 9),asel.assessment_id,st.submission_type_code, r.requirement_id, d.dimension_id)::BIGINT as id,
+ concat(supplier_id,asel.assessment_id,st.submission_type_code, r.requirement_id, d.dimension_id) as id,
     asel.assessment_id,
     ss.supplier_id,
     atool.assessment_tool_name,
