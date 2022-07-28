@@ -305,48 +305,45 @@ create table assessment_dimension_submission_types (
   --updated_at                              timestamp);
 
 -- Views to support assessment result calculations
-CREATE OR REPLACE VIEW calculation_base as
-with agdvv as (
-SELECT dimension_id, count(*) dimension_divisor
-       FROM dimension_valid_values dvv
-       WHERE dvv.valid_value_code <> '0'
-       group by dvv.dimension_id )
- SELECT
- concat(supplier_id,asel.assessment_id,st.submission_type_code, r.requirement_id, d.dimension_id) as id,
+-- calculation_base source
+
+CREATE OR REPLACE VIEW calculation_base
+AS WITH agdvv AS (
+         SELECT dvv_1.dimension_id,
+            count(*) AS dimension_divisor
+           FROM dimension_valid_values dvv_1
+          WHERE dvv_1.valid_value_code::text <> '0'::text
+          GROUP BY dvv_1.dimension_id
+        )
+ SELECT concat("substring"(ss.supplier_id::text, 9), asel.assessment_id, st.submission_type_code, r.requirement_id, d.dimension_id) AS id,
     asel.assessment_id,
     ss.supplier_id,
     atool.assessment_tool_name,
     st.submission_type_name,
-   st.submission_type_code,
+    st.submission_type_code,
     d.dimension_name,
     d.dimension_id,
     r.requirement_name,
     r.requirement_id,
     ss.submission_reference,
-    dvv.valid_value_code AS submission_value,
+    COALESCE(dvv.valid_value_code, ss.submission_value::text::character varying, "substring"(ss.submission_reference::text, 1, 1)::character varying) AS submission_value,
     adw.weighting_pct AS adw_weighting_pct,
     asel.weighting_pct AS asel_weighting_pct,
-   asd.requirement_value,
-    agdvv.dimension_divisor::int
-  FROM assessments ass
-   JOIN assessment_selections asel on ass.assessment_id = asel.assessment_id
-   JOIN lot_requirement_taxons lrt on lrt.requirement_taxon_id = asel.requirement_taxon_id
-   join supplier_submissions ss on ss.lot_requirement_taxon_id = lrt.lot_requirement_taxon_id
-   JOIN requirement_taxons rt ON rt.requirement_taxon_id = lrt.requirement_taxon_id
-   JOIN dimensions d on d.dimension_id = asel.dimension_id and d.max_weighting_pct  > 0
-   JOIN dimension_submission_types dst ON dst.dimension_submission_type_id = ss.dimension_submission_type_id
-   JOIN submission_types st ON st.submission_type_code = dst.submission_type_code
-   JOIN requirements r ON r.requirement_id = rt.requirement_id
-   JOIN assessment_taxons atax ON atax.assessment_taxon_id = rt.assessment_taxon_id
-   JOIN assessment_tools atool ON atool.assessment_tool_id = atax.assessment_tool_id
-   JOIN dimension_valid_values dvv ON dvv.valid_value_name = ss.submission_reference AND dvv.dimension_id = d.dimension_id
-   join agdvv on agdvv.dimension_id = d.dimension_id
-    JOIN assessment_dimension_weighting adw ON asel.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id
- left outer join assessment_selection_details asd on asd.assessment_selection_id = asel.assessment_selection_id AND asd.dimension_submission_type_id = dst.dimension_submission_type_id
-  WHERE ss.submission_reference IS NOT NULL
-    OR ss.submission_value IS NOT NULL
-    AND ass.status = 'ACTIVE'
-    AND d.max_weighting_pct > 0
-;
-
-
+    asd.requirement_value,
+    agdvv.dimension_divisor::integer AS dimension_divisor
+   FROM assessments ass
+     JOIN assessment_selections asel ON ass.assessment_id = asel.assessment_id
+     JOIN lot_requirement_taxons lrt ON lrt.requirement_taxon_id = asel.requirement_taxon_id
+     JOIN supplier_submissions ss ON ss.lot_requirement_taxon_id = lrt.lot_requirement_taxon_id
+     JOIN requirement_taxons rt ON rt.requirement_taxon_id = lrt.requirement_taxon_id
+     JOIN dimensions d ON d.dimension_id = asel.dimension_id
+     JOIN dimension_submission_types dst ON dst.dimension_submission_type_id = ss.dimension_submission_type_id
+     JOIN submission_types st ON st.submission_type_code::text = dst.submission_type_code::text
+     JOIN requirements r ON r.requirement_id = rt.requirement_id
+     JOIN assessment_taxons atax ON atax.assessment_taxon_id = rt.assessment_taxon_id
+     JOIN assessment_tools atool ON atool.assessment_tool_id = atax.assessment_tool_id
+     LEFT JOIN dimension_valid_values dvv ON dvv.valid_value_name::text = ss.submission_reference::text AND dvv.dimension_id = d.dimension_id
+     LEFT JOIN agdvv ON agdvv.dimension_id = d.dimension_id
+     JOIN assessment_dimension_weighting adw ON asel.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id
+     LEFT JOIN assessment_selection_details asd ON asd.assessment_selection_id = asel.assessment_selection_id AND asd.dimension_submission_type_id = dst.dimension_submission_type_id
+  WHERE (ss.submission_reference IS NOT NULL OR ss.submission_value IS NOT NULL) AND ass.status::text = 'ACTIVE'::text AND d.max_weighting_pct > 0::numeric;
