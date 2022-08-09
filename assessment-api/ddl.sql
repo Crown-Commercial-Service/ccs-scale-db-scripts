@@ -347,3 +347,29 @@ AS WITH agdvv AS (
      JOIN assessment_dimension_weighting adw ON asel.assessment_id = adw.assessment_id AND d.dimension_id = adw.dimension_id
      LEFT JOIN assessment_selection_details asd ON asd.assessment_selection_id = asel.assessment_selection_id AND asd.dimension_submission_type_id = dst.dimension_submission_type_id
   WHERE (ss.submission_reference IS NOT NULL OR ss.submission_value IS NOT NULL) AND ass.status::text = 'ACTIVE'::text AND d.max_weighting_pct > 0::numeric;
+
+
+
+
+CREATE OR REPLACE VIEW supplier_submission_data
+AS SELECT ss.supplier_submission_id::text::character varying AS supplier_submission_id,
+    ss.supplier_id,
+    r.requirement_name,
+    d.dimension_name,
+    ats.assessment_tool_name,
+    COALESCE(dvv.valid_value_code, ss.submission_value::text::character varying, "substring"(ss.submission_reference::text, 1, 1)::character varying) AS submission_value,
+    st.submission_type_name,
+    d.dimension_id,
+    ats.assessment_tool_id,
+    ats.external_assessment_tool_id,
+    lrt.lot_id::text::character varying AS lot_id
+   FROM supplier_submissions ss
+     JOIN dimension_submission_types dst ON dst.dimension_submission_type_id = ss.dimension_submission_type_id
+     JOIN submission_types st ON st.submission_type_code::text = dst.submission_type_code::text
+     JOIN dimensions d ON d.dimension_id = dst.dimension_id
+     JOIN lot_requirement_taxons lrt ON lrt.lot_requirement_taxon_id = ss.lot_requirement_taxon_id
+     JOIN requirement_taxons rt ON rt.requirement_taxon_id = lrt.requirement_taxon_id
+     JOIN requirements r ON r.requirement_id = rt.requirement_id
+     JOIN assessment_taxons atx ON rt.assessment_taxon_id = atx.assessment_taxon_id
+     JOIN assessment_tools ats ON ats.assessment_tool_id = atx.assessment_tool_id
+     LEFT JOIN dimension_valid_values dvv ON dvv.valid_value_name::text = ss.submission_reference::text AND dvv.dimension_id = d.dimension_id;
