@@ -3,8 +3,6 @@ Tenders DB Update script: v18 -  PA Event type data added.
 */
 
 
-
-
 INSERT INTO public.procurement_event_types
 (procurement_event_type_id, procurement_event_type_name, procurement_event_type_description, premarket_activity_ind)
 VALUES(8, 'PA', 'Procurement Assessment', false);
