@@ -38,3 +38,5 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f update_v14.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f update_v15.sql
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f update_v16.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f update_v17.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f update_v18.sql
