@@ -234,7 +234,9 @@ create table assessments(
   created_by            varchar(2000) not null,
   created_at            timestamp     not null,
   updated_by            varchar(2000),
-  updated_at            timestamp);
+  updated_at            timestamp,
+  assessment_name       varchar(255));
+
 
 -- Create table assessment selection
 
