@@ -238,6 +238,27 @@ create table assessments(
   assessment_name       varchar(255));
 
 
+  -- Create table gcloud_assessments
+  create table gcloud_assessments (
+    assessment_id         serial        primary key,
+    assessment_name       varchar(255),
+    external_tool_id      integer       not null,
+    status                varchar(30)   not null,
+    dimension_reqs        varchar(2000)
+  );
+
+
+  -- Create table gcloud_assessment_results
+  create table gcloud_assessment_results (
+    gcloud_result_id      serial        primary key,
+    assessment_id         integer       not null,
+    service_name          varchar(255)  not null,
+    supplier_name         varchar(255),
+    service_desc          varchar(2000),
+    service_link          varchar(2000)
+  );
+
+
 -- Create table assessment selection
 
 create table assessment_selections
