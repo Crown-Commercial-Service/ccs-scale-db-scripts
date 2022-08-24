@@ -10,7 +10,8 @@ CREATE TABLE assessment_tool_dimensions (
 	updated_by varchar(2000) NULL,
 	updated_at timestamp NULL,
 	CONSTRAINT assessment_tool_dimensions_pkey PRIMARY KEY (assessment_tool_dimension_id),
-	CONSTRAINT uq_assessment_tool_dimensions UNIQUE (assessment_tool_id, dimension_id)
+	CONSTRAINT uq_assessment_tool_dimensions UNIQUE (assessment_tool_id, dimension_id),
+	exclusion_policy_id int4 NULL
 );
 
 ALTER TABLE assessment_tool_dimensions ADD CONSTRAINT assessment_tool_dimensions_fk 

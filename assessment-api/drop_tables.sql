@@ -30,5 +30,6 @@ DROP TABLE IF EXISTS dimensions;
 DROP TABLE IF EXISTS submission_types;
 DROP TABLE IF EXISTS assessment_taxons;
 DROP TABLE IF EXISTS assessment_tools;
-
+DROP TABLE IF EXISTS assessment_tool_dimensions CASCADE;
+DROP TABLE IF EXISTS assessment_tool_submission_group;
 
