@@ -242,9 +242,13 @@ create table assessments(
   create table gcloud_assessments (
     assessment_id         serial        primary key,
     assessment_name       varchar(255),
-    external_tool_id      integer       not null,
+    assessment_tool_id      integer       not null,
     status                varchar(30)   not null,
-    dimension_reqs        varchar(2000)
+    dimension_reqs        varchar(2000),
+    created_by            varchar(2000) not null,
+    created_at            timestamp     not null,
+    updated_by            varchar(2000),
+    updated_at            timestamp
   );
 
 
@@ -255,7 +259,11 @@ create table assessments(
     service_name          varchar(255)  not null,
     supplier_name         varchar(255),
     service_desc          varchar(2000),
-    service_link          varchar(2000)
+    service_link          varchar(2000),
+    created_by            varchar(2000) not null,
+    created_at            timestamp     not null,
+    updated_by            varchar(2000),
+    updated_at            timestamp
   );
 
 
