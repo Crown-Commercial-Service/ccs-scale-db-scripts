@@ -242,7 +242,7 @@ create table assessments(
   create table gcloud_assessments (
     assessment_id         serial        primary key,
     assessment_name       varchar(255),
-    assessment_tool_id      integer       not null,
+    external_tool_id      integer       not null,
     status                varchar(30)   not null,
     dimension_reqs        varchar(2000),
     created_by            varchar(2000) not null,
