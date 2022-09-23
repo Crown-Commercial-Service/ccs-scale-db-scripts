@@ -74,7 +74,7 @@ INSERT INTO assessment_tool_dimensions (assessment_tool_id,dimension_id,calculat
 	 (2,6,1,0,10,70,'dataloader','2022-08-09 11:31:53.082728',NULL,NULL);
 
 
-drop view if exists supplier_submission_data_new;
+drop view if exists supplier_submission_data;
 drop table if exists assessment_tool_submission_group;
 drop table if exists submission_group;
 
@@ -141,7 +141,10 @@ ALTER TABLE assessment_taxons ADD submission_group_id int4 NULL;
 update assessment_taxons  set submission_group_id  = assessment_tool_id ;
 
 
-create view supplier_submission_data_new as
+alter table dimensions add column dimension_code varchar(64) null;
+
+
+create view supplier_submission_data as
 SELECT distinct ss.supplier_submission_id::text::character varying AS supplier_submission_id,
     ss.supplier_id,
     r.requirement_name,
@@ -170,7 +173,7 @@ SELECT distinct ss.supplier_submission_id::text::character varying AS supplier_s
 
 
 
-create or replace view  calculation_base_new as
+create or replace view  calculation_base as
 WITH agdvv AS (
          SELECT dvv_1.dimension_id,
             count(*) AS dimension_divisor
