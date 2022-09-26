@@ -7,14 +7,15 @@ Description This file is a script to create the tables for the Agreements databa
             
 Version No Version Description
 ---------- -------------------
-V0.0.1       Initial Release
+V0.0.2      Initial Release
 */
+
+CREATE TYPE DOMAIN_TYPE AS ENUM ('LOT_PEOPLE', 'LOT_ORGANISATION', 'COMMERCIAL_AGREEMENT_ORGANISATION');
 
 CREATE TABLE commercial_agreements (
   commercial_agreement_id           SERIAL PRIMARY KEY,
   commercial_agreement_number       VARCHAR(20) NOT NULL,
   commercial_agreement_name         VARCHAR(200) NOT NULL,
-  commercial_agreement_owner        VARCHAR(200) NOT NULL,
   commercial_agreement_description  VARCHAR(2000) NOT NULL, -- perhaps this needs to be a different type
   start_date                        DATE NOT NULL,
   end_date                          DATE NOT NULL,
@@ -23,7 +24,6 @@ CREATE TABLE commercial_agreements (
 
 CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
 CREATE INDEX COAG_IDX2 on COMMERCIAL_AGREEMENTS (commercial_agreement_name);
-CREATE INDEX COAG_IDX3 on COMMERCIAL_AGREEMENTS  (commercial_agreement_owner);
 
 CREATE TABLE lots (
   lot_id                            SERIAL PRIMARY KEY,
@@ -78,19 +78,6 @@ CREATE TABLE lot_route_to_market (
   PRIMARY KEY (lot_id,route_to_market_name)          
 );
 
-CREATE TABLE commercial_agreement_contacts (
-  commercial_agreement_contact_id   SERIAL PRIMARY KEY,
-  contact_id                        SERIAL NOT NULL, -- Have made this serial as conclave does not exist to hold contacts.
-  commercial_agreement_id           INTEGER NOT NULL,          
-  contact_type                      VARCHAR(100) NOT NULL,
-  email_address                     VARCHAR(254) NOT NULL
-);
-  
-CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX1 on COMMERCIAL_AGREEMENT_CONTACTS (contact_id);
-CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX2 on COMMERCIAL_AGREEMENT_CONTACTS (contact_type);
-CREATE INDEX COMMERCIAL_AGREEMENT_CONTACTS_IDX3 on COMMERCIAL_AGREEMENT_CONTACTS (contact_type);
-
-
 CREATE TABLE lot_rules (
   lot_rule_id                       INTEGER PRIMARY KEY,
   lot_id                            INTEGER NOT NULL,
@@ -119,7 +106,7 @@ CREATE TABLE lot_rule_attributes (
   attribute_data_type               VARCHAR(20),
   value_number                      NUMERIC,
   value_text                        VARCHAR(200),
-  value_date                        DATE,          
+  attribute_uom                     VARCHAR(20),	
   PRIMARY KEY (lot_rule_id,attribute_name)
 );
 
@@ -133,7 +120,220 @@ CREATE TABLE lot_related_lots (
   PRIMARY KEY (lot_id,lot_rule_id)
 );     
             
-CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id);         
+CREATE INDEX LOT_RELATED_LOTS_IDX1 on LOT_RELATED_LOTS (lot_rule_id); 
+
+CREATE TABLE organisations (
+  organisation_id          SERIAL         NOT NULL PRIMARY KEY,
+  entity_id                VARCHAR(255),
+  registry_code            VARCHAR(20), 	
+  legal_name               VARCHAR(255)   NOT NULL UNIQUE,
+  business_type            VARCHAR(20)    ,
+  organisation_uri         VARCHAR(2000),
+  status                   VARCHAR(100),
+  incorporation_date       DATE           NOT NULL,
+  country_of_incorporation VARCHAR(3)     NOT NULL,
+  country_name             VARCHAR(100),
+  parent_org_id            INTEGER,
+  ultimate_org_id          INTEGER,
+  is_sme		   BOOLEAN,
+  is_vcse		   BOOLEAN,
+  active                   BOOLEAN		
+);
+
+CREATE INDEX ORGANISATIONS_IDX1 ON ORGANISATIONS (parent_org_id);
+CREATE INDEX ORGANISATIONS_IDX2 ON ORGANISATIONS (ultimate_org_id);
+CREATE INDEX ORGANISATIONS_IDX3 ON ORGANISATIONS (entity_id);
+
+            
+CREATE TABLE people (
+person_id       SERIAL       NOT NULL PRIMARY KEY,
+organisation_id INTEGER      NOT NULL,	
+first_name      VARCHAR(100) NOT NULL ,
+last_name       VARCHAR(100) NOT NULL ,
+title           VARCHAR(50)  NOT NULL
+);	
+
+
+CREATE TABLE lot_organisation_roles (
+  lot_organisation_role_id        SERIAL    NOT NULL PRIMARY KEY,	
+  lot_id                          INTEGER   NOT NULL,
+  organisation_id                 INTEGER   NOT NULL,
+  role_type_id	                  INTEGER   NOT NULL,
+  trading_organisation_id         INTEGER,           	
+  start_date                      DATE NOT NULL,
+  end_date                        DATE
+);
+
+
+CREATE TABLE lot_people_roles (
+  lot_person_role_id              SERIAL    NOT NULL PRIMARY KEY,	
+  lot_id                          INTEGER   NOT NULL,
+  person_id                       INTEGER   NOT NULL,
+  role_type_id                    INTEGER   NOT NULL,	
+  start_date                      DATE NOT NULL,
+  end_date                        DATE
+);
+
+CREATE TABLE commercial_agreement_organisation_roles (
+  commercial_agreement_organisation_role_id SERIAL    NOT NULL PRIMARY KEY,
+  commercial_agreement_id                   INTEGER   NOT NULL,
+  organisation_id                           INTEGER   NOT NULL,
+  role_type_id                              INTEGER   NOT NULL,
+  start_date                                DATE      NOT NULL,
+  end_date                                  DATE
+);
+
+CREATE TABLE role_types (
+role_type_id             INTEGER      NOT NULL,
+role_domain              DOMAIN_TYPE  NOT NULL,	
+role_type_name           VARCHAR(100) NOT NULL,
+PRIMARY KEY (role_type_id)	
+);	
+
+CREATE TABLE trading_organisations (
+  trading_organisation_id         INTEGER PRIMARY KEY,
+  organisation_id                 INTEGER NOT NULL,
+  trading_organisation_name       VARCHAR(255) NOT NULL); 
+  
+CREATE INDEX TRADING_ORGANISATIONS_IDX1 ON TRADING_ORGANISATIONS(trading_organisation_name); 
+  
+CREATE TABLE contact_point_reasons (
+  contact_point_reason_id          INTEGER PRIMARY KEY,
+  contact_point_reason_name        VARCHAR(100) NOT NULL,
+  contact_point_reason_description VARCHAR(1000),
+  source_application_system        VARCHAR(100));
+  
+CREATE INDEX CONTACT_POINT_REASONS_IDX1 ON CONTACT_POINT_REASONS (contact_point_reason_name); 
+  
+CREATE TABLE contact_details (
+  contact_detail_id      SERIAL PRIMARY KEY,
+  effective_from         DATE NOT NULL,
+  effective_to           DATE,
+  street_address         VARCHAR(500),
+  locality               VARCHAR(100),
+  region                 VARCHAR(100),
+  postal_code            VARCHAR(20),
+  country_code           VARCHAR(3),
+  country_name           VARCHAR(100),
+  uprn                   INTEGER,
+  telephone_number       VARCHAR(100),
+  fax_number             VARCHAR(100),	
+  email_address          VARCHAR(500),
+  url                    VARCHAR(2000)	
+  );
+  
+CREATE INDEX CONTACT_DETAILS_IDX1 ON CONTACT_DETAILS (effective_from);
+  
+CREATE TABLE contact_point_lot_prs(
+  contact_point_id        SERIAL PRIMARY KEY,
+  contact_detail_id       INTEGER NOT NULL,
+  contact_point_reason_id INTEGER NOT NULL,
+  lot_person_role_id      INTEGER NOT NULL, 
+  contact_point_name      VARCHAR(100),	
+  effective_from          DATE NOT NULL,
+  effective_to             DATE,
+  primary_ind             BOOLEAN);
+  
+CREATE INDEX CONTACT_POINT_LOT_PRS_IDX1 ON CONTACT_POINT_LOT_PRS (lot_person_role_id, effective_from);
+					   
+CREATE TABLE contact_point_lot_ors(
+  contact_point_id         SERIAL PRIMARY KEY,
+  contact_detail_id        INTEGER NOT NULL,
+  contact_point_reason_id  INTEGER NOT NULL,
+  lot_organisation_role_id INTEGER NOT NULL, 
+  contact_point_name       VARCHAR(100),	
+  effective_from           DATE NOT NULL,
+  effective_to              DATE,
+  primary_ind              BOOLEAN);
+  
+CREATE INDEX CONTACT_POINT_LOT_ORS_IDX1 ON CONTACT_POINT_LOT_ORS (lot_organisation_role_id, effective_from);
+					   
+CREATE TABLE contact_point_commercial_agreement_ors(
+  contact_point_id                          SERIAL PRIMARY KEY,
+  contact_detail_id                         INTEGER NOT NULL,
+  contact_point_reason_id                   INTEGER NOT NULL,
+  commercial_agreement_organisation_role_id INTEGER NOT NULL, 
+  contact_point_name                        VARCHAR(100),	
+  effective_from                            DATE NOT NULL,
+  effective_to                               DATE,
+  primary_ind                               BOOLEAN);
+  
+CREATE INDEX CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS_IDX1 ON CONTACT_POINT_COMMERCIAL_AGREEMENT_ORS (commercial_agreement_organisation_role_id, effective_from);
+					   
+CREATE TABLE commercial_agreement_benefits(
+  commercial_agreement_benefit_id SERIAL   PRIMARY KEY,	
+  commercial_agreement_id         INTEGER  NOT NULL,
+  benefit_name                    VARCHAR(2000),
+  benefit_description             VARCHAR(2000),
+  benefit_url                     VARCHAR(2000),
+  order_seq                       INTEGER);
+					  
+CREATE INDEX commercial_agreement_benefits_IDX1 ON commercial_agreement_benefits (commercial_agreement_id);
+CREATE INDEX commercial_agreement_benefits_IDX2 ON commercial_agreement_benefits (benefit_name);
+
+CREATE TABLE commercial_agreement_updates(
+  commercial_agreement_update_id SERIAL   PRIMARY KEY,	
+  commercial_agreement_id        INTEGER  NOT NULL,
+  update_name                    VARCHAR(100),
+  update_description             VARCHAR(4000),
+  update_url                     VARCHAR(2000),
+  published_date                 TIMESTAMP);
+					  
+CREATE INDEX commercial_agreement_updates_IDX1 ON commercial_agreement_updates (commercial_agreement_id);
+CREATE INDEX commercial_agreement_updates_IDX2 ON commercial_agreement_updates (update_name);
+
+CREATE TABLE commercial_agreement_documents(
+  commercial_agreement_document_id SERIAL  PRIMARY KEY,	
+  commercial_agreement_id          INTEGER NOT NULL,
+  document_name                    VARCHAR(200),
+  document_description             VARCHAR(2000),
+  document_url                     VARCHAR(2000),
+  document_type                    VARCHAR(20),
+  document_version                 INTEGER,	
+  "language"                       VARCHAR(2),
+  format                           VARCHAR(100),	
+  published_date                   TIMESTAMP,
+  modified_at                      TIMESTAMP);
+					  
+CREATE INDEX commercial_agreement_documents_IDX1 ON commercial_agreement_documents (commercial_agreement_id);
+CREATE INDEX commercial_agreement_documents_IDX2 ON commercial_agreement_documents (document_name);
+
+create table procurement_event_types
+(procurement_event_type_id           integer       not null,
+ procurement_event_type_name         varchar(20)   not null,
+ procurement_event_type_description varchar(2000) not null,
+ premarket_activity_ind              BOOLEAN       not null,
+ CONSTRAINT procurement_event_types_pkey PRIMARY KEY (procurement_event_type_id),
+ CONSTRAINT procurement_event_types_ukey UNIQUE      (procurement_event_type_name));
+
+-- Create table Lot Procurement Event Types
+create table lot_procurement_event_types
+( lot_id                    integer not null,
+  procurement_event_type_id integer not null,
+  mandatory_event_ind       boolean not null,
+  repeatable_event_ind      boolean not null,
+  max_repeats               integer,
+  assessment_tool_id        varchar(128) null,
+  CONSTRAINT lot_procurement_event_types_pkey PRIMARY KEY (lot_id,procurement_event_type_id));
+
+-- Create table Procurement Question Templates
+
+create table procurement_question_templates
+( template_id      serial       not null,
+  template_name    varchar(200) not null,
+  template_url     varchar(2000),
+  template_payload jsonb,
+  CONSTRAINT procurement_question_templates_pkey PRIMARY KEY (template_id),
+  CONSTRAINT procurement_question_templates_ukey UNIQUE      (template_name));
+
+
+-- Create table Lot Procurement Question Templates
+create table lot_procurement_question_templates
+( lot_id                    integer not null,
+  template_id               integer not null,
+  procurement_event_type_id integer not null,
+  CONSTRAINT lot_procurement_question_templatess_pkey PRIMARY KEY (lot_id,template_id,procurement_event_type_id));
+
 
 ALTER TABLE lots 
 ADD CONSTRAINT lots_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
@@ -155,12 +355,6 @@ ALTER TABLE lot_route_to_market
 ADD CONSTRAINT lot_route_to_market_route_to_market_fk FOREIGN KEY (route_to_market_name) 
     REFERENCES route_to_market (route_to_market_name);     
      
-ALTER TABLE commercial_agreement_contacts
-ADD CONSTRAINT commercial_agreement_contacts_commercial_agreements_fk FOREIGN KEY (commercial_agreement_id) 
-    REFERENCES commercial_agreements (commercial_agreement_id);
-    
--- No FK to contacts as that entitry doesn't exist in our model.
-
 ALTER TABLE lot_rules 
 ADD CONSTRAINT lot_rules_lots_fk FOREIGN KEY (lot_id) 
     REFERENCES lots (lot_id);
@@ -179,5 +373,122 @@ ADD CONSTRAINT lot_rule_attributes_lot_rule_fk FOREIGN KEY (lot_rule_id)
     
 ALTER TABLE lot_rule_transaction_objects
 ADD CONSTRAINT lot_rule_transaction_objects_lot_rule_fk FOREIGN KEY (lot_rule_id) 
-    REFERENCES lot_rules (lot_rule_id);        
+    REFERENCES lot_rules (lot_rule_id); 
     
+ALTER TABLE organisations
+ADD CONSTRAINT organisations_organisations_fk1 FOREIGN KEY (parent_org_id) 
+    REFERENCES organisations (organisation_id);  
+    
+ALTER TABLE organisations
+ADD CONSTRAINT organisations_organisations_fk2 FOREIGN KEY (ultimate_org_id) 
+    REFERENCES organisations (organisation_id);
+    
+ALTER TABLE lot_organisation_roles
+ADD CONSTRAINT lots_organisation_organisations_fk FOREIGN KEY (organisation_id) 
+    REFERENCES organisations (organisation_id);  
+    
+ALTER TABLE lot_organisation_roles
+ADD CONSTRAINT lot_organisation_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);
+    
+ALTER TABLE lot_organisation_roles
+ADD CONSTRAINT lot_organisation_lort_fk FOREIGN KEY (role_type_id) 
+    REFERENCES role_types (role_type_id);
+					   
+ALTER TABLE commercial_agreement_organisation_roles
+ADD CONSTRAINT caor_organisations_fk FOREIGN KEY (organisation_id) 
+    REFERENCES organisations (organisation_id);      
+    
+ALTER TABLE commercial_agreement_organisation_roles 
+ADD CONSTRAINT caor_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id) 
+    REFERENCES commercial_agreements (commercial_agreement_id);    
+
+ALTER TABLE commercial_agreement_organisation_roles 
+ADD CONSTRAINT caor_commercial_agreement_roles_fk FOREIGN KEY (role_type_id) 
+    REFERENCES role_types (role_type_id);    
+
+ALTER TABLE trading_organisations 
+ADD CONSTRAINT trading_organisations_organisations_fk FOREIGN KEY (organisation_id ) 
+    REFERENCES organisations (organisation_id );
+		
+ALTER TABLE contact_point_lot_prs
+ADD CONSTRAINT contact_point_lot_prs_contact_details_fk FOREIGN KEY(contact_detail_id)
+    REFERENCES contact_details (contact_detail_id);
+
+ALTER TABLE contact_point_lot_prs
+ADD CONSTRAINT contact_point_lot_prs_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
+    REFERENCES contact_point_reasons (contact_point_reason_id);
+					   
+ALTER TABLE contact_point_lot_prs
+ADD CONSTRAINT contact_point_lot_prs_lot_people_roles_fk FOREIGN KEY (lot_person_role_id)
+    REFERENCES lot_people_roles (lot_person_role_id);
+
+ALTER TABLE contact_point_lot_ors
+ADD CONSTRAINT contact_point_lot_ors_contact_details_fk FOREIGN KEY(contact_detail_id)
+    REFERENCES contact_details (contact_detail_id);
+
+ALTER TABLE contact_point_lot_ors
+ADD CONSTRAINT contact_point_lot_ors_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
+    REFERENCES contact_point_reasons (contact_point_reason_id);
+					   
+ALTER TABLE contact_point_lot_ors
+ADD CONSTRAINT contact_point_lot_ors_lot_people_roles_fk FOREIGN KEY (lot_organisation_role_id)
+    REFERENCES lot_organisation_roles (lot_organisation_role_id);
+
+ALTER TABLE contact_point_commercial_agreement_ors
+ADD CONSTRAINT contact_point_commercial_agreement_ors_contact_details_fk FOREIGN KEY(contact_detail_id)
+    REFERENCES contact_details (contact_detail_id);
+
+ALTER TABLE contact_point_commercial_agreement_ors
+ADD CONSTRAINT contact_point_commercial_agreement_ors_contact_point_reason_fk FOREIGN KEY (contact_point_reason_id)
+    REFERENCES contact_point_reasons (contact_point_reason_id);
+					   
+ALTER TABLE contact_point_commercial_agreement_ors
+ADD CONSTRAINT contact_point_commercial_agreement_ors_lot_people_roles_fk FOREIGN KEY (commercial_agreement_organisation_role_id)
+    REFERENCES commercial_agreement_organisation_roles (commercial_agreement_organisation_role_id);
+					  
+ALTER TABLE lot_people_roles 
+ADD CONSTRAINT lot_people_role_people_fk FOREIGN KEY (person_id)
+    REFERENCES people (person_id);						   				   
+
+ALTER TABLE lot_people_roles 
+ADD CONSTRAINT lot_people_roles_people_fk FOREIGN KEY (role_type_id)
+    REFERENCES role_types (role_type_id);	
+					   
+ALTER TABLE people 
+ADD CONSTRAINT people_organisations_fk FOREIGN KEY (organisation_id)
+    REFERENCES organisations (organisation_id);	
+					  
+ALTER TABLE commercial_agreement_benefits
+ADD CONSTRAINT coab_commercial_agreement_fk FOREIGN KEY (commercial_agreement_id)
+    REFERENCES commercial_agreements (commercial_agreement_id);    
+					  
+ALTER TABLE commercial_agreement_updates
+ADD CONSTRAINT coau_commercial_agreement_fk FOREIGN KEY(commercial_agreement_id)
+    REFERENCES commercial_agreements (commercial_agreement_id);    
+
+ALTER TABLE commercial_agreement_documents
+ADD CONSTRAINT coad_commercial_agreement_fk FOREIGN KEY(commercial_agreement_id)
+    REFERENCES commercial_agreements (commercial_agreement_id); 
+    
+ALTER TABLE lot_procurement_event_types
+ADD CONSTRAINT lot_procurement_event_types_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);
+	
+ALTER TABLE lot_procurement_event_types
+ADD CONSTRAINT lot_procurement_event_types_lpet_fk FOREIGN KEY (procurement_event_type_id) 
+    REFERENCES procurement_event_types (procurement_event_type_id);
+	
+ALTER TABLE lot_procurement_question_templates
+ADD CONSTRAINT lot_procurement_question_templates_lots_fk FOREIGN KEY (lot_id) 
+    REFERENCES lots (lot_id);	
+	
+ALTER TABLE lot_procurement_question_templates
+ADD CONSTRAINT lot_procurement_question_templates_pqt_fk FOREIGN KEY (template_id) 
+    REFERENCES procurement_question_templates (template_id);
+	    
+ALTER TABLE lot_procurement_question_templates
+ADD CONSTRAINT lot_procurement_question_templates_pet_fk FOREIGN KEY (procurement_event_type_id) 
+    REFERENCES procurement_event_types (procurement_event_type_id);
+
+  
