@@ -1,7 +1,9 @@
 -- Prototype database design for Cabability assessment
 -- load tables
 DROP VIEW IF EXISTS calculation_base;
+DROP VIEW IF EXISTS supplier_submission_data;
 
+DROP TABLE IF EXISTS assessment_dimension_criteria;
 DROP TABLE IF EXISTS supplier_submissions;
 DROP TABLE IF EXISTS lot_requirement_taxons;
 DROP TABLE IF EXISTS assessment_dimension_submission_types;
