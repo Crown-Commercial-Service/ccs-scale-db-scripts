@@ -184,13 +184,19 @@ join   temp_domain_values td on lower(td.search_term) = st.search_term;
 
 INSERT INTO error_messages (error_message_code, error_summary, error_message)
 VALUES
-('ERR_GM066','Select the product you need','Select the product you need'),
-('ERR_GM067','Select the option you need','Select the option you need');
+('ERR_GM066', 'Select the Product or Service you need' , 'Select the Product or Service you need'),
+('ERR_GM068','Select the option you need','Select the option you need'),
+('ERR_GM069','Select the type of office furniture you need', 'Select the type of office furniture you need');
 
 
 INSERT INTO error_usage (failure_validation_type_code, error_message_code, question_id)
 values
-('noSelection','ERR_GM066','25e5d903-2f2a-4a55-9382-5fb935dab79d'),
-('noSelection','ERR_GM067','a765ee32-5f0b-4022-9f22-d1765d5cd6f9');
+
+('noSelection','ERR_GM066','e40d4dee-53fc-493b-a1d3-3e86d17add1e'),
+('noSelection','ERR_GM038','25e5d903-2f2a-4a55-9382-5fb935dab79d'),
+('noSelection','ERR_GM068','a765ee32-5f0b-4022-9f22-d1765d5cd6f9'),
+('noSelection','ERR_GM069','8f0e8b24-b61f-4b4b-9bc4-99197d9253ae');
+
+
 --------------------------------------------
 
