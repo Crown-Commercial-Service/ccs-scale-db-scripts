@@ -491,4 +491,5 @@ ALTER TABLE lot_procurement_question_templates
 ADD CONSTRAINT lot_procurement_question_templates_pet_fk FOREIGN KEY (procurement_event_type_id) 
     REFERENCES procurement_event_types (procurement_event_type_id);
 
-  
+ALTER TABLE commercial_agreements ADD lot_required boolean NOT NULL DEFAULT true;
+ALTER TABLE commercial_agreements ADD lot_assessment_tool_id integer;
