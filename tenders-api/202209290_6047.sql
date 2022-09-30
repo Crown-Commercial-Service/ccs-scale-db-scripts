@@ -1,0 +1,1 @@
+ALTER TABLE procurement_events ADD template_id int4 NULL;
