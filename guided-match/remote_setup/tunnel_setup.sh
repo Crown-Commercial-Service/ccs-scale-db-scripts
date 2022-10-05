@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Create and Populate a Guided Match Database.
+# Create and Populate a Guided Match Database via SSH Tunnel.
 # 
 # Prerequisites:
 #   - Create ~/.pgpass file to hold authentication details
@@ -16,20 +16,11 @@ export PORT=5432
 export DATABASE=guided_match
 export USERNAME=<<FILL THIS IN>>
 
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ddl.sql
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ../reset_setup/drop_tables.sql
 
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ../core_structure/create_tables.sql
 
-# Run DDL version updates in order
-for i in `ls -v ./ddl-versions`
-do	
-  psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ./ddl-versions/$i
-done
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ../core_structure/apply_constraints.sql
 
-psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f dml.sql
-
-# Run DML version updates in order
-for i in `ls -v ./dml-versions`
-do	
-  psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ./dml-versions/$i
-done
-
+cd ../patches
+for FILE in *; do psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f $FILE; done
