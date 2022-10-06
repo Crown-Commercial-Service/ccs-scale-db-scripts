@@ -4,24 +4,24 @@ Created     October 5th 2022
 Author      Nathan Topping
 */
 
-DROP TABLE lot_route_to_market;
+DROP TABLE IF EXISTS commercial_agreements CASCADE;
 
-DROP TABLE route_to_market;
+DROP TABLE IF EXISTS lots CASCADE;
 
-DROP TABLE lot_sectors;
+DROP TABLE IF EXISTS sectors CASCADE;
 
-DROP TABLE sectors;
+DROP TABLE IF EXISTS lot_sectors CASCADE;
 
-DROP TABLE commercial_agreement_contacts;
+DROP TABLE IF EXISTS route_to_market CASCADE;
 
-DROP TABLE lot_rule_transaction_objects;
+DROP TABLE IF EXISTS lot_route_to_market CASCADE;
 
-DROP TABLE lot_rule_attributes;
+DROP TABLE IF EXISTS commercial_agreement_contacts CASCADE;
 
-DROP TABLE lot_related_lots;
+DROP TABLE IF EXISTS lot_rules CASCADE;
 
-DROP TABLE lot_rules;
+DROP TABLE IF EXISTS lot_rule_transaction_objects CASCADE;
 
-DROP TABLE lots;
+DROP TABLE IF EXISTS lot_rule_attributes CASCADE;
 
-DROP TABLE commercial_agreements;
+DROP TABLE IF EXISTS lot_related_lots CASCADE;

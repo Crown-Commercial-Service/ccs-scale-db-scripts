@@ -13,3 +13,13 @@ psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA
 cd guided-match/patches
 for FILE in *; do psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f $FILE; done
 
+cd ../../
+
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f agreements-service/reset_setup/drop_tables.sql
+
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f agreements-service/core_structure/create_tables.sql
+
+psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f agreements-service/core_structure/apply_constraints.sql
+
+cd agreements-service/patches
+for FILE in *; do psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -c "set schema '$SCHEMA'" -f $FILE; done

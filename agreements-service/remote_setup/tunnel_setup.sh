@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Create a Guided Match Database via SSH Tunnel.
+# Create an Agreements Database via SSH Tunnel.
 # 
 # Prerequisites:
 #   - Create ~/.pgpass file to hold authentication details
@@ -13,7 +13,7 @@
 
 export SERVER=localhost
 export PORT=5432
-export DATABASE=guided_match
+export DATABASE=agreements
 export USERNAME=<<FILL THIS IN>>
 
 psql -h $SERVER -d $DATABASE -p $PORT -U $USERNAME -a -q -f ../reset_setup/drop_tables.sql
