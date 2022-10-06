@@ -40,6 +40,15 @@ Developers should branch from develop to make changes, and pull request back int
 
 Whilst there is no official "releasing" for this repository, develop should be merged up into "main" when an application release containing database structure changes is performed for audit purposes.
 
+Maintenance
+----------------------------
+When making changes to the database structure controlled by this repository, please follow the following guidelines:
+
+* Do not modify any of the scripts within the "core_structure" folders
+* Any changes to table structures or constraints should be added to the relevant "patches" folder.  You should add a .sql file to that folder named in the format "release-x.x.sql", with the numbering corresponding to the release number that the database changes equate to (starting at 1.0)
+* For any changes/additions you add into the "patches" folders, please add a comment into your file including the case number (and ideally a one line description) of the change you're making, for audit purposes
+* Should you be adding new tables, please make sure to update the drop_tables.sql script in the relevant "reset_setup" folder to ensure that they are cleared down when that script is run
+
 Copyright
 ---------
 Copyright (c) Crown CommercialService 2022.
