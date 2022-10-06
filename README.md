@@ -1,4 +1,4 @@
-CAS Agreements and Guided Match Database Structure Scripts
+CAS Agreements Service and Guided Match Database Structure Scripts
 ===========
 
 Overview
