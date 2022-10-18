@@ -766,3 +766,92 @@ INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreemen
 ('504','Lot 7','Personal Protective Equipment (Workwear, General And Specialist)','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
 ('505','Lot 8','Building And Construction Tools & Equipment - Purchase','<p>No description</p>','108','Services','2021-07-27','2025-07-26'),
 ('506','Lot 9','Building And Construction Tools & Equipment - Hire','<p>No description</p>','108','Services','2021-07-27','2025-07-26');
+
+INSERT INTO lots (lot_id,lot_number,lot_name,lot_description,commercial_agreement_id,lot_type,start_date,end_date) VALUES
+('507','Lot 1','National Managed Service',
+'<p>Provides a managed service throughout the United Kingdom. You can buy one, some or all services from a supplier awarded onto lot 1. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('508','Lot 2','Translation, Transcription and Ancillary Services',
+'<p>Provides translation, transcription and ancillary services throughout the United Kingdom. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">translation: the conversion of written documents into another language as text</p></li><li><p style="margin-bottom:0px">transcription: the conversion of audio recordings into alternative formats (such as print or video)</p></li><li><p style="margin-bottom:0px">ancillary services: supporting services (such as editing and formatting)</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('509','Lot 3','Telephone and Spoken Video Interpreting',
+'<p>Provides telephone and spoken video interpreting services throughout the United Kingdom. This includes consecutive and simultaneous interpreting either by telephone or video conferencing technology. Common services provided under this lot include:</p>
+<ul><li><p style="margin-bottom:0px">a scheduled telephone or video interpreting service (for customers who prefer to book an interpreter in advance)</p></li><li><p style="margin-bottom:0px">on demand telephone interpreting (for non-English speakers who need to use an interpreter immediately over the telephone)</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('510','Lot 4a','Non Spoken Language Services - North East',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('511','Lot 4b','Non Spoken Language Services - North West',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('512','Lot 4c','Non Spoken Language Services - Yorkshire and Humberside',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('513','Lot 4d','Non Spoken Language Services - East Midlands',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('514','Lot 4e','Non Spoken Language Services - West Midlands',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('515','Lot 4f','Non Spoken Language Services - East of England',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('516','Lot 4g','Non Spoken Language Services - London',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('517','Lot 4h','Non Spoken Language Services - South East',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('518','Lot 4i','Non Spoken Language Services - South West',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('519','Lot 4j','Non Spoken Language Services - Wales',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('520','Lot 4k','Non Spoken Language Services - Scotland',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('521','Lot 4l','Non Spoken Language Services - Northern Ireland',
+'<p>Provides unspoken language services for deaf, deaf-blind and others who need support to access English. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">face to face interpretation</p></li><li><p style="margin-bottom:0px">video interpreting</p></li><li><p style="margin-bottom:0px">translations and transcription services</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+-----------------------------------------------
+('522','Lot 5a','Regional Managed Service - North East',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('523','Lot 5b','Regional Managed Service - North West',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('524','Lot 5c','Regional Managed Service - Yorkshire and Humberside',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('525','Lot 5d','Regional Managed Service - East Midlands',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('526','Lot 5e','Regional Managed Service - West Midlands',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('527','Lot 5f','Regional Managed Service - East of England',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('528','Lot 5g','Regional Managed Service - London',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('529','Lot 5h','Regional Managed Service - South East',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('530','Lot 5i','Regional Managed Service - South West',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('531','Lot 5j','Regional Managed Service - Wales',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('532','Lot 5k','Regional Managed Service - Scotland',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('533','Lot 5l','Regional Managed Service - Northern Ireland',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('534','Lot 5m','Regional Managed Service - Overseas and UK',
+'<p>Provides a managed service throughout the United Kingdom and overseas, broken down by region. You can buy one, some or all services from a supplier awarded to the specific region. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">spoken and unspoken translation, transcription and ancillary services</p></li><li><p style="margin-bottom:0px">spoken telephone and spoken and unspoken video interpreting</p></li><li><p style="margin-bottom:0px">spoken and unspoken face to face interpreting</p></li></ul>','122','Services','2021-05-10','2024-05-09'),
+
+('535','Lot 6','Quality Assurance Services',
+'<p>Provides quality assurance checks on services provided by suppliers who are awarded a contract through this agreement and any interpreters/ translators used to carry out those services. Common services provided under this lot include:</p><ul><li><p style="margin-bottom:0px">checking that the supplier meets the needs set out in the booking</p></li><li><p style="margin-bottom:0px">end user surveys</p></li></ul><p>This lot also provides assessments of the following services:</p><ul><li><p style="margin-bottom:0px">recorded face to face booking (audio or video)</p></li><li><p style="margin-bottom:0px">a live booking in person (spoken and unspoken)</p></li><li><p style="margin-bottom:0px">telephone interpretations</p></li><li><p style="margin-bottom:0px">video interpretations (spoken and unspoken)</p></li><li><p style="margin-bottom:0px">spoken and unspoken language interpreter through video role play</p></li><li><p style="margin-bottom:0px">translated documents</p></li><li><p style="margin-bottom:0px">transcriptions</p></li></ul>','122','Services','2021-05-10','2024-05-09');
