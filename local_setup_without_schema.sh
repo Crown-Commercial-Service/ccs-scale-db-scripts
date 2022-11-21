@@ -21,5 +21,10 @@ psql -h $SERVER -d agreements -p $PORT -U $USERNAME -a -q -f agreements-service/
 
 psql -h $SERVER -d agreements -p $PORT -U $USERNAME -a -q -f agreements-service/core_structure/apply_constraints.sql
 
+cd agreements-service/GM_patches
+for FILE in *; do psql -h $SERVER -d agreements -p $PORT -U $USERNAME -a -q -f $FILE; done
+
+cd ../../
+
 cd agreements-service/patches
 for FILE in *; do psql -h $SERVER -d agreements -p $PORT -U $USERNAME -a -q -f $FILE; done
