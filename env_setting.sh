@@ -5,7 +5,7 @@
 # NOTE: You may need to change the "USERNAME" setting to suit your local postgres setup
 
 if [ -z "$DATABASE" ]; then
-	export DATABASE=postgres
+	export DATABASE=agreements
 fi
 
 if [ -z "$SERVER" ]; then
@@ -17,7 +17,7 @@ if [ -z "$PORT" ]; then
 fi
 
 if [ -z "$SCHEMA" ]; then
-	export SCHEMA=ccs_cat
+	export SCHEMA=ccs_agreements
 fi
 
 if [ -z "$USERNAME" ]; then
