@@ -7,6 +7,8 @@ Description Database table creation scripts for initial release of Agreements Se
 NOTE: Do not amend this file - add changes under the "patches" folder
 */
 
+CREATE SCHEMA IF NOT EXISTS ccs_agreements;
+
 CREATE TYPE DOMAIN_TYPE AS ENUM ('LOT_PEOPLE', 'LOT_ORGANISATION', 'COMMERCIAL_AGREEMENT_ORGANISATION');
 
 ----------------------------------------------------------------------------------------
