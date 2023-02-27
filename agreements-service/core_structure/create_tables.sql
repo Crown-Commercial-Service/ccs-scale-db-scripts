@@ -22,8 +22,8 @@ CREATE TABLE commercial_agreements (
   start_date                        DATE NOT NULL,
   end_date                          DATE NOT NULL,
   agreement_url                     VARCHAR(2000) NOT NULL,
-  lot_required                      BOOLEAN NOT NULL DEFAULT FALSE,
-  lot_assessment_tool_id            INTEGER NOT NULL
+  lot_required                      BOOLEAN NOT NULL DEFAULT TRUE,
+  lot_assessment_tool_id            INTEGER
 );
 
 CREATE INDEX COAG_IDX1 on COMMERCIAL_AGREEMENTS  (commercial_agreement_number);
