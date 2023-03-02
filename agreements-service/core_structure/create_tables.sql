@@ -396,7 +396,7 @@ CREATE TABLE lot_procurement_event_types(
   mandatory_event_ind                                    BOOLEAN NOT NULL,
   repeatable_event_ind                                   BOOLEAN NOT NULL,
   max_repeats                                            INTEGER,
-  assessment_tool_id                                     VARCHAR(128) NOT NULL,
+  assessment_tool_id                                     VARCHAR(128),
   CONSTRAINT lot_procurement_event_types_pkey            PRIMARY KEY (lot_id,procurement_event_type_id)
 );
 
