@@ -405,8 +405,15 @@ CREATE TABLE lot_procurement_event_types(
 CREATE TABLE procurement_question_templates( 
   template_id                                     SERIAL NOT NULL,
   template_name                                   VARCHAR(200) NOT NULL,
+  template_description                            VARCHAR(512),
+  template_parent                                 INTEGER,
   template_url                                    VARCHAR(2000),
   template_payload                                JSONB,
+  template_mandatory                              BOOLEAN DEFAULT FALSE,
+  created_by                                      VARCHAR(2000) NOT NULL,
+  created_at                                      TIMESTAMP NOT NULL,
+  updated_by                                      VARCHAR(2000),
+  updated_at                                      TIMESTAMP,
   CONSTRAINT procurement_question_templates_pkey  PRIMARY KEY (template_id),
   CONSTRAINT procurement_question_templates_ukey  UNIQUE      (template_name)
 );
@@ -418,4 +425,35 @@ CREATE TABLE lot_procurement_question_templates(
   template_id               INTEGER NOT NULL,
   procurement_event_type_id INTEGER NOT NULL,
   CONSTRAINT lot_procurement_question_templatess_pkey PRIMARY KEY (lot_id,template_id,procurement_event_type_id)
+);
+
+----------------------------------------------------------------------------------------
+
+CREATE TABLE template_groups(
+    template_group_id                       SERIAL NOT NULL,
+    template_group_name                     VARCHAR(256) NOT NULL,
+    lot_id                                  INTEGER NOT NULL,
+    procurement_event_type_id               INTEGER NOT NULL,
+    created_by                              VARCHAR(2000) NOT NULL,
+    created_at                              TIMESTAMP NOT NULL,
+    updated_by                              VARCHAR(2000),
+    updated_at                              TIMESTAMP,
+    CONSTRAINT template_groups_pkey         PRIMARY KEY (template_group_id),
+    CONSTRAINT template_groups_lots_fk      FOREIGN KEY (lot_id) REFERENCES lots (lot_id),
+    CONSTRAINT template_groups_lpet_fk      FOREIGN KEY (procurement_event_type_id) REFERENCES procurement_event_types (procurement_event_type_id)    
+);
+
+----------------------------------------------------------------------------------------
+
+CREATE TABLE template_group_mapping(
+    template_group_mapping_id                         SERIAL NOT NULL,
+    template_group_id                                 INTEGER NOT NULL,
+    template_id                                       INTEGER NOT NULL,
+    created_by                                        VARCHAR(2000) NOT NULL,
+	  created_at                                        TIMESTAMP NOT NULL,
+	  updated_by                                        VARCHAR(2000),
+	  updated_at                                        TIMESTAMP,
+    CONSTRAINT template_group_mapping_pkey            PRIMARY KEY (template_group_mapping_id),
+    CONSTRAINT template_group_mapping_group_fk        FOREIGN KEY (template_group_id) REFERENCES template_groups (template_group_id),
+    CONSTRAINT template_group_mapping_template_fk     FOREIGN KEY (template_id) REFERENCES procurement_question_templates (template_id)
 );
