@@ -233,12 +233,12 @@ CREATE TABLE lot_people_roles (
 ----------------------------------------------------------------------------------------
 
 CREATE TABLE commercial_agreement_organisation_roles (
-  commercial_agreement_organisation SERIAL PRIMARY KEY NOT NULL,
-  commercial_agreement_id           INTEGER NOT NULL,
-  organisation_id                   INTEGER NOT NULL,
-  role_type_id                      INTEGER NOT NULL,
-  start_date                        DATE NOT NULL,
-  end_date                          DATE
+  commercial_agreement_organisation_role_id   SERIAL PRIMARY KEY NOT NULL,
+  commercial_agreement_id                     INTEGER NOT NULL,
+  organisation_id                             INTEGER NOT NULL,
+  role_type_id                                INTEGER NOT NULL,
+  start_date                                  DATE NOT NULL,
+  end_date                                    DATE
 );
 
 ----------------------------------------------------------------------------------------
