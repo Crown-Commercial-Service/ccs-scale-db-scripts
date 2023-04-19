@@ -28,7 +28,10 @@ In order to run the scripts contained in this repository you will need:
 
 Running Locally
 ----------------------------
-In order to setup the database locally you need only run the "local_setup.sh" script in your terminal.
+In order to setup the databases locally you need run 2 scripts file in your terminal:
+
+* local_setup_agreement.sh
+* local_setup_guided_match.sh
 
 Please note that you may need to adjust some of the settings in "env_setting.sh", such as the database user to run with, depending on your local PostgreSQL installation setup.
 
