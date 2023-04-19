@@ -62,6 +62,12 @@ DROP TABLE IF EXISTS commercial_agreement_updates CASCADE;
 
 DROP TABLE IF EXISTS commercial_agreement_documents CASCADE;
 
+DROP TABLE IF EXISTS template_groups CASCADE;
+
+DROP TABLE IF EXISTS template_group_mapping CASCADE;
+
 DROP TABLE IF EXISTS role_types CASCADE;
 
 DROP TYPE IF EXISTS DOMAIN_TYPE CASCADE;
+
+DROP SCHEMA IF EXISTS ccs_agreements;
