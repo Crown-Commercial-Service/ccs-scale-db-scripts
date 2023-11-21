@@ -1,7 +1,9 @@
 /*
 Title       Database Structure Adjustment scripts - Release 1.0
-Date        October 5th 2022
-Author      Nathan Topping
-Description Database Structure Adjustment scripts for changes made to the core Agreements Service setup for release 1.0
+Date        November 21th 2023
+Author      Chee Ng
+Description added constraint to eliminate duplicate relationship on lot_organisation_roles
 */
 
+ALTER TABLE lot_organisation_roles
+ADD CONSTRAINT UC_lot_organisation_roles UNIQUE (lot_id,organisation_id,role_type_id);
