@@ -457,3 +457,16 @@ CREATE TABLE template_group_mapping(
     CONSTRAINT template_group_mapping_group_fk        FOREIGN KEY (template_group_id) REFERENCES template_groups (template_group_id),
     CONSTRAINT template_group_mapping_template_fk     FOREIGN KEY (template_id) REFERENCES procurement_question_templates (template_id)
 );
+
+-- Create audit_log entity for the admin panel --
+
+CREATE TABLE audit_log ( 
+    log_id SERIAL PRIMARY KEY, 
+    updated_by VARCHAR(255) NOT NULL, 
+    form_url VARCHAR(255) NOT NULL, 
+    reason TEXT NOT NULL, 
+    before_update JSONB, 
+    after_update JSONB, 
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    organisation_id INTEGER REFERENCES organisations(organisation_id)
+  );
