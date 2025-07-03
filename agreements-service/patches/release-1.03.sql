@@ -5,7 +5,9 @@ Author      Raja D
 Description clean up duplicate data and added constraint to to make organisation entity_id NOT NULL
 */
 
-DELETE FROM organisations
+CREATE TEMP TABLE target_orgs AS
+SELECT organisation_id
+FROM organisations
 WHERE entity_id IS NULL
    OR entity_id IN (
        SELECT entity_id
@@ -15,5 +17,23 @@ WHERE entity_id IS NULL
        HAVING COUNT(*) > 1
    );
 
-ALTER TABLE organisations
-ALTER COLUMN entity_id SET NOT NULL;
+DELETE FROM lot_organisation_roles
+WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
+
+
+DELETE FROM commercial_agreement_organisation_roles
+WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
+
+
+DELETE FROM trading_organisations
+WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
+
+
+DELETE FROM people
+WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
+
+
+DELETE FROM organisations
+WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
+
+DROP TABLE target_orgs;
