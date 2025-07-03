@@ -37,3 +37,7 @@ DELETE FROM organisations
 WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
 
 DROP TABLE target_orgs;
+
+
+ALTER TABLE organisations
+ALTER COLUMN entity_id SET NOT NULL;
