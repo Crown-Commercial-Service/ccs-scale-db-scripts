@@ -17,6 +17,13 @@ WHERE entity_id IS NULL
        HAVING COUNT(*) > 1
    );
 
+DELETE FROM contact_point_lot_ors
+WHERE lot_organisation_role_id IN (
+    SELECT lot_organisation_role_id
+    FROM lot_organisation_roles
+    WHERE organisation_id IN (SELECT organisation_id FROM target_orgs)
+);
+
 DELETE FROM lot_organisation_roles
 WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
 
@@ -35,6 +42,8 @@ WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
 
 DELETE FROM organisations
 WHERE organisation_id IN (SELECT organisation_id FROM target_orgs);
+
+
 
 DROP TABLE target_orgs;
 
